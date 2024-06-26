@@ -25,64 +25,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $jsonFilePath = "./data.json";
+        $jsonFilePath = "./database/seeders/data.json";
         $jsonContent = file_get_contents($jsonFilePath);
         $dataArray = json_decode($jsonContent, true);
-
-        foreach ($dataArray['contact_us'] as $row) {
-            Contact_us::create([
-                "phone_number" => $row['phone_number'],
-                "email" => $row['email'],
-                "address" => $row['address'],
-            ]);
-        }
-
-        foreach ($dataArray['about_us'] as $row) {
-            About_us::create([
-                "title" => $row['title'],
-                "content" => $row['content'],
-                "description" => $row['description'],
-                "image" => $row['image'],
-            ]);
-        }
-
-        foreach ($dataArray['vouchers'] as $row) {
-            Vouchers::create([
-                "code" => $row['code'],
-                "discount_type" => $row['discount_type'],
-                "discount_amount" => $row['discount_amount'],
-                "discount_percentage" => $row['discount_percentage'],
-                "description" => $row['description'],
-                "min_price" => $row['min_price'],
-                "quantity" => $row['quantity'],
-                "start_date" => $row['start_date'],
-                "end_date" => $row['end_date'],
-                "status" => $row['status'],
-            ]);
-        }
-
-        foreach ($dataArray['promotions'] as $row) {
-            Promotions::create([
-                "user_id" => $row['user_id'],
-                "cake_id" => $row['cake_id'],
-                "description" => $row['description'],
-                "start_time" => $row['start_time'],
-                "end_time" => $row['end_time'],
-                "discount_percentage" => $row['discount_percentage'],
-                "discount_amount" => $row['discount_amount'],
-                "discount_type" => $row['discount_type'],
-            ]);
-        }
-
-        foreach ($dataArray['customer_requests'] as $row) {
-            Customer_requests::create([
-                "name" => $row['name'],
-                "phone_number" => $row['phone_number'],
-                "email" => $row['email'],
-                "message" => $row['message'],
-                "status" => $row['status'],
-            ]);
-        }
 
         foreach ($dataArray['users'] as $row) {
             User::create([
@@ -115,6 +60,19 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        foreach ($dataArray['promotions'] as $row) {
+            Promotions::create([
+                "user_id" => $row['user_id'],
+                "cake_id" => $row['cake_id'],
+                "description" => $row['description'],
+                "start_time" => $row['start_time'],
+                "end_time" => $row['end_time'],
+                "discount_percentage" => $row['discount_percentage'],
+                "discount_amount" => $row['discount_amount'],
+                "discount_type" => $row['discount_type'],
+            ]);
+        }
+
         foreach ($dataArray['blogs'] as $row) {
             Blogs::create([
                 "user_id" => $row['user_id'],
@@ -131,6 +89,49 @@ class DatabaseSeeder extends Seeder
                 "subtitle" => $row['subtitle'],
                 "image" => $row['image'],
                 "link" => $row['link'],
+                "start_date" => $row['start_date'],
+                "end_date" => $row['end_date'],
+                "status" => $row['status'],
+            ]);
+        }
+
+        foreach ($dataArray['contact_us'] as $row) {
+            Contact_us::create([
+                "name" => $row['name'],
+                "phone_number" => $row['phone_number'],
+                "email" => $row['email'],
+                "address" => $row['address'],
+            ]);
+        }
+
+        foreach ($dataArray['about_us'] as $row) {
+            About_us::create([
+                "title" => $row['title'],
+                "content" => $row['content'],
+                "description" => $row['description'],
+                "image" => $row['image'],
+            ]);
+        }
+
+        foreach ($dataArray['customer_requests'] as $row) {
+            Customer_requests::create([
+                "name" => $row['name'],
+                "phone_number" => $row['phone_number'],
+                "email" => $row['email'],
+                "message" => $row['message'],
+                "status" => $row['status'],
+            ]);
+        }
+
+        foreach ($dataArray['vouchers'] as $row) {
+            Vouchers::create([
+                "code" => $row['code'],
+                "discount_type" => $row['discount_type'],
+                "discount_amount" => $row['discount_amount'],
+                "discount_percentage" => $row['discount_percentage'],
+                "description" => $row['description'],
+                "min_price" => $row['min_price'],
+                "quantity" => $row['quantity'],
                 "start_date" => $row['start_date'],
                 "end_date" => $row['end_date'],
                 "status" => $row['status'],
