@@ -8,11 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Contact_us extends Model
 {
     protected $table = 'contact_us';
-
     protected $fillable = [
-        'title',
-        'content',
-        'description',
-        'image',
+        'name',
+        'phone_number',
+        'email',
+        'address'
     ];
 }

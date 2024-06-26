@@ -10,8 +10,9 @@ class About_us extends Model
     protected $table = 'about_us';
 
     protected $fillable = [
-        'phone_number',
-        'email',
-        'address',
+        'title',
+        'description',
+        'content',
+        'image',
     ];
 }
