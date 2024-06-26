@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('delivery_method');
             $table->string('checkout_method');
-            $table->bigInteger('total_price');
+            $table->bigInteger('total_amount');
             $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();
         });
