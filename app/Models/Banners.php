@@ -7,5 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Banners extends Model
 {
-    use HasFactory;
+    protected $table = 'banners';
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'subtitle',
+        'image',
+        'link',
+        'start_date',
+        'end_date',
+        'status',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

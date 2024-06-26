@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categories extends Model
 {
-    use HasFactory;
+    protected $table = 'categories';
+
+    protected $fillable = [
+        'name',
+        'description',
+        'image',
+    ];
+
+    public function user()
+    {
+        return $this->hasMany(Cakes::class);
+    }
 }

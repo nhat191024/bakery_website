@@ -7,5 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bills extends Model
 {
-    use HasFactory;
+    protected $table = 'bills';
+
+    protected $fillable = [
+        'order_date',
+        'full_name',
+        'address',
+        'phone_number',
+        'email',
+        'delivery_method',
+        'checkout_method',
+        'total_amount',
+        'status',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
