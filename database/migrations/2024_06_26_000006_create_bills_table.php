@@ -11,12 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact_us', function (Blueprint $table) {
+        Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->dateTime('order_date');
+            $table->string('full_name');
+            $table->text('address');
             $table->string('phone_number');
             $table->string('email');
-            $table->text('address');
+            $table->string('delivery_method');
+            $table->string('checkout_method');
+            $table->bigInteger('total_amount')->default(0);
+            $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contact_us');
+        Schema::dropIfExists('bills');
     }
 };
