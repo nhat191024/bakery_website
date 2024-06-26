@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('bill_details', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('cake_id');
+            $table->unsignedInteger('bill_id');
             $table->integer('quantity');
             $table->bigInteger('price');
             $table->bigInteger('total_price');
 
-            $table->foreign('bill_id')->references('id')->on('bills');
             $table->foreign('cake_id')->references('id')->on('cakes');
+            $table->foreign('bill_id')->references('id')->on('bills');
         });
     }
 

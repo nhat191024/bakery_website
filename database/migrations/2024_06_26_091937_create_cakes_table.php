@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('cakes', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('category_id');
             $table->string('name');
             $table->text('description');
             $table->integer('real_price');

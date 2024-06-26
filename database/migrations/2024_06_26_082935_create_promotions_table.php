@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('cake_id');
             $table->string('description');
-            $table->timestamp('start_time');
-            $table->timestamp('end_time');
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('end_time')->nullable();
             $table->decimal('discount_percentage', 8, 2)->nullable();
             $table->integer('discount_amount')->nullable();
             $table->enum('discount_type', ['fixed', 'percentage'])->default('fixed');
