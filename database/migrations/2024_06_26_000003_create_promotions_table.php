@@ -22,7 +22,6 @@ return new class extends Migration
             $table->integer('discount_amount')->default(0)->nullable();
             $table->enum('discount_type', ['fixed', 'percentage'])->default('fixed');
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('cake_id')->references('id')->on('cakes');
         });

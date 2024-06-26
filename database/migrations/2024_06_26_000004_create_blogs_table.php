@@ -19,7 +19,6 @@ return new class extends Migration
             $table->longText('content');
             $table->longText('images')->nullable();
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
