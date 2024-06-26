@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('cake_id');
             $table->unsignedBigInteger('bill_id');
-            $table->integer('quantity');
+            $table->integer('quantity')->default(1);
             $table->bigInteger('price')->default(0);
             $table->bigInteger('total_price')->default(0);
+            $table->timestamps();
 
             $table->foreign('cake_id')->references('id')->on('cakes');
             $table->foreign('bill_id')->references('id')->on('bills');
