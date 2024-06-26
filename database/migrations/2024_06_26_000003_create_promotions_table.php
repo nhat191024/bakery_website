@@ -16,10 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('cake_id');
             $table->string('description');
-            $table->timestamp('start_time')->nullable();
+            $table->timestamp('start_time');
             $table->timestamp('end_time')->nullable();
-            $table->decimal('discount_percentage', 8, 2)->default(0.00);
-            $table->integer('discount_amount')->default(0);
+            $table->decimal('discount_percentage', 8, 2)->default(0.00)->nullable();
+            $table->integer('discount_amount')->default(0)->nullable();
             $table->enum('discount_type', ['fixed', 'percentage'])->default('fixed');
             $table->timestamps();
 

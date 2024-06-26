@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('subtitle')->nullable();
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->longText('link')->nullable();
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('real_price');
             $table->integer('higher_price');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');

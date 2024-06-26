@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone_number');
             $table->string('email');
-            $table->text('message');
+            $table->text('message')->nullable();
             $table->enum('status',['pending', 'confirmed', 'rejected'])->default('pending');
             $table->timestamps();
         });
