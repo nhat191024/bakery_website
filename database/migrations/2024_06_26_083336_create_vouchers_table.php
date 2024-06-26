@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('description');
             $table->enum('discount_type', ['fixed', 'percentage'])->default('fixed');
-            $table->integer('discount_amount')->default(0);
-            $table->decimal('discount_percentage', 8, 2);
+            $table->integer('discount_amount')->default(0)->nullable();
+            $table->decimal('discount_percentage', 8, 2)->default(0.00)->nullable();
             $table->bigInteger('min_price')->default(0);
             $table->integer('quantity')->default(1);
             $table->timestamp('start_date');
