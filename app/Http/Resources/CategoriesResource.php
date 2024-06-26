@@ -14,6 +14,12 @@ class CategoriesResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'Categories_id' => $this->id,
+            'Categories_name' => $this->name,
+            'Categories_description' => $this->description,
+            'Categories_image' => $this->image,
+            'Categories_Cakes' => new CakesCollection($this->whenLoaded('cakes')),
+        ];
     }
 }
