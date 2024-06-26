@@ -334,12 +334,23 @@
         {
             "user_id": 1,
             "cake_id": 1,
-            "description": "Cupcakes",
+            "description": "Promote 1",
             "start_time": "2022-01-01 00:00:00",
             "end_time": "2022-02-01 00:00:00",
             "discount_percentage": "10",
             "discount_amount": null,
             "discount_type": "percentage"
+        },
+        {
+            "user_id": 1,
+            "cake_id": 2,
+            "description": "Promote 2",
+            "start_time": "2022-01-01 00:00:00",
+            "end_time": "2022-02-01 00:00:00",
+            "discount_percentage": null,
+            "discount_amount": 30000,
+            "discount_type": "fixed"
         }
+
     ]
 }
