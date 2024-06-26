@@ -10,7 +10,6 @@ class Banners extends Model
     protected $table = 'banners';
 
     protected $fillable = [
-        'user_id',
         'title',
         'subtitle',
         'image',
@@ -19,9 +18,4 @@ class Banners extends Model
         'end_date',
         'status',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

@@ -21,8 +21,6 @@ return new class extends Migration
             $table->dateTime('end_date')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
