@@ -19,11 +19,11 @@ class Bill_details extends Model
 
     public function cakes()
     {
-        return $this->belongsTo(Cakes::class);
+        return $this->belongsTo(Cakes::class, 'cake_id');
     }
 
     public function bills()
     {
-        return $this->belongsTo(Bills::class);
+        return $this->belongsTo(Bills::class, 'bill_id');
     }
 }

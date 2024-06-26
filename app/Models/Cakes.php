@@ -20,16 +20,16 @@ class Cakes extends Model
 
     public function categories()
     {
-        return $this->belongsTo(Categories::class);
+        return $this->belongsTo(Categories::class, 'category_id');
     }
 
     public function promotions()
     {
-        return $this->hasMany(Promotions::class);
+        return $this->hasMany(Promotions::class, 'cake_id');
     }
 
     public function bill_details()
     {
-        return $this->hasMany(Bill_details::class);
+        return $this->hasMany(Bill_details::class, 'cake_id');
     }
 }

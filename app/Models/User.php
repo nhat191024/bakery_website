@@ -40,16 +40,11 @@ class User extends Authenticatable
 
     public function promotions()
     {
-        return $this->hasMany(Promotions::class);
+        return $this->hasMany(Promotions::class, 'user_id');
     }
 
     public function blogs()
     {
-        return $this->hasMany(Blogs::class);
-    }
-
-    public function banners()
-    {
-        return $this->hasMany(Banners::class);
+        return $this->hasMany(Blogs::class, 'user_id');
     }
 }

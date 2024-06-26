@@ -25,8 +25,8 @@ class Promotions extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function bill()
+    public function cakes()
     {
-        return $this->belongsTo(Cakes::class);
+        return $this->belongsTo(Cakes::class, 'cake_id');
     }
 }
