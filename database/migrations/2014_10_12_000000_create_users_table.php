@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('email')->unique();
-            $table->string('address');
+            $table->text('address');
             $table->string('phone_number')->unique();
             $table->string('role');
-            $table->string('status');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->rememberToken();
             $table->timestamps();
         });

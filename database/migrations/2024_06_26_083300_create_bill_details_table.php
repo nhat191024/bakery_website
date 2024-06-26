@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bill_details', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id');
+            $table->integer('quantity');
+            $table->bigInteger('price');
+            $table->bigInteger('total_price');
+
+            $table->foreign('bill_id')->references('id')->on('bills');
+            $table->foreign('cake_id')->references('id')->on('cakes');
         });
     }
 
