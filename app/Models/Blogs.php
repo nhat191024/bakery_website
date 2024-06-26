@@ -14,7 +14,7 @@ class Blogs extends Model
         'title',
         'subtitle',
         'content',
-        'image',
+        'images',
     ];
 
     public function user()
