@@ -333,7 +333,7 @@
     "promotions": [
         {
             "user_id": 1,
-            "Product_id": 1,
+            "product_id": 1,
             "description": "Promote 1",
             "start_time": "2022-01-01 00:00:00",
             "end_time": "2022-02-01 00:00:00",
@@ -343,7 +343,7 @@
         },
         {
             "user_id": 1,
-            "Product_id": 2,
+            "product_id": 2,
             "description": "Promote 2",
             "start_time": "2022-01-01 00:00:00",
             "end_time": "2022-02-01 00:00:00",
