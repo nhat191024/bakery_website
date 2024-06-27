@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\About_us;
 use App\Models\Banners;
 use App\Models\Bill_details;
@@ -13,7 +11,6 @@ use App\Models\Contact_infos;
 use App\Models\Products;
 use App\Models\Categories;
 use App\Models\Contact_us;
-use App\Models\Customer_requests;
 use App\Models\Message;
 use App\Models\Promotions;
 use App\Models\User;
