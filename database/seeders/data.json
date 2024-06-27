@@ -34,7 +34,6 @@
     "about_us": [
         {
             "title": "About Us",
-            "content": "We are Product Shop",
             "description": "We are Product Shop",
             "image": ""
         }
@@ -42,88 +41,75 @@
     "vouchers": [
         {
             "code": "BAKERY20OFF",
-            "discount_type": "percentage",
-            "discount_amount": null,
-            "discount_percentage": "20",
+            "discount_amount": 10000,
             "description": "Giảm 20% cho đơn hàng từ 100.000đ!",
             "min_price": "100000",
             "quantity": "50",
             "start_date": "2022-02-01 00:00:00",
             "end_date": "2022-03-01 00:00:00",
-            "status": "active"
+            "status": 1
         },
         {
             "code": "BAKERY30OFF",
-            "discount_type": "percentage",
-            "discount_amount": null,
-            "discount_percentage": "30",
+            "discount_amount": 10000,
             "description": "Giảm 30% cho đơn hàng từ 200.000đ!",
             "min_price": "200000",
             "quantity": "25",
             "start_date": "2022-03-01 00:00:00",
             "end_date": "2022-04-01 00:00:00",
-            "status": "active"
+            "status": 1
         },
         {
             "code": "BAKERY40OFF",
-            "discount_type": "percentage",
-            "discount_amount": null,
-            "discount_percentage": "40",
+            "discount_amount": 10000,
             "description": "Giảm 40% cho đơn hàng từ 300.000đ!",
             "min_price": "300000",
             "quantity": "15",
             "start_date": "2022-04-01 00:00:00",
             "end_date": "2022-05-01 00:00:00",
-            "status": "active"
+            "status": 1
         },
         {
             "code": "BAKERY50OFF",
-            "discount_type": "percentage",
-            "discount_amount": null,
-            "discount_percentage": "50",
+            "discount_amount": 10000,
             "description": "Giảm 50% cho đơn hàng từ 500.000đ!",
             "min_price": "500000",
             "quantity": "10",
             "start_date": "2022-05-01 00:00:00",
             "end_date": "2022-06-01 00:00:00",
-            "status": "active"
+            "status": 1
         }
     ],
-    "customer_requests": [
+    "message": [
         {
             "name": "Tran Van A",
-            "phone_number": "0123456789",
             "email": "customer1@troll.com",
             "message": "Chào shop ạ, mình muốn đặt 1 chiếc bánh kem socola ạ!",
-            "status": "pending"
+            "subject": "ok"
         },
         {
             "name": "Nguyen Thi B",
-            "phone_number": "0123456789",
             "email": "customer2@troll.com",
             "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh trung thu thập cẩm ạ!",
-            "status": "pending"
+            "subject": "ok"
         },
         {
             "name": "Le Duc C",
-            "phone_number": "0123456789",
             "email": "customer3@troll.com",
             "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh mì ngọt ạ!",
-            "status": "pending"
+            "subject": "ok"
         },
         {
             "name": "Pham Thi D",
-            "phone_number": "0123456789",
             "email": "customer4@troll.com",
             "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh bông lan trứng muối ạ!",
-            "status": "pending"
+            "subject": "ok"
         },
         {
             "name": "Hoang Van E",
-            "phone_number": "0123456789",
             "email": "customer5@troll.com",
             "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh Tiramisu ạ!",
-            "status": "pending"
+            "subject": "ok"
         }
     ],
     "users": [
@@ -134,7 +120,7 @@
             "address": "China",
             "phone_number": "0177012",
             "role": "admin",
-            "status": "active"
+            "status": 1
         },
         {
             "username": "staff",
@@ -143,7 +129,7 @@
             "address": "Singapore",
             "phone_number": "0177011",
             "role": "staff",
-            "status": "active"
+            "status": 1
         },
         {
             "username": "kim",
@@ -161,7 +147,7 @@
             "address": "New York",
             "phone_number": "0177009",
             "role": "user",
-            "status": "active"
+            "status": 1
         },
         {
             "username": "tuan",
@@ -206,7 +192,7 @@
             "name": "CupProducts",
             "description": "CupProducts",
             "real_price": "90000",
-            "higher_price": "120000",
+            "fake_price": "120000",
             "image": ""
         },
         {
@@ -214,7 +200,7 @@
             "name": "Bread",
             "description": "Bread",
             "real_price": "90000",
-            "higher_price": "120000",
+            "fake_price": "120000",
             "image": ""
         },
         {
@@ -222,7 +208,7 @@
             "name": "Cookies",
             "description": "Cookies",
             "real_price": "90000",
-            "higher_price": "120000",
+            "fake_price": "120000",
             "image": ""
         },
         {
@@ -230,7 +216,7 @@
             "name": "Products",
             "description": "Products",
             "real_price": "90000",
-            "higher_price": "120000",
+            "fake_price": "120000",
             "image": ""
         },
         {
@@ -238,7 +224,7 @@
             "name": "Pies",
             "description": "Pies",
             "real_price": "90000",
-            "higher_price": "120000",
+            "fake_price": "120000",
             "image": ""
         }
     ],
@@ -248,7 +234,7 @@
             "title": "Bánh kem ngon",
             "subtitle": "Bánh ngon giá rẻ! Cùng nhau tận hưởng!",
             "content": "",
-            "images": ""
+            "thumbnail": ""
         }
     ],
     "banners": [
@@ -259,7 +245,7 @@
             "link": "",
             "start_date": "2022-01-01 00:00:00",
             "end_date": "2022-02-01 00:00:00",
-            "status": "active"
+            "status": 1
         },
         {
             "title": "Sắp tới sinh nhật sao?",
@@ -268,7 +254,7 @@
             "link": "",
             "start_date": "2022-01-01 00:00:00",
             "end_date": "2022-02-01 00:00:00",
-            "status": "active"
+            "status": 1
         },
         {
             "title": "Quaso!",
@@ -277,7 +263,7 @@
             "link": "",
             "start_date": "2022-01-01 00:00:00",
             "end_date": "2022-02-01 00:00:00",
-            "status": "active"
+            "status": 1
         }
     ],
     "bills": [
@@ -288,9 +274,9 @@
             "phone_number": "0123456789",
             "email": "customer@troll.com",
             "delivery_method": "Pickup",
-            "checkout_method": "Cash",
+            "payment_method": "Cash",
             "total_amount": "500000",
-            "status": "pending"
+            "status": 1
         }
     ],
     "bill_details": [
@@ -298,36 +284,31 @@
             "Product_id": 2,
             "bill_id": 1,
             "quantity": 1,
-            "price": "50000",
-            "total_price": "50000"
+            "price": "50000"
         },
         {
             "Product_id": 3,
             "bill_id": 1,
             "quantity": 2,
-            "price": "75000",
-            "total_price": "150000"
+            "price": "75000"
         },
         {
             "Product_id": 4,
             "bill_id": 1,
             "quantity": 3,
-            "price": "100000",
-            "total_price": "300000"
+            "price": "100000"
         },
         {
             "Product_id": 5,
             "bill_id": 1,
             "quantity": 1,
-            "price": "125000",
-            "total_price": "125000"
+            "price": "125000"
         },
         {
             "Product_id": 1,
             "bill_id": 1,
             "quantity": 2,
-            "price": "150000",
-            "total_price": "300000"
+            "price": "150000"
         }
     ],
     "promotions": [
@@ -336,20 +317,14 @@
             "product_id": 1,
             "description": "Promote 1",
             "start_time": "2022-01-01 00:00:00",
-            "end_time": "2022-02-01 00:00:00",
-            "discount_percentage": "10",
-            "discount_amount": null,
-            "discount_type": "percentage"
+            "end_time": "2022-02-01 00:00:00"
         },
         {
             "user_id": 1,
             "product_id": 2,
             "description": "Promote 2",
             "start_time": "2022-01-01 00:00:00",
-            "end_time": "2022-02-01 00:00:00",
-            "discount_percentage": null,
-            "discount_amount": 30000,
-            "discount_type": "fixed"
+            "end_time": "2022-02-01 00:00:00"
         }
     ],
     "contact_infos": [
