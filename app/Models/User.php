@@ -25,7 +25,6 @@ class User extends Authenticatable
         'phone_number',
         'role',
         'status',
-        'remember_token',
     ];
 
     /**
@@ -35,7 +34,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     public function promotions()
