@@ -15,14 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->string('description');
-            $table->enum('discount_type', ['fixed', 'percentage'])->default('fixed');
-            $table->integer('discount_amount')->default(0)->nullable();
-            $table->decimal('discount_percentage', 8, 2)->default(0.00)->nullable();
-            $table->bigInteger('min_price')->default(0);
+            $table->integer('discount_amount')->default(0);
+            $table->integer('min_price')->default(0);
             $table->integer('quantity')->default(1);
             $table->timestamp('start_date');
             $table->timestamp('end_date')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
