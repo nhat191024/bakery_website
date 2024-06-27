@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('phone_number')->unique();
             $table->string('role');
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->tinyInteger('status')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
