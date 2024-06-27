@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('email');
             $table->string('delivery_method');
-            $table->string('checkout_method');
-            $table->bigInteger('total_amount')->default(0);
-            $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
+            $table->string('payment_method');
+            $table->integer('total_amount')->default(0);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
