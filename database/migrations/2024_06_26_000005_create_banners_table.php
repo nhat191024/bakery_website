@@ -19,7 +19,7 @@ return new class extends Migration
             $table->longText('link')->nullable();
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
