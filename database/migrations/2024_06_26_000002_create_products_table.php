@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('real_price');
-            $table->integer('higher_price');
+            $table->integer('fake_price');
             $table->text('image')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories');
