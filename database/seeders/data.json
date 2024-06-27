@@ -351,6 +351,27 @@
             "discount_amount": 30000,
             "discount_type": "fixed"
         }
-
+    ],
+    "contact_infos": [
+        {
+            "type": "facebook",
+            "name": ""
+        },
+        {
+            "type": "instagram",
+            "name": ""
+        },
+        {
+            "type": "twitter",
+            "name": ""
+        },
+        {
+            "type": "youtube",
+            "name": ""
+        },
+        {
+            "type": "tripadvisor",
+            "name": ""
+        }
     ]
 }
