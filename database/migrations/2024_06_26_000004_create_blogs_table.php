@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('subtitle')->nullable();
             $table->longText('content');
-            $table->longText('images')->nullable();
+            $table->text('thumbnail')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
