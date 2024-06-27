@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customer_requests', function (Blueprint $table) {
+        Schema::create('message', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone_number');
             $table->string('email');
-            $table->text('message')->nullable();
-            $table->enum('status',['pending', 'confirmed', 'rejected'])->default('pending');
+            $table->string('subject');
+            $table->text('message');
             $table->timestamps();
         });
     }
