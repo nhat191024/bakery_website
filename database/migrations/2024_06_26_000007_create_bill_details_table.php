@@ -17,7 +17,6 @@ return new class extends Migration
             $table->unsignedBigInteger('bill_id');
             $table->integer('quantity')->default(1);
             $table->bigInteger('price')->default(0);
-            $table->bigInteger('total_price')->default(0);
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('bill_id')->references('id')->on('bills');
