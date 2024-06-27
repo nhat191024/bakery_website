@@ -138,7 +138,7 @@
             "address": "Korea",
             "phone_number": "0177010",
             "role": "user",
-            "status": "inactive"
+            "status": 0
         },
         {
             "username": "mai",
@@ -156,7 +156,7 @@
             "address": "Paris",
             "phone_number": "0177008",
             "role": "user",
-            "status": "inactive"
+            "status": 0
         }
     ],
     "categories": [
