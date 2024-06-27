@@ -16,7 +16,7 @@ class Bills extends Model
         'phone_number',
         'email',
         'delivery_method',
-        'checkout_method',
+        'payment_method',
         'total_amount',
         'status',
     ];

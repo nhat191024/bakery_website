@@ -14,7 +14,6 @@ class Bill_details extends Model
         'bill_id',
         'quantity',
         'price',
-        'total_price',
     ];
 
     public function Products()

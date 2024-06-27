@@ -15,9 +15,6 @@ class Promotions extends Model
         'description',
         'start_time',
         'end_time',
-        'discount_percentage',
-        'discount_amount',
-        'discount_type',
     ];
 
     public function user()

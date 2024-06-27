@@ -14,7 +14,7 @@ class Products extends Model
         'name',
         'description',
         'real_price',
-        'higher_price',
+        'fake_price',
         'image',
     ];
 
