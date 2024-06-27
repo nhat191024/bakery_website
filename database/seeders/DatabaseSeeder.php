@@ -9,7 +9,7 @@ use App\Models\Banners;
 use App\Models\Bill_details;
 use App\Models\Bills;
 use App\Models\Blogs;
-use App\Models\Cakes;
+use App\Models\Products;
 use App\Models\Categories;
 use App\Models\Contact_us;
 use App\Models\Customer_requests;
@@ -49,8 +49,8 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        foreach ($dataArray['cakes'] as $row) {
-            Cakes::create([
+        foreach ($dataArray['products'] as $row) {
+            Products::create([
                 "category_id" => $row['category_id'],
                 "name" => $row['name'],
                 "description" => $row['description'],
@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
         foreach ($dataArray['promotions'] as $row) {
             Promotions::create([
                 "user_id" => $row['user_id'],
-                "cake_id" => $row['cake_id'],
+                "product_id" => $row['product_id'],
                 "description" => $row['description'],
                 "start_time" => $row['start_time'],
                 "end_time" => $row['end_time'],
@@ -154,7 +154,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($dataArray['bill_details'] as $row) {
             Bill_details::create([
-                "cake_id" => $row['cake_id'],
+                "Product_id" => $row['Product_id'],
                 "bill_id" => $row['bill_id'],
                 "quantity" => $row['quantity'],
                 "price" => $row['price'],

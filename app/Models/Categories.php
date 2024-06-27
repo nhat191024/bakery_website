@@ -15,8 +15,8 @@ class Categories extends Model
         'image',
     ];
 
-    public function cakes()
+    public function products()
     {
-        return $this->hasMany(Cakes::class, 'category_id');
+        return $this->hasMany(Products::class, 'category_id');
     }
 }

@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cakes extends Model
+class Products extends Model
 {
-    protected $table = 'cakes';
+    protected $table = 'products';
 
     protected $fillable = [
         'category_id',
@@ -25,11 +25,11 @@ class Cakes extends Model
 
     public function promotions()
     {
-        return $this->hasMany(Promotions::class, 'cake_id');
+        return $this->hasMany(Promotions::class, 'product_id');
     }
 
     public function bill_details()
     {
-        return $this->hasMany(Bill_details::class, 'cake_id');
+        return $this->hasMany(Bill_details::class, 'product_id');
     }
 }

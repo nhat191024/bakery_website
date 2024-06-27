@@ -34,8 +34,8 @@
     "about_us": [
         {
             "title": "About Us",
-            "content": "We are Cake Shop",
-            "description": "We are Cake Shop",
+            "content": "We are Product Shop",
+            "description": "We are Product Shop",
             "image": ""
         }
     ],
@@ -190,8 +190,8 @@
             "image": ""
         },
         {
-            "name": "Bánh cheesecake",
-            "description": "Bánh cheesecake",
+            "name": "Bánh cheeseProduct",
+            "description": "Bánh cheeseProduct",
             "image": ""
         },
         {
@@ -200,11 +200,11 @@
             "image": ""
         }
     ],
-    "cakes": [
+    "products": [
         {
             "category_id": 1,
-            "name": "Cupcakes",
-            "description": "Cupcakes",
+            "name": "CupProducts",
+            "description": "CupProducts",
             "real_price": "90000",
             "higher_price": "120000",
             "image": ""
@@ -227,8 +227,8 @@
         },
         {
             "category_id": 4,
-            "name": "Cakes",
-            "description": "Cakes",
+            "name": "Products",
+            "description": "Products",
             "real_price": "90000",
             "higher_price": "120000",
             "image": ""
@@ -295,35 +295,35 @@
     ],
     "bill_details": [
         {
-            "cake_id": 2,
+            "Product_id": 2,
             "bill_id": 1,
             "quantity": 1,
             "price": "50000",
             "total_price": "50000"
         },
         {
-            "cake_id": 3,
+            "Product_id": 3,
             "bill_id": 1,
             "quantity": 2,
             "price": "75000",
             "total_price": "150000"
         },
         {
-            "cake_id": 4,
+            "Product_id": 4,
             "bill_id": 1,
             "quantity": 3,
             "price": "100000",
             "total_price": "300000"
         },
         {
-            "cake_id": 5,
+            "Product_id": 5,
             "bill_id": 1,
             "quantity": 1,
             "price": "125000",
             "total_price": "125000"
         },
         {
-            "cake_id": 1,
+            "Product_id": 1,
             "bill_id": 1,
             "quantity": 2,
             "price": "150000",
@@ -333,7 +333,7 @@
     "promotions": [
         {
             "user_id": 1,
-            "cake_id": 1,
+            "Product_id": 1,
             "description": "Promote 1",
             "start_time": "2022-01-01 00:00:00",
             "end_time": "2022-02-01 00:00:00",
@@ -343,7 +343,7 @@
         },
         {
             "user_id": 1,
-            "cake_id": 2,
+            "Product_id": 2,
             "description": "Promote 2",
             "start_time": "2022-01-01 00:00:00",
             "end_time": "2022-02-01 00:00:00",

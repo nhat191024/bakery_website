@@ -10,16 +10,16 @@ class Bill_details extends Model
     protected $table = 'bill_details';
 
     protected $fillable = [
-        'cake_id',
+        'product_id',
         'bill_id',
         'quantity',
         'price',
         'total_price',
     ];
 
-    public function cakes()
+    public function Products()
     {
-        return $this->belongsTo(Cakes::class, 'cake_id');
+        return $this->belongsTo(Products::class, 'product_id');
     }
 
     public function bills()

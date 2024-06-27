@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('promotions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('cake_id');
+            $table->unsignedBigInteger('product_id');
             $table->string('description');
             $table->timestamp('start_time');
             $table->timestamp('end_time')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('discount_type', ['fixed', 'percentage'])->default('fixed');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('cake_id')->references('id')->on('cakes');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

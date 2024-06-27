@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('bill_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cake_id');
+            $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('bill_id');
             $table->integer('quantity')->default(1);
             $table->bigInteger('price')->default(0);
             $table->bigInteger('total_price')->default(0);
             $table->timestamps();
-            $table->foreign('cake_id')->references('id')->on('cakes');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('bill_id')->references('id')->on('bills');
         });
     }

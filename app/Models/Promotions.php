@@ -11,7 +11,7 @@ class Promotions extends Model
 
     protected $fillable = [
         'user_id',
-        'cake_id',
+        'product_id',
         'description',
         'start_time',
         'end_time',
@@ -25,8 +25,8 @@ class Promotions extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function cakes()
+    public function Products()
     {
-        return $this->belongsTo(Cakes::class, 'cake_id');
+        return $this->belongsTo(Products::class, 'product_id');
     }
 }
