@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\HomePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,6 @@ Route::get('/', function () {
     return view('admin.category.category');
 });
 
-
 Route::prefix('admin')->group(function () {
     Route::prefix('/category')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
@@ -26,3 +26,5 @@ Route::prefix('admin')->group(function () {
         Route::post('/add', [CategoryController::class, 'addCategory'])->name('admin.category.add');
     });
 });
+
+Route::get('/homePage', [HomePageController::class, 'index']);
