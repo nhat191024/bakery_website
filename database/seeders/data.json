@@ -1,0 +1,342 @@
+{
+    "contact_us": [
+        {
+            "name": "Tran Van A",
+            "phone_number": "0123456789",
+            "email": "bakery@bread.com",
+            "address": "Japan"
+        },
+        {
+            "name": "Nguyen Thi B",
+            "phone_number": "0123456789",
+            "email": "bakery@pie.com",
+            "address": "France"
+        },
+        {
+            "name": "Le Duc C",
+            "phone_number": "0123456789",
+            "email": "bakery@tart.com",
+            "address": "USA"
+        },
+        {
+            "name": "Pham Thi D",
+            "phone_number": "0123456789",
+            "email": "bakery@muffin.com",
+            "address": "Germany"
+        },
+        {
+            "name": "Hoang Van E",
+            "phone_number": "0123456789",
+            "email": "bakery@croissant.com",
+            "address": "Italy"
+        }
+    ],
+    "about_us": [
+        {
+            "title": "About Us",
+            "description": "We are Product Shop",
+            "image": ""
+        }
+    ],
+    "vouchers": [
+        {
+            "code": "BAKERY20OFF",
+            "discount_amount": 10000,
+            "description": "Giảm 20% cho đơn hàng từ 100.000đ!",
+            "min_price": "100000",
+            "quantity": "50",
+            "start_date": "2022-02-01 00:00:00",
+            "end_date": "2022-03-01 00:00:00",
+            "status": 1
+        },
+        {
+            "code": "BAKERY30OFF",
+            "discount_amount": 10000,
+            "description": "Giảm 30% cho đơn hàng từ 200.000đ!",
+            "min_price": "200000",
+            "quantity": "25",
+            "start_date": "2022-03-01 00:00:00",
+            "end_date": "2022-04-01 00:00:00",
+            "status": 1
+        },
+        {
+            "code": "BAKERY40OFF",
+            "discount_amount": 10000,
+            "description": "Giảm 40% cho đơn hàng từ 300.000đ!",
+            "min_price": "300000",
+            "quantity": "15",
+            "start_date": "2022-04-01 00:00:00",
+            "end_date": "2022-05-01 00:00:00",
+            "status": 1
+        },
+        {
+            "code": "BAKERY50OFF",
+            "discount_amount": 10000,
+            "description": "Giảm 50% cho đơn hàng từ 500.000đ!",
+            "min_price": "500000",
+            "quantity": "10",
+            "start_date": "2022-05-01 00:00:00",
+            "end_date": "2022-06-01 00:00:00",
+            "status": 1
+        }
+    ],
+    "message": [
+        {
+            "name": "Tran Van A",
+            "email": "customer1@troll.com",
+            "message": "Chào shop ạ, mình muốn đặt 1 chiếc bánh kem socola ạ!",
+            "subject": "ok"
+        },
+        {
+            "name": "Nguyen Thi B",
+            "email": "customer2@troll.com",
+            "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh trung thu thập cẩm ạ!",
+            "subject": "ok"
+        },
+        {
+            "name": "Le Duc C",
+            "email": "customer3@troll.com",
+            "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh mì ngọt ạ!",
+            "subject": "ok"
+        },
+        {
+            "name": "Pham Thi D",
+            "email": "customer4@troll.com",
+            "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh bông lan trứng muối ạ!",
+            "subject": "ok"
+        },
+        {
+            "name": "Hoang Van E",
+            "email": "customer5@troll.com",
+            "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh Tiramisu ạ!",
+            "subject": "ok"
+        }
+    ],
+    "users": [
+        {
+            "username": "admin",
+            "password": "admin",
+            "email": "kurumi@bruh.com",
+            "address": "China",
+            "phone_number": "0177012",
+            "role": "admin",
+            "status": 1
+        },
+        {
+            "username": "staff",
+            "password": "staff",
+            "email": "takagi@bruh.com",
+            "address": "Singapore",
+            "phone_number": "0177011",
+            "role": "staff",
+            "status": 1
+        },
+        {
+            "username": "kim",
+            "password": "straight",
+            "email": "kumiko@bruh.com",
+            "address": "Korea",
+            "phone_number": "0177010",
+            "role": "user",
+            "status": 0
+        },
+        {
+            "username": "mai",
+            "password": "gay",
+            "email": "kanade@bruh.com",
+            "address": "New York",
+            "phone_number": "0177009",
+            "role": "user",
+            "status": 1
+        },
+        {
+            "username": "tuan",
+            "password": "nhat",
+            "email": "mikasa@bruh.com",
+            "address": "Paris",
+            "phone_number": "0177008",
+            "role": "user",
+            "status": 0
+        }
+    ],
+    "categories": [
+        {
+            "name": "Bánh bông lan"
+        },
+        {
+            "name": "Bánh socola"
+        },
+        {
+            "name": "Bánh tiramisu"
+        },
+        {
+            "name": "Bánh cheeseProduct"
+        },
+        {
+            "name": "Bánh mousse"
+        }
+    ],
+    "products": [
+        {
+            "category_id": 1,
+            "name": "CupProducts",
+            "description": "CupProducts",
+            "real_price": "90000",
+            "fake_price": "120000",
+            "image": ""
+        },
+        {
+            "category_id": 2,
+            "name": "Bread",
+            "description": "Bread",
+            "real_price": "90000",
+            "fake_price": "120000",
+            "image": ""
+        },
+        {
+            "category_id": 3,
+            "name": "Cookies",
+            "description": "Cookies",
+            "real_price": "90000",
+            "fake_price": "120000",
+            "image": ""
+        },
+        {
+            "category_id": 4,
+            "name": "Products",
+            "description": "Products",
+            "real_price": "90000",
+            "fake_price": "120000",
+            "image": ""
+        },
+        {
+            "category_id": 5,
+            "name": "Pies",
+            "description": "Pies",
+            "real_price": "90000",
+            "fake_price": "120000",
+            "image": ""
+        }
+    ],
+    "blogs": [
+        {
+            "user_id": 1,
+            "title": "Bánh kem ngon",
+            "subtitle": "Bánh ngon giá rẻ! Cùng nhau tận hưởng!",
+            "content": "",
+            "thumbnail": ""
+        }
+    ],
+    "banners": [
+        {
+            "title": "Bánh kem mềm mại mê ly~",
+            "subtitle": "Một miếng là một lần mê! Cả nhà cùng tận hưởng!",
+            "image": "",
+            "link": "",
+            "start_date": "2022-01-01 00:00:00",
+            "end_date": "2022-02-01 00:00:00",
+            "status": 1
+        },
+        {
+            "title": "Sắp tới sinh nhật sao?",
+            "subtitle": "Hiện tại đang được giảm giá đó! Tìm hiểu ngay!",
+            "image": "",
+            "link": "",
+            "start_date": "2022-01-01 00:00:00",
+            "end_date": "2022-02-01 00:00:00",
+            "status": 1
+        },
+        {
+            "title": "Quaso!",
+            "subtitle": "50% OFF khi mua suất 10 bánh croissant!",
+            "image": "",
+            "link": "",
+            "start_date": "2022-01-01 00:00:00",
+            "end_date": "2022-02-01 00:00:00",
+            "status": 1
+        }
+    ],
+    "bills": [
+        {
+            "order_date": "2022-01-01 00:00:00",
+            "full_name": "Chon Chon Vi En",
+            "address": "Viet Nam",
+            "phone_number": "0123456789",
+            "email": "customer@troll.com",
+            "delivery_method": "Pickup",
+            "payment_method": "Cash",
+            "total_amount": "500000",
+            "status": 1
+        }
+    ],
+    "bill_details": [
+        {
+            "Product_id": 2,
+            "bill_id": 1,
+            "quantity": 1,
+            "price": "50000"
+        },
+        {
+            "Product_id": 3,
+            "bill_id": 1,
+            "quantity": 2,
+            "price": "75000"
+        },
+        {
+            "Product_id": 4,
+            "bill_id": 1,
+            "quantity": 3,
+            "price": "100000"
+        },
+        {
+            "Product_id": 5,
+            "bill_id": 1,
+            "quantity": 1,
+            "price": "125000"
+        },
+        {
+            "Product_id": 1,
+            "bill_id": 1,
+            "quantity": 2,
+            "price": "150000"
+        }
+    ],
+    "promotions": [
+        {
+            "user_id": 1,
+            "product_id": 1,
+            "description": "Promote 1",
+            "start_time": "2022-01-01 00:00:00",
+            "end_time": "2022-02-01 00:00:00"
+        },
+        {
+            "user_id": 1,
+            "product_id": 2,
+            "description": "Promote 2",
+            "start_time": "2022-01-01 00:00:00",
+            "end_time": "2022-02-01 00:00:00"
+        }
+    ],
+    "contact_infos": [
+        {
+            "type": "facebook",
+            "name": ""
+        },
+        {
+            "type": "instagram",
+            "name": ""
+        },
+        {
+            "type": "twitter",
+            "name": ""
+        },
+        {
+            "type": "youtube",
+            "name": ""
+        },
+        {
+            "type": "tripadvisor",
+            "name": ""
+        }
+    ]
+}
