@@ -37,3 +37,5 @@ Route::prefix('admin')->group(function () {
         Route::post('/add', [CategoryController::class, 'addCategory'])->name('admin.category.add');
     });
 });
+
+Route::get('/homePage', [HomePageController::class, 'index']);
