@@ -31,7 +31,7 @@
                                             <input type="text" class="form-control form-control-user"
                                                 id="username" aria-describedby="emailHelp"
                                                 name="username"
-                                                placeholder="Username, Email hoặc SĐT...">
+                                                placeholder="Username, email hoặc SĐT...">
                                                 @if ($errors->has('username'))
                                                 <p class="text-danger small mt-1 text-center ">
                                                     <i>{{ $errors->first('username') }}</i>
