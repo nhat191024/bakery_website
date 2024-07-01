@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('client.layout.layout')
 @section('content')
     <section id="home-section" class="hero">
         <div class="home-slider owl-carousel">
