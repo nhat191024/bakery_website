@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('phone_number')->unique();
             $table->string('role');
             $table->tinyInteger('status')->default(1);
-            $table->rememberToken();
             $table->timestamps();
         });
     }

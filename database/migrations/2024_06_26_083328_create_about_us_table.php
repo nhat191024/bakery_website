@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('about_us', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->text('image')->nullable();
             $table->timestamps();
         });

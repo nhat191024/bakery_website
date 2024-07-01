@@ -43,8 +43,6 @@ class DatabaseSeeder extends Seeder
         foreach ($dataArray['categories'] as $row) {
             Categories::create([
                 "name" => $row['name'],
-                "description" => $row['description'],
-                "image" => $row['image'],
             ]);
         }
 

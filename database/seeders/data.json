@@ -161,29 +161,19 @@
     ],
     "categories": [
         {
-            "name": "Bánh bông lan",
-            "description": "Bánh bông lan",
-            "image": ""
+            "name": "Bánh bông lan"
         },
         {
-            "name": "Bánh socola",
-            "description": "Bánh socola",
-            "image": ""
+            "name": "Bánh socola"
         },
         {
-            "name": "Bánh tiramisu",
-            "description": "Bánh tiramisu",
-            "image": ""
+            "name": "Bánh tiramisu"
         },
         {
-            "name": "Bánh cheeseProduct",
-            "description": "Bánh cheeseProduct",
-            "image": ""
+            "name": "Bánh cheeseProduct"
         },
         {
-            "name": "Bánh mousse",
-            "description": "Bánh mousse",
-            "image": ""
+            "name": "Bánh mousse"
         }
     ],
     "products": [

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamp('start_time');
             $table->timestamp('end_time')->nullable();
             $table->timestamps();
