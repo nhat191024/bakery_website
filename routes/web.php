@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +26,6 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/homePage', [HomePageController::class, 'index']);
+Route::prefix('contact')->group(function () {
+    Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
+});
