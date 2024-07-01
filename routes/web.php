@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\CategoryController;
-use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\client\HomePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('admin.category.category');
-});
 
 Route::prefix('admin')->group(function () {
     Route::prefix('/category')->group(function () {
