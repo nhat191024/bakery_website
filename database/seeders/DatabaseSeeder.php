@@ -91,7 +91,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($dataArray['contact_us'] as $row) {
             Contact_us::create([
-                "name" => $row['name'],
+                "website" => $row['website'],
                 "phone_number" => $row['phone_number'],
                 "email" => $row['email'],
                 "address" => $row['address'],
