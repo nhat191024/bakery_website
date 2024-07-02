@@ -15,8 +15,8 @@ class ProductListControler extends Controller
         $this->service = new ProductListService();
     }
 
-    public function index()
+    public function index($categoryId = null)
     {
-        return $this->service->index();
+        return $this->service->index($categoryId);
     }
 }
