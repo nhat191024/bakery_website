@@ -24,5 +24,8 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+Route::prefix('shop')->group(function () {
+    Route::get('/{categoryId?}', [ProductListControler::class, 'index'])->name('client.shop.productList');
+});
+
 Route::get('/homePage', [HomePageController::class, 'index']);
-Route::get('/shop', [ProductListControler::class, 'index']);
