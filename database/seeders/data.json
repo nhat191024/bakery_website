@@ -183,7 +183,7 @@
             "description": "CupProducts",
             "real_price": "90000",
             "fake_price": "120000",
-            "image": ""
+            "image": "product-1.jpg"
         },
         {
             "category_id": 2,
@@ -191,7 +191,7 @@
             "description": "Bread",
             "real_price": "90000",
             "fake_price": "120000",
-            "image": ""
+            "image": "product-2.jpg"
         },
         {
             "category_id": 3,
@@ -199,7 +199,7 @@
             "description": "Cookies",
             "real_price": "90000",
             "fake_price": "120000",
-            "image": ""
+            "image": "product-3.jpg"
         },
         {
             "category_id": 4,
@@ -207,7 +207,7 @@
             "description": "Products",
             "real_price": "90000",
             "fake_price": "120000",
-            "image": ""
+            "image": "product-4.jpg"
         },
         {
             "category_id": 5,
@@ -215,7 +215,7 @@
             "description": "Pies",
             "real_price": "90000",
             "fake_price": "120000",
-            "image": ""
+            "image": "product-5.jpg"
         }
     ],
     "blogs": [
