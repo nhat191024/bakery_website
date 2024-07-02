@@ -8514,20 +8514,19 @@
     .btn:hover, .btn:active, .btn:focus {
       outline: none; }
     .btn.btn-primary {
-      background: #82ae46;
-      border: 1px solid #82ae46;
+      background: #f8c53f;
+      border: 1px solid #f8c53f;
       color: #fff; }
       .btn.btn-primary:hover {
         border: 1px solid #82ae46;
         background: transparent;
-        color: #82ae46; }
+       }
       .btn.btn-primary.btn-outline-primary {
         border: 1px solid #82ae46;
         background: transparent;
-        color: #82ae46; }
+       }
         .btn.btn-primary.btn-outline-primary:hover {
           border: 1px solid transparent;
-          background: #82ae46;
           color: #fff; }
     .btn.btn-white {
       background: #fff;
