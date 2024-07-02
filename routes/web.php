@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\client\HomePageController;
+use App\Http\Controllers\client\ProductListControler;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,4 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/homePage', [HomePageController::class, 'index']);
+Route::get('/shop', [ProductListControler::class, 'index']);
