@@ -42,11 +42,21 @@
                                 <div class="d-flex">
                                     <div class="pricing">
                                         <p class="price">
-                                            <span
-                                                class="mr-2 price-dc">{{ number_format($pd->fake_price, 0, ',', '.') }}đ</span>
-                                            <span
-                                                class="price-sale font-weight-bold">{{ number_format($pd->real_price, 0, ',', '.') }}
-                                                đ</span>
+                                            @if ($pd->product_variations->isNotEmpty())
+                                                <span
+                                                    class="price-sale font-weight-bold">{{ number_format($pd->product_variations->first()->price, 0, ',', '.') }} đ ~
+                                                </span>
+                                                <span
+                                                    class="price-sale font-weight-bold">{{ number_format($pd->product_variations->last()->price, 0, ',', '.') }} đ
+                                                </span>
+                                            @else
+                                                <span
+                                                    class="mr-2 price-dc">{{ number_format($pd->fake_price, 0, ',', '.') }} đ
+                                                </span>
+                                                <span
+                                                    class="price-sale font-weight-bold">{{ number_format($pd->real_price, 0, ',', '.') }} đ
+                                                </span>
+                                            @endif
                                         </p>
                                     </div>
                                 </div>
