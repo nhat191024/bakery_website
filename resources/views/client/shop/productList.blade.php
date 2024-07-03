@@ -23,7 +23,7 @@
                 @foreach ($products as $pd)
                     <div class="col-md-6 col-lg-4 ftco-animate">
                         <div class="product">
-                            <a href="{{ route('client.shop.productList', $pd->id) }}" class="img-prod"><img
+                            <a href="#" class="img-prod"><img
                                     class="img-fluid" src="{{ asset('img/client/shop/' . $pd->image) }}"
                                     alt="{{ $pd->image }}">
                                 <div class="overlay d-flex justify-content-center align-items-center">
