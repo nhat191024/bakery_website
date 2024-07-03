@@ -354,7 +354,7 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
-                    <span class="subheading">Giá ưu đãi cho bạn </span> 
+                    <span class="subheading">Giá ưu đãi cho bạn </span>
                     <h2 class="mb-4">Giảm giá hàng ngày</h2>
                     <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
                     <h3><a href="#">MILLE FEUILLE VANILLA</a></h3>
