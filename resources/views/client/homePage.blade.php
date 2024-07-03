@@ -4,7 +4,7 @@
         <div class="home-slider owl-carousel">
             @foreach ($images as $image)
                 <div class="slider-item"
-                    style="background-image: 
+                    style="background-image:
                 url({{ asset('img/home/' . $image->image) }});">
                     <div class="overlay"></div>
                     <div class="container">
@@ -14,13 +14,22 @@
                                 <h2 class="subheading mb-4">{{ $image->subtitle }}</h2>
                                 <p><a href="{{ $image->link }}" class="btn btn-primary">Xem chi tiết </a></p>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="slider-item" style="background-image: url({{ asset('img/bg_1.jpg') }});">
+                                <div class="overlay"></div>
+                                <div class="container">
+                                    <div class="row slider-text justify-content-center align-items-center"
+                                        data-scrollax-parent="true">
+                                        <div class="col-md-12 ftco-animate text-center">
+                                            <h1 class="mb-2">We serve Fresh Vegestables &amp; Bánh thường ngày</h1>
+                                            <h2 class="subheading mb-4">We deliver organic vegetables &amp; Bánh thường ngày
+                                            </h2>
+                                            <p><a href="#" class="btn btn-primary">View Details</a></p>
+                                        </div>
+                                    </div>
+                                </div>
             @endforeach
         </div>
     </section>
-
     <section class="ftco-section">
         <div class="container">
             <div class="row no-gutters ftco-services">
@@ -41,6 +50,8 @@
                             <span class="flaticon-diet"></span>
                         </div>
                         <div class="media-body">
+                            <h3 class="heading">Luôn tươi ngon</h3>
+                            <span>Bánh được bảo quản cẩn thận </span>
                             <h3 class="heading">Luôn tươi ngon</h3>
                             <span>Bánh được bảo quản cẩn thận </span>
                         </div>
@@ -126,10 +137,12 @@
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">Chúng tôi hiểu rằng</span>
+                    <span class="subheading">chúng tôi hiểu rằng</span>
                     <h2 class="mb-4">BÁNH PHÁP LÀ NGHỆ THUẬT</h2>
-                    <p>Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng.
-                        Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.</p>
+                    <p>
+                        Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng.
+                        Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.
+                    </p>
                 </div>
             </div>
         </div>
@@ -217,6 +230,9 @@
                     <span class="subheading">Giá ưu đãi cho bạn</span>
                     <h2 class="mb-4">Giảm giá hàng ngày</h2>
                     <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
+                    <span class="subheading">Giá ưu đãi cho bạn </span>
+                    <h2 class="mb-4">Giảm giá hàng ngày</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
                     <h3><a href="#">MILLE FEUILLE VANILLA</a></h3>
                     <span class="price">50.0000 <a href="#">chỉ còn 30.000 </a></span>
                     <div id="timer" class="d-flex mt-5">
@@ -253,7 +269,7 @@
                                         </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-5 pl-4 line"{{ $message->message }}</p>
+                                        <p class="mb-5 pl-4 line">{{ $message->message }}</p>
                                         <p class="name">{{ $message->name }}</p>
                                         <span class="position">Marketing Manager</span>
                                     </div>
