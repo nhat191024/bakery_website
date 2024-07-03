@@ -1,7 +1,7 @@
 @extends('client.layout.layout')
 @section('content')
-<hr>
-<section class="ftco-section" style="padding-top: 25px" !important>
+    <hr>
+    <section class="ftco-section" style="padding-top: 25px" !important>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10 mb-5 text-center">
@@ -26,28 +26,26 @@
                             <a href="{{ route('client.shop.productList', $pd->id) }}" class="img-prod"><img
                                     class="img-fluid" src="{{ asset('img/client/shop/' . $pd->image) }}"
                                     alt="{{ $pd->image }}">
-                                <div class="overlay"></div>
+                                <div class="overlay d-flex justify-content-center align-items-center">
+                                    <div class="m bg-primary rounded-pill justify-content-center align-items-center mr-2">
+                                        <i class="ion-ios-menu text-white p-5" style="font-size: 3rem;"></i>
+                                    </div>
+                                    <div class=" bg-primary rounded-pill justify-content-center align-items-center">
+                                        <i class="ion-ios-cart text-white p-5" style="font-size: 3rem;"></i>
+                                    </div>
+                                </div>
                             </a>
                             <div class="text py-3 pb-4 px-3 text-center">
                                 <h3><a class="prod-title" href="#">{{ $pd->name }}</a></h3>
                                 <div class="d-flex">
                                     <div class="pricing">
                                         <p class="price">
-                                            <span class="mr-2 price-dc">{{ number_format($pd->fake_price, 0, ',', '.') }}đ</span>
-                                            <span class="price-sale font-weight-bold">{{ number_format($pd->real_price, 0, ',', '.') }} đ</span>
+                                            <span
+                                                class="mr-2 price-dc">{{ number_format($pd->fake_price, 0, ',', '.') }}đ</span>
+                                            <span
+                                                class="price-sale font-weight-bold">{{ number_format($pd->real_price, 0, ',', '.') }}
+                                                đ</span>
                                         </p>
-                                    </div>
-                                </div>
-                                <div class="bottom-area d-flex px-3">
-                                    <div class="m-auto d-flex">
-                                        <a href="#"
-                                            class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                            <span><i class="ion-ios-menu"></i></span>
-                                        </a>
-                                        <a href="#"
-                                            class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                            <span><i class="ion-ios-cart"></i></span>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
