@@ -23,4 +23,6 @@ Route::prefix('admin')->group(function () {
     });
 });
 
-Route::get('/homePage', [HomePageController::class, 'index']);
+Route::prefix('homePage')->group(function () {
+    Route::get('/', [HomePageController::class, 'index']);
+});
