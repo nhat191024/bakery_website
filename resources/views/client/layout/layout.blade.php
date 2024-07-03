@@ -74,7 +74,7 @@
                     </li>
                     <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link">Tin tức</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Liên h</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
                     <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span
                                 class="icon-shopping_cart"></span>[0]</a></li>
 
@@ -100,8 +100,10 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
+                        <a class="navbar-brand" href="index.html">Odouceurs</a>
                         <h2 class="ftco-heading-2">Odouceurs</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                        <p>Since 2014, we have become one of the best French bakeries in Hanoi. Currently, we have 2
+                            locations in Hanoi, one is in the Old Quarter and the other in West Lake area.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -113,41 +115,39 @@
                     <div class="ftco-footer-widget mb-4 ml-md-5">
                         <h2 class="ftco-heading-2">Menu</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Shop</a></li>
-                            <li><a href="#" class="py-2 d-block">About</a></li>
-                            <li><a href="#" class="py-2 d-block">Journal</a></li>
-                            <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                            <li><a href="#" class="py-2 d-block">Cửa hàng</a></li>
+                            <li><a href="#" class="py-2 d-block">Giới thiệu</a></li>
+                            <li><a href="#" class="py-2 d-block">Tin tức</a></li>
+                            <li><a href="#" class="py-2 d-block">Liên hệ</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Help</h2>
+                        <h2 class="ftco-heading-2">Hỗ trợ</h2>
                         <div class="d-flex">
                             <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-                                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
-                                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
-                                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
-                                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
-                            </ul>
-                            <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">FAQs</a></li>
-                                <li><a href="#" class="py-2 d-block">Contact</a></li>
+                                <li><a href="#" class="py-2 d-block">Thông tin đơn hàng</a></li>
+                                <li><a href="#" class="py-2 d-block">Những câu hỏi thường gặp</a></li>
+                                <li><a href="#" class="py-2 d-block">Điều khoản và dịch vụ</a></li>
+                                <li><a href="#" class="py-2 d-block">Chính sách bảo mật</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <h2 class="ftco-heading-2">Hãy đến với chúng tôi</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St.
-                                        Mountain View, San Francisco, California, USA</span></li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2
-                                            392 3929 210</span></a></li>
+                                <li><span class="icon icon-map-marker"></span><span class="text">72 Đ. Xuân Diệu, Tứ
+                                        Liên, Tây Hồ, Hà Nội
+                                    </span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span
+                                            class="text">Phone:
+                                            024 6291 8575</span></a></li>
                                 <li><a href="#"><span class="icon icon-envelope"></span><span
-                                            class="text">info@yourdomain.com</span></a></li>
+                                            class="text">odouceurs@gmail.com</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -160,10 +160,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i
-                            class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </script> All rights reserved | ODUCEURS</a>
                     </p>
                 </div>
             </div>

@@ -9,7 +9,7 @@
 
                         <div class="col-md-12 ftco-animate text-center">
                             <h1 class="mb-2">We serve Fresh Vegestables &amp; Bánh thường ngày</h1>
-                            <h2 class="subheading mb-4">We deliver organic vegetables &amp;  Bánh thường ngày</h2>
+                            <h2 class="subheading mb-4">We deliver organic vegetables &amp; Bánh thường ngày</h2>
                             <p><a href="#" class="btn btn-primary">View Details</a></p>
                         </div>
 
@@ -139,10 +139,10 @@
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">chúng tôi hiểu rằng</span>
+                    <span class="subheading">Chúng tôi hiểu rằng</span>
                     <h2 class="mb-4">BÁNH PHÁP LÀ NGHỆ THUẬT</h2>
-                    <p>Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng. 
-                    Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.</p>
+                    <p>Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng.
+                        Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.</p>
                 </div>
             </div>
         </div>
@@ -274,7 +274,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="product">
@@ -410,9 +409,9 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
-                    <span class="subheading">Giá ưu đãi cho bạn </span>
+                    <span class="subheading">Giá ưu đãi cho bạn</span>
                     <h2 class="mb-4">Giảm giá hàng ngày</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                    <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
                     <h3><a href="#">MILLE FEUILLE VANILLA</a></h3>
                     <span class="price">50.0000 <a href="#">chỉ còn 30.000 </a></span>
                     <div id="timer" class="d-flex mt-5">
@@ -430,8 +429,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <span class="subheading">Testimony</span>
-                    <h2 class="mb-4">Our satisfied customer says</h2>
+                    <span class="subheading">Phản hồi</span>
+                    <h2 class="mb-4">Khách hàng của chúng tôi nói rằng</h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
                         live the blind texts. Separated they live in</p>
                 </div>
