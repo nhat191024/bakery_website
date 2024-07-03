@@ -8,8 +8,8 @@
                     <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
 
                         <div class="col-md-12 ftco-animate text-center">
-                            <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
-                            <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
+                            <h1 class="mb-2">We serve Fresh Vegestables &amp; Bánh thường ngày</h1>
+                            <h2 class="subheading mb-4">We deliver organic vegetables &amp;  Bánh thường ngày</h2>
                             <p><a href="#" class="btn btn-primary">View Details</a></p>
                         </div>
 
@@ -43,8 +43,8 @@
                             <span class="flaticon-shipped"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">Free Shipping</h3>
-                            <span>On order over $100</span>
+                            <h3 class="heading">Miễn phí giao hàng</h3>
+                            <span>Cho đơn hàng trên 2 triệu</span>
                         </div>
                     </div>
                 </div>
@@ -54,8 +54,8 @@
                             <span class="flaticon-diet"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">Always Fresh</h3>
-                            <span>Product well package</span>
+                            <h3 class="heading">Luôn tươi ngon</h3>
+                            <span>Bánh được bảo quản cẩn thận </span>
                         </div>
                     </div>
                 </div>
@@ -65,8 +65,8 @@
                             <span class="flaticon-award"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">Superior Quality</h3>
-                            <span>Quality Products</span>
+                            <h3 class="heading">Chất lượng tốt </h3>
+                            <span>Được đánh giá bởi 95% khách hàng </span>
                         </div>
                     </div>
                 </div>
@@ -76,8 +76,8 @@
                             <span class="flaticon-customer-service"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">Support</h3>
-                            <span>24/7 Support</span>
+                            <h3 class="heading">Hỗ trợ </h3>
+                            <span>Hỗ trợ khách hàng 24/7</span>
                         </div>
                     </div>
                 </div>
@@ -94,8 +94,8 @@
                             <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
                                 style="background-image: url({{ asset('img/category.jpg') }});">
                                 <div class="text text-center">
-                                    <h2>Vegetables</h2>
-                                    <p>Protect the health of every home</p>
+                                    <h2>Các loại bánh</h2>
+                                    <p>Tạo điểm nhấn cho bữa tiệc của bạn</p>
                                     <p><a href="#" class="btn btn-primary">Shop now</a></p>
                                 </div>
                             </div>
@@ -104,13 +104,13 @@
                             <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
                                 style="background-image: url({{ asset('img/category-1.jpg') }});">
                                 <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#">Fruits</a></h2>
+                                    <h2 class="mb-0"><a href="#"> Bánh Đặt Trước</a></h2>
                                 </div>
                             </div>
                             <div class="category-wrap ftco-animate img d-flex align-items-end"
                                 style="background-image: url({{ asset('img/category-2.jpg') }});">
                                 <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#">Vegetables</a></h2>
+                                    <h2 class="mb-0"><a href="#">Bánh Đặt Tiệc</a></h2>
                                 </div>
                             </div>
                         </div>
@@ -121,13 +121,13 @@
                     <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
                         style="background-image: url({{ asset('img/category-3.jpg') }});">
                         <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">Juices</a></h2>
+                            <h2 class="mb-0"><a href="#">Bánh Dessert</a></h2>
                         </div>
                     </div>
                     <div class="category-wrap ftco-animate img d-flex align-items-end"
                         style="background-image: url({{ asset('img/category-4.jpg') }});">
                         <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">Dried</a></h2>
+                            <h2 class="mb-0"><a href="#">Bánh Sỉ</a></h2>
                         </div>
                     </div>
                 </div>
@@ -139,9 +139,10 @@
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">Featured Products</span>
-                    <h2 class="mb-4">Our Products</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                    <span class="subheading">chúng tôi hiểu rằng</span>
+                    <h2 class="mb-4">BÁNH PHÁP LÀ NGHỆ THUẬT</h2>
+                    <p>Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng. 
+                    Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.</p>
                 </div>
             </div>
         </div>
@@ -409,11 +410,11 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
-                    <span class="subheading">Best Price For You</span>
-                    <h2 class="mb-4">Deal of the day</h2>
+                    <span class="subheading">Giá ưu đãi cho bạn </span>
+                    <h2 class="mb-4">Giảm giá hàng ngày</h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-                    <h3><a href="#">Spinach</a></h3>
-                    <span class="price">$10 <a href="#">now $5 only</a></span>
+                    <h3><a href="#">MILLE FEUILLE VANILLA</a></h3>
+                    <span class="price">50.0000 <a href="#">chỉ còn 30.000 </a></span>
                     <div id="timer" class="d-flex mt-5">
                         <div class="time" id="days"></div>
                         <div class="time pl-3" id="hours"></div>
