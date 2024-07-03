@@ -8675,7 +8675,6 @@
         bottom: 0;
         content: '';
         opacity: 0;
-        background: #ffffff;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
         -webkit-transition: all 0.3s ease;
@@ -8736,14 +8735,14 @@
       opacity: 1; }
     .img-prod:hover .overlay  {
       opacity: 1;
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 4pxn 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(12.5px);
-      -webkit-backdrop-filter: blur(12.6px);
+      background: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4pxn 30px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
     }
     .overlay-content {
         opacity: 0;
-        transition: opacity 0.3s ease; 
+        transition: opacity 0.3s ease;
       }
       .img-prod:hover .overlay-content {
         opacity: 1;
