@@ -28,13 +28,14 @@
                                     alt="{{ $pd->image }}">
                                 <div class="overlay d-flex justify-content-center align-items-center">
                                     @if ($pd->product_variations->isNotEmpty())
-                                    <div class="m bg-primary rounded-pill justify-content-center align-items-center mr-2 shadow-lg">
-                                        <i class="ion-ios-menu text-white p-5" style="font-size: 3rem;"></i>
-                                    </div>
+                                        <div class="m bg-primary rounded-pill justify-content-center align-items-center mr-2 shadow-lg">
+                                            <i class="ion-ios-menu text-white p-5" style="font-size: 3rem;"></i>
+                                        </div>
+                                    @else
+                                        <div class=" bg-primary rounded-pill justify-content-center align-items-center shadow-lg">
+                                            <i class="ion-ios-cart text-white p-5" style="font-size: 3rem;"></i>
+                                        </div>
                                     @endif
-                                    <div class=" bg-primary rounded-pill justify-content-center align-items-center shadow-lg">
-                                        <i class="ion-ios-cart text-white p-5" style="font-size: 3rem;"></i>
-                                    </div>
                                 </div>
                             </a>
                             <div class="text py-3 pb-4 px-3 text-center">
