@@ -151,10 +151,8 @@
                 @foreach ($products as $product)
                     <div class="col-md-6 col-lg-3 ftco-animate">
                         <div class="product">
-                            <a href="#" class="img-prod"><img class="img-fluid" src=" img/{{ $product->image }}"
-                                    alt="Colorlib Template">
-                                {{-- {{ asset('img/product-1.jpg') }} --}}
-
+                            <a href="#" class="img-prod">
+                                <img class="img-fluid" src="{{ asset('/img/client/shop/' . $product->image) }}">
                             </a>
                             <div class="text py-3 pb-4 px-3 text-center">
                                 <h3><a href="#">{{ $product->name }}</a></h3>
