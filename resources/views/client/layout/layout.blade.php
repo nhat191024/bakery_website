@@ -74,7 +74,7 @@
                     </li>
                     <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>
                     <li class="nav-item"><a href="blog.html" class="nav-link">Tin tức</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Liên h</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
                     <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span
                                 class="icon-shopping_cart"></span>[0]</a></li>
 
@@ -99,8 +99,10 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
+                        <a class="navbar-brand" href="index.html">Odouceurs</a>
                         <h2 class="ftco-heading-2">Odouceurs</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                        <p>Since 2014, we have become one of the best French bakeries in Hanoi. Currently, we have 2
+                            locations in Hanoi, one is in the Old Quarter and the other in West Lake area.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
