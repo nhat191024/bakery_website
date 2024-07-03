@@ -2,35 +2,22 @@
 @section('content')
     <section id="home-section" class="hero">
         <div class="home-slider owl-carousel">
-            <div class="slider-item" style="background-image: url({{ asset('img/bg_1.jpg') }});">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-                        <div class="col-md-12 ftco-animate text-center">
-                            <h1 class="mb-2">We serve Fresh Vegestables &amp; Bánh thường ngày</h1>
-                            <h2 class="subheading mb-4">We deliver organic vegetables &amp; Bánh thường ngày</h2>
-                            <p><a href="#" class="btn btn-primary">View Details</a></p>
+            @foreach ($images as $image)
+                <div class="slider-item"
+                    style="background-image: 
+                url({{ asset('img/home/' . $image->image) }});">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+                            <div class="col-md-12 ftco-animate text-center">
+                                <h1 class="mb-2">{{ $image->title }}</h1>
+                                <h2 class="subheading mb-4">{{ $image->subtitle }}</h2>
+                                <p><a href="{{ $image->link }}" class="btn btn-primary">Xem chi tiết </a></p>
+                            </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-
-            <div class="slider-item" style="background-image: url({{ asset('img/bg_2.jpg') }});">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-                        <div class="col-sm-12 ftco-animate text-center">
-                            <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
-                            <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-                            <p><a href="#" class="btn btn-primary">View Details</a></p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
@@ -147,7 +134,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
+            {{-- <div class="row">
                 @foreach ($products as $product)
                     <div class="col-md-6 col-lg-3 ftco-animate">
                         <div class="product">
@@ -176,6 +163,43 @@
                                         <a href="#" class="heart d-flex justify-content-center align-items-center ">
                                             <span><i class="ion-ios-heart"></i></span>
                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div> --}}
+            <div class="row">
+                @foreach ($products as $pd)
+                    <div class="col-md-6 col-lg-4 ftco-animate">
+                        <div class="product">
+                            <a href="#" class="img-prod"><img class="img-fluid"
+                                    src="{{ asset('img/client/shop/' . $pd->image) }}" alt="{{ $pd->image }}">
+                                <div class="overlay d-flex justify-content-center align-items-center">
+                                    {{-- @if ($pd->product_variations->isNotEmpty()) --}}
+                                    <div
+                                        class="m bg-primary rounded-pill justify-content-center align-items-center mr-2 shadow-lg">
+                                        <i class="ion-ios-menu text-white p-5" style="font-size: 3rem;"></i>
+                                    </div>
+                                    {{-- @endif --}}
+                                    <div
+                                        class=" bg-primary rounded-pill justify-content-center align-items-center shadow-lg">
+                                        <i class="ion-ios-cart text-white p-5" style="font-size: 3rem;"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="text py-3 pb-4 px-3 text-center">
+                                <h3><a class="prod-title" href="#">{{ $pd->name }}</a></h3>
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                        <p class="price">
+                                            <span
+                                                class="mr-2 price-dc">{{ number_format($pd->fake_price, 0, ',', '.') }}đ</span>
+                                            <span
+                                                class="price-sale font-weight-bold">{{ number_format($pd->real_price, 0, ',', '.') }}
+                                                đ</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -236,71 +260,6 @@
                                 </div>
                             </div>
                         @endforeach
-
-                        {{-- <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_2.jpg') }})">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the
-                                        countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <p class="name">Garreth Smith</p>
-                                    <span class="position">Interface Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_3.jpg') }})">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the
-                                        countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <p class="name">Garreth Smith</p>
-                                    <span class="position">UI Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the
-                                        countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <p class="name">Garreth Smith</p>
-                                    <span class="position">Web Developer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the
-                                        countries Vokalia and Consonantia, there live the blind texts.</p>
-                                    <p class="name">Garreth Smith</p>
-                                    <span class="position">System Analyst</span>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
