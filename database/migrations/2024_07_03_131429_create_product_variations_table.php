@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('variation_id');
             $table->unsignedBigInteger('product_id');
+            $table->integer('price');
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('variation_id')->references('id')->on('variations');

@@ -170,6 +170,7 @@ class DatabaseSeeder extends Seeder
             Product_variation::create([
                 "variation_id" => $row['variation_id'],
                 "product_id" => $row['product_id'],
+                "price" => $row['price'],
             ]);
         }
     }
