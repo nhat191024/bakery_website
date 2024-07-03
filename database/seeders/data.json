@@ -231,7 +231,7 @@
         {
             "title": "Bánh kem mềm mại mê ly~",
             "subtitle": "Một miếng là một lần mê! Cả nhà cùng tận hưởng!",
-            "image": "",
+            "image": "bg-1.jpg",
             "link": "",
             "start_date": "2022-01-01 00:00:00",
             "end_date": "2022-02-01 00:00:00",
@@ -240,7 +240,7 @@
         {
             "title": "Sắp tới sinh nhật sao?",
             "subtitle": "Hiện tại đang được giảm giá đó! Tìm hiểu ngay!",
-            "image": "",
+            "image": "bg-2.jpg",
             "link": "",
             "start_date": "2022-01-01 00:00:00",
             "end_date": "2022-02-01 00:00:00",
@@ -249,7 +249,7 @@
         {
             "title": "Quaso!",
             "subtitle": "50% OFF khi mua suất 10 bánh croissant!",
-            "image": "",
+            "image": "bg-3.jpg",
             "link": "",
             "start_date": "2022-01-01 00:00:00",
             "end_date": "2022-02-01 00:00:00",
