@@ -8735,7 +8735,7 @@
       opacity: 1; }
     .img-prod:hover .overlay  {
       opacity: 1;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.6);
       box-shadow: 0 4pxn 30px rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(1px);
       -webkit-backdrop-filter: blur(1px);
