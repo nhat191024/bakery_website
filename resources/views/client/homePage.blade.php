@@ -177,7 +177,6 @@
                             <a href="#" class="img-prod"><img class="img-fluid"
                                     src="{{ asset('img/client/shop/' . $pd->image) }}" alt="{{ $pd->image }}">
                                 <div class="overlay d-flex justify-content-center align-items-center">
-                                    {{-- @if ($pd->product_variations->isNotEmpty()) --}}
                                     <div
                                         class="m bg-primary rounded-pill justify-content-center align-items-center mr-2 shadow-lg">
                                         <i class="ion-ios-menu text-white p-5" style="font-size: 3rem;"></i>
@@ -210,25 +209,27 @@
         </div>
     </section>
 
-    <section class="ftco-section img" style="background-image: url({{ asset('img/bg_3.jpg') }});">
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
-                    <span class="subheading">Giá ưu đãi cho bạn</span>
-                    <h2 class="mb-4">Giảm giá hàng ngày</h2>
-                    <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
-                    <h3><a href="#">MILLE FEUILLE VANILLA</a></h3>
-                    <span class="price">50.0000 <a href="#">chỉ còn 30.000 </a></span>
-                    <div id="timer" class="d-flex mt-5">
-                        <div class="time" id="days"></div>
-                        <div class="time pl-3" id="hours"></div>
-                        <div class="time pl-3" id="minutes"></div>
-                        <div class="time pl-3" id="seconds"></div>
+    @foreach ($promotions as $promotion)
+        <section class="ftco-section img" style="background-image: url({{ asset('img/bg_3.jpg') }});">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+                        <span class="subheading">Giá ưu đãi cho bạn</span>
+                        <h2 class="mb-4">Giảm giá hàng ngày</h2>
+                        <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
+                        <h3><a href="#">{{ $promotion->description }}</a></h3>
+                        <span class="price">50.0000 <a href="#">chỉ còn 30.000 </a></span>
+                        <div id="timer" class="d-flex mt-5">
+                            <div class="time" id="days"></div>
+                            <div class="time pl-3" id="hours"></div>
+                            <div class="time pl-3" id="minutes"></div>
+                            <div class="time pl-3" id="seconds"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endforeach
 
     <section class="ftco-section testimony-section">
         <div class="container">
