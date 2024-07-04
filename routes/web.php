@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 
@@ -29,5 +30,9 @@ Route::get('/homePage', [HomePageController::class, 'index']);
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
     Route::post('/', [ContactController::class, 'store'])->name('client.contact.store');
+});
+Route::prefix('about')->group(function () {
+    Route::get('/', [AboutController::class, 'index'])->name('client.about.index');
 
 });
+

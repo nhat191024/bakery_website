@@ -3,11 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ContactRequest;
-use App\Models\Categories;
-use App\Models\Contact_infos;
 use App\Models\Contact_us;
-use App\Models\Message;
 use App\Service\client\MessageService;
 use Illuminate\Http\Request;
 
