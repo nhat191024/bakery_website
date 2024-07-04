@@ -16,6 +16,7 @@ use App\Models\Promotions;
 use App\Models\User;
 use App\Models\Vouchers;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,10 +32,10 @@ class DatabaseSeeder extends Seeder
         foreach ($dataArray['users'] as $row) {
             User::create([
                 "username" => $row['username'],
-                "password" => $row['password'],
+                "password" => Hash::make($row['password']),
                 "email" => $row['email'],
                 "address" => $row['address'],
-                "phone_number" => $row['phone_number'],
+                "phone" => $row['phone'],
                 "role" => $row['role'],
                 "status" => $row['status'],
             ]);
