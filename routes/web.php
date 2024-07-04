@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\client\AboutController;
+use App\Http\Controllers\client\BlogController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
@@ -44,4 +45,7 @@ Route::prefix('shop')->group(function () {
     Route::get('/{categoryId?}', [ProductListControler::class, 'index'])->name('client.shop.productList');
     Route::get('/product/{productId}', [ProductDetailController::class, 'index'])->name('client.shop.productDetail');
 });
-
+// Route::prefix('blog')->group(function () {
+//     Route::get('/{id}', [BlogController::class, 'show'])->name('client.blog.show');
+// });
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('client.blog.show');
