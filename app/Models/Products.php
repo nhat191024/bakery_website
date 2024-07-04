@@ -32,4 +32,9 @@ class Products extends Model
     {
         return $this->hasMany(Bill_details::class, 'product_id');
     }
+
+    public function product_variations()
+    {
+        return $this->hasMany(Product_variation::class, 'product_id');
+    }
 }

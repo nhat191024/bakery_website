@@ -338,5 +338,30 @@
             "type": "tripadvisor",
             "name": ""
         }
+    ],
+    "variations": [
+        {
+            "name": "Nhỏ"
+        },
+        {
+            "name": "Vừa"
+        },
+        {
+            "name": "Lớn"
+        }
+    ],
+    "product_variations": [
+        {
+            "variation_id": 1,
+            "product_id": 1
+        },
+        {
+            "variation_id": 2,
+            "product_id": 1
+        },
+        {
+            "variation_id": 3,
+            "product_id": 1
+        }
     ]
 }

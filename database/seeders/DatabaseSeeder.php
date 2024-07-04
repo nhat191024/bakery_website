@@ -8,12 +8,14 @@ use App\Models\Bill_details;
 use App\Models\Bills;
 use App\Models\Blogs;
 use App\Models\Contact_infos;
+use App\Models\Product_variation;
 use App\Models\Products;
 use App\Models\Categories;
 use App\Models\Contact_us;
 use App\Models\Message;
 use App\Models\Promotions;
 use App\Models\User;
+use App\Models\Variation;
 use App\Models\Vouchers;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -156,6 +158,19 @@ class DatabaseSeeder extends Seeder
             Contact_infos::create([
                 "type" => $row['type'],
                 "name" => $row['name'],
+            ]);
+        }
+
+        foreach ($dataArray['variations'] as $row) {
+            Variation::create([
+                "name" => $row['name'],
+            ]);
+        }
+
+        foreach ($dataArray['product_variations'] as $row) {
+            Product_variation::create([
+                "variation_id" => $row['variation_id'],
+                "product_id" => $row['product_id'],
             ]);
         }
     }
