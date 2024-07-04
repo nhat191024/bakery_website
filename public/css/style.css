@@ -8800,9 +8800,9 @@
           border-radius: 50%; }
         .product .text .bottom-area .m-auto {
           margin: 0 auto; }
-    .product:hover .prod-title {
-        color: orange;
-        font-weight: 400;
+     .prod-title:hover {
+        color: orange !important;
+        font-weight: 500;
      }
       .product:hover .pricing {
         opacity: 1; }
