@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\client\AboutController;
+use App\Http\Controllers\client\BlogController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 
@@ -33,6 +34,8 @@ Route::prefix('contact')->group(function () {
 });
 Route::prefix('about')->group(function () {
     Route::get('/', [AboutController::class, 'index'])->name('client.about.index');
-
 });
-
+// Route::prefix('blog')->group(function () {
+//     Route::get('/{id}', [BlogController::class, 'show'])->name('client.blog.show');
+// });
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('client.blog.show');
