@@ -8,7 +8,9 @@
                     <div class="overlay d-flex justify-content-center align-items-center">
                         @if ($pd->product_variations->isNotEmpty())
                         <div class="d-flex justify-content-center align-items-center shadow-lg pointer text-primary"
-                             onclick="window.location.href='{{ route('client.shop.productDetail', $pd->id) }}'"
+                            @if (Route::has('client.shop.productDetail'))
+                                onclick="window.location.href='{{ route('client.shop.productDetail', $pd->id) }}'"
+                            @endif
                              style="font-size: 1.2rem;">
                              <i class="ion-ios-menu text-primary mr-1" ></i> See details
                             </div>
@@ -18,10 +20,10 @@
                              style="font-size: 1.2rem;">
                              <i class="ion-ios-cart text-primary mr-1" ></i> Add to cart
                             </div>
-                        @endif 
+                        @endif
                     </div>
                 </a>
-                <div class="text py-3 pb-4 px-3 text-center pointer" onclick="window.location.href='{{ route('client.shop.productDetail', $pd->id) }}'">
+                <div class="text py-3 pb-4 px-3 text-center pointer" @if (Route::has('client.shop.productDetail'))  onclick="window.location.href='{{ route('client.shop.productDetail', $pd->id) }}'"@endif>
                     <h3><a class="prod-title">{{ $pd->name }}</a></h3>
                     <div class="d-flex">
                         <div class="pricing">
