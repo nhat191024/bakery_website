@@ -10,7 +10,7 @@
                             alt="Colorlib Template"></a>
                 </div>
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                    <h3>{{ $product->name }}</h3>
+                    <h3><b>{{ $product->name }}</b></h3>
                     <div class="rating d-flex">
                         <p class="text-left">
                             <a href="#" class="mr-2" style="color: #000;">{{ count($product->bill_details) }} 
