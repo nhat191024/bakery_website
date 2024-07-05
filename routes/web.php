@@ -38,4 +38,10 @@ Route::prefix('about')->group(function () {
 // Route::prefix('blog')->group(function () {
 //     Route::get('/{id}', [BlogController::class, 'show'])->name('client.blog.show');
 // });
+
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('client.blog.show');
+
+// Blog page
+Route::prefix('blog')->group(function () {
+    Route::get('/', [BlogController::class, 'index']);
+});
