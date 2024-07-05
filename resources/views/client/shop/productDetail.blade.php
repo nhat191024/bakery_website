@@ -19,13 +19,11 @@
                     </div>
                     @if ($product->product_variations->isNotEmpty())
                         <p class="price">
-                            <span>
-                                {{ number_format($product->product_variations->first()->price, 0, ',', '.') }} đ ~ {{ number_format($product->product_variations->last()->price, 0, ',', '.') }} đ
-                            </span>
+                                <input class="productPrice h3 text-black" id="productPrice" type="text" id="price" value="{{ number_format($product->product_variations->first()->price, 0, ',', '.') }}đ" disabled>
                         </p>
                     @else
-                        <p class="price-dc"><s><span>{{ number_format($product->fake_price, 0, ',', '.') }} đ</span></s></p>
-                        <p class="price"><span>{{ number_format($product->real_price, 0, ',', '.') }} đ</span></p>
+                        <p class="price-dc"><s><span>{{ number_format($product->fake_price, 0, ',', '.') }}đ</span></s></p>
+                        <input class="productPrice h3 text-black" id="productPrice" type="text" id="price" value="{{ number_format($product->real_price, 0, ',', '.') }}đ" disabled>
                     @endif
                     <p>{{ $product->description }}</p>
                     <div class="row mt-4">
@@ -34,9 +32,9 @@
                                 <div class="form-group d-flex">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                        <select name="" id="" class="form-control">
+                                        <select name="variation" id="productVariation" class="form-control">
                                             @foreach ($product->product_variations as $variation)
-                                                <option value="{{ $variation->variation_id }}">{{ $variation->variation->name }}</option>
+                                                <option data-price="{{ $variation->price }}" value="{{ $variation->variation_id }}">{{ $variation->variation->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -86,7 +84,6 @@
     </section>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script>
-        console.log('hello');
         $(document).ready(function() {
             var quantitiy = 0;
             $('.quantity-right-plus').click(function(e) {
@@ -94,7 +91,15 @@
                 var quantity = parseInt($('#quantity').val());
                 $('#quantity').val(quantity + 1);
             });
-
+            
+            $('#productVariation').change(function(e) {
+                var categoryId = e.target.value;
+                var price = $(this).find('option:selected').data('price');
+                // $('#product-price').text(new Intl.NumberFormat('de-DE').format(price));
+                $('#productPrice').val(new Intl.NumberFormat('de-DE').format(price) + 'đ');
+                console.log('change price based on selected variant' + e.target.value + ' ' + new Intl.NumberFormat('de-DE').format(price)+'đ');
+            });
+            
             $('.quantity-left-minus').click(function(e) {
                 e.preventDefault();
                 var quantity = parseInt($('#quantity').val());
