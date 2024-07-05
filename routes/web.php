@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\client\HomePageController;
+use App\Http\Controllers\client\ProductDetailController;
 use App\Http\Controllers\client\ProductListControler;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +35,5 @@ Route::get('/homePage', [HomePageController::class, 'index']);
 
 Route::prefix('shop')->group(function () {
     Route::get('/{categoryId?}', [ProductListControler::class, 'index'])->name('client.shop.productList');
+    Route::get('/product/{productId}', [ProductDetailController::class, 'index'])->name('client.shop.productDetail');
 });
