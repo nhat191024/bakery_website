@@ -8520,15 +8520,16 @@
       .btn.btn-primary:hover {
         border: 1px solid #f8c53f;
         background: transparent;
-        color: #f8c53f; }
+        color: #f8c53f; 
+       }
       .btn.btn-primary.btn-outline-primary {
         border: 1px solid #f8c53f;
         background: transparent;
-        color: #f8c53f; }
+       }
         .btn.btn-primary.btn-outline-primary:hover {
           border: 1px solid transparent;
-          background: #f8c53f;
-          color: #fff; }
+          color: #f8c53f; 
+       }
     .btn.btn-white {
       background: #fff;
       border: 1px solid #fff;
