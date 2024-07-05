@@ -642,6 +642,9 @@
         {
             "name": "Medium"
         },
+        {
+            "name": "Large"
+        }
     ],
     "product_variations": [
         {
