@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
@@ -31,13 +32,16 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 });
+
 Route::get('/homePage', [HomePageController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index'])->name('client.about.index');
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
     Route::post('/', [ContactController::class, 'store'])->name('client.contact.store');
-    });
+});
+
 Route::prefix('shop')->group(function () {
     Route::get('/{categoryId?}', [ProductListControler::class, 'index'])->name('client.shop.productList');
     Route::get('/product/{productId}', [ProductDetailController::class, 'index'])->name('client.shop.productDetail');
-    });
+});
 
