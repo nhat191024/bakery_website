@@ -208,23 +208,76 @@
             <div class="row ftco-animate">
                 <div class="col-md-12">
                     <div class="carousel-testimony owl-carousel">
-                        @foreach ($messages as $message)
-                            <div class="item">
-                                <div class="testimony-wrap p-4 pb-5">
-                                    <div class="user-img mb-5"
-                                        style="background-image: url({{ asset('img/person_1.jpg') }})">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text text-center">
-                                        <p class="mb-5 pl-4 line">{{ $message->message }}</p>
-                                        <p class="name">{{ $message->name }}</p>
-                                        <span class="position">Marketing Manager</span>
-                                    </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Quán cà phê tráng miệng ngon nhất Hà Nội. Hương vị rất ngon.
+                                        Nhân viên rất tử tế. Bạn nên ăn bánh éclair ở đây. Ngon!</p>
+                                    <p class="name">Joonyoung Kim</p>
+                                    {{-- <span class="position">Marketing Manager</span> --}}
                                 </div>
                             </div>
-                        @endforeach
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Một quán cà phê nhỏ tuyệt vời với những chiếc bánh ngon
+                                        tuyệt... tôi và bạn bè đã đến đây mỗi ngày trong kỳ nghỉ ngắn ngày ở Hà Nội... Nhân
+                                        viên cũng tuyệt vời nữa</p>
+                                    <p class="name">Will Knight</p>
+                                    {{-- <span class="position">Marketing Manager</span> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Nơi để tìm thấy tất cả những gì bạn nhớ từ Pháp. Mọi thứ thực
+                                        sự giống như trong tiệm bánh ở góc phố nên đừng quẹt thẻ thăm quan khi ở trong khu
+                                        phố</p>
+                                    <p class="name">Remi Nguyen</p>
+                                    {{-- <span class="position">Marketing Manager</span> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Quán cà phê/tiệm bánh nằm ngay đối diện Nhà hát Opera. Họ
+                                        cũng phục vụ bữa trưa và cung cấp nhiều loại rượu vang. Tôi đã gọi bánh tart chanh.
+                                        Kem thực sự tươi với bánh quy. Đối với bữa trưa, tôi đã chọn mì spaghetti với sốt cà
+                                        chua, thực sự rất ngon. Bạn tôi đã gọi một suất ăn trưa bao gồm một món khai vị lớn
+                                        và một món cá chính (cùng với trà/cà phê miễn phí). Nhìn chung, trải nghiệm của
+                                        chúng tôi là thỏa đáng. Nhân viên cũng tuyệt vời, rất thân thiện và hữu ích</p>
+                                    <p class="name">Trang Do</p>
+                                    {{-- <span class="position">Marketing Manager</span> --}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

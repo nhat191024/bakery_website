@@ -102,8 +102,8 @@
                     <div class="ftco-footer-widget mb-4">
                         <a class="navbar-brand" href="index.html">Odouceurs</a>
                         <h2 class="ftco-heading-2">Odouceurs</h2>
-                        <p>Since 2014, we have become one of the best French bakeries in Hanoi. Currently, we have 2
-                            locations in Hanoi, one is in the Old Quarter and the other in West Lake area.</p>
+                        <p>Từ năm 2014, chúng tôi đã trở thành một trong những tiệm bánh Pháp ngon nhất tại Hà Nội. Hiện
+                            tại, chúng tôi có 2 cơ sở tại Hà Nội, một ở Phố Cổ và một ở khu vực Hồ Tây.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
