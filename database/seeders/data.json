@@ -1,40 +1,22 @@
 {
     "contact_us": [
         {
-            "website": "google.com",
-            "phone_number": "0123456789",
-            "email": "bakery@bread.com",
-            "address": "Japan"
+            "website": "https://www.facebook.com/odouceurs/",
+            "phone_number": "02462918575",
+            "email": "odouceurs@gmail.com",
+            "address": "72 Đ. Xuân Diệu, Tứ Liên, Tây Hồ, Hà Nội"
         },
         {
-            "website": "google.com",
-            "phone_number": "0123456789",
-            "email": "bakery@pie.com",
-            "address": "France"
-        },
-        {
-            "website": "google.com",
-            "phone_number": "0123456789",
-            "email": "bakery@tart.com",
-            "address": "USA"
-        },
-        {
-            "website": "google.com",
-            "phone_number": "0123456789",
-            "email": "bakery@muffin.com",
-            "address": "Germany"
-        },
-        {
-            "website": "google.com",
-            "phone_number": "0123456789",
-            "email": "bakery@croissant.com",
-            "address": "Italy"
+            "website": "https://www.instagram.com/odouceurs_bakery/",
+            "phone_number": "0868119220",
+            "email": "odouceurs@gmail.com",
+            "address": "56d P. Trần Nhân Tông, Nguyễn Du, Hai Bà Trưng, Hà Nội"
         }
     ],
     "about_us": [
         {
-            "title": "About Us",
-            "description": "We are Product Shop",
+            "title": "FRENCH PASTRY AND BAKERY",
+            "description": "O’DOUCEURS là một trang web chuyên về bánh ngọt Pháp, mang đến những trải nghiệm ẩm thực đẳng cấp và tinh tế cho người yêu thích ẩm thực Pháp. Trang web này được sáng lập với mục tiêu giới thiệu và phổ biến nghệ thuật làm bánh ngọt truyền thống của Pháp đến với người tiêu dùng khắp nơi. Tại O’DOUCEURS, bạn có thể tìm thấy một loạt các loại bánh ngọt phong phú, từ những chiếc bánh macarons sắc màu, bánh tart trái cây thơm ngon, cho đến bánh mille-feuille nhiều lớp giòn rụm. Mỗi sản phẩm đều được chế biến thủ công từ những nguyên liệu tươi ngon nhất, đảm bảo chất lượng và hương vị tuyệt hảo. Ngoài ra, O’DOUCEURS còn cung cấp các dịch vụ đặt hàng trực tuyến và giao hàng tận nơi, giúp khách hàng dễ dàng thưởng thức những món bánh ngon tại nhà. Trang web cũng thường xuyên cập nhật các công thức làm bánh và mẹo vặt trong nấu ăn, tạo điều kiện cho những ai đam mê nấu nướng tự tay làm những chiếc bánh Pháp tuyệt vời. Với O’DOUCEURS, mỗi chiếc bánh không chỉ là một món ăn, mà còn là một tác phẩm nghệ thuật tinh tế, mang đậm dấu ấn của văn hóa ẩm thực Pháp.",
             "image": ""
         }
     ],
@@ -118,7 +100,7 @@
             "password": "admin",
             "email": "kurumi@bruh.com",
             "address": "China",
-            "phone_number": "0177012",
+            "phone": "0987654321",
             "role": "admin",
             "status": 1
         },
@@ -127,7 +109,7 @@
             "password": "staff",
             "email": "takagi@bruh.com",
             "address": "Singapore",
-            "phone_number": "0177011",
+            "phone": "098765431",
             "role": "staff",
             "status": 1
         },
@@ -136,7 +118,7 @@
             "password": "straight",
             "email": "kumiko@bruh.com",
             "address": "Korea",
-            "phone_number": "0177010",
+            "phone": "098765430",
             "role": "user",
             "status": 0
         },
@@ -145,7 +127,7 @@
             "password": "gay",
             "email": "kanade@bruh.com",
             "address": "New York",
-            "phone_number": "0177009",
+            "phone": "0987654309",
             "role": "user",
             "status": 1
         },
@@ -154,68 +136,382 @@
             "password": "nhat",
             "email": "mikasa@bruh.com",
             "address": "Paris",
-            "phone_number": "0177008",
+            "phone": "0987654308",
             "role": "user",
             "status": 0
         }
     ],
     "categories": [
         {
-            "name": "Bánh bông lan"
+            "name": "VIENNOISERIES"
         },
         {
-            "name": "Bánh socola"
+            "name": "BIRTHDAY CAKES"
         },
         {
-            "name": "Bánh tiramisu"
-        },
-        {
-            "name": "Bánh cheeseProduct"
-        },
-        {
-            "name": "Bánh mousse"
+            "name": "DAILY CAKE CAKES"
         }
     ],
     "products": [
         {
             "category_id": 1,
-            "name": "CupProducts",
-            "description": "CupProducts",
-            "real_price": "90000",
-            "fake_price": "120000",
-            "image": ""
+            "name": "RAISIN ROLL",
+            "description": "",
+            "real_price": "35000",
+            "fake_price": "50000",
+            "image": "product-1.webp"
+        },
+        {
+            "category_id": 1,
+            "name": "PAIN AU CHOCOLATE RASPBERRY",
+            "description": "",
+            "real_price": "55000",
+            "fake_price": "70000",
+            "image": "product-2.webp"
+        },
+        {
+            "category_id": 1,
+            "name": "CINNAMON ROLL",
+            "description": "",
+            "real_price": "35000",
+            "fake_price": "50000",
+            "image": "product-3.webp"
+        },
+        {
+            "category_id": 1,
+            "name": "PLAN CROISSANT",
+            "description": "",
+            "real_price": "30000",
+            "fake_price": "45000",
+            "image": "product-4.webp"
+        },
+        {
+            "category_id": 1,
+            "name": "CHOUX BANANA PEANUT",
+            "description": "",
+            "real_price": "45000",
+            "fake_price": "55000",
+            "image": "product-5.webp"
+        },
+        {
+            "category_id": 1,
+            "name": "CROISSANT BANANA CARAMEL",
+            "description": "",
+            "real_price": "60000",
+            "fake_price": "75000",
+            "image": "product-6.webp"
+        },
+        {
+            "category_id": 1,
+            "name": "PAIN SWISS",
+            "description": "",
+            "real_price": "50000",
+            "fake_price": "65000",
+            "image": "product-7.webp"
+        },
+        {
+            "category_id": 1,
+            "name": "CROISSANT ALMOND PANDAN",
+            "description": "",
+            "real_price": "55000",
+            "fake_price": "70000",
+            "image": "product-8.webp"
+        },
+        {
+            "category_id": 1,
+            "name": "PAIN AU CHOCOLATE",
+            "description": "",
+            "real_price": "40000",
+            "fake_price": "68000",
+            "image": "product-9.webp"
+        },
+        {
+            "category_id": 1,
+            "name": "CROISSANT ALMOND",
+            "description": "",
+            "real_price": "45000",
+            "fake_price": "63000",
+            "image": "product-10.webp"
         },
         {
             "category_id": 2,
-            "name": "Bread",
-            "description": "Bread",
-            "real_price": "90000",
-            "fake_price": "120000",
-            "image": ""
+            "name": "CROQUANDINE CAKE",
+            "description": "Croquandine Birthday cake is a special gift from O’douceurs Bakery for all the chocolate lovers. Hidden inside the shining chocolate ganache are layers of chocolate mousse, chocolate cream, chocolate 72%, pralinee cream, crispy feuillantine on the base. Sending this cake to your loves one at all the special occasions is also giving an unforgettable memories.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-11.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "MIX FRUITS TART",
+            "description": "Recently, large tart is common used for many occasions because of it freshness and less sweet, very suitable for weather in Vietnam. Right after customer placed order, the sugar dough is shaped and baked to keep freshness and crispy, added almond cream and fresh vanilla cream, topped with cut fresh fruits: strawberry, raspberry, mango, apple, kiwi. Our tart brings the crispiness of the base,  freshness of cream, very little sweet and the natural taste of each fruits. Customer also can chose their favorite fruits.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-12.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "SAINT HONORE",
+            "description": "Saint Honoré is the best sell cake as well as the most special cake from O’douceurs Bakery. Since beginning of 2021, Saint Honore version O’douceurs Bakery becomes so trendy in Ha Noi market and only can find it at O’douceurs Bakery. With high technique from Mr. Silen Garrigues, the cake is so special and unique base on the traditional version. Saint Honore started with a  base crispy puff pastry, on top stick many choux a la creme vanilla and each chou topped with crispy caramelized sugar or brown sugar. At the middle, layer of home-made raspberry jam and chantilly cream. The cake bring us a combination of crispiness from the base or the top, freshness of vanilla cream. It will surprise us on each bite. Try it today and fall in love with the art of Real French Pastry in Hanoi.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-13.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "BLACK FOREST CAKE",
+            "description": "Black Forest is a traditional French cake, still be loved by many customers because its very light, soft, creamy and flavorful from the cherries inside. At O’douceurs Bakery, Black Forest made by layers of moist chocolate sponge cake, chantilly cream and home-made cherry jam, cherry chopped. Our Black Forest is Alcohol free, suitable to taste of more customers.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-14.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "EXOTIQUE CAKE",
+            "description": "Exotique, the very fruity special cake only can find at O’douceurs Bakery. Balance from layers of vanilla sponge cake, mousse mango, mousse passion and coconut cream, white chocolate. This cake very light sweet and sour, creamy and very fruity.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-15.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "MILLE FEUILLE YOGURT",
+            "description": "The signature birthday cake of O’douceurs Bakery. Mille Feuille Yogurt is the combination of crispy puff pastry and creamy yogurt cream, home-made raspberry jam. The layer outside of the puff pastry we added caramelzed crispy sugar. This birthday cake is suitable for summer with lightly sour of cream yogurt and fruity taste and smell from the home-made raspberry jam.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-16.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "PARIS BREST CAKE",
+            "description": "Paris Brest, a famous French cake all over the world ideals from the Tour de France. Paris Brest traditional has round shape with almond and hazelnut cream. With a touched from Mr. Silen Garrigues, O’douceurs Bakery has a special version with many special ingredients added. Added crispy brown sugar on top of the chou outside, keep the almond and hazelnut cream, we added pralines and chopped caramelized hazelnut at middle of cream.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-17.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "OPERA CAKE",
+            "description": "Opera cake is again one of the most popular cake all over. But not many of us know how to see if its a nice opera cake. Opera cake must makes from many thin layers of sponge cake with syrup coffe, butter cream and chocolate ganache. The thinner each layer, the better balance and rich taste with be. The quality of the opera cake is show in the edge of the cake.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-18.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "VANILLA FRUITS CAKE",
+            "description": "Vanilla Fruits cake made by layers of vanilla sponge cake, lots of vanilla cream, white chocolate and topped with a layer of fresh fruits cut: strawberry, raspberry, mango, apple, kiwi. This cake is very lightly sweet and fruity, creamy. Enjoys the combination of creamy, natural taste of different fruits bring us so much surprise. You can chose your favorite fruits. Available with chocolate option",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-19.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "CHOCOLATE FRUITS CAKE",
+            "description": "Chocolate cake is simple and easy cake, make by layers of chocolate sponge cake and chocolate cream. At O’douceurs Bakery, we use best ingredients can find on the market. Good ingredients bring simple cake good and rick taste.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-20.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "STRAWBERRY TART",
+            "description": "Strawberry tart is one of the most popular tart at O’douceurs Bakery. The sugar dough tart baked till very crispy, top with almond cream and fresh vanilla cream, cover on top with all nice ripped fresh strawberry, finished with a layer of shining nutual glaze. This strawberry tart attracts everyone with its crispiness, red shining color and aroma of ripe strawberries.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-21.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "LEMON MERINGUE TART",
+            "description": "The lemon tart has the sugar dough, lemon cream and meringue burned Italian style. Full flavor from yellow lemon and creamy burned meringue. The slightly sour but flavorful tart will make you feel so fresh and you can’t stop to get more and more of it. Its a simple tart but very tasty, especially for someone who like the sour flavor.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-22.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "MILLE FEUILLE VANILLA",
+            "description": "Mille Feuille Vanilla is a famous tradition French cake. Made by crispy puff pastry layers, fresh vanilla cream and finished by layer of icing sugar on top also as decoration. Mille Feuille cake is very crispy and less sweet, suitable for hot weather in Vietnam. This cake is one of the most loved cake of O’douceurs Bakery. ( you also can take off the icing sugar on top to adjust the sweetness).",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-23.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "SAINT HONORE MATCHA",
+            "description": "",
+            "real_price": "650000",
+            "fake_price": "690000",
+            "image": "product-24.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "TIRAMISU CAKE",
+            "description": "Tiramisu made by chocolate sponge cake with lots of coffee syrup and mascapone cream. This cake is so elegant and charming, so strong in term of coffee flavor and creamy of mascapone. Sending this cake to your loves one at all the special occasions is also giving an unforgettable memories.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-25.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "APPLE TART",
+            "description": "The Apple Tart tart made by puff pastry on the base, home-made apple compote with many layers of frest apple, cinnamon powder, top with butter and sugar then baked. The crispiness of the base, flavor mix between cooked apple slices, cinnamon powder and butter, sugar is just the best.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-26.webp"
+        },
+        {
+            "category_id": 2,
+            "name": "RASPBERRY TART",
+            "description": "Recently, large tart is common used for many occasions because of it freshness and less sweet, very suitable for weather in Vietnam. Right after customer placed order, the sugar dough is shaped and baked to keep freshness and crispy, added almond cream and fresh vanilla cream, topped with cut fresh fruits: strawberry, raspberry, mango, apple, kiwi. Our tart brings the crispiness of the base,  freshness of cream, very little sweet and the natural taste of each fruits. Customer also can chose their favorite fruits.",
+            "real_price": "0",
+            "fake_price": "0",
+            "image": "product-27.webp"
         },
         {
             "category_id": 3,
-            "name": "Cookies",
-            "description": "Cookies",
-            "real_price": "90000",
-            "fake_price": "120000",
-            "image": ""
+            "name": "SAINT HONORE",
+            "description": "Các viên choux kem này làm với đường caramel giòn ở trên hoặc craquelin, ở giữa trang trí bằng kem chantilly.",
+            "real_price": "69000",
+            "fake_price": "75000",
+            "image": "product-29.webp"
         },
         {
-            "category_id": 4,
-            "name": "Products",
-            "description": "Products",
-            "real_price": "90000",
-            "fake_price": "120000",
-            "image": ""
+            "category_id": 3,
+            "name": "ECLAIR CARAMEL",
+            "description": "",
+            "real_price": "42000",
+            "fake_price": "65000",
+            "image": "product-30.webp"
         },
         {
-            "category_id": 5,
-            "name": "Pies",
-            "description": "Pies",
-            "real_price": "90000",
-            "fake_price": "120000",
-            "image": ""
+            "category_id": 3,
+            "name": "STRAWBERRY TART",
+            "description": "",
+            "real_price": "54000",
+            "fake_price": "75000",
+            "image": "product-31.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "ECLAIR CHOCOLATE",
+            "description": "",
+            "real_price": "42000",
+            "fake_price": "55000",
+            "image": "product-32.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "RASPBERRIES TART",
+            "description": "",
+            "real_price": "60000",
+            "fake_price": "75000",
+            "image": "product-33.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "LEMON MERINGUE TART",
+            "description": "",
+            "real_price": "54000",
+            "fake_price": "75000",
+            "image": "product-34.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "MILLE FEUILLE VANILLA",
+            "description": "",
+            "real_price": "54000",
+            "fake_price": "74000",
+            "image": "product-35.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "TIRAMISU",
+            "description": "",
+            "real_price": "59000",
+            "fake_price": "71000",
+            "image": "product-36.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "PARIS BREST",
+            "description": "",
+            "real_price": "69000",
+            "fake_price": "81000",
+            "image": "product-37.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "ECLAIR VANILLA",
+            "description": "",
+            "real_price": "42000",
+            "fake_price": "55000",
+            "image": "product-38.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "OPERA",
+            "description": "",
+            "real_price": "49000",
+            "fake_price": "58000",
+            "image": "product-39.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "APPLE TART",
+            "description": "",
+            "real_price": "54000",
+            "fake_price": "68000",
+            "image": "product-40.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "MILLE FEUILLE YOGURT",
+            "description": "",
+            "real_price": "59000",
+            "fake_price": "71000",
+            "image": "product-41.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "EXOTIQUE",
+            "description": "",
+            "real_price": "49000",
+            "fake_price": "51000",
+            "image": "product-42.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "BLACK FOREST",
+            "description": "",
+            "real_price": "49000",
+            "fake_price": "51000",
+            "image": "product-43.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "CROQUANDINE",
+            "description": "",
+            "real_price": "59000",
+            "fake_price": "71000",
+            "image": "product-44.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "ECLAIR EARLGREY CARAMEL",
+            "description": "",
+            "real_price": "49000",
+            "fake_price": "61000",
+            "image": "product-45.webp"
+        },
+        {
+            "category_id": 3,
+            "name": "MATCHA YUZU CAKE",
+            "description": "",
+            "real_price": "55000",
+            "fake_price": "70000",
+            "image": "product-46.webp"
         }
     ],
     "blogs": [
@@ -337,6 +633,176 @@
         {
             "type": "tripadvisor",
             "name": ""
+        }
+    ],
+    "variations": [
+        {
+            "name": "Small"
+        },
+        {
+            "name": "Medium"
+        },
+    ],
+    "product_variations": [
+        {
+            "variation_id": 1,
+            "product_id": 11,
+            "price": "390000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 11,
+            "price": "650000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 12,
+            "price": "330000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 12,
+            "price": "550000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 13,
+            "price": "390000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 13,
+            "price": "650000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 14,
+            "price": "330000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 14,
+            "price": "550000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 15,
+            "price": "330000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 15,
+            "price": "550000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 16,
+            "price": "390000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 16,
+            "price": "650000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 17,
+            "price": "390000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 17,
+            "price": "650000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 18,
+            "price": "330000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 18,
+            "price": "550000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 19,
+            "price": "350000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 19,
+            "price": "600000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 20,
+            "price": "390000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 20,
+            "price": "650000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 21,
+            "price": "330000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 21,
+            "price": "550000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 22,
+            "price": "330000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 22,
+            "price": "550000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 23,
+            "price": "330000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 23,
+            "price": "550000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 25,
+            "price": "390000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 25,
+            "price": "650000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 26,
+            "price": "330000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 26,
+            "price": "550000"
+        },
+        {
+            "variation_id": 1,
+            "product_id": 27,
+            "price": "380000"
+        },
+        {
+            "variation_id": 2,
+            "product_id": 27,
+            "price": "600000"
         }
     ]
 }
