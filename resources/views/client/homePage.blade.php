@@ -79,23 +79,23 @@
                     <div class="row">
                         <div class="col-md-6 order-md-last align-items-stretch d-flex">
                             <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
-                                style="background-image: url({{ asset('img/category.jpg') }});">
+                                style="background-image: url({{ asset('img/client/shop/product-5.jpg') }});">
                                 <div class="text text-center">
                                     <h2>Các loại bánh</h2>
                                     <p>Tạo điểm nhấn cho bữa tiệc của bạn</p>
-                                    <p><a href="#" class="btn btn-primary">Shop now</a></p>
+                                    <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                                style="background-image: url({{ asset('img/category-1.jpg') }});">
+                                style="background-image: url({{ asset('img/client/shop/product-1.jpg') }});">
                                 <div class="text px-3 py-1">
                                     <h2 class="mb-0"><a href="#"> Bánh Đặt Trước</a></h2>
                                 </div>
                             </div>
                             <div class="category-wrap ftco-animate img d-flex align-items-end"
-                                style="background-image: url({{ asset('img/category-2.jpg') }});">
+                                style="background-image: url({{ asset('img/client/shop/product-2.jpg') }});">
                                 <div class="text px-3 py-1">
                                     <h2 class="mb-0"><a href="#">Bánh Đặt Tiệc</a></h2>
                                 </div>
@@ -106,13 +106,13 @@
 
                 <div class="col-md-4">
                     <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                        style="background-image: url({{ asset('img/category-3.jpg') }});">
+                        style="background-image: url({{ asset('img/client/shop/product-3.jpg') }});">
                         <div class="text px-3 py-1">
                             <h2 class="mb-0"><a href="#">Bánh Dessert</a></h2>
                         </div>
                     </div>
                     <div class="category-wrap ftco-animate img d-flex align-items-end"
-                        style="background-image: url({{ asset('img/category-4.jpg') }});">
+                        style="background-image: url({{ asset('img/client/shop/product-4.jpg') }});">
                         <div class="text px-3 py-1">
                             <h2 class="mb-0"><a href="#">Bánh Sỉ</a></h2>
                         </div>
@@ -134,42 +134,6 @@
             </div>
         </div>
         <div class="container">
-            {{-- <div class="row">
-                @foreach ($products as $product)
-                    <div class="col-md-6 col-lg-3 ftco-animate">
-                        <div class="product">
-                            <a href="#" class="img-prod">
-                                <img class="img-fluid" src="{{ asset('/img/client/shop/' . $product->image) }}">
-                            </a>
-                            <div class="text py-3 pb-4 px-3 text-center">
-                                <h3><a href="#">{{ $product->name }}</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span class="mr-2 price-dc">{{ $product->fake_price }}
-                                                VNĐ</span><span class="price-sale">{{ $product->real_price }} VNĐ</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="bottom-area d-flex px-3">
-                                    <div class="m-auto d-flex">
-                                        <a href="#"
-                                            class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                            <span><i class="ion-ios-menu"></i></span>
-                                        </a>
-                                        <a href="#"
-                                            class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                            <span><i class="ion-ios-cart"></i></span>
-                                        </a>
-                                        <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                            <span><i class="ion-ios-heart"></i></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div> --}}
             <div class="row">
                 @foreach ($products as $pd)
                     <div class="col-md-6 col-lg-4 ftco-animate">
@@ -210,7 +174,7 @@
     </section>
 
     @foreach ($promotions as $promotion)
-        <section class="ftco-section img" style="background-image: url({{ asset('img/bg_3.jpg') }});">
+        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-2.jpg') }});">
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
@@ -254,7 +218,7 @@
                                         </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-5 pl-4 line"{{ $message->message }}</p>
+                                        <p class="mb-5 pl-4 line">{{ $message->message }}</p>
                                         <p class="name">{{ $message->name }}</p>
                                         <span class="position">Marketing Manager</span>
                                     </div>
