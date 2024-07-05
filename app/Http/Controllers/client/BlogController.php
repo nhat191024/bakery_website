@@ -4,7 +4,7 @@ namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blogs;
-
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -17,8 +17,8 @@ class BlogController extends Controller
 
     public function index()
     {
-        // $images = Banners::all();
-        // , compact('products', 'messages', 'images', 'promotions')
-        return view('client.blog.blogPage');
+        $blogs = Blogs::all();
+        $categories = Categories::all();
+        return view('client.blog.blogPage', compact('blogs', 'categories'));
     }
 }
