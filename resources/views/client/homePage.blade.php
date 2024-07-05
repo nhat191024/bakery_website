@@ -4,8 +4,7 @@
         <div class="home-slider owl-carousel">
             @foreach ($images as $image)
                 <div class="slider-item"
-                    style="background-image:
-                url({{ asset('img/home/' . $image->image) }});">
+                    style="background-image:url({{ asset('img/home/' . $image->image) }});">
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -40,8 +39,6 @@
                             <span class="flaticon-diet"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">Luôn tươi ngon</h3>
-                            <span>Bánh được bảo quản cẩn thận </span>
                             <h3 class="heading">Luôn tươi ngon</h3>
                             <span>Bánh được bảo quản cẩn thận </span>
                         </div>
@@ -129,8 +126,10 @@
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <span class="subheading">Chúng tôi hiểu rằng</span>
                     <h2 class="mb-4">BÁNH PHÁP LÀ NGHỆ THUẬT</h2>
-                    <p>Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng.
-                    Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.</p>
+                    <p>
+                        Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng.
+                    Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.
+                </p>
                 </div>
             </div>
         </div>
