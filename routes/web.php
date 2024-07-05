@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\client\AboutController;
+use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
@@ -33,7 +34,7 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('/homePage', [HomePageController::class, 'index']);
+Route::get('/homePage', [HomePageController::class, 'index'])->name('client.home.index');
 Route::get('/about', [AboutController::class, 'index'])->name('client.about.index');
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
@@ -43,5 +44,11 @@ Route::prefix('contact')->group(function () {
 Route::prefix('shop')->group(function () {
     Route::get('/{categoryId?}', [ProductListControler::class, 'index'])->name('client.shop.productList');
     Route::get('/product/{productId}', [ProductDetailController::class, 'index'])->name('client.shop.productDetail');
+});
+
+Route::prefix('cart')->group(function () {
+    Route::get('/', [CartController::class, 'index'])->name('client.cart.index');
+    Route::post('/add', [CartController::class, 'addToCart'])->name('client.cart.add');
+    Route::post('/remove', [CartController::class, 'removeFromCart'])->name('client.cart.remove');
 });
 
