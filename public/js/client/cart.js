@@ -18,12 +18,36 @@ function updateProduct(id, quantity, variant_id) {
     });
 }
 
-function updateQuantity(id, variant_id) {
+function updateQuantity(id, variant_id, type) {
     const quantity = $('#quantity-' + id);
-    let value = parseInt(quantity.val())+1;
+    if (parseInt(quantity.val()) == 1 && type === 1) {
+        confirm('Bạn có chắc chắn muốn xoá sản phẩm này khỏi giỏ hàng?') ? removeProduct(id) : '';
+        return;
+    }
+    let value = parseInt(quantity.val()) + (type == 2 ? 1 : -1);
     quantity.val(value);
-
     updateProduct(id, value, variant_id);
+}
+
+function removeProduct(id) {
+    $.ajax({
+        url: "/cart/remove",
+        method: "POST",
+        data: {
+            _token: csrfToken,
+            'product_id': id
+        },
+        success: function (data) {
+            $('#product-' + id).css('display', 'none');
+            // Check if the cart is empty after removing the product
+            if (data.cartCount === 0) {
+                subTotal = 0; // Reset subtotal if the cart is empty
+            } else {
+                subTotal = subTotal - $('#product-' + id).find('.total').text().replace('đ', '').replace(',', '').replace('.', '');
+            }
+            calculateTotal(data.discount);
+        }
+    });
 }
 
 function calculateTotal(discount = 0) {
