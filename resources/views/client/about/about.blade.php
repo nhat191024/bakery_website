@@ -1,0 +1,218 @@
+@extends('client.layout.layout')
+@section('content')
+    <div class="hero-wrap hero-bread" style="background-image: url('images/bg_1.jpg');">
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center">
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span> <span>Giới
+                            thiệu</span></p>
+                    <h1 class="mb-0 bread">Giới thiệu</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+                    style="background-image: url(images/about.jpg);">
+                    <a href="https://vimeo.com/45830194"
+                        class="icon popup-vimeo d-flex justify-content-center align-items-center">
+                        <span class="icon-play"></span>
+                    </a>
+                </div>
+                <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+                    <div class="heading-section-bold mb-4 mt-md-5">
+                        <div class="ml-md-0">
+                            <h2 class="mb-4">{{ $About_us->title }}</h2>
+                        </div>
+                    </div>
+                    <div class="pb-md-5">
+                        <p>{{ $About_us->description }}</p>
+                        <p><a href="#" class="btn btn-primary">Mua ngay</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+        <div class="container py-4">
+            <div class="row d-flex justify-content-center py-5">
+                <div class="col-md-6">
+                    <h2 style="font-size: 22px;" class="mb-0">Đăng kí </h2>
+                    <span>Quý khách điền e-mail để nhận những thông tin ưu đãi của chúng tôi </span>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <form action="#" class="subscribe-form">
+                        <div class="form-group d-flex">
+                            <input type="text" class="form-control" placeholder="Nhập địa chỉ e-mail">
+                            <input type="submit" value="Đăng ký" class="submit px-3">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);">
+        <div class="container">
+            <div class="row justify-content-center py-5">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <strong class="number" data-number="99999">0</strong>
+                                    <span>Khách Hàng Hài lòng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <strong class="number" data-number="2">0</strong>
+                                    <span>Chi nhánh </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <strong class="number" data-number="1000">0</strong>
+                                    <span>Đối tác </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <strong class="number" data-number="1090">0</strong>
+                                    <span>Giải thưởng</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section testimony-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section ftco-animate text-center">
+                    <span class="subheading">Khách hàng nói gì về chúng tôi</span>
+                    <h2 class="mb-4">Những chia sẻ gần đây</h2>
+                    <p>
+                    </p>
+                </div>
+            </div>
+            <div class="row ftco-animate">
+                <div class="col-md-12">
+                    <div class="carousel-testimony owl-carousel">
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Một quán cà phê tuyệt vời với những món bánh tuyệt hảo... tôi
+                                        và những người bạn thường đến đây
+                                        vào cuối tuần trong trời thu Hà Nội... Nhân viên cũng rất thân thiện.</p>
+                                    <p class="name"> Will Knight</p>
+                                    <span class="position">Khách Hàng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Nơi bạn tìm thấy tinh hoa ẩm thực từ nước Pháp.
+                                        Mọi thứ thực sự giống như một tiệm bánh truyền thống ở góc phố Paris</p>
+                                    <p class="name"> Rémi Nguyễn</p>
+                                    <span class="position">Khách Hàng</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Mọi thứ rất tuyệt vời từ vị trí, cách trang trí cho đến các loại bánh ,
+                                        . Tôi thực sự thích bánh trái cây. Thực đơn rất đa dạng, bạn có thể đặt một
+                                        số món bánh cho bữa trưa . Các nhân viên đều rất thân thiện. </p>
+                                    <p class="name">Shinegi</p>
+                                    <span class="position">Khách Hàng</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row no-gutters ftco-services">
+                <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-shipped"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">Miễn phí giao hàng</h3>
+                            <span>Cho đơn hàng từ 2 triệu</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-diet"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">Luôn tươi ngon</h3>
+                            <span>Bánh được bảo quản an toàn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-award"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">Chất lượng tốt</h3>
+                            <span>Đánh giá cao bởi nhiều khách hàng</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+                            <span class="flaticon-customer-service"></span>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">Hỗ trợ nhiệt tình</h3>
+                            <span>Trực tuyến 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

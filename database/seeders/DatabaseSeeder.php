@@ -8,14 +8,17 @@ use App\Models\Bill_details;
 use App\Models\Bills;
 use App\Models\Blogs;
 use App\Models\Contact_infos;
+use App\Models\Product_variation;
 use App\Models\Products;
 use App\Models\Categories;
 use App\Models\Contact_us;
 use App\Models\Message;
 use App\Models\Promotions;
 use App\Models\User;
+use App\Models\Variation;
 use App\Models\Vouchers;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,10 +34,10 @@ class DatabaseSeeder extends Seeder
         foreach ($dataArray['users'] as $row) {
             User::create([
                 "username" => $row['username'],
-                "password" => $row['password'],
+                "password" => Hash::make($row['password']),
                 "email" => $row['email'],
                 "address" => $row['address'],
-                "phone_number" => $row['phone_number'],
+                "phone" => $row['phone'],
                 "role" => $row['role'],
                 "status" => $row['status'],
             ]);
@@ -91,7 +94,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($dataArray['contact_us'] as $row) {
             Contact_us::create([
-                "name" => $row['name'],
+                "website" => $row['website'],
                 "phone_number" => $row['phone_number'],
                 "email" => $row['email'],
                 "address" => $row['address'],
@@ -155,6 +158,20 @@ class DatabaseSeeder extends Seeder
             Contact_infos::create([
                 "type" => $row['type'],
                 "name" => $row['name'],
+            ]);
+        }
+
+        foreach ($dataArray['variations'] as $row) {
+            Variation::create([
+                "name" => $row['name'],
+            ]);
+        }
+
+        foreach ($dataArray['product_variations'] as $row) {
+            Product_variation::create([
+                "variation_id" => $row['variation_id'],
+                "product_id" => $row['product_id'],
+                "price" => $row['price'],
             ]);
         }
     }
