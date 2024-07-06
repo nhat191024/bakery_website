@@ -5,7 +5,7 @@ namespace App\Service\client;
 use App\Models\Categories;
 use App\Models\Products;
 
-class ProductListService
+class  ProductListService
 {
     private $products;
     private $categories;

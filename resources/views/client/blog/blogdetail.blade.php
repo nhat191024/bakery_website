@@ -182,12 +182,15 @@
                         </form>
                     </div>
                     <div class="sidebar-box ftco-animate">
-                        <h3 class="heading">Categories</h3>
+                        <h3 class="heading">Danh mục bánh </h3>
                         <ul class="categories">
-                            <li><a href="#">Vegetables <span>(12)</span></a></li>
-                            <li><a href="#">Fruits <span>(22)</span></a></li>
+                            @foreach ($Categories as $item)
+                            <li><a href="#">{{$item->name}} </a></li>
+                            @endforeach
+                            {{-- <li><a href="#">Vegetables <span>(12)</span></a></li> --}}
+                            {{-- <li><a href="#">Fruits <span>(22)</span></a></li>
                             <li><a href="#">Juice <span>(37)</span></a></li>
-                            <li><a href="#">Dries <span>(42)</span></a></li>
+                            <li><a href="#">Dries <span>(42)</span></a></li> --}}
                         </ul>
                     </div>
 
