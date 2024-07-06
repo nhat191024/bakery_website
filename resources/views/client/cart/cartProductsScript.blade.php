@@ -14,30 +14,30 @@
         });
     }
 
-    function removeProduct(id) {
-        $.ajax({
-            url: "{{ route('client.cart.remove') }}",
-            method: "POST",
-            data: {
-                _token: "{{ csrf_token() }}",
-                'product_id': id
-            },
-            success: function(data) {
+    // function removeProduct(id) {
+    //     $.ajax({
+    //         url: "{{ route('client.cart.remove') }}",
+    //         method: "POST",
+    //         data: {
+    //             _token: "{{ csrf_token() }}",
+    //             'product_id': id
+    //         },
+    //         success: function(data) {
 
-                $('#product-' + id).css('display', 'none');
-                // Check if the cart is empty after removing the product
-                if (data.cartCount === 0) {
-                    subTotal = 0; // Reset subtotal if the cart is empty
-                } else {
-                    subTotal = subTotal - $('#product-' + id).find('.total').text().replace('đ', '')
-                        .replace(
-                            ',', '').replace('.', '');
-                }
+    //             $('#product-' + id).css('display', 'none');
+    //             // Check if the cart is empty after removing the product
+    //             if (data.cartCount === 0) {
+    //                 subTotal = 0; // Reset subtotal if the cart is empty
+    //             } else {
+    //                 subTotal = subTotal - $('#product-' + id).find('.total').text().replace('đ', '')
+    //                     .replace(
+    //                         ',', '').replace('.', '');
+    //             }
 
-                calculateTotal(data.discount);
-            }
-        });
-    }
+    //             calculateTotal(data.discount);
+    //         }
+    //     });
+    // }
 
     // function updateProduct(id, quantity) {
     //     $.ajax({
