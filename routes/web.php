@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\client\AboutController;
+use App\Http\Controllers\client\BlogController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
@@ -39,6 +40,21 @@ Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
     Route::post('/', [ContactController::class, 'store'])->name('client.contact.store');
 });
+
+Route::prefix('about')->group(function () {
+    Route::get('/', [AboutController::class, 'index'])->name('client.about.index');
+});
+// Route::prefix('blog')->group(function () {
+//     Route::get('/{id}', [BlogController::class, 'show'])->name('client.blog.show');
+// });
+
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('client.blog.show');
+
+// Blog page
+Route::prefix('blog')->group(function () {
+    Route::get('/', [BlogController::class, 'index']);
+});
+
 
 Route::prefix('shop')->group(function () {
     Route::get('/{categoryId?}', [ProductListControler::class, 'index'])->name('client.shop.productList');

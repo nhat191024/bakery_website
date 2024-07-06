@@ -10,12 +10,13 @@ class Blogs extends Model
     protected $table = 'blogs';
 
     protected $fillable = [
+        'id',
         'user_id',
         'title',
         'subtitle',
         'content',
         'thumbnail',
-    ];
+    ]; 
 
     public function user()
     {
