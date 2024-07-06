@@ -5,13 +5,15 @@ namespace App\Service\client;
 use App\Models\Bill_details;
 use App\Models\Bills;
 use App\Models\Cart;
+use App\Models\Product_variation;
 use App\Models\Products;
 use App\Models\Vouchers;
 use Illuminate\View\View;
 
 class CartService
 {
-    public function index(){
+    public function index()
+    {
         return view('client.cart.cartProducts')->with([
             'cart' => Cart::get(),
             'subTotal' => Cart::getSubtotal(),
@@ -23,12 +25,13 @@ class CartService
     public function updateCart($request)
     {
         Cart::update($request->input('product_id'), $request->input('quantity'));
-
-
+        $price = Product_variation::where('product_id', $request->input('product_id'))
+            ->where('variation_id', $request->input('variant_id'))
+            ->first('price');
         return [
             'subTotal' => Cart::getSubtotal(),
             'discount' => $this->calculateVoucher(Cart::getCouponCode()),
-            'real_price' => Products::find($request->input('product_id'))->real_price
+            'price' => $price['price'],
         ];
     }
 
@@ -40,17 +43,16 @@ class CartService
         $variation_id = $request->variation_id;
 
         if ($product == null) {
-            return redirect()->back()->with('message', 'Sản phẩm không tồn tại!', );
+            return redirect()->back()->with('message', 'Sản phẩm không tồn tại!',);
         }
-        if ($quantity == null|| $quantity <= 0) {
+        if ($quantity == null || $quantity <= 0) {
             $quantity = 1;
         }
         if ($quantity > 100) {
             $quantity = 100;
         }
 
-        Cart::add($product, $variation_id,$quantity);
-
+        Cart::add($product, $variation_id, $quantity);
     }
 
 
@@ -117,5 +119,4 @@ class CartService
         Cart::clear();
         return 'cart cleared';
     }
-
 }
