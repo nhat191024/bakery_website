@@ -60,15 +60,16 @@
                     <div class="sidebar-box ftco-animate">
                         <h3 class="heading">Blog gần đây</h3>
 
-                        @foreach ($blogs as $blog)
+                        @foreach ($recentBlogs as $recentBlog)
                             <div class="block-21 mb-4 d-flex">
                                 <a class="blog-img mr-4" style="background-image: url({{ asset('img/blog.jpg') }});"></a>
                                 <div class="text">
-                                    <h3 class="heading-1"><a href="#">{{ $blog->title }}</a></h3>
+                                    <h3 class="heading-1"><a href="#">{{ $recentBlog->title }}</a></h3>
                                     <div class="meta">
                                         <div><a href="#"><span class="icon-calendar"></span>
-                                                {{ $blog->created_at }}</a></div>
-                                        <div><a href="#"><span class="icon-person"></span> {{ $blog->user_id }}</a>
+                                                {{ $recentBlog->created_at }}</a></div>
+                                        <div><a href="#"><span class="icon-person"></span>
+                                                {{ $recentBlog->user_id }}</a>
                                         </div>
                                         <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                                     </div>
