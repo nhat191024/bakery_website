@@ -54,7 +54,7 @@
                                                     <div class="input-group d-flex mt-3">
                                                         <span class="input-group-btn mr-2">
                                                             <button type="button" class="quantity-left-minus btn shadow-sm"
-                                                                data-type="minus">
+                                                                onclick="updateQuantity({{ $id }}, {{ $pd['variation_id'] }}, 1) ">
                                                                 <i class="ion-ios-remove"></i>
                                                             </button>
                                                         </span>
@@ -63,7 +63,7 @@
                                                             value="{{ $pd['quantity'] }}" min="1" max="100">
                                                         <span class="input-group-btn ml-2">
                                                             <button type="button" class="quantity-right-plus btn shadow-sm"
-                                                                onclick="updateQuantity({{ $id }}, {{ $pd['variation_id'] }})">
+                                                                onclick="updateQuantity({{ $id }}, {{ $pd['variation_id'] }}, 2)">
                                                                 <i class="ion-ios-add"></i>
                                                             </button>
                                                         </span>
