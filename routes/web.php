@@ -44,4 +44,3 @@ Route::prefix('shop')->group(function () {
     Route::get('/{categoryId?}', [ProductListControler::class, 'index'])->name('client.shop.productList');
     Route::get('/product/{productId}', [ProductDetailController::class, 'index'])->name('client.shop.productDetail');
 });
-
