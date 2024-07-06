@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\client\AboutController;
-use App\Http\Controllers\client\BlogController;
+
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
 use App\Http\Controllers\client\ProductListControler;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\client\BlogController;
 
 /*
 |--------------------------------------------------------------------------
