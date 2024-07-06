@@ -49,6 +49,10 @@ Route::prefix('shop')->group(function () {
 Route::prefix('cart')->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('client.cart.index');
     Route::post('/add', [CartController::class, 'addToCart'])->name('client.cart.add');
+    Route::post('/update', [CartController::class, 'updateCart'])->name('client.cart.update');
     Route::post('/remove', [CartController::class, 'removeFromCart'])->name('client.cart.remove');
+    Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
+    Route::post('/removeVoucher', [CartController::class, 'removeVoucher'])->name('client.cart.removeVoucher');
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('client.cart.checkout');
 });
 

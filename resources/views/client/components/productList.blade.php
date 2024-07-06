@@ -15,10 +15,10 @@
                              <i class="ion-ios-menu text-primary mr-1" ></i> See details
                             </div>
                         @else
-                            <div class="d-flex justify-content-center align-items-center shadow-lg pointer text-primary"
-                             onclick="window.location.href='#'"
+                            <div data="{{ $pd->id }}" class="addToCart d-flex justify-content-center align-items-center shadow-lg pointer text-primary"
+                             onclick="addToCart({{ $pd->id }})"
                              style="font-size: 1.2rem;">
-                             <i class="ion-ios-cart text-primary mr-1" ></i> Add to cart
+                             <i class="ion-ios-cart text-primary mr-1" ></i> <p id="addingToCart{{ $pd->id }}" class="addingToCart m-0">Add to cart</p>
                             </div>
                         @endif
                     </div>
@@ -51,3 +51,6 @@
         </div>
     @endforeach
 </div>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+@include('client.components.productListScript')
+

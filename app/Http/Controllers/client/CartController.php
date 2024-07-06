@@ -11,32 +11,39 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     private $service;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->service = new CartService();
     }
 
-    public function index(){
+    public function index()
+    {
         return $this->service->index();
     }
 
-    public function addToCart(Request $request){
+    public function addToCart(Request $request)
+    {
         return $this->service->addToCart( $request );
     }
+    public function applyVoucher(Request $request)
+    {
+        return $this->service->applyVoucher( $request );
+    }
 
-    public function removeFromCart(Request $request){
+    public function removeFromCart(Request $request)
+    {
         return $this->service->removeFromCart( $request );
     }
 
-    public function getCart(){
-        return $this->service->getCart();
+    public function removeVoucher()
+    {
+        return $this->service->removeVoucher();
     }
 
-    public function getCartCount(){
-        return $this->service->getCartCount();
+    public function updateCart(Request $request)
+    {
+        return $this->service->updateCart($request);
     }
 
-    public function getCartTotal(){
-        return $this->service->getCartTotal();
-    }   
 }

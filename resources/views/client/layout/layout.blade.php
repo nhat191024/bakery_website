@@ -67,7 +67,7 @@
                     @endif" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="{{ route('client.contact.index') }}" class="nav-link">Contact</a></li>
                     <li class="nav-item cta cta-colored"><a href="{{ route('client.cart.index') }}" class="nav-link"><span
-                                class="icon-shopping_cart"></span>[0]</a></li>
+                                class="icon-shopping_cart" id="cartAmount"></span>[0]</a></li>
 
                 </ul>
             </div>

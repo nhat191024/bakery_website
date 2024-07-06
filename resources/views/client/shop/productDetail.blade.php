@@ -13,7 +13,7 @@
                     <h3><b>{{ $product->name }}</b></h3>
                     <div class="rating d-flex">
                         <p class="text-left">
-                            <a href="#" class="mr-2" style="color: #000;">{{ count($product->bill_details) }} 
+                            <a href="#" class="mr-2" style="color: #000;">{{ count($product->bill_details) }}
                                 <span style="color: #bbb;">Sold</span></a>
                         </p>
                     </div>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="w-100"></div>
                     </div>
-                    <p><a href="cart.html" class="btn btn-primary py-3 px-5 text-center">Add to Cart</a></p>
+                    <p><a onclick="c({{ $product->id }})" class="btn btn-primary py-3 px-5 text-center">Add to Cart</a></p>
                     <p>Large size please consult staff. <br>
                         Price does not include VAT 10% and shipping fee.</p>
                 </div>
@@ -82,33 +82,6 @@
             </section>
         </div>
     </section>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            var quantitiy = 0;
-            $('.quantity-right-plus').click(function(e) {
-                e.preventDefault();
-                var quantity = parseInt($('#quantity').val());
-                $('#quantity').val(quantity + 1);
-            });
-            
-            $('#productVariation').change(function(e) {
-                var categoryId = e.target.value;
-                var price = $(this).find('option:selected').data('price');
-                // $('#product-price').text(new Intl.NumberFormat('de-DE').format(price));
-                $('#productPrice').val(new Intl.NumberFormat('de-DE').format(price) + 'đ');
-                console.log('change price based on selected variant' + e.target.value + ' ' + new Intl.NumberFormat('de-DE').format(price)+'đ');
-            });
-            
-            $('.quantity-left-minus').click(function(e) {
-                e.preventDefault();
-                var quantity = parseInt($('#quantity').val());
-                if (quantity > 1) {
-                    $('#quantity').val(quantity - 1);
-                }
-            });
-        });
-    </script>
     <section>
         @include('client.components.contactUsRedirect')
     </section>
