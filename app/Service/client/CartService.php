@@ -20,7 +20,6 @@ class CartService
         ]);
     }
 
-
     public function updateCart($request)
     {
         Cart::update($request->input('product_id'), $request->input('quantity'));

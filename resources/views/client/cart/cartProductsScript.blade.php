@@ -13,6 +13,9 @@
             }
         });
     }
+
+
+
     function removeProduct(id) {
         $.ajax({
             url: "{{ route('client.cart.remove') }}",
@@ -24,16 +27,20 @@
             success: function(data) {
 
                 $('#product-' + id).css('display', 'none');
+                // Check if the cart is empty after removing the product
                 if (data.cartCount === 0) {
-                    subTotal = 0;
+                    subTotal = 0; // Reset subtotal if the cart is empty
                 }else{
                     subTotal = subTotal - $('#product-' + id).find('.total').text().replace('đ', '').replace(
                         ',', '').replace('.', '');
                 }
+
                 calculateTotal(data.discount);
             }
         });
     }
+
+
 
     function updateProduct(id, quantity) {
     $.ajax({
@@ -45,7 +52,15 @@
                 'quantity': quantity
             },
         success: function (data) {
+            // Update the subtotal element in the UI immediately
             $('#subTotal').text(new Intl.NumberFormat('de-DE').format(data.subTotal) + 'đ');
+            // $('#total-' + id).attr('value')
+            $('#total-'+id).text(
+
+                new Intl.NumberFormat('de-DE').format(quantity * data.price)
+
+                 + 'đ');
+                 console.log(data.quantity,' ', data.price);
 
             subTotal = data.subTotal;
             calculateTotal(data.discount);

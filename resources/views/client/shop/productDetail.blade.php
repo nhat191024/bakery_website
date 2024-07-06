@@ -88,7 +88,7 @@
         </div>
     </section>
     <script>
-       
+        
 
         $(document).ready(function() {
             $('#addToCart').click(function(e) {

@@ -1,6 +1,7 @@
 @extends('client.layout.layout')
 @section('content')
     <hr>
+    
     <section class="ftco-section ftco-cart pt-3">
         <div class="container">
             <div class="row">
@@ -72,7 +73,7 @@
                                             </td>
                                             @if ($pd['product']->product_variations->isNotEmpty())
                                                 <td class="total" id="total-{{ $id }}" value="{{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity'] }}">
-                                                    {{-- {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity']) }}đ --}}
+                                                    {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity']) }}đ
                                                 </td>
                                             @else
                                                 <td class="total" id="total-{{ $id }}" value="{{ $pd['product']->real_price * $pd['quantity'] }}">
