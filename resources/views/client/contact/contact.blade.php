@@ -20,22 +20,25 @@
                 <div class="w-100"></div>
                 <div class="col-md-3 d-flex">
                     <div class="info bg-white p-4">
-                        <p><span>Địa chỉ:</span> {{ $Contact_us->address }} </p>
+                        <p>Địa chỉ:</p>
+                        <p>{{ $Contact_us->address }}</p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="info bg-white p-4">
-                        <p><span>Số điện thoại:</span> <a href="tel://1234567920">{{ $Contact_us->phone_number }}</a></p>
+                        <p>Số điện thoại:</p>
+                        <p>{{ $Contact_us->phone_number }}</p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="info bg-white p-4">
-                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">{{ $Contact_us->email }}</a></p>
+                        <p>Email: {{ $Contact_us->email }}</p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
                     <div class="info bg-white p-4">
-                        <p><span>Website</span> <a href="#">{{ $Contact_us->website }}</a></p>
+                        <p>Website </p>
+                        <a href="{{ $Contact_us->website }}">Facebook</a>
                     </div>
                 </div>
             </div>
