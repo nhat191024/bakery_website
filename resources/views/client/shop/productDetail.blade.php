@@ -19,11 +19,14 @@
                     </div>
                     @if ($product->product_variations->isNotEmpty())
                         <p class="price">
-                                <input class="productPrice h3 text-black" id="productPrice" type="text" id="price" value="{{ number_format($product->product_variations->first()->price, 0, ',', '.') }}đ" disabled>
+                            <input class="productPrice h3 text-black" id="productPrice" type="text" id="price"
+                                value="{{ number_format($product->product_variations->first()->price, 0, ',', '.') }}đ"
+                                disabled>
                         </p>
                     @else
                         <p class="price-dc"><s><span>{{ number_format($product->fake_price, 0, ',', '.') }}đ</span></s></p>
-                        <input class="productPrice h3 text-black" id="productPrice" type="text" id="price" value="{{ number_format($product->real_price, 0, ',', '.') }}đ" disabled>
+                        <input class="productPrice h3 text-black" id="productPrice" type="text" id="price"
+                            value="{{ number_format($product->real_price, 0, ',', '.') }}đ" disabled>
                     @endif
                     <p>{{ $product->description }}</p>
                     <div class="row mt-4">
@@ -34,7 +37,9 @@
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="variation" id="productVariation" class="form-control">
                                             @foreach ($product->product_variations as $variation)
-                                                <option data-price="{{ $variation->price }}" value="{{ $variation->variation_id }}">{{ $variation->variation->name }}</option>
+                                                <option data-price="{{ $variation->price }}"
+                                                    value="{{ $variation->variation_id }}">{{ $variation->variation->name }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -58,7 +63,7 @@
                         </div>
                         <div class="w-100"></div>
                     </div>
-                    <p><a onclick="c({{ $product->id }})" class="btn btn-primary py-3 px-5 text-center">Add to Cart</a></p>
+                    <p><a class="btn btn-primary py-3 px-5 text-center" id="addToCart">Add to Cart</a></p>
                     <p>Large size please consult staff. <br>
                         Price does not include VAT 10% and shipping fee.</p>
                 </div>
@@ -82,6 +87,67 @@
             </section>
         </div>
     </section>
+    <script>
+       
+
+        $(document).ready(function() {
+            $('#addToCart').click(function(e) {
+
+
+                // id,quantity = 1, variation_id = null
+                var id = {{ $product->id }}
+                $quantitiy = 1;
+                $variation_id = null;
+
+                // variation_id
+                $price = $('#productPrice').val().replace('đ', '').replace('.', '');
+                $quantity = $('#quantity').val();
+                $variation_id = $('#productVariation').val();
+                console.log($price, $quantity, $variation_id);
+                $.ajax({
+                    url: "{{ route('client.cart.add') }}",
+                    type: "POST",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        'product_id': id,
+                        'quantity': $quantity,
+                        'variation_id': $variation_id
+                    },
+                    beforeSend: function() {
+                        // $('#addToCart').prop('disabled', true);
+                    },
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+                });
+            });
+
+            $('.quantity-right-plus').click(function(e) {
+                e.preventDefault();
+                var quantity = parseInt($('#quantity').val());
+                $('#quantity').val(quantity + 1);
+            });
+
+            $('#productVariation').change(function(e) {
+                var categoryId = e.target.value;
+                var price = $(this).find('option:selected').data('price');
+                $('#productPrice').val(new Intl.NumberFormat('de-DE').format(price) + 'đ');
+                console.log('change price based on selected variant' + e.target.value + ' ' + new Intl
+                    .NumberFormat('de-DE').format(price) + 'đ');
+            });
+
+            $('.quantity-left-minus').click(function(e) {
+                e.preventDefault();
+                var quantity = parseInt($('#quantity').val());
+                if (quantity > 1) {
+                    $('#quantity').val(quantity - 1);
+                }
+            });
+        });
+    </script>
     <section>
         @include('client.components.contactUsRedirect')
     </section>

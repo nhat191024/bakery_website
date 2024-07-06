@@ -12,7 +12,7 @@ public static function add($product, $variation_id, $quantity = 1)
 
     foreach($cart as $item) {
         if ($item['product']->id == $product->id) {
-            Cart::update($product->id, $item['quantity'] + 1);
+            Cart::update($product->id, $item['quantity'] += $quantity);
             return;
         }
     }
@@ -61,7 +61,7 @@ public static function add($product, $variation_id, $quantity = 1)
         }
         foreach ($cart as $item) {
             if ($item['product']->product_variations->isNotEmpty()) {
-                $subTotal += $item['product']->product_variations->where('variation_id', $item['variation_id'])->first()->price * $item['quantity'];
+                // $subTotal += $item['product']->product_variations->where('variation_id', $item['variation_id'])->first()->price * $item['quantity'];
             } else {
                 $subTotal += $item['product']->real_price * $item['quantity'];
             }
