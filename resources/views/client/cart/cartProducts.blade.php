@@ -1,7 +1,7 @@
 @extends('client.layout.layout')
 @section('content')
     <hr>
-    
+
     <section class="ftco-section ftco-cart pt-3">
         <div class="container">
             <div class="row">
@@ -23,7 +23,8 @@
                                     @foreach ($cart as $id => $pd)
                                         <tr class="text-center" id="product-{{ $id }}">
                                             <td class="product-remove" onclick="removeProduct('{{ $id }}')">
-                                                <a><span class="ion-ios-close"></span></a></td>
+                                                <a><span class="ion-ios-close"></span></a>
+                                            </td>
 
                                             <td class="image-prod">
                                                 <div class="img"
@@ -53,8 +54,7 @@
                                                     <div class="input-group d-flex mt-3">
                                                         <span class="input-group-btn mr-2">
                                                             <button type="button" class="quantity-left-minus btn shadow-sm"
-                                                                data-type="minus" data-field="{{ $id }}"
-                                                                data-id="{{ $id }}">
+                                                                data-type="minus">
                                                                 <i class="ion-ios-remove"></i>
                                                             </button>
                                                         </span>
@@ -63,8 +63,7 @@
                                                             value="{{ $pd['quantity'] }}" min="1" max="100">
                                                         <span class="input-group-btn ml-2">
                                                             <button type="button" class="quantity-right-plus btn shadow-sm"
-                                                                data-type="plus" data-field="{{ $id }}"
-                                                                data-id="{{ $id }}">
+                                                                onclick="updateQuantity({{ $id }}, {{ $pd['variation_id'] }})">
                                                                 <i class="ion-ios-add"></i>
                                                             </button>
                                                         </span>
@@ -72,14 +71,14 @@
                                                 </div>
                                             </td>
                                             @if ($pd['product']->product_variations->isNotEmpty())
-                                                <td class="total" id="total-{{ $id }}" value="{{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity'] }}">
+                                                <td class="total" id="total-{{ $id }}"
+                                                    value="{{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity'] }}">
                                                     {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity']) }}đ
                                                 </td>
                                             @else
-                                                <td class="total" id="total-{{ $id }}" value="{{ $pd['product']->real_price * $pd['quantity'] }}">
-                                                    {{ number_format(
-                                                        $pd['product']->real_price * $pd['quantity']
-                                                        ) }}đ
+                                                <td class="total" id="total-{{ $id }}"
+                                                    value="{{ $pd['product']->real_price * $pd['quantity'] }}">
+                                                    {{ number_format($pd['product']->real_price * $pd['quantity']) }}đ
                                                 </td>
                                             @endif
                                         </tr>
@@ -130,7 +129,8 @@
                             </span>
                             <span id="discountPrice" class="d-flex">{{ number_format($discount) }}đ
                             </span>
-                            <span class="pointer text-danger"><u id="removeDiscount" onclick="removeDiscount()">{{ $discount > 0 ? 'Xoá voucher' : '' }}</u></span>
+                            <span class="pointer text-danger"><u id="removeDiscount"
+                                    onclick="removeDiscount()">{{ $discount > 0 ? 'Xoá voucher' : '' }}</u></span>
                         </p>
                         <hr>
                         <p class="d-flex total-price">
@@ -143,7 +143,9 @@
             </div>
         </div>
     </section>
+    <script>var csrfToken = "{{ csrf_token() }}";</script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/client/cart.js') }}"></script>
     <section>
         @include('client.cart.cartProductsScript')
     </section>
