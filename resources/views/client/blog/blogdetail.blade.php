@@ -200,7 +200,7 @@
                         <h3 class="heading">Tin tức gần đây</h3>
                         @foreach ($recentBlogs as $item)
                         <div class="block-21 mb-4 d-flex">
-                          <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                          <a class="blog-img mr-4" style="background-image: url(images/{{$item->thumbnail}});"></a>
                           <div class="text">
                               <h4 class="heading-2"><a href="#">{{$item->title}}</a></h4>
                               <h5 class="heading-1"><a href="#">{{$item->subtitle}}</a></h5>
