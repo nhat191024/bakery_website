@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->integer('real_price');
             $table->integer('fake_price');
             $table->text('image')->nullable();
             $table->timestamps();

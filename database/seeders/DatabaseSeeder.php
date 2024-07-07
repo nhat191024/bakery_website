@@ -54,7 +54,6 @@ class DatabaseSeeder extends Seeder
                 "category_id" => $row['category_id'],
                 "name" => $row['name'],
                 "description" => $row['description'],
-                "real_price" => $row['real_price'],
                 "fake_price" => $row['fake_price'],
                 "image" => $row['image'],
             ]);
