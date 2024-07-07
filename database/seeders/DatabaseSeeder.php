@@ -135,6 +135,7 @@ class DatabaseSeeder extends Seeder
                 "address" => $row['address'],
                 "phone_number" => $row['phone_number'],
                 "email" => $row['email'],
+                "voucher_code" => $row['voucher_code'],
                 "delivery_method" => $row['delivery_method'],
                 "payment_method" => $row['payment_method'],
                 "total_amount" => $row['total_amount'],

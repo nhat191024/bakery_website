@@ -529,6 +529,7 @@
             "address": "Viet Nam",
             "phone_number": "0123456789",
             "email": "customer@troll.com",
+            "voucher_code": "BAKERY10OFF",
             "delivery_method": "Pickup",
             "payment_method": "Cash",
             "total_amount": "500000",

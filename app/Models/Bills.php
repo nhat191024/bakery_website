@@ -15,6 +15,7 @@ class Bills extends Model
         'address',
         'phone_number',
         'email',
+        'voucher_code',
         'delivery_method',
         'payment_method',
         'total_amount',
