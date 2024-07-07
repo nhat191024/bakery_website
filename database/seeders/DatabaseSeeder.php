@@ -85,8 +85,6 @@ class DatabaseSeeder extends Seeder
                 "subtitle" => $row['subtitle'],
                 "image" => $row['image'],
                 "link" => $row['link'],
-                "start_date" => $row['start_date'],
-                "end_date" => $row['end_date'],
                 "status" => $row['status'],
             ]);
         }

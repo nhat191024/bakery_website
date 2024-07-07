@@ -14,8 +14,6 @@ class Banners extends Model
         'subtitle',
         'image',
         'link',
-        'start_date',
-        'end_date',
         'status',
     ];
 }

@@ -505,8 +505,6 @@
             "subtitle": "Một miếng là một lần mê! Cả nhà cùng tận hưởng!",
             "image": "",
             "link": "",
-            "start_date": "2022-01-01 00:00:00",
-            "end_date": "2022-02-01 00:00:00",
             "status": 1
         },
         {
@@ -514,8 +512,6 @@
             "subtitle": "Hiện tại đang được giảm giá đó! Tìm hiểu ngay!",
             "image": "",
             "link": "",
-            "start_date": "2022-01-01 00:00:00",
-            "end_date": "2022-02-01 00:00:00",
             "status": 1
         },
         {
@@ -523,8 +519,6 @@
             "subtitle": "50% OFF khi mua suất 10 bánh croissant!",
             "image": "",
             "link": "",
-            "start_date": "2022-01-01 00:00:00",
-            "end_date": "2022-02-01 00:00:00",
             "status": 1
         }
     ],
