@@ -15,10 +15,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
-                    <h2 class="mb-3">{{ $Blogs->title }}</h2>
+                    <h1 class="mb-3">{{ $Blogs->title }}</h1>
+                    <h5 class="mb-4"> <p> Tác giả : {{ $Blogs->user->username }}</p></h5>
+                    
                     <img src="images/image_1.jpg" alt="" class="img-fluid">
                     </p>
-                    <p>{{ $Blogs->subtitle }}</p>
+                    <h5>{{ $Blogs->subtitle }}</h5>
                     <p>
                         <img src="images/image_2.jpg" alt="" class="img-fluid">
                     </p>
@@ -173,14 +175,14 @@
                     </div> --}}
                 </div> <!-- .col-md-8 -->
                 <div class="col-lg-4 sidebar ftco-animate">
-                    <div class="sidebar-box">
+                    {{-- <div class="sidebar-box">
                         <form action="#" class="search-form">
                             <div class="form-group">
                                 <span class="icon ion-ios-search"></span>
                                 <input type="text" class="form-control" placeholder="Search...">
                             </div>
                         </form>
-                    </div>
+                    </div> --}}
                     <div class="sidebar-box ftco-animate">
                         <h3 class="heading">Danh mục bánh </h3>
                         <ul class="categories">
@@ -205,7 +207,7 @@
 
                               <div class="meta">
                                   <div><a href="#"><span class="icon-calendar"></span> {{ $item->created_at->format('d/m/Y') }}</a></div>
-                                  <div><a href="#"><span class="icon-person"></span> {{$User[$item->user_id]}}</a></div>
+                                  <div><a href="#"><span class="icon-person"></span> {{$item->user->username}}</a></div>
                               </div>
                           </div>
                       </div>
