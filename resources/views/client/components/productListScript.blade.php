@@ -13,19 +13,14 @@
                 },
                 success: function(response) {
                     $('#addingToCart'+product_id).text('Added to cart!');
-                    $('#cartAmount'+product_id).text(response);
-                    // delay 1 sec
+                    updateCartCount();
                     setTimeout(function() {
                         $('#addingToCart'+product_id).text('Add more');
                     }, 1000);
-                    // alert(response);
                 },
                 error: function(error) {
                     alert(error.message);
                 }
             });
         }
-        $(document).ready(function() {
-        $('#addToCart').click();
-    });
 </script>

@@ -88,7 +88,7 @@
         </div>
     </section>
     <script>
-        
+
 
         $(document).ready(function() {
             $('#addToCart').click(function(e) {
@@ -114,10 +114,15 @@
                         'variation_id': $variation_id
                     },
                     beforeSend: function() {
-                        // $('#addToCart').prop('disabled', true);
+                        $('#addToCart').text('Adding...');
+                        // $('#addToCart').class('btn-success');
                     },
                     success: function(data) {
-                        console.log(data);
+                        $('#addToCart').text('Added to cart!');
+                        updateCartCount();
+                        setTimeout(function() {
+                            $('#addToCart').text('Add more');
+                        }, 5000);
                     },
                     error: function(err) {
                         console.log(err);
