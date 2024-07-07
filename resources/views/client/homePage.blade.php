@@ -4,8 +4,7 @@
         <div class="home-slider owl-carousel">
             @foreach ($images as $image)
                 <div class="slider-item"
-                    style="background-image: 
-                url({{ asset('img/home/' . $image->image) }});">
+                    style="background-image:url({{ asset('img/home/' . $image->image) }});">
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -20,7 +19,6 @@
             @endforeach
         </div>
     </section>
-
     <section class="ftco-section">
         <div class="container">
             <div class="row no-gutters ftco-services">
@@ -128,8 +126,10 @@
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <span class="subheading">Chúng tôi hiểu rằng</span>
                     <h2 class="mb-4">BÁNH PHÁP LÀ NGHỆ THUẬT</h2>
-                    <p>Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng.
-                        Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.</p>
+                    <p>
+                        Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng.
+                    Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.
+                </p>
                 </div>
             </div>
         </div>
@@ -214,7 +214,7 @@
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
-                    <span class="subheading">Giá ưu đãi cho bạn</span>
+                    <span class="subheading">Giá ưu đãi cho bạn </span>
                     <h2 class="mb-4">Giảm giá hàng ngày</h2>
                     <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
                     <h3><a href="#">MILLE FEUILLE VANILLA</a></h3>
@@ -253,7 +253,7 @@
                                         </span>
                                     </div>
                                     <div class="text text-center">
-                                        <p class="mb-5 pl-4 line"{{ $message->message }}</p>
+                                        <p class="mb-5 pl-4 line">{{ $message->message }}</p>
                                         <p class="name">{{ $message->name }}</p>
                                         <span class="position">Marketing Manager</span>
                                     </div>
