@@ -64,5 +64,7 @@ Route::prefix('shop')->group(function () {
 // Route::prefix('blog')->group(function () {
 //     Route::get('/{id}', [BlogController::class, 'show'])->name('client.blog.show');
 // });
-Route::get('/blog/{id}', [BlogController::class, 'show'])->name('client.blog.show');
+// Route::get('/blog/{id}/{idUser}', [BlogController::class, 'show'])->name('client.blog.show');
+Route::get('/blog/{id}/{id}', [BlogController::class, 'show'])->name('client.blog.show');
+
 
