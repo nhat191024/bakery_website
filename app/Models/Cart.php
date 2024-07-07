@@ -60,11 +60,11 @@ public static function add($product, $variation_id, $quantity = 1)
             return $subTotal;
         }
         foreach ($cart as $item) {
-            if ($item['product']->product_variations->isNotEmpty()) {
+            // if ($item['product']->product_variations->isNotEmpty()) {
                 $subTotal += $item['product']->product_variations->where('variation_id', $item['variation_id'])->first()->price * $item['quantity'];
-            } else {
-                $subTotal += $item['product']->real_price * $item['quantity'];
-            }
+            // } else {
+            //     $subTotal += $item['product']->real_price * $item['quantity'];
+            // }
         }
         return $subTotal;
     }

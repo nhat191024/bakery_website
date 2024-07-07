@@ -42,11 +42,11 @@
                                                 <td class="price">
                                                     {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price) }}đ
                                                 </td>
-                                            @else
+                                            {{-- @else
                                                 <td class="product-name">
                                                     <h3>{{ $pd['product']->name }}</h3>
                                                 </td>
-                                                <td class="price">{{ number_format($pd['product']->real_price) }}đ</td>
+                                                <td class="price">{{ number_format($pd['product']->real_price) }}đ</td> --}}
                                             @endif
 
                                             <td class="quantity">
@@ -75,11 +75,11 @@
                                                     value="{{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity'] }}">
                                                     {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity']) }}đ
                                                 </td>
-                                            @else
+                                            {{-- @else
                                                 <td class="total" id="total-{{ $id }}"
                                                     value="{{ $pd['product']->real_price * $pd['quantity'] }}">
                                                     {{ number_format($pd['product']->real_price * $pd['quantity']) }}đ
-                                                </td>
+                                                </td> --}}
                                             @endif
                                         </tr>
                                     @endforeach
