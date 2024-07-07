@@ -9,11 +9,11 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Danh mục sản phẩm</h1>
+            <h1 class="h3 mb-2 text-gray-800">Quản lý bếp</h1>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a class="btn btn-primary" href="{{ route('admin.category.show_add') }}">Thêm danh mục</a>
+                    <a class="btn btn-primary" href="{{ route('admin.kitchen.show_add') }}">Thêm bếp</a>
 
                 </div>
                 <div class="card-body">
@@ -32,25 +32,39 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên danh mục</th>
+                                    <th>Tên chi nhánh</th>
+                                    <th>Tên bếp</th>
+                                    <th>Hình ảnh</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên danh mục</th>
+                                    <th>Tên chi nhánh</th>
+                                    <th>Tên bếp</th>
+                                    <th>Hình ảnh</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($allCategory as $key => $item)
+                                @foreach ($allKitchen as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
+                                        <td>{{ $item->branch->name }}</td>
                                         <td>{{ $item['name'] }}</td>
-                                        <td class="text-center"><a class="btn btn-warning" href="{{route('admin.category.show_edit', ['id' => $item->id])}}">Sửa</a> <a
-                                                class="btn btn-danger" href="{{route('admin.category.delete', ['id' => $item->id])}}"
-                                                onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a> </td>
+                                        <td class="text-center"><img width="200px"
+                                                src="{{ url('img') . '/' . $item['image'] }}" alt=""></td>
+                                        <td class="text-center"><a class="btn btn-warning"
+                                                href="{{ route('admin.kitchen.show_edit', ['id' => $item->id]) }}">Sửa</a>
+                                            <a class="btn btn-danger"
+                                                href="{{ route('admin.kitchen.delete', ['id' => $item->id]) }}"
+                                                onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a>
+                                            <button type="button" onclick="showModal({{$item['id']}})" class="btn btn-primary" data-toggle="modal"
+                                                data-target="">
+                                                Chi tiết
+                                            </button>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -69,4 +83,5 @@
 
     </div>
     <!-- End of Content Wrapper -->
+    @include('admin.modal.cooking_method_modal')
 @endsection

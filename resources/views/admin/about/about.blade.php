@@ -9,11 +9,11 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Danh mục sản phẩm</h1>
+            <h1 class="h3 mb-2 text-gray-800">Danh sách banner</h1>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a class="btn btn-primary" href="{{ route('admin.category.show_add') }}">Thêm danh mục</a>
+                    <a class="btn btn-primary" href="{{ route('admin.banner.show_add') }}">Thêm banner</a>
 
                 </div>
                 <div class="card-body">
@@ -32,25 +32,32 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên danh mục</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Nội dung</th>
+                                    <th>Ảnh</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên danh mục</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Nội dung</th>
+                                    <th>Ảnh</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($allCategory as $key => $item)
+                                @foreach ($allBanner as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $item['name'] }}</td>
-                                        <td class="text-center"><a class="btn btn-warning" href="{{route('admin.category.show_edit', ['id' => $item->id])}}">Sửa</a> <a
-                                                class="btn btn-danger" href="{{route('admin.category.delete', ['id' => $item->id])}}"
-                                                onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a> </td>
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ $item['subtitle'] }}</td>
+                                        <td class="text-center"><img width="200px"
+                                                src="{{ url('img') . '/' . $item['image'] }}" alt=""></td>
+                                        <td class="text-center"><a class="btn btn-warning" href="{{route('admin.banner.show_edit', ['id' => $item->id])}}">Sửa</a> <a
+                                                class="btn btn-danger" href="{{route('admin.banner.delete', ['id' => $item->id])}}"
+                                                onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
