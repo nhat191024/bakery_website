@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('variation_id')->references('id')->on('variations');
+            $table->softDeletes();
         });
     }
 

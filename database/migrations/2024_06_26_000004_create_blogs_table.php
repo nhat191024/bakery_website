@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('thumbnail')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->softDeletes();
         });
     }
 
