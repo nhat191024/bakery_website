@@ -845,12 +845,6 @@
         },
         {
             "variation_id": 1,
-            "product_id": 10,
-            "price": "45000"
-        },
-
-        {
-            "variation_id": 1,
             "product_id": 29,
             "price": "65000"
         },
