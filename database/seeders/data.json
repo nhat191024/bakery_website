@@ -589,30 +589,35 @@
         {
             "Product_id": 2,
             "bill_id": 1,
+            "variation_id": 1,
             "quantity": 1,
             "price": "50000"
         },
         {
             "Product_id": 3,
             "bill_id": 1,
+            "variation_id": 2,
             "quantity": 2,
             "price": "75000"
         },
         {
             "Product_id": 4,
             "bill_id": 1,
+            "variation_id": 1,
             "quantity": 3,
             "price": "100000"
         },
         {
             "Product_id": 5,
             "bill_id": 1,
+            "variation_id": 1,
             "quantity": 1,
             "price": "125000"
         },
         {
             "Product_id": 1,
             "bill_id": 1,
+            "variation_id": 2,
             "quantity": 2,
             "price": "150000"
         }

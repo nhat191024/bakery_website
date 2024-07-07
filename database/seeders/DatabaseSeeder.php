@@ -149,6 +149,7 @@ class DatabaseSeeder extends Seeder
             Bill_details::create([
                 "Product_id" => $row['Product_id'],
                 "bill_id" => $row['bill_id'],
+                "variation_id" => $row['variation_id'],
                 "quantity" => $row['quantity'],
                 "price" => $row['price'],
             ]);
