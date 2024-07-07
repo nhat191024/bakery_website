@@ -9,7 +9,7 @@
                 _token: "{{ csrf_token() }}",
             },
             success: function(data) {
-                calculateTotal(data);
+                calculateTotal(data.subTotal,data.discount);
             }
         });
     }
@@ -74,7 +74,7 @@
     // }
 
     $(document).ready(function() {
-        calculateTotal({{ $discount }});
+        // calculateTotal({{ $discount }});
 
         var quantitiy = 0;
 
@@ -121,7 +121,7 @@
                 beforeSend: function() {},
                 success: function(res) {
                     $('#discountPrice').text('0đ');
-                    calculateTotal(0);
+                    calculateTotal(0,0);
                     switch (res) {
                         case '-1':
                             $('#voucherError').text('Bạn chưa nhập mã giảm giá');
@@ -155,7 +155,7 @@
                             $('#voucherError').text('');
                             $('#discountPrice').text(new Intl.NumberFormat('de-DE').format(
                                 res) + 'đ');
-                            calculateTotal(res);
+                            calculateTotal(res.subTotal,res.discount);
                             break;
                     }
                 },

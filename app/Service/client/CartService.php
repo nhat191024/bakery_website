@@ -61,7 +61,10 @@ class CartService
     {
         $vcode = $request->input('voucher_code');
         $discount = $this->calculateVoucher($vcode);
-        return $discount;
+        return [
+            'discount' => Cart::getDiscountAmount(),
+            'subTotal' => Cart::getSubtotal()
+        ];
     }
     public function calculateVoucher($vcode)
     {
@@ -94,7 +97,10 @@ class CartService
         $discount = $voucher->discount_amount;
         Cart::setDiscountAmount($discount);
         Cart::setCouponCode($vcode);
-        return $discount;
+        return [
+            'discount' => Cart::getDiscountAmount(),
+            'subTotal' => Cart::getSubtotal()
+        ];
     }
 
     public function removeFromCart($request)
@@ -105,14 +111,20 @@ class CartService
         }
         Cart::remove($product_id);
         $this->calculateVoucher(Cart::getCouponCode());
-        return Cart::getDiscountAmount();
+        return [
+            'discount' => Cart::getDiscountAmount(),
+            'subTotal' => Cart::getSubtotal()
+        ];
     }
 
     public function removeVoucher()
     {
         Cart::setCouponCode(null);
         Cart::setDiscountAmount(0);
-        return Cart::getDiscountAmount();
+        return [
+            'discount' => Cart::getDiscountAmount(),
+            'subTotal' => Cart::getSubtotal()
+        ];
     }
 
     public function clearCart()
