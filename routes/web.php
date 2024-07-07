@@ -7,6 +7,7 @@ use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
 use App\Http\Controllers\client\ProductListControler;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,5 +55,6 @@ Route::prefix('cart')->group(function () {
     Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
     Route::post('/removeVoucher', [CartController::class, 'removeVoucher'])->name('client.cart.removeVoucher');
     Route::get('/checkout', [CartController::class, 'checkout'])->name('client.cart.checkout');
+    Route::get('/getCount',[Cart::class, 'getCartCount'])->name('cart.getCartCount');
 });
 

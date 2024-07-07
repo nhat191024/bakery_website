@@ -66,8 +66,15 @@
                     <li class="nav-item"><a href="@if (Route::has('client.blog.index')){{ route('client.blog.index') }}
                     @endif" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="{{ route('client.contact.index') }}" class="nav-link">Contact</a></li>
-                    <li class="nav-item cta cta-colored"><a href="{{ route('client.cart.index') }}" class="nav-link"><span
-                                class="icon-shopping_cart" id="cartAmount"></span>[0]</a></li>
+                    <li class="nav-item cta cta-colored">
+                        <a href="{{ route('client.cart.index') }}" class="nav-link d-flex">
+                            <span class="icon-shopping_cart inline mt-1">
+                            </span>
+                            [<p class="inline" id="cartAmount">
+                                ?
+                            </p>]
+                        </a>
+                    </li>
 
                 </ul>
             </div>
@@ -185,7 +192,7 @@
     <script src="{{ URL::asset('js/scrollax.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
-
+    <script src="{{ URL::asset('js/updateCartCount.js') }}"></script>
 </body>
 
 </html>

@@ -53,6 +53,7 @@ class CartService
         }
 
         Cart::add($product, $variation_id, $quantity);
+        return Cart::getCartCount();
     }
 
 
