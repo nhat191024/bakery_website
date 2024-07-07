@@ -12,13 +12,13 @@
                                 onclick="window.location.href='{{ route('client.shop.productDetail', $pd->id) }}'"
                             @endif
                              style="font-size: 1.2rem;">
-                             <i class="ion-ios-menu text-primary mr-1" ></i> See details
+                             <i class="ion-ios-menu text-primary mr-1" ></i> Chi tiết
                             </div>
                         @else
                             <div class="d-flex justify-content-center align-items-center shadow-lg pointer text-primary"
                              onclick="window.location.href='#'"
                              style="font-size: 1.2rem;">
-                             <i class="ion-ios-cart text-primary mr-1" ></i> Add to cart
+                             <i class="ion-ios-cart text-primary mr-1" ></i> Thêm vào giỏ
                             </div>
                         @endif
                     </div>

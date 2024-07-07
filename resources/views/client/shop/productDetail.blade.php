@@ -13,7 +13,7 @@
                     <h3><b>{{ $product->name }}</b></h3>
                     <div class="rating d-flex">
                         <p class="text-left">
-                            <a href="#" class="mr-2" style="color: #000;">{{ count($product->bill_details) }} 
+                            <a href="#" class="mr-2" style="color: #000;">{{ count($product->bill_details) }}
                                 <span style="color: #bbb;">Sold</span></a>
                         </p>
                     </div>
@@ -60,9 +60,9 @@
                         </div>
                         <div class="w-100"></div>
                     </div>
-                    <p><a href="cart.html" class="btn btn-primary py-3 px-5 text-center">Add to Cart</a></p>
-                    <p>Large size please consult staff. <br>
-                        Price does not include VAT 10% and shipping fee.</p>
+                    <p><a href="cart.html" class="btn btn-primary py-3 px-5 text-center">Thêm vào giỏ</a></p>
+                    {{-- <p>Large size please consult staff. <br>
+                        Price does not include VAT 10% and shipping fee.</p> --}}
                 </div>
             </div>
         </div>
