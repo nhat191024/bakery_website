@@ -54,7 +54,6 @@ Route::prefix('cart')->group(function () {
     Route::post('/remove', [CartController::class, 'removeFromCart'])->name('client.cart.remove');
     Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
     Route::post('/removeVoucher', [CartController::class, 'removeVoucher'])->name('client.cart.removeVoucher');
-    Route::get('/checkout', [CartController::class, 'checkout'])->name('client.cart.checkout');
     Route::get('/getCount',[Cart::class, 'getCartCount'])->name('cart.getCartCount');
 });
 
