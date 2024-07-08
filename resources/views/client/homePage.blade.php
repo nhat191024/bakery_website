@@ -4,7 +4,12 @@
         <div class="home-slider owl-carousel">
             @foreach ($images as $image)
                 <div class="slider-item"
+<<<<<<< HEAD
                     style="background-image:url({{ asset('img/home/' . $image->image) }});">
+=======
+                    style="background-image:
+                url({{ asset('img/home/' . $image->image) }});">
+>>>>>>> facc919a28dfa063ddc823d81e333d28d5147b5a
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -77,23 +82,23 @@
                     <div class="row">
                         <div class="col-md-6 order-md-last align-items-stretch d-flex">
                             <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
-                                style="background-image: url({{ asset('img/category.jpg') }});">
+                                style="background-image: url({{ asset('img/client/shop/product-5.jpg') }});">
                                 <div class="text text-center">
                                     <h2>Các loại bánh</h2>
                                     <p>Tạo điểm nhấn cho bữa tiệc của bạn</p>
-                                    <p><a href="#" class="btn btn-primary">Shop now</a></p>
+                                    <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                                style="background-image: url({{ asset('img/category-1.jpg') }});">
+                                style="background-image: url({{ asset('img/client/shop/product-1.jpg') }});">
                                 <div class="text px-3 py-1">
                                     <h2 class="mb-0"><a href="#"> Bánh Đặt Trước</a></h2>
                                 </div>
                             </div>
                             <div class="category-wrap ftco-animate img d-flex align-items-end"
-                                style="background-image: url({{ asset('img/category-2.jpg') }});">
+                                style="background-image: url({{ asset('img/client/shop/product-2.jpg') }});">
                                 <div class="text px-3 py-1">
                                     <h2 class="mb-0"><a href="#">Bánh Đặt Tiệc</a></h2>
                                 </div>
@@ -104,13 +109,13 @@
 
                 <div class="col-md-4">
                     <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                        style="background-image: url({{ asset('img/category-3.jpg') }});">
+                        style="background-image: url({{ asset('img/client/shop/product-3.jpg') }});">
                         <div class="text px-3 py-1">
                             <h2 class="mb-0"><a href="#">Bánh Dessert</a></h2>
                         </div>
                     </div>
                     <div class="category-wrap ftco-animate img d-flex align-items-end"
-                        style="background-image: url({{ asset('img/category-4.jpg') }});">
+                        style="background-image: url({{ asset('img/client/shop/product-4.jpg') }});">
                         <div class="text px-3 py-1">
                             <h2 class="mb-0"><a href="#">Bánh Sỉ</a></h2>
                         </div>
@@ -134,82 +139,11 @@
             </div>
         </div>
         <div class="container">
-            {{-- <div class="row">
-                @foreach ($products as $product)
-                    <div class="col-md-6 col-lg-3 ftco-animate">
-                        <div class="product">
-                            <a href="#" class="img-prod">
-                                <img class="img-fluid" src="{{ asset('/img/client/shop/' . $product->image) }}">
-                            </a>
-                            <div class="text py-3 pb-4 px-3 text-center">
-                                <h3><a href="#">{{ $product->name }}</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price"><span class="mr-2 price-dc">{{ $product->fake_price }}
-                                                VNĐ</span><span class="price-sale">{{ $product->real_price }} VNĐ</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="bottom-area d-flex px-3">
-                                    <div class="m-auto d-flex">
-                                        <a href="#"
-                                            class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                            <span><i class="ion-ios-menu"></i></span>
-                                        </a>
-                                        <a href="#"
-                                            class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                            <span><i class="ion-ios-cart"></i></span>
-                                        </a>
-                                        <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                            <span><i class="ion-ios-heart"></i></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div> --}}
-            <div class="row">
-                @foreach ($products as $pd)
-                    <div class="col-md-6 col-lg-4 ftco-animate">
-                        <div class="product">
-                            <a href="#" class="img-prod"><img class="img-fluid"
-                                    src="{{ asset('img/client/shop/' . $pd->image) }}" alt="{{ $pd->image }}">
-                                <div class="overlay d-flex justify-content-center align-items-center">
-                                    {{-- @if ($pd->product_variations->isNotEmpty()) --}}
-                                    <div
-                                        class="m bg-primary rounded-pill justify-content-center align-items-center mr-2 shadow-lg">
-                                        <i class="ion-ios-menu text-white p-5" style="font-size: 3rem;"></i>
-                                    </div>
-                                    {{-- @endif --}}
-                                    <div
-                                        class=" bg-primary rounded-pill justify-content-center align-items-center shadow-lg">
-                                        <i class="ion-ios-cart text-white p-5" style="font-size: 3rem;"></i>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="text py-3 pb-4 px-3 text-center">
-                                <h3><a class="prod-title" href="#">{{ $pd->name }}</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price">
-                                            <span
-                                                class="mr-2 price-dc">{{ number_format($pd->fake_price, 0, ',', '.') }}đ</span>
-                                            <span
-                                                class="price-sale font-weight-bold">{{ number_format($pd->real_price, 0, ',', '.') }}
-                                                đ</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            @include('client.components.productList')
         </div>
     </section>
 
+<<<<<<< HEAD
     <section class="ftco-section img" style="background-image: url({{ asset('img/bg_3.jpg') }});">
         <div class="container">
             <div class="row justify-content-end">
@@ -224,11 +158,29 @@
                         <div class="time pl-3" id="hours"></div>
                         <div class="time pl-3" id="minutes"></div>
                         <div class="time pl-3" id="seconds"></div>
+=======
+    @foreach ($promotions as $promotion)
+        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-2.jpg') }});">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+                        <span class="subheading">Giá ưu đãi cho bạn</span>
+                        <h2 class="mb-4">Giảm giá hàng ngày</h2>
+                        <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
+                        <h3><a href="#">{{ $promotion->description }}</a></h3>
+                        <span class="price">50.0000 <a href="#">chỉ còn 30.000 </a></span>
+                        <div id="timer" class="d-flex mt-5">
+                            <div class="time" id="days"></div>
+                            <div class="time pl-3" id="hours"></div>
+                            <div class="time pl-3" id="minutes"></div>
+                            <div class="time pl-3" id="seconds"></div>
+                        </div>
+>>>>>>> facc919a28dfa063ddc823d81e333d28d5147b5a
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endforeach
 
     <section class="ftco-section testimony-section">
         <div class="container">
@@ -243,6 +195,7 @@
             <div class="row ftco-animate">
                 <div class="col-md-12">
                     <div class="carousel-testimony owl-carousel">
+<<<<<<< HEAD
                         @foreach ($messages as $message)
                             <div class="item">
                                 <div class="testimony-wrap p-4 pb-5">
@@ -257,9 +210,78 @@
                                         <p class="name">{{ $message->name }}</p>
                                         <span class="position">Marketing Manager</span>
                                     </div>
+=======
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Quán cà phê tráng miệng ngon nhất Hà Nội. Hương vị rất ngon.
+                                        Nhân viên rất tử tế. Bạn nên ăn bánh éclair ở đây. Ngon!</p>
+                                    <p class="name">Joonyoung Kim</p>
+                                    {{-- <span class="position">Marketing Manager</span> --}}
+>>>>>>> facc919a28dfa063ddc823d81e333d28d5147b5a
                                 </div>
                             </div>
-                        @endforeach
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Một quán cà phê nhỏ tuyệt vời với những chiếc bánh ngon
+                                        tuyệt... tôi và bạn bè đã đến đây mỗi ngày trong kỳ nghỉ ngắn ngày ở Hà Nội... Nhân
+                                        viên cũng tuyệt vời nữa</p>
+                                    <p class="name">Will Knight</p>
+                                    {{-- <span class="position">Marketing Manager</span> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Nơi để tìm thấy tất cả những gì bạn nhớ từ Pháp. Mọi thứ thực
+                                        sự giống như trong tiệm bánh ở góc phố nên đừng quẹt thẻ thăm quan khi ở trong khu
+                                        phố</p>
+                                    <p class="name">Remi Nguyen</p>
+                                    {{-- <span class="position">Marketing Manager</span> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5"
+                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5 pl-4 line">Quán cà phê/tiệm bánh nằm ngay đối diện Nhà hát Opera. Họ
+                                        cũng phục vụ bữa trưa và cung cấp nhiều loại rượu vang. Tôi đã gọi bánh tart chanh.
+                                        Kem thực sự tươi với bánh quy. Đối với bữa trưa, tôi đã chọn mì spaghetti với sốt cà
+                                        chua, thực sự rất ngon. Bạn tôi đã gọi một suất ăn trưa bao gồm một món khai vị lớn
+                                        và một món cá chính (cùng với trà/cà phê miễn phí). Nhìn chung, trải nghiệm của
+                                        chúng tôi là thỏa đáng. Nhân viên cũng tuyệt vời, rất thân thiện và hữu ích</p>
+                                    <p class="name">Trang Do</p>
+                                    {{-- <span class="position">Marketing Manager</span> --}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

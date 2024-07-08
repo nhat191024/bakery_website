@@ -11,7 +11,12 @@ class ProductDetailService
     public function index($productId)
     {
         $product = Products::find($productId);
-        $categoryId = $product->categories->id; 
+        $categoryId = 0;
+        try {
+            $categoryId = $product->categories->id; 
+        } catch (\Throwable $th) {
+            return redirect()->route('client.shop.productList');
+        }
 
         $relatedProducts = Products::where('category_id', $categoryId)
         ->where('id', '!=', $product->id)->paginate(3);

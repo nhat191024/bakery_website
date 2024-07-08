@@ -17,10 +17,9 @@ return new class extends Migration
             $table->string('subtitle')->nullable();
             $table->text('image')->nullable();
             $table->longText('link')->nullable();
-            $table->dateTime('start_date');
-            $table->dateTime('end_date')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

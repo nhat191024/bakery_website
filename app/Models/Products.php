@@ -3,17 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
     protected $table = 'products';
+    use SoftDeletes;
 
     protected $fillable = [
         'category_id',
         'name',
         'description',
-        'real_price',
         'fake_price',
         'image',
     ];

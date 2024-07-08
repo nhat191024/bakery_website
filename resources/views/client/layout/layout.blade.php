@@ -60,6 +60,7 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
+<<<<<<< HEAD
                     <li class="nav-item active"><a href="index.html" class="nav-link">Trang chủ</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
@@ -77,6 +78,22 @@
                     <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
                     <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span
                                 class="icon-shopping_cart"></span>[0]</a></li>
+=======
+                    <li class="nav-item active"><a href="{{ route('client.homepage.index') }}" class="nav-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa hàng</a></li>
+                    <li class="nav-item"><a href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a></li>
+                    <li class="nav-item"><a href="{{ route('client.blog.index') }}" class="nav-link">Tin tức</a></li>
+                    <li class="nav-item"><a href="{{ route('client.contact.index') }}" class="nav-link">Liên hệ</a></li>
+                    <li class="nav-item cta cta-colored">
+                        <a href="{{ route('client.cart.index') }}" class="nav-link d-flex">
+                            <span class="icon-shopping_cart inline mt-1">
+                            </span>
+                            [<p class="inline" id="cartAmount">
+                                ?
+                            </p>]
+                        </a>
+                    </li>
+>>>>>>> facc919a28dfa063ddc823d81e333d28d5147b5a
 
                 </ul>
             </div>
@@ -101,12 +118,12 @@
                     <div class="ftco-footer-widget mb-4">
                         <a class="navbar-brand" href="index.html">Odouceurs</a>
                         <h2 class="ftco-heading-2">Odouceurs</h2>
-                        <p>Since 2014, we have become one of the best French bakeries in Hanoi. Currently, we have 2
-                            locations in Hanoi, one is in the Old Quarter and the other in West Lake area.</p>
+                        <p>Từ năm 2014, chúng tôi đã trở thành một trong những tiệm bánh Pháp ngon nhất tại Hà Nội. Hiện
+                            tại, chúng tôi có 2 cơ sở tại Hà Nội, một ở Phố Cổ và một ở khu vực Hồ Tây.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.threads.net/@odouceurs_bakery"><span><img src="{{URL::asset('img/threads.svg')}}" width="90%"/></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.facebook.com/odouceurs"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/odouceurs_bakery/"><span class="icon-instagram"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -191,7 +208,7 @@
     <script src="{{ URL::asset('js/scrollax.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
-
+    <script src="{{ URL::asset('js/updateCartCount.js') }}"></script>
 </body>
 
 </html>
