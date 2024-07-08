@@ -9,9 +9,13 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Quản lý hóa đơn</h1>
+            <h1 class="h3 mb-2 text-gray-800">Chi tiết sản phẩm: <strong>{{$productInfo->name}} </strong></h1>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <a class="btn btn-primary" href="{{ route('admin.product.show_add_detail') }}">Thêm sản phẩm</a>
+
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         @if ($message = Session::get('success'))
@@ -24,44 +28,35 @@
                                 <strong>{{ $message }}</strong>
                             </div>
                         @endif
+
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Tổng tiền</th>
-                                    <th>Tình trạng</th>
+                                    <th>Tên biến thể</th>
+                                    <th>Giá</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Tổng tiền</th>
-                                    <th>Tình trạng</th>
+                                    <th>Tên biến thể</th>
+                                    <th>Giá</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($allBill as $key => $item)
+                                @foreach ($productInfo->product_variations as $key => $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->full_name }}</td>
-                                        <td>{{ $item->address }}</td>
-                                        <td>{{ $item->phone_number }}</td>
-                                        <td>{{ $item->total_amount }}</td>
-                                        <td>{{ $item->status == 0 ? 'Chưa thanh toán' : 'Đã thanh toán' }}</td>
-                                        <td class="text-center">
-                                            <a class="btn btn-info"
-                                                href="{{ route('admin.bill.show_detail', ['id' => $item->id]) }}">Chi
-                                                tiết</a>
-                                            <a class="btn btn-warning"
-                                                href="{{ route('admin.bill.show_detail', ['id' => $item->id]) }}">Sửa tình trạng</a>
+                                        <td>{{ ++$key }}</td>
+                                        <td>{{ $item->variation->name }}</td>
+                                        <td>{{ $item['price'] }}</td>
+                                        <td class="text-center"><a class="btn btn-danger"
+                                                href="{{ route('admin.product.show_edit_detail', ['id' => $item->id, 'product_id' => $productInfo->id]) }}"> Sửa
+                                            </a> <a class="btn btn-danger"
+                                            href="{{ route('admin.product.delete_detail', ['id' => $item->id, 'product_id' => $productInfo->id]) }}"
+                                            onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a>
                                         </td>
                                     </tr>
                                 @endforeach

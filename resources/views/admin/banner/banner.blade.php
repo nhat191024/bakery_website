@@ -55,9 +55,7 @@
                                         <td>{{ $item['subtitle'] }}</td>
                                         <td class="text-center"><img width="200px"
                                                 src="{{ url('img') . '/' . $item['image'] }}" alt=""></td>
-                                        <td class="text-center"><a class="btn btn-warning" href="{{route('admin.banner.show_edit', ['id' => $item->id])}}">Sửa</a> <a
-                                                class="btn btn-danger" href="{{route('admin.banner.delete', ['id' => $item->id])}}"
-                                                onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a></td>
+                                        <td class="text-center"><a class="btn btn-warning" href="{{route('admin.banner.show_edit', ['id' => $item->id])}}">Sửa</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

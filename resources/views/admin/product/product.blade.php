@@ -44,7 +44,7 @@
                                     <th>STT</th>
                                     <th>Tên danh mục</th>
                                     <th>Tên sản phẩm</th>
-                                    <th>Giá</th>
+                                    <th>Giá thấp nhất</th>
                                     <th>Ảnh</th>
                                     <th>Action</th>
                                 </tr>
@@ -53,14 +53,27 @@
                                 @foreach ($allProduct as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $item->category->name }}</td>
+                                        <td>{{ $item->categories->name }}</td>
                                         <td>{{ $item['name'] }}</td>
-                                        <td>{{ $item['price'] }}</td>
+                                        <td>{{ $item->product_variations->count() == 1
+                                            ? number_format($item->product_variations->first()->price)
+                                            : number_format($item->product_variations->min('price')) .
+                                                '~' .
+                                                number_format($item->product_variations->max('price')) }}
+                                        </td>
                                         <td class="text-center"><img width="200px"
                                                 src="{{ url('img') . '/' . $item['image'] }}" alt=""></td>
-                                        <td class="text-center"><a class="btn btn-warning" href="{{route('admin.product.show_edit', ['id' => $item->id])}}">Sửa</a> <a
-                                                class="btn btn-danger" href="{{route('admin.product.delete', ['id' => $item->id])}}"
-                                                onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a></td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning"
+                                                href="{{ route('admin.product.show_edit', ['id' => $item->id]) }}">Sửa</a>
+                                            <a class="btn btn-danger"
+                                                href="{{ route('admin.product.delete', ['id' => $item->id]) }}"
+                                                onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a>
+                                            <a class="btn btn-info"
+                                                href="{{ route('admin.product.show_detail', ['id' => $item->id]) }}">Chi
+                                                tiết</a>
+                                        </td>
+
                                     </tr>
                                 @endforeach
                             </tbody>

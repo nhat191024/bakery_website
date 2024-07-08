@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AboutUsController;
 use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\client\AboutController;
@@ -88,6 +89,12 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit', [ProductController::class, 'editProduct'])->name('admin.product.edit');
         Route::get('/edit/{id}', [ProductController::class, 'showEditProduct'])->name('admin.product.show_edit');
         Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin.product.delete');
+        Route::get('/detail', [ProductController::class, 'showDetail'])->name('admin.product.show_detail');
+        Route::get('/detail/add', [ProductController::class, 'showAddDetail'])->name('admin.product.show_add_detail');
+        Route::get('/detail/edit', [ProductController::class, 'editDetail'])->name('admin.product.show_edit_detail');
+        Route::post('/detail/add', [ProductController::class, 'addDetail'])->name('admin.product.add_detail');
+        Route::post('/detail/edit', [ProductController::class, 'showEditDetail'])->name('admin.product.edit_detail');
+        Route::get('/detail/delete', [ProductController::class, 'showDetail'])->name('admin.product.delete_detail');
     });
 
     Route::prefix('/banner')->group(function () {
@@ -134,10 +141,10 @@ Route::prefix('admin')->group(function () {
     //     Route::post('/get-kitchen-method', [KitchenController::class, 'getKitchenMethod'])->name('admin.kitchen.get_kitchen_method');
     // });
     
-    // Route::prefix('/bill')->group(function () {
-    //     Route::get('/', [BillController::class, 'index'])->name('admin.bill.index'); 
-    //     Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
-    // });
+    Route::prefix('/bill')->group(function () {
+        Route::get('/', [BillController::class, 'index'])->name('admin.bill.index'); 
+        Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
+    });
     
     // Route::prefix('/user')->group(function () {
     //     Route::get('/', [UserController::class, 'index'])->name('admin.user.index');

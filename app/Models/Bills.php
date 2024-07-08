@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Bills extends Model
 {
     protected $table = 'bills';
-    use SoftDeletes;
 
     protected $fillable = [
         'order_date',

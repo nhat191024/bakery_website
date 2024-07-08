@@ -55,21 +55,19 @@ class BannerController extends Controller
             'id' => 'required',
             'banner_title' => 'required',
             'banner_content' => 'required',
-            'banner_image' => 'required',
         ]);
         $id = $request->id;
         $bannerTitle = $request->banner_title;
         $bannerContent = $request->banner_content;
-        $imageName = time() . '_' . $request->banner_image->getClientOriginalName() ?? null;
         if ($request->banner_image) {
-            $imageName = time() . '_' . $request->banner_image->getClientOriginalName();
+            $imageName = time() . '_' . $request->banner_image->getClientOriginalName() ?? null;
             $request->banner_image->move(public_path('img'), $imageName);
             $oldImagePath = $this->bannerService->getById($request->id)->image;
-            if (file_exists(public_path('img') . '/' . $oldImagePath)) {
+            if (file_exists(public_path('img') . '/' . $oldImagePath && $oldImagePath != null)) {
                 unlink(public_path('img') . '/' . $oldImagePath);
             }
         }
-        $this->bannerService->edit($id, $bannerTitle, $bannerContent, $imageName);
+        $this->bannerService->edit($id, $bannerTitle, $bannerContent, $imageName ?? null);
         return redirect(route('admin.banner.index'))->with('success', 'Sửa banner thành công');
     }
 
