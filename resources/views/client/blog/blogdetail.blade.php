@@ -1,6 +1,6 @@
 @extends('client.layout.layout')
 @section('content')
-    <div class="hero-wrap hero-bread" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap hero-bread" style="background-image: url({{ URL::asset('img/home/bg-2.jpg') }});">
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
@@ -202,7 +202,7 @@
                         <h3 class="heading">Tin tức gần đây</h3>
                         @foreach ($recentBlogs as $item)
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(images/{{ $item->thumbnail }});"></a>
+                                <a class="blog-img mr-4" style="background-image: url({{ asset('img/client/shop/product-4.webp') }});"></a>
                                 <div class="text">
                                     <h4 class="heading-2"><a href="#">{{ $item->title }}</a></h4>
 
