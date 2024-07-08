@@ -12,8 +12,10 @@
                             <div class="col-md-12 ftco-animate text-center">
                                 <h1 class="mb-2 text-nowrap">{{ $image->title }}</h1>
                                 <div>
-                                    <a href="{{ route('client.shop.productList') }}" class="btn btn-primary mr-1">Xem chi tiết </a>
-                                    <a href="{{ route('client.about.index') }}" class="btn btn-primary ml-1">Tìm hiểu thêm</a>
+                                    <a href="{{ route('client.shop.productList') }}" class="btn btn-primary mr-1">Xem chi
+                                        tiết </a>
+                                    <a href="{{ route('client.about.index') }}" class="btn btn-primary ml-1">Tìm hiểu
+                                        thêm</a>
                                 </div>
                             </div>
                         </div>
@@ -80,11 +82,12 @@
                     <div class="row">
                         <div class="col-md-6 order-md-last align-items-stretch d-flex">
                             <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
-                                style="background-image: url({{ asset('img/client/shop/product-5.jpg') }});">
+                                style="background-image: url({{ asset('img/client/shop/product-5.webp') }});">
                                 <div class="text text-center">
                                     <h2>Các loại bánh</h2>
                                     <p>Tạo điểm nhấn cho bữa tiệc của bạn</p>
-                                    <p><a href="{{route('client.shop.productList')}}" class="btn btn-primary">Đặt ngay</a></p>
+                                    <p><a href="{{ route('client.shop.productList') }}" class="btn btn-primary">Đặt ngay</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -94,9 +97,11 @@
                             @endphp
                             @foreach ($categoriesL as $leftItem)
                                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                                    style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.jpg') }});">
+                                    style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.webp') }});">
                                     <div class="text px-3 py-1">
-                                        <h2 class="mb-0"><a href="{{route('client.shop.productList')}}/{{$leftItem->id}}"> {{ $leftItem->name }}</a></h2>
+                                        <h2 class="mb-0"><a
+                                                href="{{ route('client.shop.productList') }}/{{ $leftItem->id }}">
+                                                {{ $leftItem->name }}</a></h2>
                                     </div>
                                 </div>
                             @endforeach
@@ -107,9 +112,11 @@
                 <div class="col-md-4">
                     @foreach ($categoriesR as $rightItem)
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                            style="background-image: url({{ asset('img/client/shop/product-'. $index++ .    '.jpg') }});">
+                            style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.webp') }});">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="{{route('client.shop.productList')}}/{{$rightItem->id}}">{{$rightItem->name}}</a></h2>
+                                <h2 class="mb-0"><a
+                                        href="{{ route('client.shop.productList') }}/{{ $rightItem->id }}">{{ $rightItem->name }}</a>
+                                </h2>
                             </div>
                         </div>
                     @endforeach
@@ -136,7 +143,7 @@
     </section>
 
     @foreach ($promotions as $promotion)
-        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-2.jpg') }});">
+        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-2.webp') }});">
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
@@ -172,7 +179,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-1.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -181,7 +188,7 @@
                                     <p class="mb-5 pl-4 line">Một quán cà phê tuyệt vời với những món bánh tuyệt hảo... tôi
                                         và những người bạn thường đến đây
                                         vào cuối tuần trong trời thu Hà Nội... Nhân viên cũng rất thân thiện.</p>
-                                    <p class="name"> Will Knight</p>
+                                    <p class="name">Quý ngài tốt bụng</p>
                                     <span class="position">Khách Hàng</span>
                                 </div>
                             </div>
@@ -189,7 +196,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-2.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -197,7 +204,7 @@
                                 <div class="text text-center">
                                     <p class="mb-5 pl-4 line">Nơi bạn tìm thấy tinh hoa ẩm thực từ nước Pháp.
                                         Mọi thứ thực sự giống như một tiệm bánh truyền thống ở góc phố Paris</p>
-                                    <p class="name"> Rémi Nguyễn</p>
+                                    <p class="name">Quốc trưởng</p>
                                     <span class="position">Khách Hàng</span>
                                 </div>
                             </div>
@@ -205,7 +212,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-3.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -215,7 +222,7 @@
                                         loại bánh ,
                                         . Tôi thực sự thích bánh trái cây. Thực đơn rất đa dạng, bạn có thể đặt một
                                         số món bánh cho bữa trưa . Các nhân viên đều rất thân thiện. </p>
-                                    <p class="name">Shinegi</p>
+                                    <p class="name">A happy guy</p>
                                     <span class="position">Khách Hàng</span>
                                 </div>
                             </div>
@@ -225,10 +232,8 @@
             </div>
         </div>
     </section>
-
     <hr>
-
-    <section class="ftco-section ftco-partner">
+    {{-- <section class="ftco-section ftco-partner">
         <div class="container">
             <div class="row">
                 <div class="col-sm ftco-animate">
@@ -253,7 +258,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     @include('client.components.contactUsRedirect')
 @endsection
