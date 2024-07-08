@@ -20,16 +20,15 @@ function updateQuantity(product_id, variant_id, type)
 {
     const quantity = $('#quantity-'+product_id+'-'+variant_id);
     if (parseInt(quantity.val()) == 1 && type === 1) {
-        confirm('Bạn có chắc chắn muốn xoá sản phẩm này khỏi giỏ hàng?') ? removeProduct(id) : '';
+        confirm('Bạn có chắc chắn muốn xoá sản phẩm này khỏi giỏ hàng?') ? removeProduct(product_id, variant_id) : '';
         return;
     }
     let value = parseInt(quantity.val()) + (type == 2 ? 1 : -1);
     quantity.val(value);
-    console.log(type,value);
     updateProduct(product_id, value, variant_id);
 }
 
-function removeProduct(element_id, id, variation_id) {
+function removeProduct(id, variation_id) {
     $.ajax({
         url: "/cart/remove",
         method: "POST",
@@ -41,8 +40,6 @@ function removeProduct(element_id, id, variation_id) {
         success: function (data) {
             $('#product-' + id + '-' + variation_id).css('display', 'none');
             calculateTotal(data.subTotal,data.discount);
-            console.log(data.subTotal,data.discount);
-            console.log(data);
         }
     });
 }
