@@ -83,7 +83,7 @@
                                 <div class="text text-center">
                                     <h2>Các loại bánh</h2>
                                     <p>Tạo điểm nhấn cho bữa tiệc của bạn</p>
-                                    <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
+                                    <p><a href="{{route('client.shop.productList')}}" class="btn btn-primary">Đặt ngay</a></p>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
                                     style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.jpg') }});">
                                     <div class="text px-3 py-1">
-                                        <h2 class="mb-0"><a href="#"> {{ $leftItem->name }}</a></h2>
+                                        <h2 class="mb-0"><a href="{{route('client.shop.productList')}}/{{$leftItem->id}}"> {{ $leftItem->name }}</a></h2>
                                     </div>
                                 </div>
                             @endforeach
@@ -108,7 +108,7 @@
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
                             style="background-image: url({{ asset('img/client/shop/product-'. $index++ .    '.jpg') }});">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">{{$rightItem->name}}</a></h2>
+                                <h2 class="mb-0"><a href="{{route('client.shop.productList')}}/{{$rightItem->id}}">{{$rightItem->name}}</a></h2>
                             </div>
                         </div>
                     @endforeach

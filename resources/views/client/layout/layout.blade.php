@@ -114,24 +114,11 @@
                     <div class="ftco-footer-widget mb-4 ml-md-5">
                         <h2 class="ftco-heading-2">Menu</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Cửa hàng</a></li>
-                            <li><a href="#" class="py-2 d-block">Giới thiệu</a></li>
-                            <li><a href="#" class="py-2 d-block">Tin tức</a></li>
-                            <li><a href="#" class="py-2 d-block">Liên hệ</a></li>
+                            <li><a href="{{route('client.shop.productList')}}" class="py-2 d-block">Cửa hàng</a></li>
+                            <li><a href="{{route('client.contact.index')}}" class="py-2 d-block">Giới thiệu</a></li>
+                            <li><a href="" class="py-2 d-block">Tin tức</a></li>
+                            <li><a href="{{route('client.contact.index')}}" class="py-2 d-block">Liên hệ</a></li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Hỗ trợ</h2>
-                        <div class="d-flex">
-                            <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-                                <li><a href="#" class="py-2 d-block">Thông tin đơn hàng</a></li>
-                                <li><a href="#" class="py-2 d-block">Những câu hỏi thường gặp</a></li>
-                                <li><a href="#" class="py-2 d-block">Điều khoản và dịch vụ</a></li>
-                                <li><a href="#" class="py-2 d-block">Chính sách bảo mật</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <div class="col-md">
@@ -159,7 +146,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | ODUCEURS</a>
+                        </script> Xây dựng và thiết kế | FPT Polytechnic</a>
                     </p>
                 </div>
             </div>
