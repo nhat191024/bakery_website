@@ -46,10 +46,6 @@ Route::prefix('contact')->group(function () {
     Route::post('/', [ContactController::class, 'store'])->name('client.contact.store');
 });
 
-Route::prefix('about')->group(function () {
-    Route::get('/', [AboutController::class, 'index'])->name('client.about.index');
-});
-
 // Blog page
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index']);
