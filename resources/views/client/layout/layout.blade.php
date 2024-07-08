@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Odouceurs-Cửa hàng bánh</title>
+    <title>Odouceurs</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }}" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
@@ -23,13 +23,14 @@
     <link rel="stylesheet" href="{{ URL::asset('css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
-
 </head>
 
 <body class="goto-here">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Odouceurs</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="{{ asset('img/logo.svg') }}" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
@@ -37,11 +38,15 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="{{ route('client.homepage.index') }}" class="nav-link">Trang chủ</a></li>
-                    <li class="nav-item"><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa hàng</a></li>
-                    <li class="nav-item"><a href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a></li>
+                    <li class="nav-item active"><a href="{{ route('client.homepage.index') }}" class="nav-link">Trang
+                            chủ</a></li>
+                    <li class="nav-item"><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa hàng</a>
+                    </li>
+                    <li class="nav-item"><a href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a>
+                    </li>
                     <li class="nav-item"><a href="{{ route('client.blog.index') }}" class="nav-link">Tin tức</a></li>
-                    <li class="nav-item"><a href="{{ route('client.contact.index') }}" class="nav-link">Liên hệ</a></li>
+                    <li class="nav-item"><a href="{{ route('client.contact.index') }}" class="nav-link">Liên hệ</a>
+                    </li>
                     <li class="nav-item cta cta-colored">
                         <a href="{{ route('client.cart.index') }}" class="nav-link d-flex">
                             <span class="icon-shopping_cart inline mt-1">
@@ -78,9 +83,12 @@
                         <p>Từ năm 2014, chúng tôi đã trở thành một trong những tiệm bánh Pháp ngon nhất tại Hà Nội. Hiện
                             tại, chúng tôi có 2 cơ sở tại Hà Nội, một ở Phố Cổ và một ở khu vực Hồ Tây.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                            <li class="ftco-animate"><a href="https://www.threads.net/@odouceurs_bakery"><span><img src="{{URL::asset('img/threads.svg')}}" width="90%"/></span></a></li>
-                            <li class="ftco-animate"><a href="https://www.facebook.com/odouceurs"><span class="icon-facebook"></span></a></li>
-                            <li class="ftco-animate"><a href="https://www.instagram.com/odouceurs_bakery/"><span class="icon-instagram"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.threads.net/@odouceurs_bakery"><span><img
+                                            src="{{ URL::asset('img/threads.svg') }}" width="90%" /></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.facebook.com/odouceurs"><span
+                                        class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/odouceurs_bakery/"><span
+                                        class="icon-instagram"></span></a></li>
                         </ul>
                     </div>
                 </div>
