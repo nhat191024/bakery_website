@@ -10,9 +10,13 @@
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
                             <div class="col-md-12 ftco-animate text-center">
-                                <h1 class="mb-2">{{ $image->title }}</h1>
-                                <h2 class="subheading mb-4">{{ $image->subtitle }}</h2>
-                                <p><a href="{{ $image->link }}" class="btn btn-primary">Xem chi tiết </a></p>
+                                <h1 class="mb-2 text-nowrap">{{ $image->title }}</h1>
+                                <div>
+                                    <a href="{{ route('client.shop.productList') }}" class="btn btn-primary mr-1">Xem chi
+                                        tiết </a>
+                                    <a href="{{ route('client.about.index') }}" class="btn btn-primary ml-1">Tìm hiểu
+                                        thêm</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -78,44 +82,45 @@
                     <div class="row">
                         <div class="col-md-6 order-md-last align-items-stretch d-flex">
                             <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
-                                style="background-image: url({{ asset('img/client/shop/product-5.jpg') }});">
+                                style="background-image: url({{ asset('img/client/shop/product-5.webp') }});">
                                 <div class="text text-center">
                                     <h2>Các loại bánh</h2>
                                     <p>Tạo điểm nhấn cho bữa tiệc của bạn</p>
-                                    <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
+                                    <p><a href="{{ route('client.shop.productList') }}" class="btn btn-primary">Đặt ngay</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                                style="background-image: url({{ asset('img/client/shop/product-1.jpg') }});">
-                                <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#"> Bánh Đặt Trước</a></h2>
+                            @php
+                                $index = 1;
+                            @endphp
+                            @foreach ($categoriesL as $leftItem)
+                                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+                                    style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.webp') }});">
+                                    <div class="text px-3 py-1">
+                                        <h2 class="mb-0"><a
+                                                href="{{ route('client.shop.productList') }}/{{ $leftItem->id }}">
+                                                {{ $leftItem->name }}</a></h2>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="category-wrap ftco-animate img d-flex align-items-end"
-                                style="background-image: url({{ asset('img/client/shop/product-2.jpg') }});">
-                                <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#">Bánh Đặt Tiệc</a></h2>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4">
-                    <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                        style="background-image: url({{ asset('img/client/shop/product-3.jpg') }});">
-                        <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">Bánh Dessert</a></h2>
+                    @foreach ($categoriesR as $rightItem)
+                        <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+                            style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.webp') }});">
+                            <div class="text px-3 py-1">
+                                <h2 class="mb-0"><a
+                                        href="{{ route('client.shop.productList') }}/{{ $rightItem->id }}">{{ $rightItem->name }}</a>
+                                </h2>
+                            </div>
                         </div>
-                    </div>
-                    <div class="category-wrap ftco-animate img d-flex align-items-end"
-                        style="background-image: url({{ asset('img/client/shop/product-4.jpg') }});">
-                        <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">Bánh Sỉ</a></h2>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -140,7 +145,7 @@
     </section>
 
     @foreach ($promotions as $promotion)
-        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-2.jpg') }});">
+        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-2.webp') }});">
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
@@ -160,15 +165,14 @@
             </div>
         </section>
     @endforeach
-
     <section class="ftco-section testimony-section">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <span class="subheading">Phản hồi</span>
-                    <h2 class="mb-4">Khách hàng của chúng tôi nói rằng</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in</p>
+                    <span class="subheading">Khách hàng nói gì về chúng tôi</span>
+                    <h2 class="mb-4">Những chia sẻ gần đây</h2>
+                    <p>
+                    </p>
                 </div>
             </div>
             <div class="row ftco-animate">
@@ -177,70 +181,51 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-1.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Quán cà phê tráng miệng ngon nhất Hà Nội. Hương vị rất ngon.
-                                        Nhân viên rất tử tế. Bạn nên ăn bánh éclair ở đây. Ngon!</p>
-                                    <p class="name">Joonyoung Kim</p>
-                                    {{-- <span class="position">Marketing Manager</span> --}}
+                                    <p class="mb-5 pl-4 line">Một quán cà phê tuyệt vời với những món bánh tuyệt hảo... tôi
+                                        và những người bạn thường đến đây
+                                        vào cuối tuần trong trời thu Hà Nội... Nhân viên cũng rất thân thiện.</p>
+                                    <p class="name">Quý ngài tốt bụng</p>
+                                    <span class="position">Khách Hàng</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-2.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Một quán cà phê nhỏ tuyệt vời với những chiếc bánh ngon
-                                        tuyệt... tôi và bạn bè đã đến đây mỗi ngày trong kỳ nghỉ ngắn ngày ở Hà Nội... Nhân
-                                        viên cũng tuyệt vời nữa</p>
-                                    <p class="name">Will Knight</p>
-                                    {{-- <span class="position">Marketing Manager</span> --}}
+                                    <p class="mb-5 pl-4 line">Nơi bạn tìm thấy tinh hoa ẩm thực từ nước Pháp.
+                                        Mọi thứ thực sự giống như một tiệm bánh truyền thống ở góc phố Paris</p>
+                                    <p class="name">Quốc trưởng</p>
+                                    <span class="position">Khách Hàng</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-3.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Nơi để tìm thấy tất cả những gì bạn nhớ từ Pháp. Mọi thứ thực
-                                        sự giống như trong tiệm bánh ở góc phố nên đừng quẹt thẻ thăm quan khi ở trong khu
-                                        phố</p>
-                                    <p class="name">Remi Nguyen</p>
-                                    {{-- <span class="position">Marketing Manager</span> --}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/person_1.jpg') }})">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Quán cà phê/tiệm bánh nằm ngay đối diện Nhà hát Opera. Họ
-                                        cũng phục vụ bữa trưa và cung cấp nhiều loại rượu vang. Tôi đã gọi bánh tart chanh.
-                                        Kem thực sự tươi với bánh quy. Đối với bữa trưa, tôi đã chọn mì spaghetti với sốt cà
-                                        chua, thực sự rất ngon. Bạn tôi đã gọi một suất ăn trưa bao gồm một món khai vị lớn
-                                        và một món cá chính (cùng với trà/cà phê miễn phí). Nhìn chung, trải nghiệm của
-                                        chúng tôi là thỏa đáng. Nhân viên cũng tuyệt vời, rất thân thiện và hữu ích</p>
-                                    <p class="name">Trang Do</p>
-                                    {{-- <span class="position">Marketing Manager</span> --}}
+                                    <p class="mb-5 pl-4 line">Mọi thứ rất tuyệt vời từ vị trí, cách trang trí cho đến các
+                                        loại bánh ,
+                                        . Tôi thực sự thích bánh trái cây. Thực đơn rất đa dạng, bạn có thể đặt một
+                                        số món bánh cho bữa trưa . Các nhân viên đều rất thân thiện. </p>
+                                    <p class="name">A happy guy</p>
+                                    <span class="position">Khách Hàng</span>
                                 </div>
                             </div>
                         </div>
@@ -249,10 +234,8 @@
             </div>
         </div>
     </section>
-
     <hr>
-
-    <section class="ftco-section ftco-partner">
+    {{-- <section class="ftco-section ftco-partner">
         <div class="container">
             <div class="row">
                 <div class="col-sm ftco-animate">
@@ -277,24 +260,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-        <div class="container py-4">
-            <div class="row d-flex justify-content-center py-5">
-                <div class="col-md-6">
-                    <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-                    <span>Get e-mail updates about our latest shops and special offers</span>
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    <form action="#" class="subscribe-form">
-                        <div class="form-group d-flex">
-                            <input type="text" class="form-control" placeholder="Enter email address">
-                            <input type="submit" value="Subscribe" class="submit px-3">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('client.components.contactUsRedirect')
 @endsection
