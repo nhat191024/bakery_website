@@ -649,11 +649,6 @@
             "price": "390000"
         },
         {
-            "variation_id": 2,
-            "product_id": 13,
-            "price": "650000"
-        },
-        {
             "variation_id": 1,
             "product_id": 14,
             "price": "330000"
@@ -789,7 +784,7 @@
             "price": "600000"
         },
         {
-            "variation_id": 2,
+            "variation_id": 1,
             "product_id": 28,
             "price": "75000"
         },
