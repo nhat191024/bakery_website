@@ -12,6 +12,7 @@ class Bill_details extends Model
     protected $fillable = [
         'product_id',
         'bill_id',
+        'variation_id',
         'quantity',
         'price',
     ];

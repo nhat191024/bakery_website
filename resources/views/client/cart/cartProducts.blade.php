@@ -43,7 +43,7 @@
                                                 </td>
 
                                                 <td class="price">
-                                                    {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price) }}đ
+                                                    {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()?->price ?? 0, 0, ',', '.') }}đ
                                                 </td>
                                             <td class="quantity">
                                                 <div class="input-group mb-3">
@@ -67,9 +67,10 @@
                                                 </div>
                                             </td>
                                                 <td class="total" style="min-width: 176.984375px" id="total-{{ $id }}"
-                                                    value="{{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity'] }}">
-                                                    {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity']) }}đ
+                                                    value="{{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()?->price * $pd['quantity'] }}">
+                                                    {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()?->price * $pd['quantity']) }}đ
                                                 </td>
+
                                         </tr>
                                     @endforeach
                                     @endif
@@ -124,7 +125,7 @@
                             <span id="totalPrice">{{ number_format($total) }}đ</span>
                         </p>
                     </div>
-                    <p><button class="btn btn-primary py-3 px-4">Proceed to Checkout</button></p>
+                    <p><button onclick="checkout()" class="btn btn-primary py-3 px-4">Proceed to Checkout</button></p>
                 </div>
             </div>
         </div>

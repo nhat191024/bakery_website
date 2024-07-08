@@ -20,13 +20,13 @@
                     @if (count($product->product_variations) > 1)
                         <p class="price">
                             <input class="productPrice h3 text-black" id="productPrice" type="text" id="price"
-                                value="{{ number_format($product->product_variations->first()->price, 0, ',', '.') }}đ"
+                                value="{{ number_format($product->product_variations->min('price') ?? $product, 0, ',', '.') }}đ"
                                 disabled>
                         </p>
                     @else
                         <p class="price-dc"><s><span>{{ number_format($product->fake_price, 0, ',', '.') }}đ</span></s></p>
                         <input class="productPrice h3 text-black" id="productPrice" type="text" id="price"
-                            value="{{ number_format($product->product_variations->first()->price, 0, ',', '.') }}đ"
+                            value="{{ number_format($product->product_variations->min('price'), 0, ',', '.') }}đ"
                             disabled>
                         </p>
                     @endif

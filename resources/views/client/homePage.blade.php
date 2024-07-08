@@ -4,7 +4,7 @@
         <div class="home-slider owl-carousel">
             @foreach ($images as $image)
                 <div class="slider-item"
-                    style="background-image: 
+                    style="background-image:
                 url({{ asset('img/home/' . $image->image) }});">
                     <div class="overlay"></div>
                     <div class="container">
@@ -134,42 +134,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                @foreach ($products as $pd)
-                    <div class="col-md-6 col-lg-4 ftco-animate">
-                        <div class="product">
-                            <a href="#" class="img-prod"><img class="img-fluid"
-                                    src="{{ asset('img/client/shop/' . $pd->image) }}" alt="{{ $pd->image }}">
-                                <div class="overlay d-flex justify-content-center align-items-center">
-                                    <div
-                                        class="m bg-primary rounded-pill justify-content-center align-items-center mr-2 shadow-lg">
-                                        <i class="ion-ios-menu text-white p-5" style="font-size: 3rem;"></i>
-                                    </div>
-                                    {{-- @endif --}}
-                                    <div
-                                        class=" bg-primary rounded-pill justify-content-center align-items-center shadow-lg">
-                                        <i class="ion-ios-cart text-white p-5" style="font-size: 3rem;"></i>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="text py-3 pb-4 px-3 text-center">
-                                <h3><a class="prod-title" href="#">{{ $pd->name }}</a></h3>
-                                <div class="d-flex">
-                                    <div class="pricing">
-                                        <p class="price">
-                                            <span
-                                                class="mr-2 price-dc">{{ number_format($pd->fake_price, 0, ',', '.') }}đ</span>
-                                            <span
-                                                class="price-sale font-weight-bold">{{ number_format($pd->real_price, 0, ',', '.') }}
-                                                đ</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            @include('client.components.productList')
         </div>
     </section>
 
