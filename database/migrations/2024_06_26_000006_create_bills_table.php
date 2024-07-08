@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('address');
             $table->string('phone_number');
             $table->string('email');
-            $table->string('voucher_code');
+            $table->string('voucher_code')->nullable();
             $table->string('delivery_method');
             $table->string('payment_method');
             $table->integer('total_amount')->default(0);
