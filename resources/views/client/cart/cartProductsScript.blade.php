@@ -1,6 +1,5 @@
 <script>
-    let subTotal = {{ $subTotal }};
-
+    let subTotal = {{ isset($subTotal) ? $subTotal : 0 }};
     function removeDiscount() {
         $.ajax({
             url: "{{ route('client.cart.removeVoucher') }}",

@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('/', [HomePageController::class, 'index']);
+Route::get('/', [HomePageController::class, 'index'])->name('client.homepage.index');
 Route::get('/about', [AboutController::class, 'index'])->name('client.about.index');
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
@@ -49,7 +49,7 @@ Route::prefix('contact')->group(function () {
 
 // Blog page
 Route::prefix('blog')->group(function () {
-    Route::get('/', [BlogController::class, 'index']);
+    Route::get('/', [BlogController::class, 'index'])->name('client.blog.index');
     Route::get('/{id}', [BlogController::class, 'show'])->name('client.blog.show');
 });
 
@@ -70,5 +70,6 @@ Route::prefix('cart')->group(function () {
 
 Route::prefix('checkout')->group(function () {
     Route::get('/', [CheckoutController::class, 'index'])->name('client.checkout.index');
+    Route::post('/', [CheckoutController::class, 'confirmOrder'])->name('client.checkout.store');
 });
 
