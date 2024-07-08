@@ -22,7 +22,7 @@
                                 @if (isset($cart) && count($cart) > 0 && !empty($cart))
                                     @foreach ($cart as $id => $pd)
                                         <tr class="text-center" id="product-{{ $id }}">
-                                            <td class="product-remove" onclick="removeProduct({{ $id }},{{ $pd['product']->id }}, {{ $pd['variation_id'] }})">
+                                            <td class="product-remove" onclick="removeProduct({{ $pd['product']->id }}, {{ $pd['variation_id'] }})">
                                                 <a><span class="ion-ios-close"></span></a>
                                             </td>
 
