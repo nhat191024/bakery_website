@@ -10,9 +10,11 @@
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
                             <div class="col-md-12 ftco-animate text-center">
-                                <h1 class="mb-2">{{ $image->title }}</h1>
-                                <h2 class="subheading mb-4">{{ $image->subtitle }}</h2>
-                                <p><a href="{{ $image->link }}" class="btn btn-primary">Xem chi tiết </a></p>
+                                <h1 class="mb-2 text-nowrap">{{ $image->title }}</h1>
+                                <div>
+                                    <a href="{{ route('client.shop.productList') }}" class="btn btn-primary mr-1">Xem chi tiết </a>
+                                    <a href="{{ route('client.about.index') }}" class="btn btn-primary ml-1">Tìm hiểu thêm</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -20,7 +22,6 @@
             @endforeach
         </div>
     </section>
-
     <section class="ftco-section">
         <div class="container">
             <div class="row no-gutters ftco-services">
