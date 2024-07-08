@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Products;
 use App\Service\client\ProductListService;
 
-class ProductListControler extends Controller
+class ProductListController extends Controller
 {
 
     private $service;
@@ -20,8 +20,8 @@ class ProductListControler extends Controller
     {
         return $this->service->index($categoryId);
     }
-    public function show(){  
+    public function show(){
         $products  = Products::paginate(6);
-        return view('client.blog.blogdetail',compact('products'));
+        return view('client.blog.blogDetail',compact('products'));
     }
 }
