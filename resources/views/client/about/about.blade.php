@@ -1,6 +1,6 @@
 @extends('client.layout.layout')
 @section('content')
-    <div class="hero-wrap hero-bread" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap hero-bread" style="background-image: url({{ URL::asset('img/home/bg-1.jpg') }});">
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
@@ -16,8 +16,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
-                    style="background-image: url(images/about.jpg);">
-                    <a href="https://vimeo.com/45830194"
+                    style="background-image: url({{ URL::asset('img/client/shop/product-2.webp') }});">
+                    <a href="https://imgur.com/a/QyP4S3g"
                         class="icon popup-vimeo d-flex justify-content-center align-items-center">
                         <span class="icon-play"></span>
                     </a>
@@ -95,7 +95,7 @@
                     <div class="carousel-testimony owl-carousel">
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5"  style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                <div class="user-img mb-5"  style="background-image: url({{ asset('img/home/person-1.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -104,14 +104,14 @@
                                     <p class="mb-5 pl-4 line">Một quán cà phê tuyệt vời với những món bánh tuyệt hảo... tôi
                                         và những người bạn thường đến đây
                                         vào cuối tuần trong trời thu Hà Nội... Nhân viên cũng rất thân thiện.</p>
-                                    <p class="name"> Will Knight</p>
+                                    <p class="name"> Quý ngài tốt bụng</p>
                                     <span class="position">Khách Hàng</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                <div class="user-img mb-5" style="background-image: url({{ asset('img/home/person-2.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -119,14 +119,14 @@
                                 <div class="text text-center">
                                     <p class="mb-5 pl-4 line">Nơi bạn tìm thấy tinh hoa ẩm thực từ nước Pháp.
                                         Mọi thứ thực sự giống như một tiệm bánh truyền thống ở góc phố Paris</p>
-                                    <p class="name"> Rémi Nguyễn</p>
+                                    <p class="name">Quốc trưởng</p>
                                     <span class="position">Khách Hàng</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url({{ asset('img/person_1.jpg') }})">
+                                <div class="user-img mb-5" style="background-image: url({{ asset('img/home/person-3.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -135,7 +135,7 @@
                                     <p class="mb-5 pl-4 line">Mọi thứ rất tuyệt vời từ vị trí, cách trang trí cho đến các loại bánh ,
                                         . Tôi thực sự thích bánh trái cây. Thực đơn rất đa dạng, bạn có thể đặt một
                                         số món bánh cho bữa trưa . Các nhân viên đều rất thân thiện. </p>
-                                    <p class="name">Shinegi</p>
+                                    <p class="name">A happy guy</p>
                                     <span class="position">Khách Hàng</span>
                                 </div>
                             </div>
