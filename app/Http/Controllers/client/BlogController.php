@@ -12,6 +12,16 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+
+    public function index()
+    {
+        $blogs = Blogs::all();
+        $blogs = Blogs::take(5)->get();
+        $recentBlogs = Blogs::take(3)->get();
+        $categories = Categories::all();
+        return view('client.blog.blogPage', compact('blogs', 'recentBlogs', 'categories'));
+    }
+
     public function show($id)
     {
         $Blogs  = Blogs::where('id', $id)->first();
