@@ -60,25 +60,6 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-<<<<<<< HEAD
-                    <li class="nav-item active"><a href="index.html" class="nav-link">Trang chủ</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Cửa hàng</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="shop.html">Cửa hàng</a>
-                            <a class="dropdown-item" href="wishlist.html">Danh sách ước</a>
-                            <a class="dropdown-item" href="product-single.html">Bánh </a>
-                            <a class="dropdown-item" href="cart.html">Giỏ hàng</a>
-                            <a class="dropdown-item" href="checkout.html">Thanh toán</a>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">Tin tức</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
-                    <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span
-                                class="icon-shopping_cart"></span>[0]</a></li>
-=======
                     <li class="nav-item active"><a href="{{ route('client.homepage.index') }}" class="nav-link">Trang chủ</a></li>
                     <li class="nav-item"><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa hàng</a></li>
                     <li class="nav-item"><a href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a></li>
@@ -93,7 +74,6 @@
                             </p>]
                         </a>
                     </li>
->>>>>>> facc919a28dfa063ddc823d81e333d28d5147b5a
 
                 </ul>
             </div>

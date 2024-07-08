@@ -4,12 +4,8 @@
         <div class="home-slider owl-carousel">
             @foreach ($images as $image)
                 <div class="slider-item"
-<<<<<<< HEAD
-                    style="background-image:url({{ asset('img/home/' . $image->image) }});">
-=======
                     style="background-image:
                 url({{ asset('img/home/' . $image->image) }});">
->>>>>>> facc919a28dfa063ddc823d81e333d28d5147b5a
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -143,22 +139,6 @@
         </div>
     </section>
 
-<<<<<<< HEAD
-    <section class="ftco-section img" style="background-image: url({{ asset('img/bg_3.jpg') }});">
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
-                    <span class="subheading">Giá ưu đãi cho bạn </span>
-                    <h2 class="mb-4">Giảm giá hàng ngày</h2>
-                    <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
-                    <h3><a href="#">MILLE FEUILLE VANILLA</a></h3>
-                    <span class="price">50.0000 <a href="#">chỉ còn 30.000 </a></span>
-                    <div id="timer" class="d-flex mt-5">
-                        <div class="time" id="days"></div>
-                        <div class="time pl-3" id="hours"></div>
-                        <div class="time pl-3" id="minutes"></div>
-                        <div class="time pl-3" id="seconds"></div>
-=======
     @foreach ($promotions as $promotion)
         <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-2.jpg') }});">
             <div class="container">
@@ -175,7 +155,6 @@
                             <div class="time pl-3" id="minutes"></div>
                             <div class="time pl-3" id="seconds"></div>
                         </div>
->>>>>>> facc919a28dfa063ddc823d81e333d28d5147b5a
                     </div>
                 </div>
             </div>
@@ -195,22 +174,6 @@
             <div class="row ftco-animate">
                 <div class="col-md-12">
                     <div class="carousel-testimony owl-carousel">
-<<<<<<< HEAD
-                        @foreach ($messages as $message)
-                            <div class="item">
-                                <div class="testimony-wrap p-4 pb-5">
-                                    <div class="user-img mb-5"
-                                        style="background-image: url({{ asset('img/person_1.jpg') }})">
-                                        <span class="quote d-flex align-items-center justify-content-center">
-                                            <i class="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="text text-center">
-                                        <p class="mb-5 pl-4 line">{{ $message->message }}</p>
-                                        <p class="name">{{ $message->name }}</p>
-                                        <span class="position">Marketing Manager</span>
-                                    </div>
-=======
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
@@ -224,7 +187,6 @@
                                         Nhân viên rất tử tế. Bạn nên ăn bánh éclair ở đây. Ngon!</p>
                                     <p class="name">Joonyoung Kim</p>
                                     {{-- <span class="position">Marketing Manager</span> --}}
->>>>>>> facc919a28dfa063ddc823d81e333d28d5147b5a
                                 </div>
                             </div>
                         </div>
