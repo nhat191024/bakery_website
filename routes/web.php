@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\CartController;
+use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
@@ -39,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('/', [HomePageController::class, 'index'])->name('client.homePage.index');;
+Route::get('/', [HomePageController::class, 'index'])->name('client.homepage.index');
 Route::get('/about', [AboutController::class, 'index'])->name('client.about.index');
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
@@ -48,7 +49,7 @@ Route::prefix('contact')->group(function () {
 
 // Blog page
 Route::prefix('blog')->group(function () {
-    Route::get('/', [BlogController::class, 'index']);
+    Route::get('/', [BlogController::class, 'index'])->name('client.blog.index');
     Route::get('/{id}', [BlogController::class, 'show'])->name('client.blog.show');
 });
 
@@ -65,5 +66,10 @@ Route::prefix('cart')->group(function () {
     Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
     Route::post('/removeVoucher', [CartController::class, 'removeVoucher'])->name('client.cart.removeVoucher');
     Route::get('/getCount',[Cart::class, 'getCartCount'])->name('cart.getCartCount');
+});
+
+Route::prefix('checkout')->group(function () {
+    Route::get('/', [CheckoutController::class, 'index'])->name('client.checkout.index');
+    Route::post('/confirm', [CheckoutController::class, 'confirmOrder'])->name('client.checkout.store');
 });
 

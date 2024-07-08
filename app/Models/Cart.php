@@ -6,7 +6,7 @@ class Cart
 {
 
 
-public static function add($product, $variation_id = 1, $quantity = 1)
+public static function add($product, $variation_id = '1', $quantity = '1')
 {
     $cart = session()->get('cart', []);
 
@@ -49,6 +49,7 @@ public static function add($product, $variation_id = 1, $quantity = 1)
     public static function get()
     {
         $cart = session('cart');
+        // dd($cart);
         return $cart;
     }
 
@@ -71,7 +72,8 @@ public static function add($product, $variation_id = 1, $quantity = 1)
     }
     public static function getTotal()
     {
-        return self::getSubtotal() - self::getDiscountAmount();
+        $total = self::getSubtotal() - self::getDiscountAmount();
+        return $total <= 0 ? 0 : $total;
     }
 
     public static function setDiscountAmount($amount)

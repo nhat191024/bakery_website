@@ -57,3 +57,18 @@ function calculateTotal(subTotal,discount = 0) {
         .text((discount < 0 ? 0 : (new Intl.NumberFormat('de-DE').format(discount))) + 'đ');
     updateCartCount();
 }
+
+function checkout(){
+    $.ajax({
+        url: "/cart/getCount",
+        method: "GET",
+        success: function(data) {
+            $('#cartAmount').text(data);
+            if (data <= 0) {
+                location.href = '/shop';
+                return;
+            }
+            location.href = '/checkout';
+        }
+    });
+}
