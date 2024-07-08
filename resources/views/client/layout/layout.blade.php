@@ -28,7 +28,7 @@
 <body class="goto-here">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{ route('client.homepage.index') }}">
                 <img src="{{ asset('img/logo.svg') }}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -158,7 +158,6 @@
     <script src="{{ URL::asset('js/jquery.animateNumber.min.js') }}"></script>
     <script src="{{ URL::asset('js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ URL::asset('js/scrollax.min.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
     <script src="{{ URL::asset('js/updateCartCount.js') }}"></script>
 </body>
