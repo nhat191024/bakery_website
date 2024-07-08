@@ -17,20 +17,22 @@
                                 <span style="color: #bbb;">Sold</span></a>
                         </p>
                     </div>
-                    @if ($product->product_variations->isNotEmpty())
+                    @if (count($product->product_variations) > 1)
                         <p class="price">
                             <input class="productPrice h3 text-black" id="productPrice" type="text" id="price"
                                 value="{{ number_format($product->product_variations->first()->price, 0, ',', '.') }}đ"
                                 disabled>
                         </p>
-                    {{-- @else
+                    @else
                         <p class="price-dc"><s><span>{{ number_format($product->fake_price, 0, ',', '.') }}đ</span></s></p>
                         <input class="productPrice h3 text-black" id="productPrice" type="text" id="price"
-                            value="{{ number_format($product->real_price, 0, ',', '.') }}đ" disabled> --}}
+                            value="{{ number_format($product->product_variations->first()->price, 0, ',', '.') }}đ"
+                            disabled>
+                        </p>
                     @endif
                     <p>{{ $product->description }}</p>
                     <div class="row mt-4">
-                        @if ($product->product_variations->isNotEmpty())
+                        @if (count($product->product_variations) > 1)
                             <div class="col-md-6">
                                 <div class="form-group d-flex">
                                     <div class="select-wrap">
@@ -88,21 +90,13 @@
         </div>
     </section>
     <script>
-
-
         $(document).ready(function() {
             $('#addToCart').click(function(e) {
-
-
-                // id,quantity = 1, variation_id = null
                 var id = {{ $product->id }}
                 $quantitiy = 1;
-                $variation_id = null;
-
-                // variation_id
                 $price = $('#productPrice').val().replace('đ', '').replace('.', '');
                 $quantity = $('#quantity').val();
-                $variation_id = $('#productVariation').val();
+                $variation_id = $('#productVariation').val() ? $('#productVariation').val() : 1;
                 console.log($price, $quantity, $variation_id);
                 $.ajax({
                     url: "{{ route('client.cart.add') }}",
@@ -115,7 +109,6 @@
                     },
                     beforeSend: function() {
                         $('#addToCart').text('Adding...');
-                        // $('#addToCart').class('btn-success');
                     },
                     success: function(data) {
                         $('#addToCart').text('Added to cart!');
@@ -125,6 +118,7 @@
                         }, 5000);
                     },
                     error: function(err) {
+                        $('#addToCart').text('Failed');
                         console.log(err);
                     }
                 });

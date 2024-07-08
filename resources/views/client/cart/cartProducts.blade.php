@@ -22,39 +22,35 @@
                                 @if (isset($cart) && count($cart) > 0 && !empty($cart))
                                     @foreach ($cart as $id => $pd)
                                         <tr class="text-center" id="product-{{ $id }}">
-                                            <td class="product-remove" onclick="removeProduct('{{ $id }}')">
+                                            <td class="product-remove" onclick="removeProduct({{ $id }},{{ $pd['product']->id }}, {{ $pd['variation_id'] }})">
                                                 <a><span class="ion-ios-close"></span></a>
                                             </td>
 
                                             <td class="image-prod">
-                                                <div class="img"
+                                                <div class="img pointer"
+                                                onclick="window.location.href='{{ route('client.shop.productDetail', $pd['product']->id) }}'"
                                                     style="background-image:url('{{ asset('img/client/shop/' . $pd['product']->image) }}');">
                                                 </div>
                                             </td>
 
-                                            @if ($pd['product']->product_variations->isNotEmpty())
-                                                <td class="product-name">
-                                                    <h3>{{ $pd['product']->name }}
+                                            <td class="product-name">
+                                                <h3 class="pointer" onclick="window.location.href='{{ route('client.shop.productDetail', $pd['product']->id) }}'">
+                                                    {{ $pd['product']->name }}
+                                                        @if (count($pd['product']->product_variations) > 1)
                                                         ({{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->variation->name }})
+                                                        @endif
                                                     </h3>
                                                 </td>
 
                                                 <td class="price">
                                                     {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price) }}đ
                                                 </td>
-                                            {{-- @else
-                                                <td class="product-name">
-                                                    <h3>{{ $pd['product']->name }}</h3>
-                                                </td>
-                                                <td class="price">{{ number_format($pd['product']->real_price) }}đ</td> --}}
-                                            @endif
-
                                             <td class="quantity">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group d-flex mt-3">
                                                         <span class="input-group-btn mr-2">
                                                             <button type="button" class="quantity-left-minus btn shadow-sm"
-                                                                onclick="updateQuantity({{ $id }}, {{ $pd['variation_id'] }}, 1) ">
+                                                                onclick="updateQuantity({{ $pd['product']->id }}, {{ $pd['variation_id'] }}, 1) ">
                                                                 <i class="ion-ios-remove"></i>
                                                             </button>
                                                         </span>
@@ -63,31 +59,23 @@
                                                             value="{{ $pd['quantity'] }}" min="1" max="100">
                                                         <span class="input-group-btn ml-2">
                                                             <button type="button" class="quantity-right-plus btn shadow-sm"
-                                                                onclick="updateQuantity({{ $id }}, {{ $pd['variation_id'] }}, 2)">
+                                                                onclick="updateQuantity({{ $pd['product']->id }}, {{ $pd['variation_id'] }}, 2)">
                                                                 <i class="ion-ios-add"></i>
                                                             </button>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </td>
-                                            @if ($pd['product']->product_variations->isNotEmpty())
-                                                <td class="total" id="total-{{ $id }}"
+                                                <td class="total" style="min-width: 176.984375px" id="total-{{ $id }}"
                                                     value="{{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity'] }}">
                                                     {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->price * $pd['quantity']) }}đ
                                                 </td>
-                                            {{-- @else
-                                                <td class="total" id="total-{{ $id }}"
-                                                    value="{{ $pd['product']->real_price * $pd['quantity'] }}">
-                                                    {{ number_format($pd['product']->real_price * $pd['quantity']) }}đ
-                                                </td> --}}
-                                            @endif
                                         </tr>
                                     @endforeach
-                                @else
+                                    @endif
                                     <tr>
-                                        <td colspan="6">Không có sản phẩm trong giỏ hàng</td>
+                                    <td colspan="6">- Cuối danh sách -</td>
                                     </tr>
-                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -104,9 +92,7 @@
                                     <input type="text" name="voucher-code" id="voucherCode"
                                         class="form-control text-left px-3" placeholder="A1B2C3D4..."
                                         value="{{ isset($currentCouponCode) ? $currentCouponCode : '' }}">
-                                    {{-- @if (isset($couponError)) --}}
                                     <small class="form-text text-danger" id="voucherError"></small>
-                                    {{-- @endif --}}
                                 </div>
                             </div>
                         </div>

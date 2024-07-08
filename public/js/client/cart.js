@@ -5,47 +5,44 @@ function updateProduct(id, quantity, variant_id) {
         data: {
             _token: csrfToken,
             'product_id': id,
-            'variant_id': variant_id,
+            'variation_id': variant_id,
             'quantity': quantity
         },
         success: function (data) {
-            // Update the subtotal element in the UI immediately
             $('#subTotal').text(new Intl.NumberFormat('de-DE').format(data.subTotal) + 'đ');
-            $('#total-' + id).text(new Intl.NumberFormat('de-DE').format(data.price * quantity) + 'đ');
-            // subTotal = data.subTotal;
+            $('#total-' + id + '-' + variant_id).text(new Intl.NumberFormat('de-DE').format(data.price * quantity) + 'đ');
             calculateTotal(data.subTotal,data.discount);
         }
     });
 }
 
-function updateQuantity(id, variant_id, type) {
-    const quantity = $('#quantity-' + id);
+function updateQuantity(product_id, variant_id, type)
+{
+    const quantity = $('#quantity-'+product_id+'-'+variant_id);
     if (parseInt(quantity.val()) == 1 && type === 1) {
         confirm('Bạn có chắc chắn muốn xoá sản phẩm này khỏi giỏ hàng?') ? removeProduct(id) : '';
         return;
     }
     let value = parseInt(quantity.val()) + (type == 2 ? 1 : -1);
     quantity.val(value);
-    updateProduct(id, value, variant_id);
+    console.log(type,value);
+    updateProduct(product_id, value, variant_id);
 }
 
-function removeProduct(id) {
+function removeProduct(element_id, id, variation_id) {
     $.ajax({
         url: "/cart/remove",
         method: "POST",
         data: {
             _token: csrfToken,
-            'product_id': id
+            'product_id': id,
+            'variation_id': variation_id
         },
         success: function (data) {
-            $('#product-' + id).css('display', 'none');
-            // if (data.cartCount === 0) {
-            //     subTotal = 0; // Reset subtotal if the cart is empty
-            // } else {
-            //     subTotal = subTotal - $('#product-' + id).find('.total').text().replace('đ', '').replace(',', '').replace('.', '');
-            // }
-            console.log(data.subTotal);
+            $('#product-' + id + '-' + variation_id).css('display', 'none');
             calculateTotal(data.subTotal,data.discount);
+            console.log(data.subTotal,data.discount);
+            console.log(data);
         }
     });
 }

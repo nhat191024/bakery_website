@@ -6,18 +6,18 @@ class Cart
 {
 
 
-public static function add($product, $variation_id, $quantity = 1)
+public static function add($product, $variation_id = 1, $quantity = 1)
 {
     $cart = session()->get('cart', []);
 
     foreach($cart as $item) {
-        if ($item['product']->id == $product->id) {
-            Cart::update($product->id, $item['quantity'] += $quantity);
+        if ($item['product']->id == $product->id && $item['variation_id'] == $variation_id) {
+            Cart::update($product->id, $item['variation_id'] , $item['quantity'] += $quantity);
             return;
         }
     }
 
-    $cart[$product->id] = [
+    $cart[$product->id . '-' . $variation_id] = [
         'product' => $product,
         'variation_id' => $variation_id,
         'quantity' => $quantity
@@ -26,10 +26,10 @@ public static function add($product, $variation_id, $quantity = 1)
 }
 
 
-    public static function remove($product_id)
+    public static function remove($product_id,$variation_id)
     {
         $cart = session('cart');
-        unset($cart[$product_id]);
+        unset($cart[$product_id . '-' . $variation_id]);
         session(['cart' => $cart]);
     }
 
@@ -38,10 +38,10 @@ public static function add($product, $variation_id, $quantity = 1)
         session()->forget('cart');
     }
 
-    public static function update($product_id, $quantity)
+    public static function update($product_id, $variation_id = 1, $quantity)
     {
         $cart = session('cart');
-        $cart[$product_id]['quantity'] = $quantity;
+        $cart[$product_id . '-' . $variation_id]['quantity'] = $quantity;
         session(['cart' => $cart]);
         return;
     }
@@ -59,14 +59,15 @@ public static function add($product, $variation_id, $quantity = 1)
         if  ($cart == null) {
             return $subTotal;
         }
-        foreach ($cart as $item) {
-            // if ($item['product']->product_variations->isNotEmpty()) {
-                $subTotal += $item['product']->product_variations->where('variation_id', $item['variation_id'])->first()->price * $item['quantity'];
-            // } else {
-            //     $subTotal += $item['product']->real_price * $item['quantity'];
-            // }
+        try {
+            foreach ($cart as $item) {
+                if (count($item['product']->product_variations) > 0) {
+                    $subTotal += $item['product']->product_variations->where('variation_id', $item['variation_id'])->first()->price * $item['quantity'];
+                    }
+            }
+            return $subTotal;
+        } catch (\Throwable $th) {
         }
-        return $subTotal;
     }
     public static function getTotal()
     {

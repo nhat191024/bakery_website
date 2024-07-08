@@ -24,9 +24,9 @@ class CartService
 
     public function updateCart($request)
     {
-        Cart::update($request->input('product_id'), $request->input('quantity'));
+        Cart::update($request->input('product_id'), $request->input('variation_id'), $request->input('quantity'));
         $price = Product_variation::where('product_id', $request->input('product_id'))
-            ->where('variation_id', $request->input('variant_id'))
+            ->where('variation_id', $request->input('variation_id'))
             ->first('price');
         return [
             'subTotal' => Cart::getSubtotal(),
@@ -38,12 +38,18 @@ class CartService
     public function addToCart($request)
     {
         $productId = $request->product_id;
-        $product = Products::find($productId);
         $quantity = $request->quantity;
         $variation_id = $request->variation_id;
 
+        $product = Products::find($productId);
+        if ($product == null) {
+            return;
+        }
         if ($product == null) {
             return redirect()->back()->with('message', 'Sản phẩm không tồn tại!',);
+        }
+        if ($variation_id == null) {
+            $variation_id = 1;
         }
         if ($quantity == null || $quantity <= 0) {
             $quantity = 1;
@@ -60,10 +66,11 @@ class CartService
     public function applyVoucher($request)
     {
         $vcode = $request->input('voucher_code');
-        $discount = $this->calculateVoucher($vcode);
+        $status = $this->calculateVoucher($vcode);
         return [
             'discount' => Cart::getDiscountAmount(),
-            'subTotal' => Cart::getSubtotal()
+            'subTotal' => Cart::getSubtotal(),
+            'status' => $status
         ];
     }
     public function calculateVoucher($vcode)
@@ -97,20 +104,25 @@ class CartService
         $discount = $voucher->discount_amount;
         Cart::setDiscountAmount($discount);
         Cart::setCouponCode($vcode);
-        return [
-            'discount' => Cart::getDiscountAmount(),
-            'subTotal' => Cart::getSubtotal()
-        ];
+        return $discount;
+        // return [
+        //     'discount' => Cart::getDiscountAmount(),
+        //     'subTotal' => Cart::getSubtotal()
+        // ];
     }
 
     public function removeFromCart($request)
     {
         $product_id = $request->input('product_id');
+        $variation_id = $request->input('variation_id');
         if ($product_id == null) {
             return $this->clearCart();
         }
-        Cart::remove($product_id);
+        if ($variation_id == null) {
+            $variation_id = 1;
+        }
         $this->calculateVoucher(Cart::getCouponCode());
+        Cart::remove($product_id, $variation_id);
         return [
             'discount' => Cart::getDiscountAmount(),
             'subTotal' => Cart::getSubtotal()
@@ -130,6 +142,9 @@ class CartService
     public function clearCart()
     {
         Cart::clear();
-        return 'cart cleared';
+        return [
+            'discount' => Cart::getDiscountAmount(),
+            'subTotal' => Cart::getSubtotal()
+        ];
     }
 }

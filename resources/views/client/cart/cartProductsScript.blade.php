@@ -20,56 +20,64 @@
         $('#addVoucher').click(function(e) {
             e.preventDefault();
             var voucher_code = $('#voucherCode').val();
-
+            console.log(voucher_code);
             $.ajax({
-                url: "{{ route('client.cart.applyVoucher') }}",
+                url: "/cart/applyVoucher",
                 method: "POST",
                 data: {
                     _token: "{{ csrf_token() }}",
                     'voucher_code': voucher_code
                 },
-                beforeSend: function() {},
+                beforeSend: function() {
+                    console.log('before send');
+                },
                 success: function(res) {
+                    console.log(res);
                     $('#discountPrice').text('0đ');
-                    calculateTotal(0,0);
-                    switch (res) {
-                        case '-1':
+                    calculateTotal(res.subTotal);
+                    $('#voucherError').text('Bạn chưa nhập mã giảm giá');
+
+                    switch (parseInt(res.status)) {
+                        case -1:
                             $('#voucherError').text('Bạn chưa nhập mã giảm giá');
                             break;
-                        case '-2':
+                        case -2:
                             $('#voucherError').text('Mã giảm giá không có sẵn');
                             break;
-                        case '-3':
+                        case -3:
                             $('#voucherError').text('Mã giảm giá đã hết hiệu lực');
                             break;
-                        case '-4':
+                        case -4:
                             $('#voucherError').text('Mã giảm giá đã hết lượt sử dụng');
                             break;
-                        case '-5':
+                        case -5:
                             $('#voucherError').text(
                                 'Mã giảm giá chưa triển khai, hãy sử dụng vào lần tới nhé'
                             );
                             break;
-                        case '-6':
+                        case -6:
                             $('#voucherError').text('Mã giảm giá đã hết hạn sử dụng');
                             break;
-                        case '-7':
+                        case -7:
                             $('#voucherError').text(
                                 'Đơn hàng chưa đạt giá trị tối thiểu để áp dụng voucher này'
                             );
                             break;
-                        case '0':
+                        case 0:
                             $('#voucherError').text('');
                             break;
                         default:
                             $('#voucherError').text('');
                             $('#discountPrice').text(new Intl.NumberFormat('de-DE').format(
-                                res) + 'đ');
-                            calculateTotal(res.subTotal,res.discount);
-                            break;
-                    }
+                                    res.discount) + 'đ');
+                                 calculateTotal(res.subTotal,res.discount);
+                                    break;
+                            }
+                    console.log(res.subTotal,res.status);
                 },
-                error: function(e) {}
+                error: function(e) {
+                    console.log(e);
+                }
             });
         });
     });
