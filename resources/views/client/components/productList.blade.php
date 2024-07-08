@@ -6,14 +6,14 @@
                         alt="{{ $pd->image }}">
                     <div class="overlay d-flex justify-content-center align-items-center">
                         @if (count($pd->product_variations) > 1)
-                            <div class="d-flex justify-content-center align-items-center shadow-lg pointer text-primary"
+                            <div class="d-flex w-100 h-100 justify-content-center align-items-center shadow-lg pointer text-primary"
                                 @if (Route::has('client.shop.productDetail')) onclick="window.location.href='{{ route('client.shop.productDetail', $pd->id) }}'" @endif
                                 style="font-size: 1.2rem;">
                                 <i class="ion-ios-menu text-primary mr-1"></i> See details
                             </div>
                         @else
                             <div data="{{ $pd->id }}"
-                                class="addToCart d-flex justify-content-center align-items-center shadow-lg pointer text-primary"
+                                class="addToCart w-100 h-100 d-flex justify-content-center align-items-center shadow-lg pointer text-primary"
                                 onclick="addToCart({{ $pd->id }})" style="font-size: 1.2rem;">
                                 <i class="ion-ios-cart text-primary mr-1"></i>
                                 <p id="addingToCart{{ $pd->id }}" class="addingToCart m-0">Add to cart</p>
