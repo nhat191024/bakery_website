@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Bills extends Model
 {
     protected $table = 'bills';
+    use SoftDeletes;
 
     protected $fillable = [
         'order_date',
@@ -15,6 +17,7 @@ class Bills extends Model
         'address',
         'phone_number',
         'email',
+        'voucher_code',
         'delivery_method',
         'payment_method',
         'total_amount',

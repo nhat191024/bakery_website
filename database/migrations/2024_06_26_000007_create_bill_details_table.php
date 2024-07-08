@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('bill_id');
+            $table->unsignedBigInteger('variation_id');
             $table->integer('quantity')->default(1);
             $table->bigInteger('price')->default(0);
             $table->timestamps();

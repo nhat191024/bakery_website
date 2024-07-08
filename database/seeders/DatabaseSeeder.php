@@ -54,7 +54,6 @@ class DatabaseSeeder extends Seeder
                 "category_id" => $row['category_id'],
                 "name" => $row['name'],
                 "description" => $row['description'],
-                "real_price" => $row['real_price'],
                 "fake_price" => $row['fake_price'],
                 "image" => $row['image'],
             ]);
@@ -86,8 +85,6 @@ class DatabaseSeeder extends Seeder
                 "subtitle" => $row['subtitle'],
                 "image" => $row['image'],
                 "link" => $row['link'],
-                "start_date" => $row['start_date'],
-                "end_date" => $row['end_date'],
                 "status" => $row['status'],
             ]);
         }
@@ -138,6 +135,7 @@ class DatabaseSeeder extends Seeder
                 "address" => $row['address'],
                 "phone_number" => $row['phone_number'],
                 "email" => $row['email'],
+                "voucher_code" => $row['voucher_code'],
                 "delivery_method" => $row['delivery_method'],
                 "payment_method" => $row['payment_method'],
                 "total_amount" => $row['total_amount'],
@@ -149,6 +147,7 @@ class DatabaseSeeder extends Seeder
             Bill_details::create([
                 "Product_id" => $row['Product_id'],
                 "bill_id" => $row['bill_id'],
+                "variation_id" => $row['variation_id'],
                 "quantity" => $row['quantity'],
                 "price" => $row['price'],
             ]);
