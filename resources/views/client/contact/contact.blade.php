@@ -1,7 +1,5 @@
 @extends('client.layout.layout')
 @section('content')
-
-
     <div class="hero-wrap hero-bread" style="background-image: url('images/bg_1.jpg');">
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -16,27 +14,23 @@
 
     <section class="ftco-section contact-section bg-light">
         <div class="container">
-            <div class="row d-flex mb-5 contact-info">
+            <div class="row d-flex mb-5 contact-info justify-content-around ">
                 <div class="w-100"></div>
-                <div class="col-md-3 d-flex">
-                    <div class="info bg-white p-4">
+                <div class="col-md-4 d-flex">
+                    <div class="info bg-white p-3">
                         <p>Địa chỉ:</p>
-                        <p>{{ $Contact_us->address }}</p>
+                        <p>1. 72 Đ. Xuân Diệu, Tứ Liên, Tây Hồ, Hà Nội</p>
+                        <p>2. 56D trần nhân tông, nguyễn du, hai bà trưng, hà nội</p>
                     </div>
                 </div>
-                <div class="col-md-3 d-flex">
-                    <div class="info bg-white p-4">
+                <div class="col-md-4 d-flex">
+                    <div class="info bg-white p-4 d-flex justify-content-center align-items-center">
                         <p>Số điện thoại:</p>
                         <p>{{ $Contact_us->phone_number }}</p>
                     </div>
                 </div>
-                <div class="col-md-3 d-flex">
-                    <div class="info bg-white p-4">
-                        <p>Email: {{ $Contact_us->email }}</p>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex">
-                    <div class="info bg-white p-4">
+                <div class="col-md-4 d-flex">
+                    <div class="info bg-white p-4 d-flex flex-column justify-content-center align-items-center">
                         <p>Website </p>
                         <a href="{{ $Contact_us->website }}">Facebook</a>
                     </div>
@@ -57,11 +51,11 @@
                             <input type="text" class="form-control" name="subject" placeholder="Tiêu đề">
                         </div>
                         <div class="form-group">
-                            <textarea id="" cols="30" rows="7" name="message" class="form-control"
-                                placeholder="Nội dung góp ý"></textarea>
+                            <textarea id="" cols="30" rows="7" name="message" class="form-control" placeholder="Nội dung góp ý"></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary py-3 px-5 " style="background-color: #f8c53f; border: #f8c53f;" > Gửi góp ý</button>
+                            <button type="submit" class="btn btn-primary py-3 px-5 "
+                                style="background-color: #f8c53f; border: #f8c53f;"> Gửi góp ý</button>
 
                         </div>
                     </form>
@@ -69,7 +63,12 @@
                 </div>
 
                 <div class="col-md-6 d-flex">
-                    <div id="map" class="bg-white"></div>
+                    <div id="map" class="bg-white">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.7036311975898!2d105.83036606164897!3d21.06235132406192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab28f9e8f5d7%3A0x844f13fb3943b485!2sO&#39;douceurs%20French%20Pastry%20Bakery!5e0!3m2!1svi!2s!4v1720366555184!5m2!1svi!2s"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
