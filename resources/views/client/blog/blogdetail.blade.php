@@ -16,8 +16,10 @@
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
                     <h1 class="mb-3">{{ $Blogs->title }}</h1>
-                    <h5 class="mb-4"> <p> Tác giả : {{ $Blogs->user->username }}</p></h5>
-                    
+                    <h5 class="mb-4">
+                        <p> Tác giả : {{ $Blogs->user->username }}</p>
+                    </h5>
+
                     <img src="images/image_1.jpg" alt="" class="img-fluid">
                     </p>
                     <h5>{{ $Blogs->subtitle }}</h5>
@@ -187,7 +189,7 @@
                         <h3 class="heading">Danh mục bánh </h3>
                         <ul class="categories">
                             @foreach ($Categories as $item)
-                            <li><a href="#">{{$item->name}} </a></li>
+                                <li><a href="#">{{ $item->name }} </a></li>
                             @endforeach
                             {{-- <li><a href="#">Vegetables <span>(12)</span></a></li> --}}
                             {{-- <li><a href="#">Fruits <span>(22)</span></a></li>
@@ -199,21 +201,22 @@
                     <div class="sidebar-box ftco-animate">
                         <h3 class="heading">Tin tức gần đây</h3>
                         @foreach ($recentBlogs as $item)
-                        <div class="block-21 mb-4 d-flex">
-                          <a class="blog-img mr-4" style="background-image: url(images/{{$item->thumbnail}});"></a>
-                          <div class="text">
-                              <h4 class="heading-2"><a href="#">{{$item->title}}</a></h4>
-                              <h5 class="heading-1"><a href="#">{{$item->subtitle}}</a></h5>
+                            <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4" style="background-image: url(images/{{ $item->thumbnail }});"></a>
+                                <div class="text">
+                                    <h4 class="heading-2"><a href="#">{{ $item->title }}</a></h4>
 
-                              <div class="meta">
-                                  <div><a href="#"><span class="icon-calendar"></span> {{ $item->created_at->format('d/m/Y') }}</a></div>
-                                  <div><a href="#"><span class="icon-person"></span> {{$item->user->username}}</a></div>
-                              </div>
-                          </div>
-                      </div>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span>
+                                                {{ $item->created_at->format('d/m/Y') }}</a></div>
+                                        <div><a href="#"><span class="icon-person"></span>
+                                                {{ $item->user->username }}</a></div>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                         <div class="block-21 mb-4 d-flex">
-                          {{-- <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                            {{-- <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
                           <div class="text">
                               <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control
                                       about
@@ -226,9 +229,9 @@
                           </div>
                       </div> --}}
 
-                    </div>
+                        </div>
 
-                    {{-- <div class="sidebar-box ftco-animate">
+                        {{-- <div class="sidebar-box ftco-animate">
                         <h3 class="heading">Tag Cloud</h3>
                         <div class="tagcloud">
                             <a href="#" class="tag-cloud-link">fruits</a>
@@ -242,15 +245,15 @@
                         </div>
                     </div> --}}
 
-                    {{-- <div class="sidebar-box ftco-animate">
+                        {{-- <div class="sidebar-box ftco-animate">
                         <h3 class="heading">Paragraph</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus
                             voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur
                             similique, inventore eos fugit cupiditate numquam!</p>
                     </div> --}}
-                </div>
+                    </div>
 
+                </div>
             </div>
-        </div>
     </section>
 @endsection
