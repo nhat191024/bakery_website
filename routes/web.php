@@ -7,8 +7,12 @@ use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
 use App\Http\Controllers\client\ProductListControler;
+use App\Http\Controllers\client\BlogController;
+
 use App\Models\Cart;
+
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,11 +39,21 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('/homePage', [HomePageController::class, 'index'])->name('client.home.index');
+Route::get('/', [HomePageController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index'])->name('client.about.index');
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
     Route::post('/', [ContactController::class, 'store'])->name('client.contact.store');
+});
+
+Route::prefix('about')->group(function () {
+    Route::get('/', [AboutController::class, 'index'])->name('client.about.index');
+});
+
+// Blog page
+Route::prefix('blog')->group(function () {
+    Route::get('/', [BlogController::class, 'index']);
+    Route::get('/{id}', [BlogController::class, 'show'])->name('client.blog.show');
 });
 
 Route::prefix('shop')->group(function () {

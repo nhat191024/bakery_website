@@ -12,15 +12,16 @@ class Blogs extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'id',
         'user_id',
         'title',
         'subtitle',
         'content',
         'thumbnail',
-    ];
+    ]; 
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

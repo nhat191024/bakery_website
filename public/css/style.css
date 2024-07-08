@@ -8486,7 +8486,6 @@
 
   .bg-primary {
     background: #f8c53f; }
-
   .bg-secondary {
     background: #ffe6eb !important; }
 
@@ -8602,7 +8601,6 @@
     font-style: italic; }
     .deal-of-the-day h3 a {
       color: #f8c53f; }
-
   .deal-of-the-day .price {
     font-weight: 500;
     font-size: 18px;
@@ -8665,8 +8663,8 @@
     .product .img-prod {
       position: relative;
       display: block;
-      overflow: hidden;
-      width: 100%;
+      overflow: hidden; 
+      width: 100%; 
       padding-top: 100%;}
       .product .img-prod .overlay {
         position: absolute;
@@ -8676,6 +8674,7 @@
         bottom: 0;
         content: '';
         opacity: 0;
+        background: #f8c53f;
         -moz-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
         -webkit-transition: all 0.3s ease;
@@ -8801,6 +8800,7 @@
           border-radius: 50%; }
         .product .text .bottom-area .m-auto {
           margin: 0 auto; }
+
      .prod-title:hover {
         color: orange !important;
         font-weight: 500;
@@ -9191,7 +9191,7 @@
 
   .bg-primary {
     background: #f8c53f !important; }
-
+      
   .bg-black {
     background: #000000 !important; }
 
