@@ -148,6 +148,11 @@
                     <i class="fas fa-fw fa-carrot"></i>
                     <span>About Us</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.bill.index') }}">
+                    <i class="fas fa-fw fa-money-bill"></i>
+                    <span>Hóa đơn</span></a>
+            </li>
             {{-- <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
@@ -173,11 +178,7 @@
                     <i class="fas fa-fw fa-cloud-meatball"></i>
                     <span>Món ăn</span></a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route('admin.bill.index') }}">
-                    <i class="fas fa-fw fa-money-bill"></i>
-                    <span>Hóa đơn</span></a>
-            </li>
+            
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.user.index') }}">
                     <i class="fas fa-fw fa-user"></i>

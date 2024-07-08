@@ -11,6 +11,7 @@ class ProductController extends Controller
 {
     private $productService;
     private $categoryService;
+
     //
     public function __construct(ProductService $productService, CategoryService $categoryService)
     {
@@ -24,10 +25,20 @@ class ProductController extends Controller
         return view('admin.product.product', compact('allProduct'));
     }
 
-    public function showAddFood()
+    // public function showAddFood()
+    // {
+    //     $allCategory = $this->categoryService->getAll();
+    //     return view('admin.product.add_food', compact('allCategory'));
+    // }
+
+    public function showDetail(Request $request)
     {
-        $allCategory = $this->categoryService->getAll();
-        return view('admin.product.add_food', compact('allCategory'));
+        $request->validate([
+            'id' => 'required',
+        ]);
+        $id = $request->id;
+        $productInfo = $this->productService->getById($id);
+        return view('admin.product.detail', compact('productInfo'));
     }
 
     public function addFood(Request $request)
@@ -80,11 +91,12 @@ class ProductController extends Controller
         return redirect(route('admin.product.index'))->with('success', 'Sửa thực phẩm thành công');
     }
 
-    public function deleteFood(Request $request) {
+    public function deleteFood(Request $request)
+    {
         $id = $request->id;
-        if(!$this->productService->checkHasChildren($id)) {
+        if (!$this->productService->checkHasChildren($id)) {
             $this->productService->delete($id);
-            return redirect(route('admin.product.index'))->with('success', 'Xóa thực phẩm thành công') ;
+            return redirect(route('admin.product.index'))->with('success', 'Xóa thực phẩm thành công');
         }
         return redirect(route('admin.product.index'))->with('error', 'Thực phẩm đang nằm trong món ăn, không thể xóa !!!');
     }

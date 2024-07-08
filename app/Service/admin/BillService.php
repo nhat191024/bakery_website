@@ -2,18 +2,17 @@
 
 namespace App\Service\admin;
 
-use App\Models\Branch;
-use App\Models\CookingMethod;
+use App\Models\Bills;
 
 class BillService
 {
     public function getAll()
     {
-        $branch = Branch::all();
+        $branch = Bills::all();
         return $branch;
     }
 
     public function getById($id) {
-        return Branch::where('id', $id)->first();
+        return Bills::where('id', $id)->first();
     }
 }

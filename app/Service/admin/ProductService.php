@@ -9,7 +9,7 @@ class ProductService
 {
     public function getAll()
     {
-        $product = Products::where('status', 1)->get();
+        $product = Products::all();
         return $product;
     }
 

@@ -29,29 +29,34 @@
                         @endif
                         <form action="">
                             <div class="form-group">
-                                <label for="">Tên cơ sở</label>
+                                <label for="">Tên người đặt</label>
                                 <input type="text" class="form-control" id="" aria-describedby=""
                                     name="" disabled placeholder="" value="{{$billInfo->table->branch->name}}">
                             </div>
                             <div class="form-group">
-                                <label for="">Tên bàn</label>
+                                <label for="">Địa chỉ</label>
                                 <input type="text" class="form-control" id="" aria-describedby=""
                                     name="" disabled placeholder="" value="{{$billInfo->table->table_number}}">
                             </div>
                             <div class="form-group">
-                                <label for="">Tên nhân viên thanh toán</label>
+                                <label for="">Số điện thoại</label>
                                 <input type="text" class="form-control" id="" aria-describedby=""
                                     name="" disabled placeholder="" value="{{$billInfo->user->username}}">
                             </div>
                             <div class="form-group">
-                                <label for="">Thời gian vào</label>
+                                <label for="">Email</label>
                                 <input type="text" class="form-control" id="" aria-describedby=""
                                     name="" disabled placeholder="" value="{{$billInfo->time_in}}">
                             </div>
                             <div class="form-group">
-                                <label for="">Thời gian ra</label>
+                                <label for="">Voucher code</label>
                                 <input type="text" class="form-control" id="" aria-describedby=""
                                     name="" disabled placeholder="" value="{{$billInfo->time_out}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Phương thức giao hàng</label>
+                                <input type="text" class="form-control" id="" aria-describedby=""
+                                    name="" disabled placeholder="" value="{{$billInfo->pay_status == 0 ? 'Tiền mặt' : 'Chuyển khoản'}}">
                             </div>
                             <div class="form-group">
                                 <label for="">Phương thức thanh toán</label>
