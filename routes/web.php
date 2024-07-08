@@ -70,6 +70,6 @@ Route::prefix('cart')->group(function () {
 
 Route::prefix('checkout')->group(function () {
     Route::get('/', [CheckoutController::class, 'index'])->name('client.checkout.index');
-    Route::post('/', [CheckoutController::class, 'confirmOrder'])->name('client.checkout.store');
+    Route::post('/confirm', [CheckoutController::class, 'confirmOrder'])->name('client.checkout.store');
 });
 
