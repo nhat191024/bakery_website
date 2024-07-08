@@ -7,27 +7,27 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Sửa Banner</h1>
+        <h1 class="h3 mb-2 text-gray-800">Sửa thông tin</h1>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
-                    <form action="{{ route('admin.banner.edit') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.about.edit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Tiêu đề</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="banner_title" placeholder="Nhập tiêu đề" value="{{$bannerInfo['title']}}">
+                                name="about_title" placeholder="Nhập tiêu đề" value="{{ $aboutInfo['title'] }}">
                         </div>
                         <div class="form-group">
                             <label for="">Nội dung</label>
-                            <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="banner_content" placeholder="Nhập nội dung" value="{{$bannerInfo['subtitle']}}">
+                            <textarea required type="text" class="form-control" id="" aria-describedby="" name="about_content"
+                                placeholder="Nhập nội dung" cols="30" rows="10">{{ $aboutInfo['description'] }}</textarea>
                         </div>
-                        <label for="">Ảnh Banner</label>
+                        <label for="">Ảnh giới thiệu</label>
                         <div class="custom-file">
                             <input type="file" accept="image/*" class="custom-file-input" id="customFile"
-                                name="banner_image">
+                                name="about_image">
                             <label class="custom-file-label" for="customFile">Chọn ảnh</label>
                         </div>
                         <input type="hidden" name="id" value="{{ $id }}">
