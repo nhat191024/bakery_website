@@ -6,7 +6,7 @@ use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
-use App\Http\Controllers\client\ProductListControler;
+use App\Http\Controllers\client\ProductListController;
 use App\Http\Controllers\client\BlogController;
 
 use App\Models\Cart;
@@ -53,7 +53,7 @@ Route::prefix('blog')->group(function () {
 });
 
 Route::prefix('shop')->group(function () {
-    Route::get('/{categoryId?}', [ProductListControler::class, 'index'])->name('client.shop.productList');
+    Route::get('/{categoryId?}', [ProductListController::class, 'index'])->name('client.shop.productList');
     Route::get('/product/{productId}', [ProductDetailController::class, 'index'])->name('client.shop.productDetail');
 });
 
