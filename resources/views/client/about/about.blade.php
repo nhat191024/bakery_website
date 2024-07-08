@@ -36,26 +36,7 @@
             </div>
         </div>
     </section>
-
-    <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-        <div class="container py-4">
-            <div class="row d-flex justify-content-center py-5">
-                <div class="col-md-6">
-                    <h2 style="font-size: 22px;" class="mb-0">Đăng kí </h2>
-                    <span>Quý khách điền e-mail để nhận những thông tin ưu đãi của chúng tôi </span>
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    <form action="#" class="subscribe-form">
-                        <div class="form-group d-flex">
-                            <input type="text" class="form-control" placeholder="Nhập địa chỉ e-mail">
-                            <input type="submit" value="Đăng ký" class="submit px-3">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
+@include('client.components.contactUsRedirect')
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);">
         <div class="container">
             <div class="row justify-content-center py-5">
@@ -114,7 +95,7 @@
                     <div class="carousel-testimony owl-carousel">
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                                <div class="user-img mb-5"  style="background-image: url({{ asset('img/person_1.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -130,7 +111,7 @@
                         </div>
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
+                                <div class="user-img mb-5" style="background-image: url({{ asset('img/person_1.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -145,7 +126,7 @@
                         </div>
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
+                                <div class="user-img mb-5" style="background-image: url({{ asset('img/person_1.jpg') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
