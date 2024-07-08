@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('/', [HomePageController::class, 'index']);
+Route::get('/', [HomePageController::class, 'index'])->name('client.homePage.index');;
 Route::get('/about', [AboutController::class, 'index'])->name('client.about.index');
 Route::prefix('contact')->group(function () {
     Route::get('/', [ContactController::class, 'index'])->name('client.contact.index');
