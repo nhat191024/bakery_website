@@ -5,7 +5,7 @@ namespace App\Service\admin;
 use App\Models\About_us;
 use App\Models\Banners;
 
-class AboutUsService
+class MessageService 
 {
     public function getAll()
     {

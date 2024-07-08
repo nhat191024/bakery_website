@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\admin\AboutUsController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
-use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
 use App\Http\Controllers\client\ProductDetailController;
@@ -67,7 +67,7 @@ Route::prefix('admin')->group(function () {
     //     Route::get('/delete/{id}', [MethodController::class, 'deleteMethod'])->name('admin.method.delete');
     // });
 
-    Route::prefix('/Banner')->group(function () {
+    Route::prefix('/product')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('admin.product.index');
         Route::get('/add', [ProductController::class, 'showAddProduct'])->name('admin.product.show_add');
         Route::post('/add', [ProductController::class, 'addProduct'])->name('admin.product.add');
@@ -83,6 +83,12 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit', [BannerController::class, 'editBanner'])->name('admin.banner.edit');
         Route::get('/edit/{id}', [BannerController::class, 'showEditBanner'])->name('admin.banner.show_edit');
         Route::get('/delete/{id}', [BannerController::class, 'deleteBanner'])->name('admin.banner.delete');
+    });
+
+    Route::prefix('/about')->group(function () {
+        Route::get('/', [AboutUsController::class, 'index'])->name('admin.about.index');
+        Route::post('/edit', [AboutUsController::class, 'editBanner'])->name('admin.about.edit');
+        Route::get('/edit/{id}', [AboutUsController::class, 'showEditBanner'])->name('admin.about.show_edit');
     });
 
     // Route::prefix('/dish')->group(function () {

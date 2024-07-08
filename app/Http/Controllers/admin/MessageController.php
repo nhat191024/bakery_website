@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Service\admin\AboutUsService;
 use Illuminate\Http\Request;
 
-class AboutUsController extends Controller
+class MessageController extends Controller
 {
     private $aboutUsService;
     //

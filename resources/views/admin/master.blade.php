@@ -143,6 +143,11 @@
                     <i class="fas fa-fw fa-carrot"></i>
                     <span>Banner</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.about.index') }}">
+                    <i class="fas fa-fw fa-carrot"></i>
+                    <span>About Us</span></a>
+            </li>
             {{-- <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
