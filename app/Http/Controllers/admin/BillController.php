@@ -11,19 +11,34 @@ class BillController extends Controller
 {
     private $billService;
     //
-    public function __construct(BillService $billService) {
+    public function __construct(BillService $billService)
+    {
         $this->billService = $billService;
     }
 
-    public function index() {
+    public function index()
+    {
         $allBill = $this->billService->getAll();
         return view('admin.bill.bill', compact('allBill'));
     }
 
-    public function showDetail(Request $request) {
+    public function showDetail(Request $request)
+    {
         $id = $request->id;
         $billInfo = $this->billService->getById($id);
         return view('admin.bill.bill_detail', compact('billInfo'));
+    }
+
+    public function editStatus(Request $request)
+    {
+        $request->validate([
+            'bill_status' => 'required',
+            'bill_id' => 'required',
+        ]);
+        $id = $request->bill_id;
+        $status = $request->bill_status;
+        $this->billService->updateStatus($id, $status);
+        return redirect(route('admin.bill.show_detail', ['id' => $id]))->with('success', 'Cập nhật trạng thái đơn thành công');
     }
 
     // public function addBranch(Request $request) {
@@ -58,7 +73,7 @@ class BillController extends Controller
     //     return redirect(route('admin.branch.index'))->with('error', 'Chi nhánh đang có bàn, quản lý, bếp, không thể xóa !!!');
     // }   
 
-    
+
     // public function showTable(Request $request) {
     //     $request->validate([
     //         'branch_id' => 'required',

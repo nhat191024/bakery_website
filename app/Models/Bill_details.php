@@ -22,6 +22,11 @@ class Bill_details extends Model
         return $this->belongsTo(Products::class, 'product_id');
     }
 
+    public function variations()
+    {
+        return $this->belongsTo(Variation::class, 'variation_id');
+    }
+
     public function bills()
     {
         return $this->belongsTo(Bills::class, 'bill_id');

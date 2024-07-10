@@ -15,4 +15,11 @@ class BillService
     public function getById($id) {
         return Bills::where('id', $id)->first();
     }
+
+    public function updateStatus($id, $status)
+    {
+        $method = Bills::where('id', $id)->first();
+        $method->status = $status;
+        $method->save();
+    }
 }

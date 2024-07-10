@@ -143,6 +143,7 @@ Route::prefix('admin')->group(function () {
     
     Route::prefix('/bill')->group(function () {
         Route::get('/', [BillController::class, 'index'])->name('admin.bill.index'); 
+        Route::post('/edit', [BillController::class, 'editStatus'])->name('admin.bill.edit_status'); 
         Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
     });
     
