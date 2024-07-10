@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->integer('fake_price');
+            $table->integer('fake_price')->default(0);
             $table->text('image')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories');

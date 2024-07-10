@@ -7,12 +7,12 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Thêm thực phẩm</h1>
+        <h1 class="h3 mb-2 text-gray-800">Thêm sản phẩm</h1>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
-                    <form action="{{ route('admin.food.add') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.product.add') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="categorySelect">Chọn danh mục</label>
@@ -24,19 +24,24 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="">Tên thực phẩm</label>
-                            <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="food_name" placeholder="Nhập tên thực phẩm">
+                            <label for="">Tên bánh</label>
+                            <input maxlength="255" required type="text" class="form-control" id="" aria-describedby=""
+                                name="product_name" placeholder="Nhập tên thực phẩm">
                         </div>
                         <div class="form-group">
-                            <label for="">Giá thực phẩm</label>
-                            <input required type="number" class="form-control" id="" aria-describedby=""
-                                name="food_price" placeholder="Nhập giá sản phẩm">
+                            <label for="">Nội dung giới thiệu</label>
+                            <input type="text" class="form-control" id="" aria-describedby=""
+                                name="product_description" placeholder="Nhập nội dung sản phẩm">
                         </div>
-                        <label for="">Ảnh thực phẩm</label>
+                        <div class="form-group">
+                            <label for="">Giá</label>
+                            <input required type="number" class="form-control" id="" aria-describedby=""
+                                name="product_price" placeholder="Nhập giá sản phẩm">
+                        </div>
+                        <label for="">Ảnh bánh</label>
                         <div class="custom-file">
                             <input required type="file" accept="image/*" class="custom-file-input" id="customFile"
-                                name="food_image">
+                                name="product_image">
                             <label class="custom-file-label" for="customFile">Chọn ảnh</label>
                         </div>
                         <button class="btn btn-success mt-4" type="submit">Thêm</button>

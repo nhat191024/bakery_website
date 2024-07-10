@@ -3,6 +3,7 @@
 namespace App\Service\admin;
 
 use App\Models\Food;
+use App\Models\Product_variation;
 use App\Models\Products;
 
 class ProductService
@@ -17,13 +18,18 @@ class ProductService
         return Products::where('id', $id)->first();
     }
 
-    public function add($categoryId, $productName, $productPrice, $productImage)
+    public function add($categoryId, $productName, $productPrice, $productDescription, $imageName)
     {
-        Products::create([
+        $id = Products::create([
             'category_id' => $categoryId,
             'name' => $productName,
+            'description' => $productDescription,
+            'image' => $imageName
+        ])->id;
+        Product_variation::create([
+            'variation_id' => 1,
+            'product_id' => $id,
             'price' => $productPrice,
-            'image' => $productImage
         ]);
     }
 
