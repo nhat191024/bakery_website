@@ -25,11 +25,11 @@ class ProductController extends Controller
         return view('admin.product.product', compact('allProduct'));
     }
 
-    // public function showAddFood()
-    // {
-    //     $allCategory = $this->categoryService->getAll();
-    //     return view('admin.product.add_food', compact('allCategory'));
-    // }
+    public function showAddProduct()
+    {
+        $allCategory = $this->categoryService->getAll();
+        return view('admin.product.add_product', compact('allCategory'));
+    }
 
     public function showDetail(Request $request)
     {
@@ -41,33 +41,34 @@ class ProductController extends Controller
         return view('admin.product.detail', compact('productInfo'));
     }
 
-    public function addFood(Request $request)
+    public function addProduct(Request $request)
     {
         $request->validate([
             'category_id' => 'required',
-            'food_name' => 'required',
-            'food_price' => 'required',
-            'food_image' => 'required',
+            'product_name' => 'required',
+            'product_price' => 'required',
+            'product_image' => 'required',
         ]);
         $categoryId = $request->category_id;
-        $foodName = $request->food_name;
-        $foodPrice = $request->food_price;
-        $imageName = time() . '_' . $request->food_image->getClientOriginalName();
+        $productName = $request->product_name;
+        $productPrice = $request->product_price;
+        $productDescription = $request->product_description ?? null;
+        $imageName = time() . '_' . $request->product_image->getClientOriginalName();
         // Public Folder
-        $request->food_image->move(public_path('img'), $imageName);
-        $this->productService->add($categoryId, $foodName, $foodPrice, $imageName);
-        return redirect(route('admin.product.index'))->with('success', 'Thêm thực phẩm thành công');
+        $request->product_image->move(public_path('img'), $imageName);
+        $this->productService->add($categoryId, $productName, $productPrice, $productDescription, $imageName);
+        return redirect(route('admin.product.index'))->with('success', 'Thêm sản phẩm thành công');
     }
 
-    public function showEditFood(Request $request)
+    public function showEditProduct(Request $request)
     {
         $id = $request->id;
         $allCategory = $this->categoryService->getAll();
         $foodInfo = $this->productService->getById($id);
-        return view('admin.product.edit_food', compact('id', 'foodInfo', 'allCategory'));
+        return view('admin.product.edit_produc', compact('id', 'foodInfo', 'allCategory'));
     }
 
-    public function editFood(Request $request)
+    public function editProduct(Request $request)
     {
         $request->validate([
             'id' => 'required',
@@ -91,7 +92,7 @@ class ProductController extends Controller
         return redirect(route('admin.product.index'))->with('success', 'Sửa thực phẩm thành công');
     }
 
-    public function deleteFood(Request $request)
+    public function deleteProduct(Request $request)
     {
         $id = $request->id;
         if (!$this->productService->checkHasChildren($id)) {
