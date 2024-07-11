@@ -3,12 +3,15 @@
 namespace Database\Seeders;
 
 use App\Models\About_us;
+use App\Models\Accessory;
+use App\Models\AccessoryCategory;
 use App\Models\Banners;
 use App\Models\Bill_details;
 use App\Models\Bills;
 use App\Models\Blogs;
 use App\Models\Contact_infos;
 use App\Models\Product_variation;
+use App\Models\BillAccessory;
 use App\Models\Products;
 use App\Models\Categories;
 use App\Models\Contact_us;
@@ -172,6 +175,18 @@ class DatabaseSeeder extends Seeder
                 "product_id" => $row['product_id'],
                 "price" => $row['price'],
             ]);
+        }
+
+        foreach ($dataArray['accessory_categories'] as $row) {
+            AccessoryCategory::create($row);
+        }
+
+        foreach ($dataArray['accessories'] as $row) {
+            Accessory::create($row);
+        }
+
+        foreach ($dataArray['bill_accessories'] as $row) {
+            BillAccessory::create($row);
         }
     }
 }
