@@ -930,11 +930,11 @@
     "accessories":[
         {
             "name":"Gói đơn giản",
-            "description":"Gồm x10 nến, x20 thìa, x20 đĩa giấy, x1 dao cắt bánh",
-            "price":"35000"
+            "description":"Gồm x20 thìa, x20 đĩa giấy, x1 dao cắt bánh",
+            "price":"30000"
         },
         {
-            "name":"Gói trọn vẹn",
+            "name":"Gói sinh nhật",
             "description":"Gồm x20 nến, x1 pháo sáng, x30 thìa, x30 đĩa giấy, x1 dao cắt bánh",
             "price":"45000"
         },
