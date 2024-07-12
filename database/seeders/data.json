@@ -927,85 +927,27 @@
             "price": "70000"
         }
     ],
-    "accessory_categories":[
-        {
-            "name":"Gói sinh nhật"
-        },
-        {
-            "name":"Gói vui vẻ (full)"
-        },
-        {
-            "name":"Gói lẻ"
-        }
-    ],
     "accessories":[
         {
-            "name":"Combo đơn giản",
-            "accessory_category_id":1,
+            "name":"Gói đơn giản",
             "description":"Gồm x10 nến, x20 thìa, x20 đĩa giấy, x1 dao cắt bánh",
-            "price":"35000",
-            "image":"birthday-combo-1.webp"
+            "price":"35000"
         },
         {
-            "name":"Combo trọn vẹn",
-            "accessory_category_id":1,
+            "name":"Gói trọn vẹn",
             "description":"Gồm x20 nến, x1 pháo sáng, x30 thìa, x30 đĩa giấy, x1 dao cắt bánh",
-            "price":"45000",
-            "image":"birthday-combo-2.webp"
+            "price":"45000"
         },
         {
-            "name":"Combo full đồ",
-            "accessory_category_id":2,
+            "name":"Gói full đồ",
             "description":"Gồm x30 nến, x2 pháo sáng, x35 thìa, x35 đĩa giấy, x2 dao cắt bánh",
-            "price":"65000",
-            "image":"full-combo-1.webp"
-        },
-        {
-            "name":"Nến",
-            "accessory_category_id":3,
-            "description":"Bộ x10 nến, mua theo số lượng bộ",
-            "price":"10000",
-            "image":"candles.webp"
-        },
-        {
-            "name":"Thìa",
-            "accessory_category_id":3,
-            "description":"Bộ x10 thìa ăn, mua theo số lượng bộ",
-            "price":"15000",
-            "image":"spoon.webp"
-        },
-        {
-            "name":"Đĩa giấy",
-            "accessory_category_id":3,
-            "description":"Bộ x10 đĩa giấy, mua theo số lượng bộ",
-            "price":"15000",
-            "image":"paper-plate.webp"
-        },
-        {
-            "name":"Dao nhựa",
-            "accessory_category_id":3,
-            "description":"Bộ x2 dao nhựa cắt bánh",
-            "price":"2000",
-            "image":"plastic-cutter.webp"
-        },
-        {
-            "name":"Pháo sáng",
-            "accessory_category_id":3,
-            "description":"Bộ x1 pháo sáng",
-            "price":"10000",
-            "image":"firework.webp"
+            "price":"65000"
         }
     ],
     "bill_accessories":[
         {
             "bill_id":1,
-            "accessory_id":1,
-            "quantity":1
-        },
-        {
-            "bill_id":1,
-            "accessory_id":8,
-            "quantity":1
+            "accessory_id":1
         }
     ]
 }
