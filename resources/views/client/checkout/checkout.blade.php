@@ -104,7 +104,7 @@
                                     <h3 class="billing-heading mb-4">Cart Total</h3>
                                     <p class="d-flex">
                                         <span>Subtotal</span>
-                                        <span id="subTotal">{{ number_format($subTotal) }}đ</span>
+                                        <span id="subTotal" data-price="{{ $subTotal }}">{{ number_format($subTotal) }}đ</span>
                                     </p>
                                     <p class="d-flex">
                                         <span>Delivery</span>
