@@ -1,3 +1,4 @@
+let accessory_id;
 function checkout() {
     const fullName = $('#fullName');
     const address = $('#address');
@@ -23,7 +24,8 @@ function checkout() {
             'phone': phone.val(),
             'email': email.val(),
             'delivery': delivery.val(),
-            'payment': payment
+            'payment': payment,
+            'accessory_id' : accessory_id
         },
         success: function (data) {
             if (data.message === 'success') {
@@ -32,3 +34,14 @@ function checkout() {
         }
     });
 }
+
+$(document).ready(function() {
+    console.log('ready');
+    $('.accessories').change(function() {
+        if ($(this).is(':checked')) {
+            accessory_id = accessoryId;
+        }
+    });
+})
+
+
