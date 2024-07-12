@@ -7,5 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Accessory extends Model
 {
-    use HasFactory;
+    protected $table = 'accessories';
+
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+    ];
+
+    public function accessories()
+    {
+        return $this->hasMany(BillAccessory::class, 'accessory_id');
+    }
+
 }
