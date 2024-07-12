@@ -39,7 +39,11 @@ $(document).ready(function() {
     console.log('ready');
     $('.accessories').change(function() {
         if ($(this).is(':checked')) {
+            var accessoryId = $(this).data('id');
+            var accessoryPrice = $(this).val();
             accessory_id = accessoryId;
+            total = parseInt($('#subTotal').data('price')) + parseInt(accessoryPrice);
+            $('#totalPrice').text(new Intl.NumberFormat('de-DE').format(total) + 'đ');
         }
     });
 })
