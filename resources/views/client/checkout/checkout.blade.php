@@ -72,6 +72,35 @@
                         <div class="row mt-5 pt-3">
                             <div class="col-md-12 d-flex mb-5">
                                 <div class="cart-detail cart-total p-3 p-md-4">
+                                    <h3 class="billing-heading mb-4">Chọn gói phụ kiện đi kèm</h3>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="radio d-flex align-items-start">
+                                                <input class="accessories" id="accessory-0" type="radio" name="accessory" class="mr-2" style="transform: translateY(8px)" value="0" checked>
+                                                <div class="ml-3">
+                                                    <label for="accessory-0">Không phụ kiện</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @foreach ($accessories as $ac)
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="radio d-flex align-items-start">
+                                                <input class="accessories" id="accessory-{{ $ac->id }}" type="radio" name="accessory" class="mr-2" value="{{ $ac->price }}" data-id="{{ $ac->id }}" style="transform: translateY(8px)">
+                                                <div class="ml-3">
+                                                    <label for="accessory-{{ $ac->id }}">{{ $ac->name }} ({{ number_format($ac->price) }}₫)</label>
+                                                    <small class="d-block">{{ $ac->description }}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex mb-5">
+                                <div class="cart-detail cart-total p-3 p-md-4">
                                     <h3 class="billing-heading mb-4">Cart Total</h3>
                                     <p class="d-flex">
                                         <span>Subtotal</span>
@@ -146,5 +175,6 @@
     <script>
         var csrfToken = "{{ csrf_token() }}";
     </script>
+    <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/client/checkout.js') }}"></script>
 @endsection
