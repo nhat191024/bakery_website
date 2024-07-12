@@ -177,10 +177,6 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        foreach ($dataArray['accessory_categories'] as $row) {
-            AccessoryCategory::create($row);
-        }
-
         foreach ($dataArray['accessories'] as $row) {
             Accessory::create($row);
         }
