@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('bill_id');
             $table->unsignedBigInteger('accessory_id');
-            $table->integer('quantity')->default(1);
             $table->foreign('bill_id')->references('id')->on('bills');
             $table->foreign('accessory_id')->references('id')->on('accessories');
             $table->timestamps();
