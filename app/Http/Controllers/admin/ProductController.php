@@ -65,10 +65,46 @@ class ProductController extends Controller
         $id = $request->id;
         $allCategory = $this->categoryService->getAll();
         $foodInfo = $this->productService->getById($id);
-        return view('admin.product.edit_produc', compact('id', 'foodInfo', 'allCategory'));
+        return view('admin.product.edit_product', compact('id', 'foodInfo', 'allCategory'));
+    }
+
+    public function showEditDetail(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'product_id' => 'required',
+        ]);
+        $id = $request->id;
+        $productId = $request->product_id;
+        $productVariatonInfo = $this->productService->getDetailById($id);
+        return view('admin.product.edit_detail', compact('id', 'productVariatonInfo', 'productId'));
     }
 
     public function editProduct(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'category_id' => 'required',
+            'food_name' => 'required',
+            'food_price' => 'required',
+        ]);
+        $id = $request->id;
+        $categoryId = $request->category_id;
+        $foodName = $request->food_name;
+        $foodPrice = $request->food_price;
+        if ($request->food_image) {
+            $imageName = time() . '_' . $request->food_image->getClientOriginalName();
+            $request->food_image->move(public_path('img'), $imageName);
+            $oldImagePath = $this->productService->getById($request->id)->image;
+            if (file_exists(public_path('img') . '/' . $oldImagePath)) {
+                unlink(public_path('img') . '/' . $oldImagePath);
+            }
+        }
+        $this->productService->edit($id, $categoryId, $foodName, $foodPrice, $imageName ?? null);
+        return redirect(route('admin.product.index'))->with('success', 'Sửa thực phẩm thành công');
+    }
+
+    public function editDetail(Request $request)
     {
         $request->validate([
             'id' => 'required',
@@ -100,5 +136,20 @@ class ProductController extends Controller
             return redirect(route('admin.product.index'))->with('success', 'Xóa thực phẩm thành công');
         }
         return redirect(route('admin.product.index'))->with('error', 'Thực phẩm đang nằm trong món ăn, không thể xóa !!!');
+    }
+
+    public function deleteDetail(Request $request)
+    {
+        $request->validate([
+            'id' => 'required',
+            'product_id' => 'required',
+        ]);
+        $id = $request->id;
+        $productId = $request->product_id;
+        if($this->productService->delete($id, $productId)) {
+            return redirect(route('admin.product.show_detail', ['id' => $productId]))->with('success', 'Xóa biến thể thành công');
+        }
+        return redirect(route('admin.product.show_detail', ['id' => $productId]))->with('error', 'Biến thể không thể ít hơn 1 !!!!');
+
     }
 }

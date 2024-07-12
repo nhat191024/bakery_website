@@ -9,7 +9,7 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Chi tiết sản phẩm: <strong>{{$productInfo->name}} </strong></h1>
+            <h1 class="h3 mb-2 text-gray-800">Chi tiết sản phẩm: <strong>{{ $productInfo->name }} </strong></h1>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -53,10 +53,15 @@
                                         <td>{{ $item->variation->name }}</td>
                                         <td>{{ $item['price'] }}</td>
                                         <td class="text-center"><a class="btn btn-danger"
-                                                href="{{ route('admin.product.show_edit_detail', ['id' => $item->id, 'product_id' => $productInfo->id]) }}"> Sửa
-                                            </a> <a class="btn btn-danger"
-                                            href="{{ route('admin.product.delete_detail', ['id' => $item->id, 'product_id' => $productInfo->id]) }}"
-                                            onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a>
+                                                href="{{ route('admin.product.show_edit_detail', ['id' => $item->id, 'product_id' => $productInfo->id]) }}">
+                                                Sửa
+                                            </a>
+                                            @if ($productInfo->product_variations->count() > 1)
+                                                <a class="btn btn-danger"
+                                                    href="{{ route('admin.product.delete_detail', ['id' => $item->id, 'product_id' => $productInfo->id]) }}"
+                                                    onclick="confirm('Bạn chắc chắn chứ?')"> Xóa
+                                                </a>   
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

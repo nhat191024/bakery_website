@@ -14,8 +14,14 @@ class ProductService
         return $product;
     }
 
-    public function getById($id) {
+    public function getById($id)
+    {
         return Products::where('id', $id)->first();
+    }
+
+    public function getDetailById($id)
+    {
+        return Product_variation::where('id', $id)->first();
     }
 
     public function add($categoryId, $productName, $productPrice, $productDescription, $imageName)
@@ -45,13 +51,19 @@ class ProductService
         $product->save();
     }
 
-    public function checkHasChildren($idFood) {
+    public function checkHasChildren($idFood)
+    {
         return Products::find($idFood)->dish()->get()->count() > 0;
     }
 
-    public function delete($idFood) {
-        $product = Products::find($idFood);
-        $product->status = 0;
-        $product->save();
+    public function delete($detailId, $productId)
+    {
+        $product = Products::find($productId);
+        if ($product->product_variations()->get()->count() > 1) {
+            $productVariation = Product_variation::find($detailId);
+            $productVariation->delete();
+            return true;
+        }
+        return false;
     }
 }
