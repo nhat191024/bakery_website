@@ -117,11 +117,6 @@
                                             @endif
                                         </span>
                                         <span id="discountPrice" class="d-flex">{{ number_format($discount) }}đ</span>
-                                        <span class="pointer text-danger">
-                                            <u id="removeDiscount" onclick="removeDiscount()">
-                                                {{ $discount > 0 ? 'Xoá voucher' : '' }}
-                                            </u>
-                                        </span>
                                     </p>
                                     <hr>
                                     <p class="d-flex total-price">
