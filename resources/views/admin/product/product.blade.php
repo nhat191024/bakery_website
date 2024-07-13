@@ -66,9 +66,16 @@
                                         <td class="text-center">
                                             <a class="btn btn-warning"
                                                 href="{{ route('admin.product.show_edit', ['id' => $item->id]) }}">Sửa</a>
-                                            <a class="btn btn-danger"
-                                                href="{{ route('admin.product.delete', ['id' => $item->id]) }}"
-                                                onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a>
+                                            @if (!$item->deleted_at)
+                                                <a class="btn btn-danger"
+                                                    href="{{ route('admin.product.delete', ['id' => $item->id]) }}"
+                                                    onclick="confirm('Bạn chắc chắn chứ?')"> Ẩn </a>
+                                            @endif
+                                            @if ($item->deleted_at)
+                                                <a class="btn btn-danger"
+                                                    href="{{ route('admin.product.restore', ['id' => $item->id]) }}"
+                                                    onclick="confirm('Bạn chắc chắn chứ?')"> Hiện </a>
+                                            @endif
                                             <a class="btn btn-info"
                                                 href="{{ route('admin.product.show_detail', ['id' => $item->id]) }}">Chi
                                                 tiết</a>
