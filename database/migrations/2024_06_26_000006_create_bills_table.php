@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('delivery_method');
             $table->string('payment_method');
             $table->integer('total_amount')->default(0);
+            $table->foreignId('accessory_id')->nullable()->references('id')->on('accessories');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
