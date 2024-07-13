@@ -533,8 +533,8 @@
             "phone_number": "0123456789",
             "email": "customer@troll.com",
             "voucher_code": "BAKERY10OFF",
-            "delivery_method": "Pickup",
-            "payment_method": "Cash",
+            "delivery_method": 2,
+            "payment_method": 1,
             "total_amount": "500000",
             "accessory_id": 1,
             "status": 1
