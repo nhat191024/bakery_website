@@ -7,7 +7,7 @@ function checkout() {
     const phone = $('#phone');
     const email = $('#email');
     const delivery = $('#delivery');
-    var payment = 'banking';
+    var payment = 2;
 
     var selectedValue = $('input[type="radio"][name="payment"]:checked').val();
     payment = selectedValue ? selectedValue : payment;

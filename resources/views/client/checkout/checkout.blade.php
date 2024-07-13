@@ -60,8 +60,8 @@
                                     <div class="form-group">
                                         <label for="delivery">Phương thức vận chuyển</label>
                                         <select class="form-control" id="delivery">
-                                            <option selected>Ship tận tay</option>
-                                            <option>Lấy tại quần</option>
+                                            <option value="1" selected>Ship tận tay</option>
+                                            <option value="2">Lấy tại quần</option>
                                         </select>
                                     </div>
                                 </div>
@@ -132,8 +132,8 @@
                                         <div class="col-md-12">
                                             <div class="radio">
                                                 <input id="banking" type="radio" name="payment" class="mr-2"
-                                                    value="banking">
-                                                <label>Chuyển khoản qua ngân hàng</label>
+                                                    value="2">
+                                                <label for="banking">Chuyển khoản qua ngân hàng</label>
                                             </div>
                                         </div>
                                     </div>
@@ -141,8 +141,8 @@
                                         <div class="col-md-12">
                                             <div class="radio">
                                                 <input id="cash" type="radio" name="payment" class="mr-2"
-                                                    value="cash">
-                                                <label>Thanh toán khi nhận hàng (COD)</label>
+                                                    value="1">
+                                                <label for="cash">Thanh toán khi nhận hàng (COD)</label>
                                             </div>
                                         </div>
                                     </div>
