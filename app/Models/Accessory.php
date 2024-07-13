@@ -17,7 +17,6 @@ class Accessory extends Model
 
     public function accessories()
     {
-        return $this->hasMany(BillAccessory::class, 'accessory_id');
+        return $this->hasMany(Bills::class, 'accessory_id');
     }
-
 }
