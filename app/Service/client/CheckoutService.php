@@ -31,6 +31,11 @@ class CheckoutService
     {
         $accessory_id = $request->accessory_id;
         $accessory_price = $accessory_id ? Accessory::where('id', $accessory_id)->first('price') : null;
+
+        if ($accessory_price == null) {
+            $accessory_id = null;
+        }
+
         $bill = Bills::create([
             'order_date' => now(),
             'full_name' => $request->fullName,
@@ -41,15 +46,9 @@ class CheckoutService
             'delivery_method' => $request->delivery,
             'payment_method' => $request->payment,
             'total_amount' => (Cart::getTotal() ? Cart::getTotal() : 0) + ($accessory_price ? $accessory_price['price'] : 0),
+            'accessory_id' => $accessory_id,
             'status' => 1,
         ]);
-
-        if ($accessory_price != null) {
-            BillAccessory::create([
-                'bill_id' => $bill->id,
-                'accessory_id' => $accessory_id,
-            ]);
-        }
 
         $cart = Cart::get();
         foreach ($cart as $item) {
