@@ -66,6 +66,13 @@ class CheckoutService
         }
 
         if ($billDetail) {
+            $quantity = 0;
+            if (Cart::getCouponCode()) {
+                $quantity = Vouchers::where('code', Cart::getCouponCode())->first('quantity')->quantity;
+            }
+            if ($quantity > 0) {
+                Vouchers::where('code', Cart::getCouponCode())->decrement('quantity');
+            }
             Cart::clear();
             return response()->json([
                 'message' => 'success'

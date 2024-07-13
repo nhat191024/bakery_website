@@ -36,6 +36,8 @@ public static function add($product, $variation_id = '1', $quantity = '1')
     public static function clear()
     {
         session()->forget('cart');
+        Cart::setCouponCode(null);
+        Cart::setDiscountAmount(0);
     }
 
     public static function update($product_id, $variation_id = 1, $quantity)
