@@ -536,6 +536,7 @@
             "delivery_method": "Pickup",
             "payment_method": "Cash",
             "total_amount": "500000",
+            "accessory_id": 1,
             "status": 1
         }
     ],
@@ -942,12 +943,6 @@
             "name":"Gói full đồ",
             "description":"Gồm x30 nến, x2 pháo sáng, x35 thìa, x35 đĩa giấy, x2 dao cắt bánh",
             "price":"65000"
-        }
-    ],
-    "bill_accessories":[
-        {
-            "bill_id":1,
-            "accessory_id":1
         }
     ]
 }
