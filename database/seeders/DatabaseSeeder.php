@@ -180,9 +180,5 @@ class DatabaseSeeder extends Seeder
         foreach ($dataArray['accessories'] as $row) {
             Accessory::create($row);
         }
-
-        foreach ($dataArray['bill_accessories'] as $row) {
-            BillAccessory::create($row);
-        }
     }
 }
