@@ -64,8 +64,8 @@ class ProductController extends Controller
     {
         $id = $request->id;
         $allCategory = $this->categoryService->getAll();
-        $foodInfo = $this->productService->getById($id);
-        return view('admin.product.edit_product', compact('id', 'foodInfo', 'allCategory'));
+        $productInfo = $this->productService->getById($id);
+        return view('admin.product.edit_product', compact('id', 'productInfo', 'allCategory'));
     }
 
     public function showEditDetail(Request $request)
@@ -85,57 +85,49 @@ class ProductController extends Controller
         $request->validate([
             'id' => 'required',
             'category_id' => 'required',
-            'food_name' => 'required',
-            'food_price' => 'required',
+            'product_name' => 'required',
         ]);
         $id = $request->id;
         $categoryId = $request->category_id;
-        $foodName = $request->food_name;
-        $foodPrice = $request->food_price;
-        if ($request->food_image) {
-            $imageName = time() . '_' . $request->food_image->getClientOriginalName();
-            $request->food_image->move(public_path('img'), $imageName);
+        $productName = $request->product_name;
+        if ($request->product_image) {
+            $imageName = time() . '_' . $request->product_image->getClientOriginalName();
+            $request->product_image->move(public_path('img'), $imageName);
             $oldImagePath = $this->productService->getById($request->id)->image;
             if (file_exists(public_path('img') . '/' . $oldImagePath)) {
                 unlink(public_path('img') . '/' . $oldImagePath);
             }
         }
-        $this->productService->edit($id, $categoryId, $foodName, $foodPrice, $imageName ?? null);
-        return redirect(route('admin.product.index'))->with('success', 'Sửa thực phẩm thành công');
+        $this->productService->edit($id, $categoryId, $productName, $imageName ?? null);
+        return redirect(route('admin.product.index'))->with('success', 'Sửa sản phẩm thành công');
     }
 
     public function editDetail(Request $request)
     {
         $request->validate([
+            'product_price' => 'required',
             'id' => 'required',
-            'category_id' => 'required',
-            'food_name' => 'required',
-            'food_price' => 'required',
+            'product_id' => 'required',
         ]);
         $id = $request->id;
-        $categoryId = $request->category_id;
-        $foodName = $request->food_name;
-        $foodPrice = $request->food_price;
-        if ($request->food_image) {
-            $imageName = time() . '_' . $request->food_image->getClientOriginalName();
-            $request->food_image->move(public_path('img'), $imageName);
-            $oldImagePath = $this->productService->getById($request->id)->image;
-            if (file_exists(public_path('img') . '/' . $oldImagePath)) {
-                unlink(public_path('img') . '/' . $oldImagePath);
-            }
-        }
-        $this->productService->edit($id, $categoryId, $foodName, $foodPrice, $imageName ?? null);
-        return redirect(route('admin.product.index'))->with('success', 'Sửa thực phẩm thành công');
+        $productId = $request->product_id;
+        $productPrice = $request->product_price;
+        $this->productService->editDetail($id, $productPrice);
+        return redirect(route('admin.product.show_detail', ['id' => $productId]))->with('success', 'Sửa biến thể thành công');
     }
 
     public function deleteProduct(Request $request)
     {
         $id = $request->id;
-        if (!$this->productService->checkHasChildren($id)) {
-            $this->productService->delete($id);
-            return redirect(route('admin.product.index'))->with('success', 'Xóa thực phẩm thành công');
-        }
-        return redirect(route('admin.product.index'))->with('error', 'Thực phẩm đang nằm trong món ăn, không thể xóa !!!');
+        $this->productService->delete($id);
+        return redirect(route('admin.product.index'))->with('success', 'Ẩn thực phẩm thành công');
+    }
+
+    public function restoreProduct(Request $request)
+    {
+        $id = $request->id;
+        $this->productService->restore($id);
+        return redirect(route('admin.product.index'))->with('success', 'Khôi phục thực phẩm thành công');
     }
 
     public function deleteDetail(Request $request)
@@ -146,7 +138,7 @@ class ProductController extends Controller
         ]);
         $id = $request->id;
         $productId = $request->product_id;
-        if($this->productService->delete($id, $productId)) {
+        if ($this->productService->deleteDetail($id, $productId)) {
             return redirect(route('admin.product.show_detail', ['id' => $productId]))->with('success', 'Xóa biến thể thành công');
         }
         return redirect(route('admin.product.show_detail', ['id' => $productId]))->with('error', 'Biến thể không thể ít hơn 1 !!!!');

@@ -10,7 +10,7 @@ class ProductService
 {
     public function getAll()
     {
-        $product = Products::all();
+        $product = Products::withTrashed()->orderBy('created_at', 'desc')->orderBy('deleted_at', 'asc')->get();
         return $product;
     }
 
@@ -39,16 +39,22 @@ class ProductService
         ]);
     }
 
-    public function edit($id, $categoryId, $productName, $productPrice, $productImage)
+    public function edit($id, $categoryId, $productName, $imageName)
     {
         $product = Products::where('id', $id)->first();
         $product->category_id = $categoryId;
         $product->name = $productName;
-        $product->price = $productPrice;
-        if ($productImage != null) {
-            $product->image = $productImage;
+        if ($imageName != null) {
+            $product->image = $imageName;
         }
         $product->save();
+    }
+
+    public function editDetail($id, $productPrice)
+    {
+        $productVariation = Product_variation::where('id', $id)->first();
+        $productVariation->price = $productPrice;
+        $productVariation->save();
     }
 
     public function checkHasChildren($idFood)
@@ -56,7 +62,19 @@ class ProductService
         return Products::find($idFood)->dish()->get()->count() > 0;
     }
 
-    public function delete($detailId, $productId)
+    public function delete($productId)
+    {
+        $product = Products::find($productId);
+        $product->delete();
+    }
+
+    public function restore($productId)
+    {
+        $product = Products::find($productId);
+        $product->restore();
+    }
+
+    public function deleteDetail($detailId, $productId)
     {
         $product = Products::find($productId);
         if ($product->product_variations()->get()->count() > 1) {

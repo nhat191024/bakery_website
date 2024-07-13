@@ -88,7 +88,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/add', [ProductController::class, 'addProduct'])->name('admin.product.add');
         Route::post('/edit', [ProductController::class, 'editProduct'])->name('admin.product.edit');
         Route::get('/edit/{id}', [ProductController::class, 'showEditProduct'])->name('admin.product.show_edit');
-        Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->name('admin.product.delete');
+        Route::get('/delete', [ProductController::class, 'deleteProduct'])->name('admin.product.delete');
+        Route::get('/restore', [ProductController::class, 'restoreProduct'])->name('admin.product.restore');
         Route::get('/detail', [ProductController::class, 'showDetail'])->name('admin.product.show_detail');
         Route::get('/detail/add', [ProductController::class, 'showAddDetail'])->name('admin.product.show_add_detail');
         Route::get('/detail/edit', [ProductController::class, 'showEditDetail'])->name('admin.product.show_edit_detail');

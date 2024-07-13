@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <label for="">Tên biến thể</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="product_price" disabled value="{{$productVariatonInfo->variation->name}}">
+                                name="detail_name" disabled value="{{$productVariatonInfo->variation->name}}">
                         </div>
                         <div class="form-group">
                             <label for="">Giá</label>
