@@ -1,3 +1,4 @@
+let accessory_id;
 function checkout() {
     const fullName = $('#fullName');
     const address = $('#address');
@@ -6,7 +7,7 @@ function checkout() {
     const phone = $('#phone');
     const email = $('#email');
     const delivery = $('#delivery');
-    var payment = 'banking';
+    var payment = 2;
 
     var selectedValue = $('input[type="radio"][name="payment"]:checked').val();
     payment = selectedValue ? selectedValue : payment;
@@ -23,7 +24,8 @@ function checkout() {
             'phone': phone.val(),
             'email': email.val(),
             'delivery': delivery.val(),
-            'payment': payment
+            'payment': payment,
+            'accessory_id' : accessory_id
         },
         success: function (data) {
             if (data.message === 'success') {
@@ -32,3 +34,18 @@ function checkout() {
         }
     });
 }
+
+$(document).ready(function() {
+    console.log('ready');
+    $('.accessories').change(function() {
+        if ($(this).is(':checked')) {
+            var accessoryId = $(this).data('id');
+            var accessoryPrice = $(this).val();
+            accessory_id = accessoryId;
+            total = parseInt($('#subTotal').data('price')) + parseInt(accessoryPrice);
+            $('#totalPrice').text(new Intl.NumberFormat('de-DE').format(total) + 'đ');
+        }
+    });
+})
+
+

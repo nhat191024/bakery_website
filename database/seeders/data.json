@@ -533,9 +533,10 @@
             "phone_number": "0123456789",
             "email": "customer@troll.com",
             "voucher_code": "BAKERY10OFF",
-            "delivery_method": "Pickup",
-            "payment_method": "Cash",
+            "delivery_method": 2,
+            "payment_method": 1,
             "total_amount": "500000",
+            "accessory_id": 1,
             "status": 1
         }
     ],
@@ -925,6 +926,23 @@
             "variation_id": 1,
             "product_id": 45,
             "price": "70000"
+        }
+    ],
+    "accessories":[
+        {
+            "name":"Gói đơn giản",
+            "description":"Gồm x20 thìa, x20 đĩa giấy, x1 dao cắt bánh",
+            "price":"30000"
+        },
+        {
+            "name":"Gói sinh nhật",
+            "description":"Gồm x20 nến, x1 pháo sáng, x30 thìa, x30 đĩa giấy, x1 dao cắt bánh",
+            "price":"45000"
+        },
+        {
+            "name":"Gói full đồ",
+            "description":"Gồm x30 nến, x2 pháo sáng, x35 thìa, x35 đĩa giấy, x2 dao cắt bánh",
+            "price":"65000"
         }
     ]
 }

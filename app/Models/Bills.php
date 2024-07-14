@@ -21,11 +21,17 @@ class Bills extends Model
         'delivery_method',
         'payment_method',
         'total_amount',
+        'accessory_id',
         'status',
     ];
 
     public function bill_details()
     {
         return $this->hasMany(Bill_details::class, 'bill_id');
+    }
+
+    public function accessory()
+    {
+        return $this->belongsTo(Accessory::class, 'accessory_id');
     }
 }

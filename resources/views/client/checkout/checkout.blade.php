@@ -60,8 +60,8 @@
                                     <div class="form-group">
                                         <label for="delivery">Phương thức vận chuyển</label>
                                         <select class="form-control" id="delivery">
-                                            <option selected>Ship tận tay</option>
-                                            <option>Lấy tại quần</option>
+                                            <option value="1" selected>Ship tận tay</option>
+                                            <option value="2">Lấy tại quần</option>
                                         </select>
                                     </div>
                                 </div>
@@ -72,10 +72,39 @@
                         <div class="row mt-5 pt-3">
                             <div class="col-md-12 d-flex mb-5">
                                 <div class="cart-detail cart-total p-3 p-md-4">
+                                    <h3 class="billing-heading mb-4">Chọn gói phụ kiện đi kèm</h3>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="radio d-flex align-items-start">
+                                                <input class="accessories" id="accessory-0" type="radio" name="accessory" class="mr-2" style="transform: translateY(8px)" value="0" checked>
+                                                <div class="ml-3">
+                                                    <label for="accessory-0">Không phụ kiện</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @foreach ($accessories as $ac)
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="radio d-flex align-items-start">
+                                                <input class="accessories" id="accessory-{{ $ac->id }}" type="radio" name="accessory" class="mr-2" value="{{ $ac->price }}" data-id="{{ $ac->id }}" style="transform: translateY(8px)">
+                                                <div class="ml-3">
+                                                    <label for="accessory-{{ $ac->id }}">{{ $ac->name }} ({{ number_format($ac->price) }}₫)</label>
+                                                    <small class="d-block">{{ $ac->description }}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex mb-5">
+                                <div class="cart-detail cart-total p-3 p-md-4">
                                     <h3 class="billing-heading mb-4">Cart Total</h3>
                                     <p class="d-flex">
                                         <span>Subtotal</span>
-                                        <span id="subTotal">{{ number_format($subTotal) }}đ</span>
+                                        <span id="subTotal" data-price="{{ $subTotal }}">{{ number_format($subTotal) }}đ</span>
                                     </p>
                                     <p class="d-flex">
                                         <span>Delivery</span>
@@ -88,11 +117,6 @@
                                             @endif
                                         </span>
                                         <span id="discountPrice" class="d-flex">{{ number_format($discount) }}đ</span>
-                                        <span class="pointer text-danger">
-                                            <u id="removeDiscount" onclick="removeDiscount()">
-                                                {{ $discount > 0 ? 'Xoá voucher' : '' }}
-                                            </u>
-                                        </span>
                                     </p>
                                     <hr>
                                     <p class="d-flex total-price">
@@ -108,8 +132,8 @@
                                         <div class="col-md-12">
                                             <div class="radio">
                                                 <input id="banking" type="radio" name="payment" class="mr-2"
-                                                    value="banking">
-                                                <label>Chuyển khoản qua ngân hàng</label>
+                                                    value="2">
+                                                <label for="banking">Chuyển khoản qua ngân hàng</label>
                                             </div>
                                         </div>
                                     </div>
@@ -117,8 +141,8 @@
                                         <div class="col-md-12">
                                             <div class="radio">
                                                 <input id="cash" type="radio" name="payment" class="mr-2"
-                                                    value="cash">
-                                                <label>Thanh toán khi nhận hàng (COD)</label>
+                                                    value="1">
+                                                <label for="cash">Thanh toán khi nhận hàng (COD)</label>
                                             </div>
                                         </div>
                                     </div>
@@ -146,5 +170,6 @@
     <script>
         var csrfToken = "{{ csrf_token() }}";
     </script>
+    <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/client/checkout.js') }}"></script>
 @endsection
