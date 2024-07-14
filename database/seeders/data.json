@@ -84,33 +84,33 @@
     ],
     "message": [
         {
-            "name": "Tran Van A",
+            "name": "Tran Van Anh",
             "email": "customer1@troll.com",
             "message": "Chào shop ạ, mình muốn đặt 1 chiếc bánh kem socola ạ!",
             "subject": "ok"
         },
         {
-            "name": "Nguyen Thi B",
+            "name": "Nguyen Thi Ba",
             "email": "customer2@troll.com",
-            "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh trung thu thập cẩm ạ!",
+            "message": "Bánh trung thu thập cẩm ạ!",
             "subject": "ok"
         },
         {
-            "name": "Le Duc C",
+            "name": "Le Duc Cuong",
             "email": "customer3@troll.com",
-            "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh mì ngọt ạ!",
+            "message": "Mình cần hỗ trợ thêm về cách đặt bánh!",
             "subject": "ok"
         },
         {
-            "name": "Pham Thi D",
+            "name": "Pham Thi Doan",
             "email": "customer4@troll.com",
-            "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh bông lan trứng muối ạ!",
+            "message": "Bánh bông lan trứng muối shop ơi!",
             "subject": "ok"
         },
         {
-            "name": "Hoang Van E",
+            "name": "Hoang Van Em",
             "email": "customer5@troll.com",
-            "message": "Chào shop ạ, mình muốn lấy 1 chiếc bánh Tiramisu ạ!",
+            "message": "Tiramisu còn ko shop?",
             "subject": "ok"
         }
     ],
