@@ -19,7 +19,12 @@ class BlogController extends Controller
         $blogs = Blogs::take(5)->get();
         $recentBlogs = Blogs::take(3)->get();
         $categories = Categories::all();
-        return view('client.blog.blogPage', compact('blogs', 'recentBlogs', 'categories'));
+        foreach ($blogs as $blog) {
+            $user = User::where('id', $blog->user_id)->value('username');
+            $users[] = $user; 
+        }
+    
+        return view('client.blog.blogPage', compact('blogs', 'recentBlogs', 'categories', 'users'));
     }
 
     public function show($id)

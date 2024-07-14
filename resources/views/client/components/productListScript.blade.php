@@ -9,13 +9,13 @@
                     product_id: product_id
                 },
                 beforeSend: function() {
-                    $('#addingToCart'+product_id).text('Adding...');
+                    $('#addingToCart'+product_id).text('Đang thêm');
                 },
                 success: function(response) {
-                    $('#addingToCart'+product_id).text('Added to cart!');
+                    $('#addingToCart'+product_id).text('Đã thêm vào giỏ hàng!');
                     updateCartCount();
                     setTimeout(function() {
-                        $('#addingToCart'+product_id).text('Add more');
+                        $('#addingToCart'+product_id).text('Mua thêm');
                     }, 1000);
                 },
                 error: function(error) {

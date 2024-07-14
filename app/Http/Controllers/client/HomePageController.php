@@ -21,7 +21,7 @@ class HomePageController extends Controller
         $categoriesR = Categories::orderBy('id','desc')->take(2)->get();
         $messages = Message::orderBy('created_at', 'asc')->take(5)->get();
         $images = Banners::all();
-        $promotions = Promotions::orderBy('created_at', 'asc')->take(1)->get();
+        $promotions = Promotions::orderBy('product_id', 'asc')->take(1)->get(); 
         return view('client.homePage', compact('products', 'messages', 'images', 'promotions','categoriesL','categoriesR'));
     }
 }

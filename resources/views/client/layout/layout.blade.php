@@ -10,6 +10,10 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="{{ URL::asset('css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}">
@@ -40,7 +44,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="{{ route('client.homepage.index') }}" class="nav-link">Trang
                             chủ</a></li>
-                    <li class="nav-item"><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa hàng</a>
+                    <li class="nav-item "><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa hàng</a>
                     </li>
                     <li class="nav-item"><a href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a>
                     </li>

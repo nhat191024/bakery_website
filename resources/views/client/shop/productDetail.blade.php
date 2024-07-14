@@ -12,24 +12,26 @@
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                     <h3><b>{{ $product->name }}</b></h3>
                     <div class="rating d-flex">
-                        <p class="text-left">
+                        <p class="text-left"> 
+                                 <span style="color: #bbb;">Đã bán</span></a>
                             <a href="#" class="mr-2" style="color: #000;">{{ count($product->bill_details) }}
-                                <span style="color: #bbb;">Sold</span></a>
+                      
                         </p>
                     </div>
                     @if (count($product->product_variations) > 1)
                         <p class="price">
-                            <input class="productPrice h3 text-black" id="productPrice" type="text" id="price"
-                                value="{{ number_format($product->product_variations->min('price') ?? $product, 0, ',', '.') }}đ"
-                                disabled>
+                        <h2 class="productPrice h3 text-black" id="productPrice" id="price">
+                            {{ number_format($product->product_variations->min('price') ?? $product, 0, ',', '.') }}đ
+                        </h2>
                         </p>
                     @else
                         <p class="price-dc"><s><span>{{ number_format($product->fake_price, 0, ',', '.') }}đ</span></s></p>
-                        <input class="productPrice h3 text-black" id="productPrice" type="text" id="price"
-                            value="{{ number_format($product->product_variations->min('price'), 0, ',', '.') }}đ"
-                            disabled>
+                        <h2 class="productPrice h3 text-black" id="productPrice" id="price">
+                            {{ number_format($product->product_variations->min('price'), 0, ',', '.') }}đ
+                        </h2>
                         </p>
                     @endif
+
                     <p>{{ $product->description }}</p>
                     <div class="row mt-4">
                         @if (count($product->product_variations) > 1)
@@ -65,9 +67,9 @@
                         </div>
                         <div class="w-100"></div>
                     </div>
-                    <p><a class="btn btn-primary py-3 px-5 text-center" id="addToCart">Add to Cart</a></p>
-                    <p>Large size please consult staff. <br>
-                        Price does not include VAT 10% and shipping fee.</p>
+                    <p><a class="btn btn-primary py-3 px-5 text-center" id="addToCart">Thêm vào giỏ</a></p>
+                    <p>Nếu quý khánh muốn mua cỡ lớn . vui lòng liên hệ cửa hàng <br>
+                       </p>
                 </div>
             </div>
         </div>
@@ -77,9 +79,9 @@
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">Products</span>
-                    <h2 class="mb-4">Related Products</h2>
-                    <p>Explore our delicious selections ~</p>
+                    <span class="subheading">Các loại bánh</span>
+                    <h2 class="mb-4">Sản phẩm bán chạy</h2>
+                    <p>Cùng chúng tôi khám phá những món bánh được nhiều người ưa thích ~</p>
                 </div>
             </div>
         </div>
@@ -108,13 +110,13 @@
                         'variation_id': $variation_id
                     },
                     beforeSend: function() {
-                        $('#addToCart').text('Adding...');
+                        $('#addToCart').text('Đang thêm...');
                     },
                     success: function(data) {
-                        $('#addToCart').text('Added to cart!');
+                        $('#addToCart').text('Đã thêm vào giỏ hàng!');
                         updateCartCount();
                         setTimeout(function() {
-                            $('#addToCart').text('Add more');
+                            $('#addToCart').text('Mua thêm');
                         }, 5000);
                     },
                     error: function(err) {

@@ -85,7 +85,7 @@
                                 style="background-image: url({{ asset('img/client/shop/product-5.webp') }});">
                                 <div class="text text-center">
                                     <h2>Các loại bánh</h2>
-                                    <p>Tạo điểm nhấn cho bữa tiệc của bạn</p>
+                                    <p class="p-cate">Tạo điểm nhấn cho bữa tiệc của bạn</p>
                                     <p><a href="{{ route('client.shop.productList') }}" class="btn btn-primary">Đặt ngay</a>
                                     </p>
                                 </div>
@@ -131,7 +131,7 @@
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <span class="subheading">Chúng tôi hiểu rằng</span>
-                    <h2 class="mb-4">BÁNH PHÁP LÀ NGHỆ THUẬT</h2>
+                    <h2 class="text-ab-h2">BÁNH PHÁP LÀ NGHỆ THUẬT</h2>
                     <p>Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng.
                         Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.</p>
                 </div>
@@ -143,15 +143,15 @@
     </section>
 
     @foreach ($promotions as $promotion)
-        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-2.webp') }});">
+        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-47.svg') }});">
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
                         <span class="subheading">Giá ưu đãi cho bạn</span>
-                        <h2 class="mb-4">Giảm giá hàng ngày</h2>
-                        <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
-                        <h3><a href="#">{{ $promotion->description }}</a></h3>
-                        <span class="price">50.0000 <a href="#">chỉ còn 30.000 </a></span>
+                        <h2 class="text-sale">Sự kiện giảm giá</h2>
+                        <p class="p-sale"></p>
+                        <h3 class="p-sale"><a href="{{route('client.shop.productDetail', ['productId' => $promotion->product_id])}}">{{ $promotion->description }}</a></h3>
+                        <span class="price">500.0000</span> <span ><a href="#"> chỉ còn 399.000 </a></span> 
                         <div id="timer" class="d-flex mt-5">
                             <div class="time" id="days"></div>
                             <div class="time pl-3" id="hours"></div>
