@@ -2,30 +2,40 @@
 
 namespace App\Service\admin;
 
-use App\Models\About_us;
-use App\Models\Banners;
+use App\Models\Message;
 
-class MessageService 
+class MessageService
 {
     public function getAll()
     {
-        $about = About_us::first();
-        return $about;
+        $message = Message::orderBy('created_at', 'desc')->get();
+        return $message;
+    }
+
+    public function getAllDeleted()
+    {
+        $message = Message::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
+        return $message;
     }
 
     public function getById($id)
     {
-        return About_us::where('id', $id)->first();
+        return Message::where('id', $id)->first();
     }
 
-    public function edit($id, $aboutTitle, $aboutContent, $imageName)
+    public function recoverById($id)
     {
-        $about = About_us::where('id', $id)->first();
-        $about->title = $aboutTitle;
-        $about->description = $aboutContent;
-        if ($imageName != null) {
-            $about->image = $imageName;
+        $message = Message::withTrashed()->find($id);
+        $message->restore();
+        return $message;
+    }
+
+    public function deleteById($id)
+    {
+        try {
+            $message = Message::find($id);
+            $message->delete();
+        } catch (\Throwable $th) {
         }
-        $about->save();
     }
 }
