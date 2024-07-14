@@ -30,18 +30,18 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th class="col-2">Tiêu đề</th>
-                                    <th class="col-6">Nội dung</th>
-                                    <th class="col-3">Ảnh</th>
-                                    <th class="col-1">Action</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Nội dung</th>
+                                    <th>Ảnh</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th class="col-2">Tiêu đề</th>
-                                    <th class="col-7">Nội dung</th>
-                                    <th class="col-2">Ảnh</th>
-                                    <th class="col-1">Action</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Nội dung</th>
+                                    <th>Ảnh</th>
+                                    <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
