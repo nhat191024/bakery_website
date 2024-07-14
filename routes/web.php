@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AboutUsController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\CartController;
@@ -123,7 +124,7 @@ Route::prefix('admin')->group(function () {
     // });
 
     // Route::prefix('/table')->group(function () {
-    //     Route::get('/', [TableController::class, 'index'])->name('admin.table.index'); 
+    //     Route::get('/', [TableController::class, 'index'])->name('admin.table.index');
     //     Route::get('/add', [TableController::class, 'showAddTable'])->name('admin.table.show_add');
     //     Route::post('/add', [TableController::class, 'addTable'])->name('admin.table.add');
     //     Route::post('/edit', [TableController::class, 'editTable'])->name('admin.table.edit');
@@ -141,13 +142,13 @@ Route::prefix('admin')->group(function () {
     //     Route::post('/add-kitchen-method', [KitchenController::class, 'addKitchenMethod'])->name('admin.kitchen.add_kitchen_method');
     //     Route::post('/get-kitchen-method', [KitchenController::class, 'getKitchenMethod'])->name('admin.kitchen.get_kitchen_method');
     // });
-    
+
     Route::prefix('/bill')->group(function () {
-        Route::get('/', [BillController::class, 'index'])->name('admin.bill.index'); 
-        Route::post('/edit', [BillController::class, 'editStatus'])->name('admin.bill.edit_status'); 
+        Route::get('/', [BillController::class, 'index'])->name('admin.bill.index');
+        Route::post('/edit', [BillController::class, 'editStatus'])->name('admin.bill.edit_status');
         Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
     });
-    
+
     // Route::prefix('/user')->group(function () {
     //     Route::get('/', [UserController::class, 'index'])->name('admin.user.index');
     //     Route::get('/add', [UserController::class, 'showAddUser'])->name('admin.user.show_add');
@@ -272,6 +273,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [BillController::class, 'index'])->name('admin.bill.index');
         Route::post('/edit', [BillController::class, 'editStatus'])->name('admin.bill.edit_status');
         Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
+    });
+
+    Route::prefix('/message')->group(function () {
+        Route::get('/', [MessageController::class, 'index'])->name('admin.message.index');
+        Route::get('/get', [MessageController::class, 'getUnread']);
+        Route::get('/markedAsRead', [MessageController::class, 'showDeleted'])->name('admin.message.deleted');
+        Route::get('/{id}', [MessageController::class, 'showMessageDetail'])->name('admin.message.show_detail');
+        Route::get('/deleted/{id}', [MessageController::class, 'showDeletedMessageDetail'])->name('admin.message.show_deleted_detail');
+        Route::get('/delete/{id}', [MessageController::class, 'deleteMessage'])->name('admin.message.delete');
     });
 
     // Route::prefix('/user')->group(function () {
