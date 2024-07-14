@@ -313,15 +313,12 @@
 
 
 	function makeTimer() {
-
-		var endTime = new Date("30	 July 2024 22:59:00 GMT+07:00");			
+		var endTime = new Date(endDate);			
 		endTime = (Date.parse(endTime) / 1000);
 
 		var now = new Date();
 		now = (Date.parse(now) / 1000);
-
 		var timeLeft = endTime - now;
-
 		var days = Math.floor(timeLeft / 86400); 
 		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
 		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);

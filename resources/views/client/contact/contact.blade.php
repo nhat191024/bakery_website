@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary py-3 px-5 "
-                                style="background-color: #f8c53f; border: #f8c53f;"> Gửi góp ý</button>
+                                style="background-color: #fff; border: #f8c53f;"> Gửi góp ý</button>
 
                         </div>
                     </form>

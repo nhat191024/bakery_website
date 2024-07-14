@@ -83,8 +83,9 @@
                         <div class="col-md-6 order-md-last align-items-stretch d-flex">
                             <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
                                 style="background-image: url({{ asset('img/client/shop/product-5.webp') }});">
+                                <div class="overlaya"></div>
                                 <div class="text text-center">
-                                    <h2>Các loại bánh</h2>
+                                    <h2 class="text-cate">Các loại bánh</h2>
                                     <p class="p-cate">Tạo điểm nhấn cho bữa tiệc của bạn</p>
                                     <p><a href="{{ route('client.shop.productList') }}" class="btn btn-primary">Đặt ngay</a>
                                     </p>
@@ -143,23 +144,28 @@
     </section>
 
     @foreach ($promotions as $promotion)
-        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-47.svg') }});">
+        <section class="ftco-section img"
+            style="background-image: url({{ asset('img/client/shop/' . $promotion->Products->image) }});">
+            <div class="overlay"></div>
             <div class="container">
                 <div class="row justify-content-end">
-                    <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
-                        <span class="subheading">Giá ưu đãi cho bạn</span>
-                        <h2 class="text-sale">Sự kiện giảm giá</h2>
-                        <p class="p-sale"></p>
-                        <h3 class="p-sale"><a href="{{route('client.shop.productDetail', ['productId' => $promotion->product_id])}}">{{ $promotion->description }}</a></h3>
-                        <span class="price">500.0000</span> <span ><a href="#"> chỉ còn 399.000 </a></span> 
-                        <div id="timer" class="d-flex mt-5">
-                            <div class="time" id="days"></div>
-                            <div class="time pl-3" id="hours"></div>
-                            <div class="time pl-3" id="minutes"></div>
-                            <div class="time pl-3" id="seconds"></div>
+                    <a href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}">
+                        <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+                            <span class="subheading">Giá ưu đãi cho bạn</span>
+                            <h2 class="text-sale">Sự kiện giảm giá</h2>
+                            <h3 class="text-sale">{{ $promotion->Products->name }}</h3>
+                            <span class="price">{{ $promotion->Products->fake_price }}Đ</span>
+                            <span style="margin-left: 10px;"><a href="#" class="sale"> Chỉ còn {{ $price }}
+                                    Đ</a></span>
+                            <div id="timer" class="d-flex mt-5">
+                                <div class="time" id="days"></div>
+                                <div class="time pl-3" id="hours"></div>
+                                <div class="time pl-3" id="minutes"></div>
+                                <div class="time pl-3" id="seconds"></div>
+                            </div>
                         </div>
-                    </div>
                 </div>
+                </a>
             </div>
         </section>
     @endforeach
@@ -261,4 +267,7 @@
     </section> --}}
 
     @include('client.components.contactUsRedirect')
+    <script>
+        var endDate = '{{ $promotions[0]->end_time }}';
+    </script>
 @endsection

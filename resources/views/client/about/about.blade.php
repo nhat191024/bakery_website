@@ -30,7 +30,7 @@
                     </div>
                     <div class="pb-md-5">
                         <p>{{ $About_us->description }}</p>
-                        <p><a href="#" class="btn btn-primary">Mua ngay</a></p>
+                        <p><a href="{{ route('client.shop.productList') }}" class="btn btn-primary">Mua ngay</a></p>
                     </div>
                 </div>
             </div>
