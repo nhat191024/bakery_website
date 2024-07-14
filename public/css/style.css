@@ -2068,10 +2068,7 @@
   fieldset:disabled a.btn {
     pointer-events: none; }
 
-  .btn-primary {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff; }
+
     .btn-primary:hover {
       color: #fff;
       background-color: #0069d9;
@@ -6504,8 +6501,9 @@
       color:#fff;
     }
     .p-cate{
+      font-size: large;
       color:#fff;
-      text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 0 10px rgba(0, 0, 0);
     }
     .text-bd4{
       font-family: sans-serif;
@@ -8532,13 +8530,12 @@
     .btn:hover, .btn:active, .btn:focus {
       outline: none; }
     .btn.btn-primary {
-      background: #e26968;
-      border: 1px solid #e26968;
-      color: #fff; }
+      background: #fff;
+      color: #f00; }
       .btn.btn-primary:hover {
-        border: 1px solid #e26968;
+        border: 1px solid #fff;
         background: transparent;
-        color: #e26968; 
+        color: #fff; 
        }
       .btn.btn-primary.btn-outline-primary {
         border: 1px solid #e26968;
@@ -9309,7 +9306,9 @@
       -moz-box-shadow: 0 0 0 0 rgba(130, 174, 70, 0);
       -webkit-box-shadow: 0 0 0 0 rgba(130, 174, 70, 0);
       box-shadow: 0 0 0 0 rgba(130, 174, 70, 0); } }
-
+.js-text{
+  font-size: 20px;
+}
   .heading-section {
     position: relative; }
     .heading-section .subheading {
@@ -9321,7 +9320,7 @@
       color: #e26968; }
     .heading-section h2 {
       position: relative;
-      font-size: 40px;
+      font-size: 60px;
       font-weight: 600;
       font-family:'Dancing Script'}
       @media (max-width: 767.98px) {
