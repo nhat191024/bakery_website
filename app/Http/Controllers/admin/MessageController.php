@@ -2,51 +2,56 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Helper\Helper;
 use App\Http\Controllers\Controller;
-use App\Service\admin\AboutUsService;
+use App\Service\admin\MessageService;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
-    private $aboutUsService;
-    //
-    public function __construct(AboutUsService $aboutUsService)
+    private $messageService;
+    // //
+    public function __construct(MessageService $messageService)
     {
-        $this->aboutUsService = $aboutUsService;
+        $this->messageService = $messageService;
     }
 
     public function index()
     {
-        $aboutInfo = $this->aboutUsService->getAll();
-        return view('admin.about.about', compact('aboutInfo'));
+        $allMessage = $this->messageService->getAll();
+        return view('admin.message.message', compact('allMessage'))->with('helper', new Helper());
     }
 
-    public function showEditBanner(Request $request)
+    public function showDeleted()
     {
-        $id = $request->id;
-        $aboutInfo = $this->aboutUsService->getById($id);
-        return view('admin.about.edit_about', compact('id', 'aboutInfo'));
+        $deletedMessage = $this->messageService->getAllDeleted();
+        return view('admin.message.deleted_message', compact('deletedMessage'))->with('helper', new Helper());
     }
 
-    public function editBanner(Request $request)
+    public function showMessageDetail(Request $request)
     {
-        $request->validate([
-            'id' => 'required',
-            'about_title' => 'required',
-            'about_content' => 'required',
-        ]);
         $id = $request->id;
-        $aboutTitle = $request->about_title;
-        $aboutContent = $request->about_content;
-        if ($request->about_image) {
-            $imageName = time() . '_' . $request->about_image->getClientOriginalName();
-            $request->about_image->move(public_path('img'), $imageName);
-            $oldImagePath = $this->aboutUsService->getById($request->id)->image;
-            if (file_exists(public_path('img') . '/' . $oldImagePath) && $oldImagePath != null) {
-                unlink(public_path('img') . '/' . $oldImagePath);
-            }
-        }
-        $this->aboutUsService->edit($id, $aboutTitle, $aboutContent, $imageName ?? null);
-        return redirect(route('admin.about.index'))->with('success', 'Sửa about thành công');
+        $messageInfo = $this->messageService->getById($id);
+        return view('admin.message.detail_message', compact('id', 'messageInfo'))->with('helper', new Helper());
+    }
+
+    public function showDeletedMessageDetail(Request $request)
+    {
+        $id = $request->id;
+        $messageInfo = $this->messageService->recoverById($id);
+        $this->messageService->deleteById($id);
+        return view('admin.message.detail_message', compact('id', 'messageInfo'))->with('helper', new Helper());
+    }
+
+    public function deleteMessage(Request $request)
+    {
+        $this->messageService->deleteById($request->id);
+        return redirect(route('admin.message.index'))->with('success','Đã đánh dấu tin nhắn đó là "Đã đọc"');
+    }
+
+    public function getUnread()
+    {
+        $unreadMessage = $this->messageService->getAll();
+        return $unreadMessage;
     }
 }
