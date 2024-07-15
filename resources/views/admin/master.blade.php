@@ -172,6 +172,11 @@
                     <i class="fas fa-fw fa-cookie"></i>
                     <span>Băng rôn quảng cáo SP</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.voucher.index') }}">
+                    <i class="fas fa-fw fa-cookie"></i>
+                    <span>Voucher</span></a>
+            </li>
             {{-- <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
