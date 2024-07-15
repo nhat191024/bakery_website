@@ -162,6 +162,11 @@
                     <i class="fas fa-fw fa-cookie"></i>
                     <span>Quản lý size</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.accessory.index') }}">
+                    <i class="fas fa-fw fa-cookie"></i>
+                    <span>Quản lý phụ kiện</span></a>
+            </li>
             {{-- <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
