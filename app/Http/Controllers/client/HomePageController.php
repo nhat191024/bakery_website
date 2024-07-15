@@ -24,7 +24,7 @@ class HomePageController extends Controller
         $imagesCategoryL = [];
         $imagesCategoryR = [];
         foreach ($categoriesL as $category) {
-            $product = Products::where('category_id', $category->id)->first();
+            $product = Products::where('category_id', $category->id)->inRandomOrder()->first();
             if ($product && $product->image) {
                 $imagesCategoryL[$category->id] = $product->image;
             } else {
@@ -32,7 +32,7 @@ class HomePageController extends Controller
             }
         }
         foreach ($categoriesR as $categoryR) {
-            $product = Products::where('category_id', $categoryR->id)->first();
+            $product = Products::where('category_id', $categoryR->id)->inRandomOrder()->first();
             if ($product && $product->image) {
                 $imagesCategoryR[$categoryR->id] = $product->image;
             } else {
