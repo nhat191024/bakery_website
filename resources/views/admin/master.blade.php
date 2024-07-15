@@ -157,6 +157,11 @@
                     <i class="fas fa-fw fa-cookie"></i>
                     <span>Tin nhắn KH</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.variation.index') }}">
+                    <i class="fas fa-fw fa-cookie"></i>
+                    <span>Quản lý size</span></a>
+            </li>
             {{-- <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
