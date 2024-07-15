@@ -4,16 +4,20 @@ namespace App\Service\client;
 
 use App\Models\Accessory;
 use App\Models\Bill_details;
-use App\Models\BillAccessory;
 use App\Models\Bills;
 use App\Models\Cart;
-use App\Models\Product_variation;
-use App\Models\Products;
 use App\Models\Vouchers;
-use Illuminate\View\View;
+
+use App\Service\main\MailService;
 
 class CheckoutService
 {
+    private $mailService;
+
+    public function __construct()
+    {
+        $this->mailService = new MailService();
+    }
 
     public function index()
     {
@@ -61,6 +65,21 @@ class CheckoutService
                         'quantity' => $item['quantity'],
                         'price' => $variation['price'],
                     ]);
+                    $this->mailService->customerSend(
+                        $request->email,
+                        $request->fullName,
+                        $bill->id,
+                        $request->email,
+                        $request->phone,
+                        $request->address . ', ' . $request->ward . ', ' . $request->district . ', ' . "Hà Nội",
+                        $request->payment,
+                        $request->delivery,
+                        $bill->created_at,
+                        $cart,
+                        Cart::getDiscountAmount(),
+                        Cart::getTotal(),
+                        $bill->accessory
+                    );
                 }
             }
         }
