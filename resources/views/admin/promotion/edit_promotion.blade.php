@@ -19,12 +19,6 @@
                 <div class="table-responsive">
                     <form action="{{ route('admin.promotion.saveEdit') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        {{-- <div class="form-group">
-                            <label for="name">Tên SP</label>
-                            <input required type="text" class="form-control" id="name" aria-describedby=""
-                                name="name" placeholder="Nhập tên size" value="{{ $promotion->products->name }}">
-                        </div>
-                        // select option  --}}
                         <div class="form-group">
                             <label for="product_id">Chọn sản phẩm (sẽ hiển thị lên băng rôn)</label>
                             <select class="form-control" id="product_id" name="product_id">
