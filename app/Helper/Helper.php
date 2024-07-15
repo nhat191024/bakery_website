@@ -2,6 +2,7 @@
 
 namespace App\Helper;
 
+use App\Models\Products;
 use Carbon\Carbon;
 
 class Helper
@@ -24,6 +25,11 @@ class Helper
         '0' => 'Chưa thanh toán',
         '1' => 'Đã thanh toán'
     ];
+
+    public static function getWithTrashedById($id)
+    {
+        return Products::where('id', $id)->withTrashed()->first();
+    }
 
     public static function getTimePassedBy($created_at)
     {
