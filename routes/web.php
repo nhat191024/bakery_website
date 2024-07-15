@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\PromotionController;
 use App\Http\Controllers\admin\VariationController;
 use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\CartController;
@@ -289,6 +290,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', [AccessoryController::class, 'showEdit'])->name('admin.accessory.edit');
         Route::post('/edit', [AccessoryController::class, 'saveEdit'])->name('admin.accessory.saveEdit');
         // Route::get('/{id}', [AccessoryController::class, 'showDetail'])->name('admin.bill.show_detail');
+    });
+
+    Route::prefix('/promotion')->group(function () {
+        Route::get('/', [PromotionController::class, 'index'])->name('admin.promotion.index');
+        Route::get('/edit/{id}', [PromotionController::class, 'showEdit'])->name('admin.promotion.edit');
+        Route::post('/edit', [PromotionController::class, 'saveEdit'])->name('admin.promotion.saveEdit');
+        // Route::get('/{id}', [PromotionController::class, 'showDetail'])->name('admin.bill.show_detail');
     });
 
     Route::prefix('/message')->group(function () {
