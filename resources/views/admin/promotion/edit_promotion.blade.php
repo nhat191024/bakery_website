@@ -19,9 +19,10 @@
                 <div class="table-responsive">
                     <form action="{{ route('admin.promotion.saveEdit') }}" method="post" enctype="multipart/form-data">
                         @csrf
+
                         <div class="form-group">
                             <label for="product_id">Chọn sản phẩm (sẽ hiển thị lên băng rôn)</label>
-                            <select class="form-control" id="product_id" name="product_id">
+                            <select class="form-control selectpicker" id="product_id" name="product_id" data-live-search="true">
                                 @foreach ($products as $product)
                                     <option value="{{ $product->id }}"
                                         {{ $product->id == $promotion->product_id ? 'selected' : '' }}>{{'Danh mục: ' . $product->categories->name . ' - Bánh ' . $product->name }}
