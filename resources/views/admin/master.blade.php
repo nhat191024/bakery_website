@@ -167,6 +167,11 @@
                     <i class="fas fa-fw fa-cookie"></i>
                     <span>Quản lý phụ kiện</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.promotion.index') }}">
+                    <i class="fas fa-fw fa-cookie"></i>
+                    <span>Băng rôn quảng cáo SP</span></a>
+            </li>
             {{-- <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
