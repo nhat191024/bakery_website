@@ -21,9 +21,27 @@ class HomePageController extends Controller
         $categoriesL = Categories::orderBy('id','asc')->take(2)->get();
         $categoriesR = Categories::orderBy('id','desc')->take(2)->get();
         $messages = Message::orderBy('created_at', 'asc')->take(5)->get();
+        $imagesCategoryL = [];
+        $imagesCategoryR = [];
+        foreach ($categoriesL as $category) {
+            $product = Products::where('category_id', $category->id)->first();
+            if ($product && $product->image) {
+                $imagesCategoryL[$category->id] = $product->image;
+            } else {
+                $imagesCategoryL[$category->id] = 'product-22.webp'; 
+            }
+        }
+        foreach ($categoriesR as $categoryR) {
+            $product = Products::where('category_id', $categoryR->id)->first();
+            if ($product && $product->image) {
+                $imagesCategoryR[$categoryR->id] = $product->image;
+            } else {
+                $imagesCategoryR[$categoryR->id] = 'product-22.webp'; 
+            }
+        }
         $images = Banners::all();
         $promotions = Promotions::with('Products')->orderBy('product_id', 'asc')->take(1)->get();
         $price = Product_variation::with('product.promotions')->orderBy('product_id', 'asc')->value('price');
-        return view('client.homePage', compact('products', 'messages', 'images','price', 'promotions','categoriesL','categoriesR'));
+        return view('client.homePage', compact('products', 'messages', 'images','price', 'promotions','categoriesL','categoriesR','imagesCategoryL','imagesCategoryR'));
     }
 }

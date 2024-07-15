@@ -93,12 +93,12 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @php
-                                $index = 1;
+                                 @php
+                                $index = 0;
                             @endphp
                             @foreach ($categoriesL as $leftItem)
                                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                                    style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.webp') }});">
+                                    style="background-image: url({{ asset('img/client/shop/' .$imagesCategoryL[$leftItem->id]) }});">
                                     <div class="text px-3 py-1">
                                         <h2 class="mb-0"><a
                                                 href="{{ route('client.shop.productList') }}/{{ $leftItem->id }}">
@@ -113,7 +113,7 @@
                 <div class="col-md-4">
                     @foreach ($categoriesR as $rightItem)
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                            style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.webp') }});">
+                            style="background-image: url({{ asset('img/client/shop/'.$imagesCategoryR[$rightItem->id]) }});">
                             <div class="text px-3 py-1">
                                 <h2 class="mb-0"><a
                                         href="{{ route('client.shop.productList') }}/{{ $rightItem->id }}">{{ $rightItem->name }}</a>
