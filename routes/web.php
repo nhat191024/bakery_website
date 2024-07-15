@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PromotionController;
 use App\Http\Controllers\admin\VariationController;
+use App\Http\Controllers\admin\VoucherController;
 use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\CheckoutController;
@@ -241,6 +242,16 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [AboutUsController::class, 'index'])->name('admin.about.index');
         Route::post('/edit', [AboutUsController::class, 'editBanner'])->name('admin.about.edit');
         Route::get('/edit/{id}', [AboutUsController::class, 'showEditBanner'])->name('admin.about.show_edit');
+    });
+    
+    Route::prefix('/voucher')->group(function () {
+        Route::get('/', [VoucherController::class, 'index'])->name('admin.voucher.index');
+        Route::post('/edit', [VoucherController::class, 'saveEdit'])->name('admin.voucher.edit');
+        Route::post('/add', [VoucherController::class, 'add'])->name('admin.voucher.add');
+        Route::get('/edit/{id}', [VoucherController::class, 'showEdit'])->name('admin.voucher.show_edit');
+        Route::get('/detail/{id}', [VoucherController::class, 'showDetail'])->name('admin.voucher.show_detail');
+        Route::get('/add', [VoucherController::class, 'showAdd'])->name('admin.voucher.show_add');
+        Route::get('/delete/{id}', [VoucherController::class, 'delete'])->name('admin.voucher.delete');
     });
 
     // Route::prefix('/dish')->group(function () {
