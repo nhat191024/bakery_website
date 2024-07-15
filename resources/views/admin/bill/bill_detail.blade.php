@@ -115,7 +115,7 @@
                                 @foreach ($billInfo->bill_details as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $item->products->name }}</td>
+                                        <td>{{ Helper::getWithTrashedById($item->product_id)->name }}</td>
                                         <td>{{ $item->variations->name }}</td>
                                         <td>{{ $item->quantity }}</td>
                                         <td>{{ $item->price }}</td>
