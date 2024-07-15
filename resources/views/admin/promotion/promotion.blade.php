@@ -45,7 +45,7 @@
                             <tbody>
                                 {{-- @foreach ($accessories as $item) --}}
                                     <tr>
-                                        <td>{{ $promotion->Products->categories->name . ' - ' . $promotion->Products->name }}</td>
+                                        <td>{{ $promotion->products->categories->name . ' - ' . $promotion->products->name }}</td>
                                         <td>{{ $promotion->description }}</td>
                                         <td>{{ \Carbon\Carbon::parse($promotion->start_time)->format('d-m-Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($promotion->end_time)->format('d-m-Y') }}</td>

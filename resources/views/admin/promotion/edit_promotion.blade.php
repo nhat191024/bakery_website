@@ -22,7 +22,7 @@
                         {{-- <div class="form-group">
                             <label for="name">Tên SP</label>
                             <input required type="text" class="form-control" id="name" aria-describedby=""
-                                name="name" placeholder="Nhập tên size" value="{{ $promotion->Products->name }}">
+                                name="name" placeholder="Nhập tên size" value="{{ $promotion->products->name }}">
                         </div>
                         // select option  --}}
                         <div class="form-group">

@@ -115,7 +115,7 @@
                                 @foreach ($billInfo->bill_details as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $item->Products->name }}</td>
+                                        <td>{{ $item->products->name }}</td>
                                         <td>{{ $item->variations->name }}</td>
                                         <td>{{ $item->quantity }}</td>
                                         <td>{{ $item->price }}</td>

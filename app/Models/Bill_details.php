@@ -17,7 +17,7 @@ class Bill_details extends Model
         'price',
     ];
 
-    public function Products()
+    public function products()
     {
         return $this->belongsTo(Products::class, 'product_id');
     }
