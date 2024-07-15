@@ -80,6 +80,22 @@ class CheckoutService
                         Cart::getTotal(),
                         $bill->accessory
                     );
+
+                    $this->mailService->adminSend(
+                        'richberchannel01@gmail.com',
+                        $request->fullName,
+                        $bill->id,
+                        $request->email,
+                        $request->phone,
+                        $request->address . ', ' . $request->ward . ', ' . $request->district . ', ' . "Hà Nội",
+                        $request->payment,
+                        $request->delivery,
+                        $bill->created_at,
+                        $cart,
+                        Cart::getDiscountAmount(),
+                        Cart::getTotal(),
+                        $bill->accessory
+                    );
                 }
             }
         }
