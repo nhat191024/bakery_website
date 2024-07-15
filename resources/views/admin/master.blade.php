@@ -329,7 +329,7 @@
                                         <div class="dropdown-list-image mr-3">
                                             <img class="rounded-circle"
                                                 src="{{ url('') . '/' }}img/undraw_profile_1.svg" alt="...">
-                                            <div class="status-indicator bg-success"></div>
+                                            <div class="status-indicator"><div id="message-index" style="font-size: 10px; transform: translate(1px, -5px)"></div></div>
                                         </div>
                                         <div class="font-weight-bold">
                                             <div class="text-truncate" id="message-subject">Subject</div>
