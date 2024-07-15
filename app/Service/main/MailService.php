@@ -35,7 +35,7 @@ class MailService
             $this->mail->AddEmbeddedImage(public_path('img\client\accessory.webp'), 'image_accessory');
 
             $delivery = $delivery == '1' ? 'Giao hàng tận nơi' : 'Nhận hàng tại cửa hàng';
-            $payment = $payment == '1' ? 'Chuyển tiền qua tài khoản' : 'Thanh toán khi nhận hàng';
+            $payment = $payment == '2' ? 'Chuyển tiền qua tài khoản' : 'Thanh toán khi nhận hàng';
             $accessory = $accessory ? $accessory : null;
             $createAt = date('d/m/Y', strtotime($createAt));
             $discount = $discount ? $discount : 0;
@@ -114,7 +114,7 @@ class MailService
         }
     }
 
-    public function customerSend($to, $name, $orderId, $email, $phone, $address, $payment, $delivery, $createAt, $products, $discount, $total, $accessory)
+    public function customerSend($to, $name, $orderId, $email, $phone, $address, $payment, $delivery, $createAt, $products, $discount, $total, $accessory, $QR)
     {
         try {
             $this->mail->addAddress($to);
@@ -190,6 +190,7 @@ class MailService
             }
             $message = str_replace('{{ products }}', $productHtml, $message);
             $message = str_replace('{{ discount }}', $this->formatPrice($discount), $message);
+            $message = str_replace('{{ QR }}', $QR, $message);
             $message = str_replace('{{ total }}', $this->formatPrice($total), $message);
 
             $this->mail->isHTML(true);
