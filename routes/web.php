@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\VariationController;
 use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\client\CheckoutController;
@@ -275,6 +276,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
     });
 
+    Route::prefix('/variation')->group(function () {
+        Route::get('/', [VariationController::class, 'index'])->name('admin.variation.index');
+        Route::get('/edit/{id}', [VariationController::class, 'showEdit'])->name('admin.variation.edit');
+        Route::post('/edit', [VariationController::class, 'saveEdit'])->name('admin.variation.saveEdit');
+        // Route::get('/{id}', [VariationController::class, 'showDetail'])->name('admin.bill.show_detail');
+    });
+
     Route::prefix('/message')->group(function () {
         Route::get('/', [MessageController::class, 'index'])->name('admin.message.index');
         Route::get('/get', [MessageController::class, 'getUnread']);
@@ -285,6 +293,7 @@ Route::prefix('admin')->group(function () {
     });
 
     // Route::prefix('/user')->group(function () {
+        
     //     Route::get('/', [UserController::class, 'index'])->name('admin.user.index');
     //     Route::get('/add', [UserController::class, 'showAddUser'])->name('admin.user.show_add');
     //     Route::post('/add', [UserController::class, 'addUser'])->name('admin.user.add');
