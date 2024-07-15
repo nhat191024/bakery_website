@@ -6498,10 +6498,9 @@
       -webkit-text-fill-color: transparent;
     }
     .text-cate{
-      background: radial-gradient(circle, #e26968 1%, #fac623 99%);
+      background: radial-gradient(circle, #fff  1%, #fac623 99%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-size: 25px;
       font-family: 'Dancing Script';
     }
     .p-sale{
@@ -9457,7 +9456,7 @@
         color: #e26968;
         font-family: 'Dancing Script';
         font-style: italic;
-        font-size: 40px; }
+        font-size: 45px; }
 
   .testimony-section {
     position: relative; }

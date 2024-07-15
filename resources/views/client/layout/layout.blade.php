@@ -83,8 +83,9 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2"><img src="{{ asset('img/logo.svg') }}" width=10% alt=""></h2>
+
                         <a class="navbar-brand" href="index.html">Odouceurs</a>
-                        <h2 class="ftco-heading-2">Odouceurs</h2>
                         <p>Từ năm 2014, chúng tôi đã trở thành một trong những tiệm bánh Pháp ngon nhất tại Hà Nội. Hiện
                             tại, chúng tôi có 2 cơ sở tại Hà Nội, một ở Phố Cổ và một ở khu vực Hồ Tây.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
