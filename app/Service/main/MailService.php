@@ -7,12 +7,14 @@ use PHPMailer\PHPMailer\Exception;
 
 class MailService
 {
+    private function formatPrice($price)
+    {
+        return number_format($price, 0, ',', '.');
+    }
+
     public function customerSend($to, $name, $orderId, $email, $phone, $address, $payment, $delivery, $createAt, $products, $discount, $total, $accessory)
     {
-        function formatPrice($price)
-        {
-            return number_format($price, 0, ',', '.');
-        }
+
         try {
             $mail = new PHPMailer(true);
             $mail->isSMTP();
@@ -50,7 +52,7 @@ class MailService
                 $message = str_replace('{{ accessoryPrice }}', 0, $message);
             } else {
                 $message = str_replace('{{ accessoryName }}', $accessory['name'], $message);
-                $message = str_replace('{{ accessoryPrice }}', formatPrice($accessory['price']), $message);
+                $message = str_replace('{{ accessoryPrice }}', $this->formatPrice($accessory['price']), $message);
             }
             $productHtml = '';
             foreach ($products as $product) {
@@ -79,12 +81,12 @@ class MailService
                                         <tr>
                                             <td style="width: 70%; padding: 5px 0px 25px">
                                                 <div style="margin-left: 100px">
-                                                    ' . formatPrice($variation['price']) . ' VND
+                                                    ' . $this->formatPrice($variation['price']) . ' VND
                                                     <span style="margin-left: 20px">x' . $product['quantity'] . '</span>
                                                 </div>
                                             </td>
                                             <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">
-                                                '. formatPrice($variation['price'] * $product['quantity']) .' VND
+                                                '. $this->formatPrice($variation['price'] * $product['quantity']) .' VND
                                             </td>
                                         </tr>
                                     </tbody>
@@ -95,8 +97,8 @@ class MailService
                 }
             }
             $message = str_replace('{{ products }}', $productHtml, $message);
-            $message = str_replace('{{ discount }}', formatPrice($discount), $message);
-            $message = str_replace('{{ total }}', formatPrice($total), $message);
+            $message = str_replace('{{ discount }}', $this->formatPrice($discount), $message);
+            $message = str_replace('{{ total }}', $this->formatPrice($total), $message);
 
             $mail->isHTML(true);
             $mail->Subject = $subject;
