@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AboutUsController;
+use App\Http\Controllers\admin\AccessoryController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
@@ -281,6 +282,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', [VariationController::class, 'showEdit'])->name('admin.variation.edit');
         Route::post('/edit', [VariationController::class, 'saveEdit'])->name('admin.variation.saveEdit');
         // Route::get('/{id}', [VariationController::class, 'showDetail'])->name('admin.bill.show_detail');
+    });
+
+    Route::prefix('/accessory')->group(function () {
+        Route::get('/', [AccessoryController::class, 'index'])->name('admin.accessory.index');
+        Route::get('/edit/{id}', [AccessoryController::class, 'showEdit'])->name('admin.accessory.edit');
+        Route::post('/edit', [AccessoryController::class, 'saveEdit'])->name('admin.accessory.saveEdit');
+        // Route::get('/{id}', [AccessoryController::class, 'showDetail'])->name('admin.bill.show_detail');
     });
 
     Route::prefix('/message')->group(function () {
