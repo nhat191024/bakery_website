@@ -44,7 +44,7 @@
                         <h3 class="heading">Danh sách</h3>
                         <ul class="categories">
                             @foreach ($categories as $category)
-                                <li><a href="#">{{ $category->name }} <span>(12)</span></a></li>
+                                <li><a href="{{ route('client.shop.productList')}}/{{$category->id}} ">{{ $category->name }} </a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -56,7 +56,7 @@
                             <div class="block-21 mb-4 d-flex">
                                 <a class="blog-img mr-4" style="background-image: url({{ asset('img/client/shop/product-4.webp') }});"></a>
                                 <div class="text">
-                                    <h3 class="heading-1"><a href="#">{{ $recentBlog->title }}</a></h3>
+                                    <h3 class="heading-1"><a href="{{ route('client.blog.show', ['id' => $recentBlog->id]) }}">{{ $recentBlog->title }}</a></h3>
                                     <div class="meta">
                                         <div><a href="#"><span class="icon-calendar"></span>
                                                 {{ $recentBlog->created_at }}</a></div>
@@ -67,6 +67,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <a>
                         @endforeach
                     </div>
 

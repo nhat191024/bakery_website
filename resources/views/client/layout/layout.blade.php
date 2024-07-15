@@ -140,7 +140,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> Xây dựng và thiết kế | FPT Polytechnic</a>
+                        </script> Xây dựng và thiết kế | FPT Polytechnic Hải Phòng</a>
                     </p>
                 </div>
             </div>
