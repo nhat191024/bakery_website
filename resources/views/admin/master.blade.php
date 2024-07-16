@@ -9,9 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }} " />
+    <title>ODOUCEURS - Quản lý</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
-
-    <title>SB Admin 2 - Tables</title>
+    
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     <!-- Custom fonts for this template -->
@@ -39,11 +41,11 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('') . '/' }}admin">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon ">
+                    <img src="{{ asset('img/logo.svg') }}" width="60%">
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-            </a>
+                <div class="sidebar-brand-text mx-3">ODOUCEURS</div>
+            </a> 
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -52,7 +54,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('') . '/' }}admin">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Bảng chức năng</span></a>
             </li>
 
 
@@ -130,22 +132,22 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.category.index') }}">
-                    <i class="fas fa-fw fa-calendar"></i>
+                    <i class="fas fa-fw fa-table"></i>
                     <span>Danh mục</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.product.index') }}">
-                    <i class="fas fa-fw fa-carrot"></i>
+                    <i class="fas fa-fw fa-cookie"></i>
                     <span>Sản phẩm</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.banner.index') }}">
-                    <i class="fas fa-fw fa-carrot"></i>
+                    <i class="fas fa-fw fa-clipboard"></i>
                     <span>Banner</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.about.index') }}">
-                    <i class="fas fa-fw fa-carrot"></i>
+                    <i class="fas fa-fw fa-pen-fancy"></i>
                     <span>About Us</span></a>
             </li>
             <li class="nav-item active">
@@ -155,28 +157,29 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.message.index') }}">
-                    <i class="fas fa-fw fa-cookie"></i>
+                    <i class="fas fa-fw fa-bell "></i>
                     <span>Tin nhắn KH</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.variation.index') }}">
-                    <i class="fas fa-fw fa-cookie"></i>
+                    <i class="fas fa-fw fa-chevron-circle-right"></i>
                     <span>Quản lý size</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.accessory.index') }}">
-                    <i class="fas fa-fw fa-cookie"></i>
+                    <i class="fas fa-fw fa-birthday-cake"></i>
                     <span>Quản lý phụ kiện</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.promotion.index') }}">
-                    <i class="fas fa-fw fa-cookie"></i>
+                    <i class="fas fa-fw fa-calendar"></i>
                     <span>Băng rôn quảng cáo SP</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.voucher.index') }}">
-                    <i class="fas fa-fw fa-cookie"></i>
-                    <span>Quản lý Voucher</span></a>
+                    <i class="fas fa-fw fa-money-check"></i>
+                    <span>Voucher</span>
+                </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.blog.index') }}">
@@ -242,18 +245,18 @@
                     </form>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
+                    {{-- <form
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small"
+                                    placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form> --}}
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -352,11 +355,15 @@
                                 <div id="message-list"></div>
                                 <div class="d-none messageTemplate">
                                     <p id="message-id" class="d-none">0</p>
-                                    <a class="dropdown-item d-flex align-items-center" id="message-link" href="#">
+                                    <a class="dropdown-item d-flex align-items-center" id="message-link"
+                                        href="#">
                                         <div class="dropdown-list-image mr-3">
                                             <img class="rounded-circle"
                                                 src="{{ url('') . '/' }}img/undraw_profile_1.svg" alt="...">
-                                            <div class="status-indicator"><div id="message-index" style="font-size: 10px; transform: translate(1px, -5px)"></div></div>
+                                            <div class="status-indicator">
+                                                <div id="message-index"
+                                                    style="font-size: 10px; transform: translate(1px, -5px)"></div>
+                                            </div>
                                         </div>
                                         <div class="font-weight-bold">
                                             <div class="text-truncate" id="message-subject">Subject</div>
@@ -414,7 +421,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2020</span>
+                            <span>Copyright &copy;2024 Xây dựng và thiết kế | FPT Polytechnic Hải Phòng</span>
                         </div>
                     </div>
                 </footer>
