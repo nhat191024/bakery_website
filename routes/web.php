@@ -243,7 +243,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit', [AboutUsController::class, 'editBanner'])->name('admin.about.edit');
         Route::get('/edit/{id}', [AboutUsController::class, 'showEditBanner'])->name('admin.about.show_edit');
     });
-    
+
     Route::prefix('/voucher')->group(function () {
         Route::get('/', [VoucherController::class, 'index'])->name('admin.voucher.index');
         Route::post('/edit', [VoucherController::class, 'saveEdit'])->name('admin.voucher.edit');
@@ -310,6 +310,13 @@ Route::prefix('admin')->group(function () {
         // Route::get('/{id}', [PromotionController::class, 'showDetail'])->name('admin.bill.show_detail');
     });
 
+    Route::prefix('/blog')->group(function () {
+        Route::get('/', [\App\Http\Controllers\admin\BlogController::class, 'index'])->name('admin.blog.index');
+        Route::get('/edit/{id}', [\App\Http\Controllers\admin\BlogController::class, 'showEdit'])->name('admin.blog.edit');
+        Route::post('/edit', [\App\Http\Controllers\admin\BlogController::class, 'saveEdit'])->name('admin.blog.saveEdit');
+        Route::get('/{id}', [\App\Http\Controllers\admin\BlogController::class, 'showDetail'])->name('admin.blog.show_detail');
+    });
+
     Route::prefix('/message')->group(function () {
         Route::get('/', [MessageController::class, 'index'])->name('admin.message.index');
         Route::get('/get', [MessageController::class, 'getUnread']);
@@ -320,7 +327,7 @@ Route::prefix('admin')->group(function () {
     });
 
     // Route::prefix('/user')->group(function () {
-        
+
     //     Route::get('/', [UserController::class, 'index'])->name('admin.user.index');
     //     Route::get('/add', [UserController::class, 'showAddUser'])->name('admin.user.show_add');
     //     Route::post('/add', [UserController::class, 'addUser'])->name('admin.user.add');
