@@ -33,7 +33,7 @@
                                     <th>Tiêu đề</th>
                                     <th>Nội dung</th>
                                     <th>Ảnh</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -41,7 +41,7 @@
                                     <th>Tiêu đề</th>
                                     <th>Nội dung</th>
                                     <th>Ảnh</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>

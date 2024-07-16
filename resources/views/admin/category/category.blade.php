@@ -33,14 +33,14 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Tên danh mục</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>STT</th>
                                     <th>Tên danh mục</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>

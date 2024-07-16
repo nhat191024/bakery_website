@@ -35,7 +35,7 @@
                                     <th>Username</th>
                                     <th>Quyền</th>
                                     <th>Chi nhánh</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -44,7 +44,7 @@
                                     <th>Username</th>
                                     <th>Quyền</th>
                                     <th>Chi nhánh</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>
