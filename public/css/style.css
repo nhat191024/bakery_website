@@ -8067,7 +8067,7 @@
 
   .ftco-navbar-light {
     background: transparent !important;
-    z-index: 3;
+    z-index: 100;
     padding: 0; }
     @media (max-width: 991.98px) {
       .ftco-navbar-light {
