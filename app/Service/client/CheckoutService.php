@@ -36,8 +36,8 @@ class CheckoutService
         $accessory_id = $request->accessory_id;
         $accessory_price = $accessory_id ? Accessory::where('id', $accessory_id)->first('price') : null;
 
-        if ($accessory_price == null) {
-            $accessory_id = null;
+        if ($accessory_price != null) {
+            Cart::setAccessory($accessory_id);
         }
 
         $bill = Bills::create([
@@ -49,7 +49,7 @@ class CheckoutService
             'voucher_code' => Cart::getCouponCode() ? Cart::getCouponCode() : null,
             'delivery_method' => $request->delivery,
             'payment_method' => $request->payment,
-            'total_amount' => (Cart::getTotal() ? Cart::getTotal() : 0) + ($accessory_price ? $accessory_price['price'] : 0),
+            'total_amount' => (Cart::getTotal() ? Cart::getTotal() : 0),
             'accessory_id' => $accessory_id,
             'status' => 1,
         ]);
