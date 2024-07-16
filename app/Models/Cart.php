@@ -38,6 +38,7 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         session()->forget('cart');
         Cart::setCouponCode(null);
         Cart::setDiscountAmount(0);
+        session()->forget('accessory_id');
     }
 
     public static function update($product_id, $variation_id = 1, $quantity)
@@ -53,6 +54,12 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         $cart = session('cart');
         // dd($cart);
         return $cart;
+    }
+
+    public static function setAccessory($accessory_id)
+    {
+        session()->forget('accessory_id');
+        session()->put('accessory_id', $accessory_id);
     }
 
     public static function getSubtotal()
@@ -74,7 +81,8 @@ public static function add($product, $variation_id = '1', $quantity = '1')
     }
     public static function getTotal()
     {
-        $total = self::getSubtotal() - self::getDiscountAmount();
+        $accessory_price = session('accessory_id') ? Accessory::where('id', session('accessory_id'))->first('price') : 0;
+        $total = self::getSubtotal() - self::getDiscountAmount() + ($accessory_price ? $accessory_price['price'] : 0);
         return $total <= 0 ? 0 : $total;
     }
 
