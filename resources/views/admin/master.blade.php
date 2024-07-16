@@ -42,7 +42,7 @@
                     <img src="{{ asset('img/logo.svg') }}" width="60%">
                 </div>
                 <div class="sidebar-brand-text mx-3">ODOUCEURS</div>
-            </a>
+            </a> 
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
