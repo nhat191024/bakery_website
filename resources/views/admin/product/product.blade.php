@@ -36,7 +36,7 @@
                                     <th>Tên sản phẩm</th>
                                     <th>Giá</th>
                                     <th>Ảnh</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -46,7 +46,7 @@
                                     <th>Tên sản phẩm</th>
                                     <th>Giá thấp nhất</th>
                                     <th>Ảnh</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>

@@ -35,7 +35,7 @@
                                     <th>STT</th>
                                     <th>Tên biến thể</th>
                                     <th>Giá</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -43,7 +43,7 @@
                                     <th>STT</th>
                                     <th>Tên biến thể</th>
                                     <th>Giá</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -60,7 +60,7 @@
                                                 <a class="btn btn-danger"
                                                     href="{{ route('admin.product.delete_detail', ['id' => $item->id, 'product_id' => $productInfo->id]) }}"
                                                     onclick="confirm('Bạn chắc chắn chứ?')"> Xóa
-                                                </a>   
+                                                </a>
                                             @endif
                                         </td>
                                     </tr>

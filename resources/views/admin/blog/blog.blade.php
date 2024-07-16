@@ -7,14 +7,10 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
             <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Quản lý trang About Us</h1>
+            <h1 class="h3 mb-2 text-gray-800">Quản lý Blog</h1>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-
-                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         @if ($message = Session::get('success'))
@@ -31,28 +27,31 @@
                             <thead>
                                 <tr>
                                     <th>Tiêu đề</th>
-                                    <th>Nội dung</th>
-                                    <th>Ảnh</th>
+                                    <th>Mô tả</th>
+                                    <th>Thumbnail</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>Tiêu đề</th>
-                                    <th>Nội dung</th>
-                                    <th>Ảnh</th>
+                                    <th>Mô tả</th>
+                                    <th>Thumbnail</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr>
-                                    <td>{{ $aboutInfo->title }}</td>
-                                    <td>{{ $aboutInfo->description }}</td>
-                                    <td class="text-center"><img width="200px"
-                                            src="{{ url('img') . '/' . $aboutInfo['image'] }}" alt=""></td>
-                                    <td class="text-center"><a class="btn btn-warning"
-                                            href="{{ route('admin.about.show_edit', ['id' => $aboutInfo->id]) }}">Sửa</a></td>
-                                </tr>
+                                @foreach ($allBlog as $item)
+                                    <tr>
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ $item->subtitle }}</td>
+                                        <td>{{ $item->thumbnail }}</td>
+
+                                        <td class="text-center"><a class="btn btn-warning"
+                                                href="{{ route('admin.blog.edit', ['id' => $item->id]) }}">Sửa</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

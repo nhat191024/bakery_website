@@ -40,7 +40,7 @@
                                     <th>Ngày hiệu lực</th>
                                     <th>Ngày hết hạn</th>
                                     <th>Trạng thái</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -54,7 +54,7 @@
                                     <th>Ngày hiệu lực</th>
                                     <th>Ngày hết hạn</th>
                                     <th>Trạng thái</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>

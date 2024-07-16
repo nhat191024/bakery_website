@@ -27,13 +27,13 @@
                             <thead>
                                 <tr>
                                     <th>Tên</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>Tên</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>

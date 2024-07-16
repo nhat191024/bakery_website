@@ -30,7 +30,7 @@
                                     <th>Mô tả</th>
                                     <th>Ngày bắt đầu</th>
                                     <th>Ngày kết thúc</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -39,7 +39,7 @@
                                     <th>Mô tả</th>
                                     <th>Ngày bắt đầu</th>
                                     <th>Ngày kết thúc</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>

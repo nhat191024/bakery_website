@@ -11,6 +11,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }} " />
     <title>ODOUCEURS - Quản lý</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+    
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     <!-- Custom fonts for this template -->
@@ -175,8 +178,15 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.voucher.index') }}">
                     <i class="fas fa-fw fa-money-check"></i>
-                    <span>Voucher</span></a>
+                    <span>Voucher</span>
+                </a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin.blog.index') }}">
+                    <i class="fas fa-fw fa-cookie"></i>
+                    <span>Quản lý Blog</span></a>
+            </li>
+
             {{-- <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
@@ -461,12 +471,16 @@
             <!-- Page level custom scripts -->
             <script src="{{ url('') . '/' }}js/demo/datatables-demo.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-
+            <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 </body>
 
 </html>
-
 <script>
+    const options = {
+      placeholder: 'Nội dung blog...!',
+      theme: 'snow'
+    };
+    const quill = new Quill('#editor', options);
     $(function() {
         $('.selectpicker').selectpicker();
     });

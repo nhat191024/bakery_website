@@ -29,7 +29,7 @@
                                     <th>Tên</th>
                                     <th>Chi tiết</th>
                                     <th>Giá</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -37,7 +37,7 @@
                                     <th>Tên</th>
                                     <th>Chi tiết</th>
                                     <th>Giá</th>
-                                    <th>Action</th>
+                                    <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>
