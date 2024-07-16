@@ -4,8 +4,8 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Blog</span></p>
-                    <h1 class="mb-0 bread">Blog</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('client.homepage.index')}}">Trang chủ</a></span>/<span>Tin tức</span></p>
+                    <h1 class="mb-0 bread">Tin tức</h1>
                 </div>
             </div>
         </div>
@@ -20,16 +20,16 @@
                         @foreach ($blogs as $blog)
                             <div class="col-md-12 d-flex ftco-animate">
                                 <div class="blog-entry align-self-stretch d-md-flex">
-                                    <a href="blog-single.html" class="block-20"
+                                    <a href="{{ route('client.blog.show', ['id' => $blog->id]) }}" class="block-20"
                                         style="background-image: url({{ asset('img/client/shop/product-10.webp') }});">
                                     </a>
                                     <div class="text d-block pl-md-4">
                                         <div class="meta mb-3">
                                             <div><a href="#">{{ $blog->created_at }}</a></div>
-                                            <div><a href="#">{{ $blog->user_id }}</a></div>
+                                            <div><a href="#">{{ $blog->user->username }}</a></div>
                                             <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
                                             </div>
-                                        </div>
+                                        </div>  
                                         <h3 class="heading"><a href="#">{{ $blog->title }}</a></h3>
                                         <p>{{ $blog->subtitle }}</p>
                                         <p><a href="{{ route('client.blog.show', ['id' => $blog->id]) }}" class="btn btn-primary py-2 px-3">Đọc thêm</a></p>
@@ -44,7 +44,7 @@
                         <h3 class="heading">Danh sách</h3>
                         <ul class="categories">
                             @foreach ($categories as $category)
-                                <li><a href="#">{{ $category->name }} <span>(12)</span></a></li>
+                                <li><a href="{{ route('client.shop.productList')}}/{{$category->id}} ">{{ $category->name }} </a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -56,28 +56,29 @@
                             <div class="block-21 mb-4 d-flex">
                                 <a class="blog-img mr-4" style="background-image: url({{ asset('img/client/shop/product-4.webp') }});"></a>
                                 <div class="text">
-                                    <h3 class="heading-1"><a href="#">{{ $recentBlog->title }}</a></h3>
+                                    <h3 class="heading-1"><a href="{{ route('client.blog.show', ['id' => $recentBlog->id]) }}">{{ $recentBlog->title }}</a></h3>
                                     <div class="meta">
                                         <div><a href="#"><span class="icon-calendar"></span>
                                                 {{ $recentBlog->created_at }}</a></div>
                                         <div><a href="#"><span class="icon-person"></span>
-                                                {{ $recentBlog->user_id }}</a>
+                                                {{ $recentBlog->user->username }}</a>
                                         </div>
                                         <div><a href="#"><span class="icon-chat"></span> 19</a></div>
                                     </div>
                                 </div>
                             </div>
+                            <a>
                         @endforeach
                     </div>
 
-                    <div class="sidebar-box ftco-animate">
+                    {{-- <div class="sidebar-box ftco-animate">
                         <h3 class="heading">Tag Cloud</h3>
                         <div class="tagcloud">
                             <a href="#" class="tag-cloud-link">sweet</a>
                             <a href="#" class="tag-cloud-link">pastry</a>
                             <a href="#" class="tag-cloud-link">cakes</a>
                         </div>
-                    </div>
+                    </div> --}}
 
                     {{-- <div class="sidebar-box ftco-animate">
                         <h3 class="heading">Paragraph</h3>

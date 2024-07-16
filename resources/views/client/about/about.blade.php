@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span> <span>Giới
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('client.homepage.index')}}">Trang chủ</a></span>/<span>Giới
                             thiệu</span></p>
                     <h1 class="mb-0 bread">Giới thiệu</h1>
                 </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="pb-md-5">
                         <p>{{ $About_us->description }}</p>
-                        <p><a href="#" class="btn btn-primary">Mua ngay</a></p>
+                        <p><a href="{{ route('client.shop.productList') }}" class="btn btn-primary">Mua ngay</a></p>
                     </div>
                 </div>
             </div>

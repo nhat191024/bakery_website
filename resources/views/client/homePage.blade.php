@@ -83,21 +83,22 @@
                         <div class="col-md-6 order-md-last align-items-stretch d-flex">
                             <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex"
                                 style="background-image: url({{ asset('img/client/shop/product-5.webp') }});">
+                                <div class="overlaya"></div>
                                 <div class="text text-center">
-                                    <h2>Các loại bánh</h2>
-                                    <p>Tạo điểm nhấn cho bữa tiệc của bạn</p>
+                                    <h2 class="text-cate">Các loại bánh</h2>
+                                    <p class="p-cate">Tạo điểm nhấn cho bữa tiệc của bạn</p>
                                     <p><a href="{{ route('client.shop.productList') }}" class="btn btn-primary">Đặt ngay</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @php
-                                $index = 1;
+                                 @php
+                                $index = 0;
                             @endphp
                             @foreach ($categoriesL as $leftItem)
                                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                                    style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.webp') }});">
+                                    style="background-image: url({{ asset('img/client/shop/' .$imagesCategoryL[$leftItem->id]) }});">
                                     <div class="text px-3 py-1">
                                         <h2 class="mb-0"><a
                                                 href="{{ route('client.shop.productList') }}/{{ $leftItem->id }}">
@@ -112,7 +113,7 @@
                 <div class="col-md-4">
                     @foreach ($categoriesR as $rightItem)
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                            style="background-image: url({{ asset('img/client/shop/product-' . $index++ . '.webp') }});">
+                            style="background-image: url({{ asset('img/client/shop/'.$imagesCategoryR[$rightItem->id]) }});">
                             <div class="text px-3 py-1">
                                 <h2 class="mb-0"><a
                                         href="{{ route('client.shop.productList') }}/{{ $rightItem->id }}">{{ $rightItem->name }}</a>
@@ -131,7 +132,7 @@
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
                     <span class="subheading">Chúng tôi hiểu rằng</span>
-                    <h2 class="mb-4">BÁNH PHÁP LÀ NGHỆ THUẬT</h2>
+                    <h2 class="text-ab-h2">BÁNH PHÁP LÀ NGHỆ THUẬT</h2>
                     <p>Chúng tôi muốn chia sẻ với quý khách niềm đam mê cho những món bánh hấp dẫn và ngon miệng.
                         Bạn sẽ không phải đi quá xa để trải nghiệm sự phong phú và độc đáo của các món bánh ngọt Pháp.</p>
                 </div>
@@ -143,27 +144,32 @@
     </section>
 
     @foreach ($promotions as $promotion)
-        <section class="ftco-section img" style="background-image: url({{ asset('img/client/shop/product-2.webp') }});">
+        <section class="ftco-section img"
+            style="background-image: url({{ asset('img/client/shop/' . $promotion->Products->image) }});">
+            <div class="overlay"></div>
             <div class="container">
                 <div class="row justify-content-end">
-                    <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
-                        <span class="subheading">Giá ưu đãi cho bạn</span>
-                        <h2 class="mb-4">Giảm giá hàng ngày</h2>
-                        <p>Mang đến cho người dùng những sản phẩm chất lượng với mức giá ưu đãi nhất</p>
-                        <h3><a href="#">{{ $promotion->description }}</a></h3>
-                        <span class="price">50.0000 <a href="#">chỉ còn 30.000 </a></span>
-                        <div id="timer" class="d-flex mt-5">
-                            <div class="time" id="days"></div>
-                            <div class="time pl-3" id="hours"></div>
-                            <div class="time pl-3" id="minutes"></div>
-                            <div class="time pl-3" id="seconds"></div>
+                    <a href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}">
+                        <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+                            <span class="subheading">Giá ưu đãi cho bạn</span>
+                            <h2 class="text-sale">Sự kiện giảm giá</h2>
+                            <h3 class="text-sale">{{ $promotion->Products->name }}</h3>
+                            <span class="price">{{ $promotion->Products->fake_price }}Đ</span>
+                            <span style="margin-left: 10px;"><a href="#" class="sale"> Chỉ còn {{ $price }}
+                                    Đ</a></span>
+                            <div id="timer" class="d-flex mt-5">
+                                <div class="time" id="days"></div>
+                                <div class="time pl-3" id="hours"></div>
+                                <div class="time pl-3" id="minutes"></div>
+                                <div class="time pl-3" id="seconds"></div>
+                            </div>
                         </div>
-                    </div>
                 </div>
+                </a>
             </div>
         </section>
     @endforeach
-    <section class="ftco-section testimony-section">
+    <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
@@ -261,4 +267,7 @@
     </section> --}}
 
     @include('client.components.contactUsRedirect')
+    <script>
+        var endDate = '{{ $promotions[0]->end_time }}';
+    </script>
 @endsection

@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span> <span>Liên Hệ</span>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('client.homepage.index')}}">Trang chủ</a></span>/<span>Liên Hệ</span>
                     </p>
                     <h1 class="mb-0 bread">Liên hệ</h1>
                 </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary py-3 px-5 "
-                                style="background-color: #f8c53f; border: #f8c53f;"> Gửi góp ý</button>
+                                style="background-color: #fff; border: #f8c53f;"> Gửi góp ý</button>
 
                         </div>
                     </form>

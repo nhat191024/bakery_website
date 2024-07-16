@@ -9,14 +9,14 @@
                             <div class="d-flex w-100 h-100 justify-content-center align-items-center shadow-lg pointer text-primary"
                                 @if (Route::has('client.shop.productDetail')) onclick="window.location.href='{{ route('client.shop.productDetail', $pd->id) }}'" @endif
                                 style="font-size: 1.2rem;">
-                                <i class="ion-ios-menu text-primary mr-1"></i> See details
+                                <i class="ion-ios-menu text-primary mr-1"></i> Xem chi tiết
                             </div>
                         @else
                             <div data="{{ $pd->id }}"
                                 class="addToCart w-100 h-100 d-flex justify-content-center align-items-center shadow-lg pointer text-primary"
                                 onclick="addToCart({{ $pd->id }})" style="font-size: 1.2rem;">
                                 <i class="ion-ios-cart text-primary mr-1"></i>
-                                <p id="addingToCart{{ $pd->id }}" class="addingToCart m-0">Add to cart</p>
+                                <p id="addingToCart{{ $pd->id }}" class="addingToCart m-0">Thêm vào giỏ</p>
                             </div>
                         @endif
                     </div>
