@@ -183,7 +183,7 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin.blog.index') }}">
-                    <i class="fas fa-fw fa-cookie"></i>
+                    <i class="fas fa-fw fa-blog"></i>
                     <span>Quản lý Blog</span></a>
             </li>
 
