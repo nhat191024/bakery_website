@@ -173,7 +173,7 @@ a {
   background-color: transparent;
 }
 
-a:hover {
+.nav-item a:hover {
   color: #fac623 !important;
   text-decoration: underline;
 }
