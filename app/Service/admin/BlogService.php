@@ -16,6 +16,17 @@ class BlogService
         return Blogs::where('id', $id)->first();
     }
 
+    public function update($request)
+    {
+        $id = $request->id;
+        $blog = $this->getById($id);
+        $blog->title = $request->title;
+        $blog->subtitle = $request->subtitle;
+        $blog->content = $request->content;
+        $blog->save();
+    }
+
+
     public function delete($request)
     {
         $id = $request->id;
