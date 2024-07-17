@@ -39,7 +39,6 @@ const id = $('#id');
 $(document).ready(function () {
     $('form').on('submit', function (e) {
         e.preventDefault();
-        // content.val(quill.root.innerHTML);
     });
 })
 
