@@ -70,8 +70,12 @@ class ProductService
 
     public function restore($productId)
     {
-        $product = Products::find($productId);
-        $product->restore();
+        try {
+            Products::withTrashed()->where('id', $productId)->restore();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 
     public function deleteDetail($detailId, $productId)

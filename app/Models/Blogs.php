@@ -12,7 +12,6 @@ class Blogs extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'id',
         'user_id',
         'title',
         'subtitle',

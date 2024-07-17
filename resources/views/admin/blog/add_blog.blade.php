@@ -31,9 +31,11 @@
                         <div class="form-group">
                             <input type="hidden" id="content" name="content" required>
                             <label for="editor">Nội dung</label>
-                            <div id="editor" name="editor"></div>
+                            <div id="editor" name="editor" style="min-height: 300px !important"></div>
                         </div>
-                        <button class="btn btn-success mt-4" type="submit">Sửa</button>
+                        <small class="text-danger" id="error"></small> <br>
+                        <button class="btn btn-primary mt-4" type="button" onclick="history.back()">Quay lại</button>
+                        <button class="btn btn-success mt-4" id="saveEdit" type="submit" onclick="add()">Đăng bài</button>
                     </form>
                 </div>
             </div>
@@ -48,5 +50,11 @@
     <!-- End of Content Wrapper -->
     <script>
         var csrfToken = '{{ csrf_token() }}';
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+        
     </script>
 @endsection

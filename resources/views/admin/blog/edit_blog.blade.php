@@ -31,10 +31,12 @@
                         <div class="form-group">
                             <input type="hidden" id="content" name="content">
                             <label for="editor">Nội dung</label>
-                            <div id="editor" name="editor"></div>
+                            <div id="editor" name="editor" style="min-height: 300px !important"></div>
                         </div>
                         <input type="hidden" id="id" name="id" value="{{ $blog->id }}">
-                        <button class="btn btn-success mt-4" type="submit" onclick="edit()">Sửa</button>
+                        <small class="text-danger" id="error"></small> <br>
+                        <button class="btn btn-primary mt-4" type="button" onclick="history.back()">Quay lại</button>
+                        <button class="btn btn-success mt-4" id="saveEdit" type="submit" onclick="edit()" >Lưu thay đổi</button>
                     </form>
                 </div>
             </div>

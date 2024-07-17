@@ -3,12 +3,14 @@
 namespace App\Service\admin;
 
 use App\Models\Blogs;
+use Illuminate\Support\Facades\Auth;
 
 class BlogService
 {
     public function getAll()
     {
-        $blog = Blogs::all();
+        // $blog = Blogs::all();
+        $blog = Blogs::withTrashed()->get();
         return $blog;
     }
 
@@ -29,23 +31,24 @@ class BlogService
 
     public function add($request)
     {
-        Blogs::create([
+        $user_id = Auth::id();
+        $id = Blogs::create([
+            'user_id' => ($user_id?$user_id:null),
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'content' => $request->content
-        ]);
+        ])->id;
+        return $id;
     }
 
-    public function delete($request)
+    public function deleteById($id)
     {
-        $id = $request->id;
         $this->getById($id)->delete();
         return true;
     }
 
-    public function recover($request)
+    public function recoverById($id)
     {
-        $id = $request->id;
         Blogs::withTrashed()->where('id', $id)->restore();
         return true;
     }

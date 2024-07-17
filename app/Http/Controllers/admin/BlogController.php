@@ -22,13 +22,13 @@ class BlogController extends Controller
     }
 
     public function showEdit(Request $request) {
-        $blog = $this->blogService->getById($request->id)->first();
+        $blog = $this->blogService->getById($request->id);
         return view('admin.blog.edit_blog', compact('blog'));
     }
 
     public function saveEdit(Request $request) {
         $this->blogService->update($request);
-        return true;
+        return redirect()->route('admin.blog.index');
     }
 
     public function showAdd() {
@@ -36,7 +36,16 @@ class BlogController extends Controller
     }
     
     public function add(Request $request) {
-        $this->blogService->add($request);
-        return true;
+        return $this->blogService->add($request);
+    }
+
+    public function delete(Request $request) {
+        $id = $request->id;
+        return $this->blogService->deleteById($id);
+    }
+
+    public function recover(Request $request) {
+        $id = $request->id;
+        return $this->blogService->recoverById($id);
     }
 }

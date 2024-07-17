@@ -53,10 +53,44 @@ function edit() {
             'content': quill.root.innerHTML,
             'id': id.val()
         },
+        beforeSend: function() {
+            $('#saveEdit').text('Đang lưu...');
+        },
+        error: function () {
+            $('#error').text('Lỗi, vui lòng kiểm tra lại thông tin');
+            $('#saveEdit').text('Lưu lại');
+        },
         success: function (data) {
-            window.location.reload();
+            window.location.href = '/admin/blog';
         }
     });
+
+}
+function add() {
+    console.log('on add');
+    let title = $('#title').val();
+    let subtitle = $('#subtitle').val();
+    $.ajax({
+        url: "/admin/blog/add",
+        method: "POST",
+        data: {
+            _token: csrfToken,
+            'title': title,
+            'subtitle': subtitle,
+            'content': quill.root.innerHTML,
+        },
+        beforeSend: function() {
+            $('#saveEdit').text('Đang lưu...');
+        },
+        error: function () {
+            $('#error').text('Lỗi, vui lòng kiểm tra lại thông tin');
+            $('#saveEdit').text('Lưu lại');
+        },
+        success: function (data) {
+            window.location.href = '/admin/blog/detail/'+data;
+        }
+    });
+
 }
 
 

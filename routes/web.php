@@ -178,10 +178,12 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('/blog')->group(function () {
         Route::get('/', [\App\Http\Controllers\admin\BlogController::class, 'index'])->name('admin.blog.index');
-        Route::get('/detail/{id}', [\App\Http\Controllers\admin\BlogController::class, 'showEdit'])->name('admin.blog.detail');
+        Route::get('/detail/{id}', [\App\Http\Controllers\admin\BlogController::class, 'showDetail'])->name('admin.blog.showDetail');
+        Route::get('/edit/{id}', [\App\Http\Controllers\admin\BlogController::class, 'showEdit'])->name('admin.blog.showEdit');
         Route::post('/edit', [\App\Http\Controllers\admin\BlogController::class, 'saveEdit'])->name('admin.blog.saveEdit');
         Route::get('/add', [\App\Http\Controllers\admin\BlogController::class, 'showAdd'])->name('admin.blog.show_add');
-        Route::post('/add', [\App\Http\Controllers\admin\BlogController::class, 'showDetail'])->name('admin.blog.add');
+        Route::get('/delete/{id}', [\App\Http\Controllers\admin\BlogController::class, 'delete'])->name('admin.blog.delete');
+        Route::post('/add', [\App\Http\Controllers\admin\BlogController::class, 'add'])->name('admin.blog.add');
     });
 
     Route::prefix('/message')->group(function () {

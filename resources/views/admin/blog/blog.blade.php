@@ -50,8 +50,10 @@
                                         <td>{{ $item->subtitle }}</td>
                                         <td>{{ $item->thumbnail }}</td>
 
-                                        <td class="text-center"><a class="btn btn-warning"
-                                                href="{{ route('admin.blog.detail', ['id' => $item->id]) }}">Sửa</a>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning" href="{{ route('admin.blog.showEdit', ['id' => $item->id]) }}">Sửa</a>
+                                            <a class="btn btn-danger" href="{{ route('admin.blog.delete', ['id' => $item->id]) }}">Ẩn blog</a>
+                                            <a class="btn btn-info" href="{{ route('admin.blog.showDetail', ['id' => $item->id]) }}">Xem chi tiết</a>
                                         </td>
                                     </tr>
                                 @endforeach
