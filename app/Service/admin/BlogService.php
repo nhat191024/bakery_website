@@ -12,7 +12,8 @@ class BlogService
         return $blog;
     }
 
-    public function getById($id) {
+    public function getById($id)
+    {
         return Blogs::where('id', $id)->first();
     }
 
@@ -26,6 +27,14 @@ class BlogService
         $blog->save();
     }
 
+    public function add($request)
+    {
+        Blogs::create([
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'content' => $request->content
+        ]);
+    }
 
     public function delete($request)
     {
@@ -40,5 +49,4 @@ class BlogService
         Blogs::withTrashed()->where('id', $id)->restore();
         return true;
     }
-
 }
