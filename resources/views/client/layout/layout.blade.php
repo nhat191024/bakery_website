@@ -8,6 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }}" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
         rel="stylesheet">
+        {{-- <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.css" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
 
@@ -96,10 +97,12 @@
                     <div class="ftco-footer-widget mb-4 ml-md-5">
                         <h2 class="ftco-heading-2">Menu</h2>
                         <ul class="list-unstyled">
-                            <li><a href="{{route('client.shop.productList')}}" class="py-2 d-block">Cửa hàng</a></li>
-                            <li><a href="{{route('client.contact.index')}}" class="py-2 d-block">Giới thiệu</a></li>
+                            <li><a href="{{ route('client.shop.productList') }}" class="py-2 d-block">Cửa hàng</a>
+                            </li>
+                            <li><a href="{{ route('client.contact.index') }}" class="py-2 d-block">Giới thiệu</a>
+                            </li>
                             <li><a href="" class="py-2 d-block">Tin tức</a></li>
-                            <li><a href="{{route('client.contact.index')}}" class="py-2 d-block">Liên hệ</a></li>
+                            <li><a href="{{ route('client.contact.index') }}" class="py-2 d-block">Liên hệ</a></li>
                         </ul>
                     </div>
                 </div>
@@ -144,7 +147,7 @@
                 stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
 
-
+        {{-- <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.js"></script> --}}
     <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ URL::asset('js/popper.min.js') }}"></script>
