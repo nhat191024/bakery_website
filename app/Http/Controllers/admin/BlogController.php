@@ -25,8 +25,10 @@ class BlogController extends Controller
         $blog = $this->blogService->getById($request->id)->first();
         return view('admin.blog.edit_blog', compact('blog'));
     }
-    public function saveEdit(Request $request) {
 
+    public function saveEdit(Request $request) {
+        $this->blogService->update($request);
+        return true;
     }
 
     public function showDetail() {
