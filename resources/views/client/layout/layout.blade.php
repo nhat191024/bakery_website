@@ -42,17 +42,17 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="{{ route('client.homepage.index') }}" class="nav-link">Trang
+                    <li class="nav-item {{(Request::url() == route('client.homepage.index') || Request::url() == null)  ? 'active' : ''}}"><a href="{{ route('client.homepage.index') }}" class="nav-link">Trang
                             chủ</a></li>
-                    <li class="nav-item "><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa
+                    <li class="nav-item {{Request::url() == route('client.shop.productList') ? 'active' : ''}}"><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa
                             hàng</a>
                     </li>
-                    <li class="nav-item"><a href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a>
+                    <li class="nav-item {{Request::url() == route('client.about.index') ? 'active' : ''}}"><a href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a>
                     </li>
-                    <li class="nav-item"><a href="{{ route('client.blog.index') }}" class="nav-link">Tin tức</a></li>
-                    <li class="nav-item"><a href="{{ route('client.contact.index') }}" class="nav-link">Liên hệ</a>
+                    <li class="nav-item {{Request::url() == route('client.blog.index') ? 'active' : ''}}"><a href="{{ route('client.blog.index') }}" class="nav-link">Tin tức</a></li>
+                    <li class="nav-item {{Request::url() == route('client.contact.index') ? 'active' : ''}}"><a href="{{ route('client.contact.index') }}" class="nav-link">Liên hệ</a>
                     </li>
-                    <li class="nav-item cta cta-colored">
+                    <li class="nav-item cta cta-colored {{Request::url() == route('client.cart.index') ? 'active' : ''}}">
                         <a href="{{ route('client.cart.index') }}" class="nav-link d-flex">
                             <span class="icon-shopping_cart inline mt-1">
                             </span>
