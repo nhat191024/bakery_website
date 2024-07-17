@@ -26,7 +26,7 @@
                     <p>
                         <img src="images/image_2.jpg" alt="" class="img-fluid">
                     </p>
-                    <p>{{ $Blogs->content }}</p>
+                    <div>{!! $Blogs->content !!}</div>
                     {{-- <div class="tag-widget post-tag-container mb-5 mt-5">
                         <div class="tagcloud">
                             <a href="#" class="tag-cloud-link">Life</a>
