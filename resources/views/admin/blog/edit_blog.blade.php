@@ -17,8 +17,7 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <form action="{{ route('admin.blog.saveEdit') }}" method="post" enctype="multipart/form-data">
-                        @csrf
+                    <form>
                         <div class="form-group">
                             <label for="title">Tiêu đề</label>
                             <input required type="text" class="form-control" id="title" aria-describedby=""
