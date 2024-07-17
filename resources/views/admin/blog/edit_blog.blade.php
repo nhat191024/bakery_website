@@ -20,22 +20,23 @@
                     <form action="{{ route('admin.blog.saveEdit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Tên phụ kiện</label>
-                            <input required type="text" class="form-control" id="name" aria-describedby=""
-                                name="name" placeholder="Nhập tên size" value="{{ $blog->title }}">
+                            <label for="title">Tiêu đề</label>
+                            <input required type="text" class="form-control" id="title" aria-describedby=""
+                                name="title" placeholder="Nhập tên size" value="{{ $blog->title }}">
                         </div>
                         <div class="form-group">
-                            <label for="description">Chi tiết phụ kiện</label>
-                            <textarea required class="form-control" id="description" aria-describedby="" name="description" placeholder="Nhập chi tiết phụ kiện"
-                            >{{ $blog->subtitle }}</textarea>
+                            <label for="subtitle">Mô tả</label>
+                            <textarea required class="form-control" id="subtitle" aria-describedby="" name="subtitle"
+                                placeholder="Nhập chi tiết phụ kiện">{{ $blog->subtitle }}</textarea>
                         </div>
-
-                        <div id="editor"></div>
-
-                        <input type="hidden" name="id" value="{{ $blog->id }}">
-                        <button class="btn btn-success mt-4" type="submit">Sửa</button>
+                        <div class="form-group">
+                            <input type="hidden" id="content" name="content">
+                            <label for="editor">Nội dung</label>
+                            <div id="editor" name="editor"></div>
+                        </div>
+                        <input type="hidden" id="id" name="id" value="{{ $blog->id }}">
+                        <button class="btn btn-success mt-4" type="submit" onclick="edit()">Sửa</button>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -48,10 +49,13 @@
 
     <!-- End of Content Wrapper -->
     <script>
+        var csrfToken = '{{ csrf_token() }}';
         // Add the following code if you want the name of the file appear on select
         $(".custom-file-input").on("change", function() {
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
+
+        var blogContent = {!! json_encode($blog->content) !!};
     </script>
 @endsection
