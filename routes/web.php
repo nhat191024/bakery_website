@@ -180,7 +180,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [\App\Http\Controllers\admin\BlogController::class, 'index'])->name('admin.blog.index');
         Route::get('/detail/{id}', [\App\Http\Controllers\admin\BlogController::class, 'showEdit'])->name('admin.blog.detail');
         Route::post('/edit', [\App\Http\Controllers\admin\BlogController::class, 'saveEdit'])->name('admin.blog.saveEdit');
-        // Route::get('/{id}', [\App\Http\Controllers\admin\BlogController::class, 'showDetail'])->name('admin.blog.show_detail');
+        Route::get('/add', [\App\Http\Controllers\admin\BlogController::class, 'showAdd'])->name('admin.blog.show_add');
+        Route::post('/add', [\App\Http\Controllers\admin\BlogController::class, 'showDetail'])->name('admin.blog.add');
     });
 
     Route::prefix('/message')->group(function () {
