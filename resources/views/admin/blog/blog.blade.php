@@ -48,7 +48,7 @@
                                         <td>{{ $item->thumbnail }}</td>
 
                                         <td class="text-center"><a class="btn btn-warning"
-                                                href="{{ route('admin.blog.edit', ['id' => $item->id]) }}">Sửa</a>
+                                                href="{{ route('admin.blog.detail', ['id' => $item->id]) }}">Sửa</a>
                                         </td>
                                     </tr>
                                 @endforeach
