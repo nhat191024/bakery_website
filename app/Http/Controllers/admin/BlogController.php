@@ -31,10 +31,12 @@ class BlogController extends Controller
         return true;
     }
 
-    public function showDetail() {
-
+    public function showAdd() {
+        return view('admin.blog.add_blog');
     }
-
-
-
+    
+    public function add(Request $request) {
+        $this->blogService->add($request);
+        return true;
+    }
 }
