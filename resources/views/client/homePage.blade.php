@@ -143,19 +143,19 @@
         </div>
     </section>
 
-    @foreach ($promotions as $promotion)
+@foreach ($promotions as $promotion)
         <section class="ftco-section img"
             style="background-image: url({{ asset('img/client/shop/' . $promotion->Products->image) }});">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row justify-content-end">
-                    <a href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}">
-                        <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+                    <a id="link" href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}">
+                        <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate" >
                             <span class="subheading">Giá ưu đãi cho bạn</span>
                             <h2 class="text-sale">Sự kiện giảm giá</h2>
                             <h3 class="text-sale">{{ $promotion->Products->name }}</h3>
                             <span class="price">{{ $promotion->Products->fake_price }}Đ</span>
-                            <span style="margin-left: 10px;"><a href="#" class="sale"> Chỉ còn {{ $price }}
+                            <span style="margin-left: 10px;"><a href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}" class="sale"> Chỉ còn {{ $price }}
                                     Đ</a></span>
                             <div id="timer" class="d-flex mt-5">
                                 <div class="time" id="days"></div>
@@ -163,7 +163,12 @@
                                 <div class="time pl-3" id="minutes"></div>
                                 <div class="time pl-3" id="seconds"></div>
                             </div>
+                            <div>
+                                <div class="end" id="end"></div>
+                            </div>
+
                         </div>
+
                 </div>
                 </a>
             </div>

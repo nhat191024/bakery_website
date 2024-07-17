@@ -314,12 +314,19 @@
 
 
 	function makeTimer() {
+		var endSale = document.getElementById("link")
 		var endTime = new Date(endDate);			
 		endTime = (Date.parse(endTime) / 1000);
 
 		var now = new Date();
 		now = (Date.parse(now) / 1000);
 		var timeLeft = endTime - now;
+		if (timeLeft <= 0) {
+			$("#end").html("<h3>Đã hết thời gian khuyến mãi</h3>");
+			endSale.style.display="none";
+			return;
+		}else{
+		endSale.style.display="inline";
 		var days = Math.floor(timeLeft / 86400); 
 		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
 		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
@@ -333,9 +340,8 @@
 		$("#hours").html(hours + "<span>Giờ</span>");
 		$("#minutes").html(minutes + "<span>Phút</span>");
 		$("#seconds").html(seconds + "<span>Giây</span>");		
-
-}
-
+		}
+	}
 setInterval(function() { makeTimer(); }, 1000);
 
 

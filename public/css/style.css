@@ -9106,7 +9106,14 @@ button.bg-dark:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.end{
+  font-size: 40px;
+  font-weight: 500;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  background: radial-gradient(circle, #e26968 30%, #fac623 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .text-cate {
   background: radial-gradient(circle, #fff 1%, #fac623 99%);
   -webkit-background-clip: text;
