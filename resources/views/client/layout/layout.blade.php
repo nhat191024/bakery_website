@@ -5,12 +5,16 @@
     <title>Odouceurs</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }}" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }} " />
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
         rel="stylesheet">
         {{-- <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.css" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" href="{{ URL::asset('css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}">
@@ -30,7 +34,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="{{ route('client.homepage.index') }}">
-                <img src="{{ asset('img/logo.svg') }}" alt="">
+                <img src="{{ asset('img/logo.svg') }}" width=60% alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +45,8 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="{{ route('client.homepage.index') }}" class="nav-link">Trang
                             chủ</a></li>
-                    <li class="nav-item"><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa hàng</a>
+                    <li class="nav-item "><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa
+                            hàng</a>
                     </li>
                     <li class="nav-item"><a href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a>
                     </li>
@@ -79,17 +84,22 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2"><img src="{{ asset('img/logo.svg') }}" width=10% alt=""></h2>
+
                         <a class="navbar-brand" href="index.html">Odouceurs</a>
-                        <h2 class="ftco-heading-2">Odouceurs</h2>
                         <p>Từ năm 2014, chúng tôi đã trở thành một trong những tiệm bánh Pháp ngon nhất tại Hà Nội. Hiện
                             tại, chúng tôi có 2 cơ sở tại Hà Nội, một ở Phố Cổ và một ở khu vực Hồ Tây.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="https://www.threads.net/@odouceurs_bakery"><span><img
-                                            src="{{ URL::asset('img/threads.svg') }}" width="90%" /></span></a></li>
+                                            src="{{ URL::asset('img/threads.svg') }}" width="90%" /></span></a>
+                            </li>
                             <li class="ftco-animate"><a href="https://www.facebook.com/odouceurs"><span
                                         class="icon-facebook"></span></a></li>
                             <li class="ftco-animate"><a href="https://www.instagram.com/odouceurs_bakery/"><span
                                         class="icon-instagram"></span></a></li>
+                            <li class="ftco-animate">
+                            <a href="https://www.tripadvisor.com.vn/Restaurant_Review-g293924-d7789388-Reviews-O_Douceurs_French_Pastry_Bakery-Hanoi.html">
+                            <span><img src="{{ URL::asset('img/tripadvisor.svg') }}" width="90%" /></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -131,7 +141,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> Xây dựng và thiết kế | FPT Polytechnic</a>
+                        </script> Xây dựng và thiết kế | FPT Polytechnic Hải Phòng</a>
                     </p>
                 </div>
             </div>
@@ -161,8 +171,10 @@
     <script src="{{ URL::asset('js/jquery.animateNumber.min.js') }}"></script>
     <script src="{{ URL::asset('js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ URL::asset('js/scrollax.min.js') }}"></script>
+
     <script src="{{ URL::asset('js/main.js') }}"></script>
     <script src="{{ URL::asset('js/updateCartCount.js') }}"></script>
+
 </body>
 
 </html>

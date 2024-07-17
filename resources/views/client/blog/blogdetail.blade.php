@@ -4,8 +4,8 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Blog</span></p>
-                    <h1 class="mb-0 bread">Blog</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('client.homepage.index')}}">Trang chủ</a></span>/<span>Tin tức</span></p>
+                    <h1 class="mb-0 bread">{{$Blogs->title}}</h1>
                 </div>
             </div>
         </div>
@@ -189,7 +189,7 @@
                         <h3 class="heading">Danh mục bánh </h3>
                         <ul class="categories">
                             @foreach ($Categories as $item)
-                                <li><a href="#">{{ $item->name }} </a></li>
+                                <li><a href="{{ route('client.shop.productList')}}/{{$item->id}}">{{ $item->name }} </a></li>
                             @endforeach
                             {{-- <li><a href="#">Vegetables <span>(12)</span></a></li> --}}
                             {{-- <li><a href="#">Fruits <span>(22)</span></a></li>
@@ -204,7 +204,7 @@
                             <div class="block-21 mb-4 d-flex">
                                 <a class="blog-img mr-4" style="background-image: url({{ asset('img/client/shop/product-4.webp') }});"></a>
                                 <div class="text">
-                                    <h4 class="heading-2"><a href="#">{{ $item->title }}</a></h4>
+                                    <h4 class="heading-2"><a href="{{ route('client.blog.show', ['id' => $item->id]) }}">{{ $item->title }}</a></h4>
 
                                     <div class="meta">
                                         <div><a href="#"><span class="icon-calendar"></span>
