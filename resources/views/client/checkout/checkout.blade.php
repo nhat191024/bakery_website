@@ -108,27 +108,31 @@
                             </div>
                             <div class="col-md-12 d-flex mb-5">
                                 <div class="cart-detail cart-total p-3 p-md-4">
-                                    <h3 class="billing-heading mb-4">Cart Total</h3>
+                                    <h3 class="billing-heading mb-4">Tổng hoá đơn</h3>
                                     <p class="d-flex">
-                                        <span>Subtotal</span>
+                                        <span>Giá sản phẩm</span>
                                         <span id="subTotal"
                                             data-price="{{ $subTotal }}">{{ number_format($subTotal) }}đ</span>
                                     </p>
                                     <p class="d-flex">
-                                        <span>Delivery</span>
+                                        <span>Phí vận chuyển</span>
                                         <span>0đ</span>
                                     </p>
                                     <p class="d-flex">
-                                        <span>Discount
+                                        <span>Giảm giá
                                             @if (isset($appliedCouponCode))
-                                                ({{ $appliedCouponCode }})
+                                            ({{ $appliedCouponCode }})
                                             @endif
                                         </span>
                                         <span id="discountPrice" class="d-flex">{{ number_format($discount) }}đ</span>
                                     </p>
+                                    <p class="d-flex">
+                                        <span>Giá phụ kiện</span>
+                                        <span id="cartAccessory">0đ</span>
+                                    </p>
                                     <hr>
                                     <p class="d-flex total-price">
-                                        <span>Total</span>
+                                        <span>Tổng</span>
                                         <span id="totalPrice">{{ number_format($total) }}đ</span>
                                     </p>
                                 </div>
