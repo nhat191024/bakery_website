@@ -175,7 +175,7 @@ a {
 
 .nav-item a:hover {
   color: #fac623 !important;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {

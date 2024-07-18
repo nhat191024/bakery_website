@@ -312,8 +312,9 @@
                                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Nơi mà thời gian chợt ngừng lại, và từng khoảnh khắc với bánh
-                                        ngọt trở thành một kỷ niệm về sự tinh tế và sự ngọt ngào của cuộc sống.</p>
+                                    <p class="mb-5 pl-4 line">Một nơi hoàn hảo để chill cùng bạn bè , 
+                                    tôi đã được cảm nhận tinh hoa ẩm thực của Pháp qua những món ăn ở đây 
+                                    .</p>
                                     <p class="name">Khánh Huy</p>
                                     <span class="position">Khách Hàng</span>
                                 </div>
