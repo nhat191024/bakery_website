@@ -1,4 +1,23 @@
 let accessory_id;
+
+$(document).ready(function () {
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        checkout();
+    });
+
+    $('.accessories').change(function () {
+        if ($(this).is(':checked')) {
+            var accessoryId = $(this).data('id');
+            var accessoryPrice = $(this).val();
+            accessory_id = accessoryId;
+            total = parseInt($('#subTotal').data('price')) + parseInt(accessoryPrice);
+            $('#totalPrice').text(new Intl.NumberFormat('de-DE').format(total) + 'đ');
+            $('#cartAccessory').text(new Intl.NumberFormat('de-DE').format(accessoryPrice) + 'đ');
+        }
+    });
+})
+
 function checkout() {
     const fullName = $('#fullName');
     const address = $('#address');
