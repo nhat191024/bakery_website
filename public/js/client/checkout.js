@@ -13,6 +13,7 @@ $(document).ready(function () {
             accessory_id = accessoryId;
             total = parseInt($('#subTotal').data('price')) + parseInt(accessoryPrice);
             $('#totalPrice').text(new Intl.NumberFormat('de-DE').format(total) + 'đ');
+            $('#cartAccessory').text(new Intl.NumberFormat('de-DE').format(accessoryPrice) + 'đ');
         }
     });
 })
