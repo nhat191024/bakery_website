@@ -26,6 +26,11 @@ class BlogController extends Controller
         return view('admin.blog.edit_blog', compact('blog'));
     }
 
+    public function showDetail(Request $request) {
+        $blog = $this->blogService->getById($request->id);
+        return view('admin.blog.detail_blog', compact('blog'));
+    }
+
     public function saveEdit(Request $request) {
         $this->blogService->update($request);
         return redirect()->route('admin.blog.index');
