@@ -35,33 +35,33 @@
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand " href="{{ route('client.homepage.index') }}">
-                <img class=" container scale" src="{{ asset('img/LogoTest.png') }}" width="10px" alt="">
+                <img class="scaleL" src="{{ asset('img/LogoTest.png') }}"  alt="">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            <button class="scaleR navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
 
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav ml-auto">
+            <div class="collapse navbar-collapse " id="ftco-nav">
+                <ul class="navbar-nav ml-auto ">
                     <li
-                        class="nav-item {{ Request::url() == route('client.homepage.index') || Request::url() == null ? 'active' : '' }}">
+                        class=" scaleR nav-item {{ Request::url() == route('client.homepage.index') || Request::url() == null ? 'active' : '' }}">
                         <a href="{{ route('client.homepage.index') }}" class="nav-link">Trang
                             chủ</a></li>
-                    <li class="nav-item {{ Request::url() == route('client.shop.productList') ? 'active' : '' }}"><a
+                    <li class="scaleR nav-item {{ Request::url() == route('client.shop.productList') ? 'active' : '' }}"><a
                             href="{{ route('client.shop.productList') }}" class="nav-link">Cửa
                             hàng</a>
                     </li>
-                    <li class="nav-item {{ Request::url() == route('client.about.index') ? 'active' : '' }}"><a
+                    <li class="scaleR nav-item {{ Request::url() == route('client.about.index') ? 'active' : '' }}"><a
                             href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a>
                     </li>
-                    <li class="nav-item {{ Request::url() == route('client.blog.index') ? 'active' : '' }}"><a
+                    <li class="scaleR nav-item {{ Request::url() == route('client.blog.index') ? 'active' : '' }}"><a
                             href="{{ route('client.blog.index') }}" class="nav-link">Tin tức</a></li>
-                    <li class="nav-item {{ Request::url() == route('client.contact.index') ? 'active' : '' }}"><a
+                    <li class="scaleR nav-item {{ Request::url() == route('client.contact.index') ? 'active' : '' }}"><a
                             href="{{ route('client.contact.index') }}" class="nav-link">Liên hệ</a>
                     </li>
                     <li
-                        class="nav-item cta cta-colored {{ Request::url() == route('client.cart.index') ? 'active' : '' }}">
+                        class="scaleR nav-item cta cta-colored {{ Request::url() == route('client.cart.index') ? 'active' : '' }}">
                         <a href="{{ route('client.cart.index') }}" class="nav-link d-flex">
                             <span class="icon-shopping_cart inline mt-1">
                             </span>

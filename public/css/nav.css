@@ -1,35 +1,52 @@
-
-@keyframes zoomIn {
-    0%,100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(2);
-    }
-  }
-
-  .scale {
+.scaleL {
     width: 100px;
     height: 56.25px;
-    animation: zoomIn  5s forwards ;
-    animation-delay: 0.5s;
+    opacity: 0;
+    transform: translate(-100px, -100px);
+    animation: zoomInL 2s forwards;
+}
+.scaleR {
+  opacity: 0;
+  transform: translate(100px, -100px);
+  animation: zoomInR 2s forwards;
+}
+@keyframes zoomInR {
+  0% {
+      opacity: 0;
+      transform: translate(200px, -200px);
   }
-  .nav-item a::after{
-    content: '';
+  100% {
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+@keyframes zoomInL {
+    0% {
+        opacity: 0;
+        transform: translate(-200px, -200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+.nav-item a::after {
+    content: "";
     position: absolute;
     width: 0;
     height: 2px;
     bottom: 0;
     left: 50%;
     background: radial-gradient(circle, #e26968 1%, #fac623 99%);
-    transition: width 0.5s ease, left 0.1s ease ;
-  }
- a:hover::after{
+    transition: width 0.5s ease, left 0.1s ease;
+}
+a:hover::after {
     width: 100%;
     left: 0;
     right: 0;
-  }
-  a:not(:hover)::after {
+}
+a:not(:hover)::after {
     width: 0;
     left: 50%;
     right: 50%;
