@@ -5,7 +5,7 @@
     <title>Odouceurs</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }} " />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.png') }} " />
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
@@ -26,33 +26,42 @@
     <link rel="stylesheet" href="{{ URL::asset('css/jquery.timepicker.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 </head>
+
 
 <body class="goto-here">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('client.homepage.index') }}">
-                <img src="{{ asset('img/logo.svg') }}" width=60% alt="">
+            <a class="navbar-brand " href="{{ route('client.homepage.index') }}">
+                <img class="scaleL" src="{{ asset('img/LogoTest.png') }}"  alt="">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            <button class="scaleR navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
 
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item {{(Request::url() == route('client.homepage.index') || Request::url() == null)  ? 'active' : ''}}"><a href="{{ route('client.homepage.index') }}" class="nav-link">Trang
+            <div class="collapse navbar-collapse " id="ftco-nav">
+                <ul class="navbar-nav ml-auto ">
+                    <li
+                        class=" scaleR nav-item {{ Request::url() == route('client.homepage.index') || Request::url() == null ? 'active' : '' }}">
+                        <a href="{{ route('client.homepage.index') }}" class="nav-link">Trang
                             chủ</a></li>
-                    <li class="nav-item {{Request::url() == route('client.shop.productList') ? 'active' : ''}}"><a href="{{ route('client.shop.productList') }}" class="nav-link">Cửa
+                    <li class="scaleR nav-item {{ Request::url() == route('client.shop.productList') ? 'active' : '' }}"><a
+                            href="{{ route('client.shop.productList') }}" class="nav-link">Cửa
                             hàng</a>
                     </li>
-                    <li class="nav-item {{Request::url() == route('client.about.index') ? 'active' : ''}}"><a href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a>
+                    <li class="scaleR nav-item {{ Request::url() == route('client.about.index') ? 'active' : '' }}"><a
+                            href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a>
                     </li>
-                    <li class="nav-item {{Request::url() == route('client.blog.index') ? 'active' : ''}}"><a href="{{ route('client.blog.index') }}" class="nav-link">Tin tức</a></li>
-                    <li class="nav-item {{Request::url() == route('client.contact.index') ? 'active' : ''}}"><a href="{{ route('client.contact.index') }}" class="nav-link">Liên hệ</a>
+                    <li class="scaleR nav-item {{ Request::url() == route('client.blog.index') ? 'active' : '' }}"><a
+                            href="{{ route('client.blog.index') }}" class="nav-link">Tin tức</a></li>
+                    <li class="scaleR nav-item {{ Request::url() == route('client.contact.index') ? 'active' : '' }}"><a
+                            href="{{ route('client.contact.index') }}" class="nav-link">Liên hệ</a>
                     </li>
-                    <li class="nav-item cta cta-colored {{Request::url() == route('client.cart.index') ? 'active' : ''}}">
+                    <li
+                        class="scaleR nav-item cta cta-colored {{ Request::url() == route('client.cart.index') ? 'active' : '' }}">
                         <a href="{{ route('client.cart.index') }}" class="nav-link d-flex">
                             <span class="icon-shopping_cart inline mt-1">
                             </span>
@@ -83,11 +92,11 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2"><img src="{{ asset('img/logo.svg') }}" width=10% alt=""></h2>
+                        <h2 class="ftco-heading-2"><img src="{{ asset('img/logo.png') }}" width="60px" alt="">
+                        </h2>
 
                         <a class="navbar-brand" href="index.html">Odouceurs</a>
-                        <p>Từ năm 2014, chúng tôi đã trở thành một trong những tiệm bánh Pháp ngon nhất tại Hà Nội. Hiện
-                            tại, chúng tôi có 2 cơ sở tại Hà Nội, một ở Phố Cổ và một ở khu vực Hồ Tây.</p>
+                        <p>Từ năm 2014, chúng tôi đã trở thành một trong những tiệm bánh Pháp hàng đầu tại Hà Nội. Hiện nay, chúng tôi có hai cơ sở tại Hà Nội, một ở Phố Cổ và một ở khu vực Hồ Tây.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="https://www.threads.net/@odouceurs_bakery"><span><img
                                             src="{{ URL::asset('img/threads.svg') }}" width="90%" /></span></a>
@@ -97,8 +106,11 @@
                             <li class="ftco-animate"><a href="https://www.instagram.com/odouceurs_bakery/"><span
                                         class="icon-instagram"></span></a></li>
                             <li class="ftco-animate">
-                            <a href="https://www.tripadvisor.com.vn/Restaurant_Review-g293924-d7789388-Reviews-O_Douceurs_French_Pastry_Bakery-Hanoi.html">
-                            <span><img src="{{ URL::asset('img/tripadvisor.svg') }}" width="90%" /></span></a></li>
+                                <a
+                                    href="https://www.tripadvisor.com.vn/Restaurant_Review-g293924-d7789388-Reviews-O_Douceurs_French_Pastry_Bakery-Hanoi.html">
+                                    <span><img src="{{ URL::asset('img/tripadvisor.svg') }}"
+                                            width="90%" /></span></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -120,9 +132,10 @@
                         <h2 class="ftco-heading-2">Hãy đến với chúng tôi</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon icon-map-marker"></span><span class="text">72 Đ. Xuân Diệu, Tứ
-                                        Liên, Tây Hồ, Hà Nội
-                                    </span></li>
+                                <li><span class="icon icon-map-marker"></span>
+                                <span class="text">Cơ sở 1 : 72 Đ. Xuân Diệu, Tứ Liên, Tây Hồ, Hà Nội
+                               <span class="text">Cơ sở 2 : 56d P. Trần Nhân Tông, Nguyễn Du, Hai Bà Trưng, Hà Nội
+                                </span></li>
                                 <li><a href="#"><span class="icon icon-phone"></span><span
                                             class="text">Phone:
                                             024 6291 8575</span></a></li>
