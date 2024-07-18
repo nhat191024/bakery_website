@@ -26,14 +26,16 @@
     <link rel="stylesheet" href="{{ URL::asset('css/jquery.timepicker.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 </head>
+
 
 <body class="goto-here">
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('client.homepage.index') }}">
-                <img src="{{ asset('img/logo.svg') }}" width=60% alt="">
+            <a class="navbar-brand " href="{{ route('client.homepage.index') }}">
+                <img class=" container scale" src="{{ asset('img/LogoTest.png') }}" width="10px" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">

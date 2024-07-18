@@ -1,0 +1,15 @@
+
+@keyframes zoomIn {
+    0%,100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(2);
+    }
+  }
+
+  .scale {
+    width: 100px;
+    height: 56.25px;
+    animation: zoomIn 3s forwards ;
+  }
