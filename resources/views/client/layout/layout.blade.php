@@ -8,6 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.png') }} " />
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
         rel="stylesheet">
+        {{-- <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.css" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -169,7 +170,7 @@
                 stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
 
-
+        {{-- <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.js"></script> --}}
     <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ URL::asset('js/popper.min.js') }}"></script>

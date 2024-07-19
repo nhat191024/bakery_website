@@ -24,7 +24,7 @@ class Promotions extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Products()
+    public function products()
     {
         return $this->belongsTo(Products::class, 'product_id');
     }

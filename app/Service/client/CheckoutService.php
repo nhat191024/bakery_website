@@ -51,7 +51,7 @@ class CheckoutService
             'payment_method' => $request->payment,
             'total_amount' => (Cart::getTotal() ? Cart::getTotal() : 0),
             'accessory_id' => $accessory_id,
-            'status' => 1,
+            'status' => 0,
         ]);
 
         $cart = Cart::get();

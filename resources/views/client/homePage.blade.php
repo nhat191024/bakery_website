@@ -145,7 +145,7 @@
 
 @foreach ($promotions as $promotion)
         <section class="ftco-section img"
-            style="background-image: url({{ asset('img/client/shop/' . $promotion->Products->image) }});">
+            style="background-image: url({{ asset('img/client/shop/' . $promotion->products->image) }});">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row justify-content-end">
@@ -166,9 +166,7 @@
                             <div>
                                 <div class="end" id="end"></div>
                             </div>
-
                         </div>
-
                 </div>
                 </a>
             </div>

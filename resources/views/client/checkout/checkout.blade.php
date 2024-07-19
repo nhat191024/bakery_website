@@ -203,7 +203,6 @@
             </div>
         </div>
     </div>
-
     <script>
         var csrfToken = "{{ csrf_token() }}";
     </script>
