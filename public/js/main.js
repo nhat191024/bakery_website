@@ -51,7 +51,7 @@
 
 	// loader
 	var loader = function() {
-		setTimeout(function() { 
+		setTimeout(function() {
 			if($('#ftco-loader').length > 0) {
 				$('#ftco-loader').removeClass('show');
 			}
@@ -83,9 +83,11 @@
 	      1000:{
 	        items:1
 	      }
-	    }
+	    },
+        mouseDrag: false,
+        touchDrag: false
 		});
-	
+
 		$('.carousel-testimony').owlCarousel({
 			center: true,
 			loop: true,
@@ -105,7 +107,9 @@
 				1000:{
 					items: 3
 				}
-			}
+			},
+            mouseDrag: false,
+            touchDrag: false
 		});
 
 	};
@@ -145,19 +149,19 @@
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
 				}
-			} 
+			}
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+					navbar.addClass('awake');
 				}
-				
+
 				if(sd.length > 0) {
 					sd.addClass('sleep');
 				}
@@ -175,9 +179,9 @@
 	};
 	scrollWindow();
 
-	
+
 	var counter = function() {
-		
+
 		$('#section-counter').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
@@ -194,7 +198,7 @@
 					  }, 7000
 					);
 				});
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -207,7 +211,7 @@
 		$('.ftco-animate').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -229,9 +233,9 @@
 							el.removeClass('item-animate');
 						},  k * 50, 'easeInOutExpo' );
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -300,13 +304,13 @@
 	var goHere = function() {
 
 		$('.mouse-icon').on('click', function(event){
-			
+
 			event.preventDefault();
 
 			$('html,body').animate({
 				scrollTop: $('.goto-here').offset().top
 			}, 500, 'easeInOutExpo');
-			
+
 			return false;
 		});
 	};
@@ -315,7 +319,7 @@
 
 	function makeTimer() {
 		var endSale = document.getElementById("link")
-		var endTime = new Date(endDate);			
+		var endTime = new Date(endDate);
 		endTime = (Date.parse(endTime) / 1000);
 
 		var now = new Date();
@@ -327,7 +331,7 @@
 			return;
 		}else{
 		endSale.style.display="inline";
-		var days = Math.floor(timeLeft / 86400); 
+		var days = Math.floor(timeLeft / 86400);
 		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
 		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
 		var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
@@ -339,7 +343,7 @@
 		$("#days").html(days + "<span>Ngày</span>");
 		$("#hours").html(hours + "<span>Giờ</span>");
 		$("#minutes").html(minutes + "<span>Phút</span>");
-		$("#seconds").html(seconds + "<span>Giây</span>");		
+		$("#seconds").html(seconds + "<span>Giây</span>");
 		}
 	}
 setInterval(function() { makeTimer(); }, 1000);
