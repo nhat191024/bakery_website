@@ -293,7 +293,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">0</span>
+                                <span class="badge badge-danger badge-counter pending-bill-count">0</span>
                             </a>
                             <!-- Dropdown - Alerts -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -303,20 +303,20 @@
                                 </h6>
                                 <div id="pending-bill-list"></div>
                                 <div class="d-none billPendingTemplate">
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <a class="dropdown-item d-flex align-items-center" href="" id="bill-link">
                                         <div class="mr-3">
                                             <div class="icon-circle bg-primary">
                                                 <i class="fas fa-file-alt text-white"></i>
                                             </div>
                                         </div>
                                         <div>
-                                            <div class="small text-gray-500">December 12, 2019</div>
-                                            <span class="font-weight-bold">A new monthly report is ready to
-                                                download!</span>
+                                            <div id="order_date" class="small text-gray-500">December 12, 2019</div>
+                                            <span id="bill-description" class="font-weight-bold">Đơn hàng mới</span>
+                                            <div id="bill-phone" class="small text-gray-500">0987654321</div>
                                         </div>
                                     </a>
                                 </div>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Xem toàn bộ
+                                <a class="dropdown-item text-center small text-gray-500" href="{{ route('admin.bill.index') }}">Xem toàn bộ
                                     đơn hàng</a>
                             </div>
                         </li>
