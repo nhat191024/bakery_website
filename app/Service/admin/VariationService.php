@@ -2,6 +2,7 @@
 
 namespace App\Service\admin;
 
+use App\Models\Product_variation;
 use App\Models\Variation;
 
 class VariationService
@@ -25,6 +26,15 @@ class VariationService
     public function delete($id)
     {
         return VariationService::getById($id)->delete();
+    }
+    public function destroy($id)
+    {
+        VariationService::restore($id);
+        $productVariations = Product_variation::where('variation_id', $id)->get();
+        foreach ($productVariations as $productVariation) {
+            $productVariation->delete();
+        }
+        return VariationService::getById($id)->forceDelete();
     }
     public function restore($id)
     {
