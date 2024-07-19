@@ -56,7 +56,7 @@
                                                                 <i class="ion-ios-remove"></i>
                                                             </button>
                                                         </span>
-                                                        <input type="text" id="quantity-{{ $id }}"
+                                                        <input readonly type="tel" id="quantity-{{ $id }}"
                                                             name="quantity" class="form-control input-number shadow-lg"
                                                             value="{{ $pd['quantity'] }}" min="1" max="100">
                                                         <span class="input-group-btn ml-2">
