@@ -70,15 +70,9 @@ Route::prefix('checkout')->group(function () {
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'loginPage'])->name('main.login');
 Route::post('/login/auth', [App\Http\Controllers\LoginController::class, 'login'])->name('main.login.auth');
 Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('main.logout');
-// Route::middleware(['auth'])->group(function () {
-//     Route::prefix('admin')->group(function () {
-//         Route::prefix('/category')->group(function () {
-//             Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
-//             Route::get('/add', [CategoryController::class, 'showAddCategory'])->name('admin.category.show_add');
-//             Route::post('/add', [CategoryController::class, 'addCategory'])->name('admin.category.add');
-//         });
-//     });
-// });
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('admin')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('admin.index');
@@ -197,4 +191,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/deleted/{id}', [MessageController::class, 'showDeletedMessageDetail'])->name('admin.message.show_deleted_detail');
         Route::get('/delete/{id}', [MessageController::class, 'deleteMessage'])->name('admin.message.delete');
     });
+});
+
+});
 });
