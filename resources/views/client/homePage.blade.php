@@ -190,7 +190,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-1.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-1.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -207,7 +207,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-2.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-2.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -223,7 +223,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-4.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-4.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -241,7 +241,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-3.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-3.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -257,7 +257,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-5.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-5.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -273,7 +273,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-6.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-6.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -289,7 +289,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-7.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-7.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -306,14 +306,14 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-8.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-8.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
                                 </div>
                                 <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">Một nơi hoàn hảo để chill cùng bạn bè , 
-                                    tôi đã được cảm nhận tinh hoa ẩm thực của Pháp qua những món ăn ở đây 
+                                    <p class="mb-5 pl-4 line">Một nơi hoàn hảo để chill cùng bạn bè ,
+                                    tôi đã được cảm nhận tinh hoa ẩm thực của Pháp qua những món ăn ở đây
                                     .</p>
                                     <p class="name">Khánh Huy</p>
                                     <span class="position">Khách Hàng</span>
@@ -323,7 +323,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-9.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-9.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
@@ -340,7 +340,7 @@
                         <div class="item">
                             <div class="testimony-wrap p-4 pb-5">
                                 <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-10.jpg') }})">
+                                    style="background-image: url({{ asset('img/home/person-10.webp') }})">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
