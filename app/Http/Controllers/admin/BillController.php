@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bills;
 use App\Service\admin\BillService;
 use App\Service\admin\BranchService;
 use Illuminate\Http\Request;
@@ -40,5 +41,10 @@ class BillController extends Controller
         $status = $request->bill_status;
         $this->billService->updateStatus($id, $status);
         return redirect(route('admin.bill.show_detail', ['id' => $id]))->with('success', 'Cập nhật trạng thái đơn thành công');
+    }
+
+    public function getPending()
+    {
+        return Bills::all()->where('status', 0);
     }
 }

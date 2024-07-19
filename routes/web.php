@@ -115,12 +115,6 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/edit/{id}', [AboutUsController::class, 'showEditBanner'])->name('admin.about.show_edit');
         });
 
-        Route::prefix('/bill')->group(function () {
-            Route::get('/', [BillController::class, 'index'])->name('admin.bill.index');
-            Route::post('/edit', [BillController::class, 'editStatus'])->name('admin.bill.edit_status');
-            Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
-        });
-
         // Route::prefix('/user')->group(function () {
         //     Route::get('/', [UserController::class, 'index'])->name('admin.user.index');
         //     Route::get('/add', [UserController::class, 'showAddUser'])->name('admin.user.show_add');
@@ -144,6 +138,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::prefix('/bill')->group(function () {
             Route::get('/', [BillController::class, 'index'])->name('admin.bill.index');
+            Route::get('/get-pending', [BillController::class, 'getPending'])->name('admin.bill.getPending');
             Route::post('/edit', [BillController::class, 'editStatus'])->name('admin.bill.edit_status');
             Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
         });
