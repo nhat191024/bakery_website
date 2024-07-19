@@ -29,7 +29,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Tên</th>
+                                    <th>Tên size</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
@@ -58,9 +58,11 @@
                                                 onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn khôi phục size {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.variation.restore', ['id' => $item->id]) }}'; }"
                                                 > Khôi phục </a>
                                                 @endif
-                                                <a class="btn btn-outline-danger"
+                                                @if ($loop->iteration != 1)
+                                                    <a class="btn btn-outline-danger"
                                                     onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn XOÁ VĨNH VIỄN size {{ $item->name }} chứ?\nLƯU Ý: Nếu trong danh mục này còn tồn tại sản phẩm, việc xoá sẽ LOẠI BỎ GIÁ CỦA SIZE ĐÓ KHỎI TẤT CẢ SẢN PHẨM\n(Sản phẩm gốc vẫn sẽ được giữ nguyên)\nBạn sẽ phải thiết đặt lại giá sản phẩm cho các size mới tạo!')) { window.location.href = '{{ route('admin.variation.destroy', ['id' => $item->id]) }}'; }"
-                                                > Xoá vĩnh viễn </a>
+                                                    > Xoá vĩnh viễn </a>
+                                                @endif
                                         </td>
                                     </tr>
                                 @endforeach
