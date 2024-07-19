@@ -37,7 +37,9 @@
                                                 <h3 class="pointer" onclick="window.location.href='{{ route('client.shop.productDetail', $pd['product']->id) }}'">
                                                     {{ $pd['product']->name }}
                                                         @if (count($pd['product']->product_variations) > 1)
-                                                        ({{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->variation->name }})
+                                                        @if ($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->variation)
+                                                            ({{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->variation->name }})
+                                                        @endif
                                                         @endif
                                                     </h3>
                                                 </td>

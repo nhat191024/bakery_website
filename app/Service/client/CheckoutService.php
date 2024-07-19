@@ -21,6 +21,9 @@ class CheckoutService
 
     public function index()
     {
+        if (Cart::getCartCount() == 0) {
+            return redirect(route('client.shop.productList'));
+        }
         return view('client.checkout.checkout')
             ->with([
                 'cart' => Cart::get(),
