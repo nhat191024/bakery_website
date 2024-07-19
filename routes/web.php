@@ -158,8 +158,11 @@ Route::prefix('admin')->group(function () {
     Route::prefix('/variation')->group(function () {
         Route::get('/', [VariationController::class, 'index'])->name('admin.variation.index');
         Route::get('/edit/{id}', [VariationController::class, 'showEdit'])->name('admin.variation.edit');
+        Route::get('/delete/{id}', [VariationController::class, 'delete'])->name('admin.variation.delete');
+        Route::get('/restore/{id}', [VariationController::class, 'restore'])->name('admin.variation.restore');
         Route::post('/edit', [VariationController::class, 'saveEdit'])->name('admin.variation.saveEdit');
-        // Route::get('/{id}', [VariationController::class, 'showDetail'])->name('admin.bill.show_detail');
+        Route::post('/add', [VariationController::class, 'saveAdd'])->name('admin.variation.saveAdd');
+        Route::get('/add', [VariationController::class, 'showAdd'])->name('admin.variation.show_add');
     });
 
     Route::prefix('/accessory')->group(function () {
