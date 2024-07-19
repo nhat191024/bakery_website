@@ -132,15 +132,25 @@
                         <h2 class="ftco-heading-2">Hãy đến với chúng tôi</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon icon-map-marker"></span>
+                                <li><a href="#"><span class="icon icon-map-marker"></span>
                                 <span class="text">Cơ sở 1 : 72 Đ. Xuân Diệu, Tứ Liên, Tây Hồ, Hà Nội
-                               <span class="text">Cơ sở 2 : 56d P. Trần Nhân Tông, Nguyễn Du, Hai Bà Trưng, Hà Nội
-                                </span></li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span
-                                            class="text">Phone:
-                                            024 6291 8575</span></a></li>
-                                <li><a href="#"><span class="icon icon-envelope"></span><span
-                                            class="text">odouceurs@gmail.com</span></a></li>
+                                <span class="text">Cơ sở 2 : 56d P. Trần Nhân Tông, Nguyễn Du, Hai Bà Trưng, Hà Nội
+                                </span>
+                                  </a>
+                                </li>
+                                <li>
+                                <a href="#">
+                                <span class="icon icon-phone"></span>
+                                <span class="text">Phone: 024 6291 8575</span>
+                                </a>
+                                </li>
+                                <li>
+                                <a href="#">
+                                <span class="icon icon-envelope">
+                                </span>
+                                <span class="text">odouceurs@gmail.com</span>
+                                </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -13563,13 +13563,14 @@ textarea.form-control {
   font-size: 15px;
   text-transform: uppercase;
   font-weight: 500;
-  font-family: "Poppins", Arial, sans-serif;
+  /* font-family: "Poppins", Arial, sans-serif; */
+  font-family: "Lora", Georgia, serif;
   color: #000000;
 }
 
 .ftco-services .services .media-body span {
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
   font-weight: 500;
 }
