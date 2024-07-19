@@ -35,6 +35,6 @@ class CategoryService
     }
 
     public function delete($idCategory) {
-        $category = Categories::destroy($idCategory);
+        Categories::destroy($idCategory);
     }
 }
