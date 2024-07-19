@@ -54,7 +54,7 @@
                                         <td>{{ $item->full_name }}</td>
                                         <td>{{ $item->address }}</td>
                                         <td>{{ $item->phone_number }}</td>
-                                        <td>{{ $item->total_amount }}</td>
+                                        <td>{{ number_format($item->total_amount, 0, ',', '.') }}đ</td>
                                         <td>{{ $item->status == 0 ? 'Chưa thanh toán' : 'Đã thanh toán' }}</td>
                                         <td class="text-center">
                                             <a class="btn btn-info"
