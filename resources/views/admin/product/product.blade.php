@@ -14,7 +14,6 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <a class="btn btn-primary" href="{{ route('admin.product.show_add') }}">Thêm sản phẩm</a>
-
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -68,13 +67,13 @@
                                                 href="{{ route('admin.product.show_edit', ['id' => $item->id]) }}">Sửa</a>
                                             @if (!$item->deleted_at)
                                                 <a class="btn btn-danger"
-                                                    href="{{ route('admin.product.delete', ['id' => $item->id]) }}"
-                                                    onclick="confirm('Bạn chắc chắn chứ?')"> Ẩn </a>
+                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn ẩn sản phẩm {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.product.delete', ['id' => $item->id]) }}'; }"
+                                                    > Nhấn để ẩn </a>
                                             @endif
                                             @if ($item->deleted_at)
-                                                <a class="btn btn-danger"
-                                                    href="{{ route('admin.product.restore', ['id' => $item->id]) }}"
-                                                    onclick="confirm('Bạn chắc chắn chứ?')"> Hiện </a>
+                                                <a class="btn btn-info"
+                                                onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn hiện sản phẩm {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.product.restore', ['id' => $item->id]) }}'; }"
+                                                    > Khôi phục </a>
                                             @endif
                                             <a class="btn btn-info"
                                                 href="{{ route('admin.product.show_detail', ['id' => $item->id]) }}">Chi
