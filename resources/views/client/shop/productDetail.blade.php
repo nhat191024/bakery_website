@@ -52,8 +52,6 @@
                             </div>
                             <div class="w-100"></div>
                         @endif
-                        @foreach ($product->product_variations as $variation)
-                        @continue(!$variation->variation)
                         <div class="input-group col-md-6 d-flex mb-3">
                             <span class="input-group-btn mr-2">
                                 <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
@@ -70,12 +68,19 @@
                         </div>
                         <div class="w-100"></div>
                     </div>
-                        <p>
-                            <a class="btn btn-primary py-3 px-5 text-center" id="addToCart">Thêm vào giỏ</a>
-                        </p>
-                        <p>Nếu quý khánh muốn mua cỡ lớn . vui lòng liên hệ cửa hàng <br>
-                        @break
-                    @endforeach
+                    @foreach ($product->product_variations as $variation)
+                        @if ($variation->variation)
+                            <p>
+                                <a class="btn btn-primary py-3 px-5 text-center" id="addToCart">Thêm vào giỏ</a>
+                            </p>
+                            <p>Nếu quý khánh muốn mua cỡ lớn . vui lòng liên hệ cửa hàng <br>
+                            @else
+                            <p>
+                                <a class="btn btn-primary py-3 px-5 text-center">Hàng không có sẵn</a>
+                            </p>
+                        @endif
+                    @break
+                @endforeach
                 </p>
             </div>
         </div>
