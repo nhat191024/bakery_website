@@ -1,5 +1,5 @@
 const options = {
-    placeholder: (detail?'':'Nội dung blog...!'),
+    placeholder: (typeof detail !== 'undefined' ? '' : 'Nội dung blog...!'),
     theme: 'snow',
     modules: {
         toolbar: [
@@ -29,7 +29,7 @@ var editorContainer = document.getElementById('editor');
 if (editorContainer) {
     var quill = new Quill('#editor', options);
     quill.root.innerHTML = blogContent;
-    (detail?quill.enable(false):quill.enable(true));
+    (typeof detail !== 'undefined' ? quill.enable(false):quill.enable(true))
 }
 
 const title = $('#title');
