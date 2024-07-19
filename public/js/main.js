@@ -84,7 +84,7 @@
 	        items:1
 	      }
 	    },
-        mouseDrag: false,
+        mouseDrag: true,
         touchDrag: false
 		});
 
@@ -108,7 +108,7 @@
 					items: 3
 				}
 			},
-            mouseDrag: false,
+            mouseDrag: true,
             touchDrag: false
 		});
 
