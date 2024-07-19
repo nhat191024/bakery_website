@@ -4,8 +4,8 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('client.homepage.index')}}">Trang chủ</a></span>/<span>Tin tức</span></p>
-                    <h1 class="mb-0 bread">Tin tức</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('client.homepage.index')}}">{{ __('blog.breadcrumb1') }}</a></span>/<span>{{ __('blog.breadcrumb2') }}</span></p>
+                    <h1 class="mb-0 bread">{{ __('blog.breadcrumb') }}</h1>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                                         </div>
                                         <h3 class="heading"><a href="#">{{ $blog->title }}</a></h3>
                                         <p>{{ $blog->subtitle }}</p>
-                                        <p><a href="{{ route('client.blog.show', ['id' => $blog->id]) }}" class="btn btn-primary py-2 px-3">Đọc thêm</a></p>
+                                        <p><a href="{{ route('client.blog.show', ['id' => $blog->id]) }}" class="btn btn-primary py-2 px-3">{{ __('blog.readMore') }}</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                 </div> <!-- .col-md-8 -->
                 <div class="col-lg-4 sidebar ftco-animate">
                     <div class="sidebar-box ftco-animate">
-                        <h3 class="heading">Danh sách</h3>
+                        <h3 class="heading">{{ __('blog.list') }}</h3>
                         <ul class="categories">
                             @foreach ($categories as $category)
                                 <li><a href="{{ route('client.shop.productList')}}/{{$category->id}} ">{{ $category->name }} </a></li>
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="sidebar-box ftco-animate">
-                        <h3 class="heading">Blog gần đây</h3>
+                        <h3 class="heading">{{ __('blog.recent') }}</h3>
 
                         @foreach ($recentBlogs as $recentBlog)
                             <div class="block-21 mb-4 d-flex">

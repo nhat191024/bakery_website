@@ -12,10 +12,9 @@
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                     <h3><b>{{ $product->name }}</b></h3>
                     <div class="rating d-flex">
-                        <p class="text-left"> 
-                                 <span style="color: #bbb;">Đã bán</span></a>
+                        <p class="text-left">
+                            <span style="color: #bbb;">{{ __('shop.totalSell') }}</span></a>
                             <a href="#" class="mr-2" style="color: #000;">{{ count($product->bill_details) }}
-                      
                         </p>
                     </div>
                     @if (count($product->product_variations) > 1)
@@ -67,9 +66,9 @@
                         </div>
                         <div class="w-100"></div>
                     </div>
-                    <p><a class="btn btn-primary py-3 px-5 text-center" id="addToCart">Thêm vào giỏ</a></p>
-                    <p>Nếu quý khánh muốn mua cỡ lớn . vui lòng liên hệ cửa hàng <br>
-                       </p>
+                    <p class="btn btn-primary py-3 px-5 text-center" id="addToCart">{{ __('shop.add') }}</p>
+                    <p>{{ __('shop.note') }}<br>
+                    </p>
                 </div>
             </div>
         </div>
@@ -79,9 +78,9 @@
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">Các loại bánh</span>
-                    <h2 class="mb-4">Sản phẩm bán chạy</h2>
-                    <p>Cùng chúng tôi khám phá những món bánh được nhiều người ưa thích ~</p>
+                    <span class="subheading">{{ __('shop.subheading.title') }}</span>
+                    <h2 class="mb-4">{{ __('shop.subheading.subtitle') }}</h2>
+                    <p>{{ __('shop.subheading.content') }}</p>
                 </div>
             </div>
         </div>

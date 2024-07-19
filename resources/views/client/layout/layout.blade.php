@@ -8,7 +8,6 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.png') }} " />
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
         rel="stylesheet">
-        {{-- <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.css" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,30 +35,41 @@
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand " href="{{ route('client.homepage.index') }}">
-                <img class="scaleL" src="{{ asset('img/LogoTest.png') }}"  alt="">
+                <img class="scaleL" src="{{ asset('img/LogoTest.png') }}" alt="">
             </a>
             <button class="scaleR navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span> Menu
+                <span class="oi oi-menu"></span> {{ __('layout.menu') }}
             </button>
 
             <div class="collapse navbar-collapse " id="ftco-nav">
                 <ul class="navbar-nav ml-auto ">
                     <li
                         class=" scaleR nav-item {{ Request::url() == route('client.homepage.index') || Request::url() == null ? 'active' : '' }}">
-                        <a href="{{ route('client.homepage.index') }}" class="nav-link">Trang
-                            chủ</a></li>
-                    <li class="scaleR nav-item {{ Request::url() == route('client.shop.productList') ? 'active' : '' }}"><a
-                            href="{{ route('client.shop.productList') }}" class="nav-link">Cửa
-                            hàng</a>
+                        <a href="{{ route('client.homepage.index') }}" class="nav-link">
+                            {{ __('layout.home') }}
+                        </a>
+                    </li>
+                    <li
+                        class="scaleR nav-item {{ Request::url() == route('client.shop.productList') ? 'active' : '' }}">
+                        <a href="{{ route('client.shop.productList') }}" class="nav-link">
+                            {{ __('layout.shop') }}
+                        </a>
                     </li>
                     <li class="scaleR nav-item {{ Request::url() == route('client.about.index') ? 'active' : '' }}"><a
-                            href="{{ route('client.about.index') }}" class="nav-link">Giới thiệu</a>
+                            href="{{ route('client.about.index') }}" class="nav-link">
+                            {{ __('layout.about') }}
+                        </a>
                     </li>
                     <li class="scaleR nav-item {{ Request::url() == route('client.blog.index') ? 'active' : '' }}"><a
-                            href="{{ route('client.blog.index') }}" class="nav-link">Tin tức</a></li>
-                    <li class="scaleR nav-item {{ Request::url() == route('client.contact.index') ? 'active' : '' }}"><a
-                            href="{{ route('client.contact.index') }}" class="nav-link">Liên hệ</a>
+                            href="{{ route('client.blog.index') }}" class="nav-link">
+                            {{ __('layout.blog') }}
+                        </a>
+                    </li>
+                    <li class="scaleR nav-item {{ Request::url() == route('client.contact.index') ? 'active' : '' }}">
+                        <a href="{{ route('client.contact.index') }}" class="nav-link">
+                            {{ __('layout.contact') }}
+                        </a>
                     </li>
                     <li
                         class="scaleR nav-item cta cta-colored {{ Request::url() == route('client.cart.index') ? 'active' : '' }}">
@@ -93,11 +103,12 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2"><img src="{{ asset('img/logo.png') }}" width="60px" alt="">
+                        <h2 class="ftco-heading-2"><img src="{{ asset('img/logo.png') }}" width="60px"
+                                alt="">
                         </h2>
 
                         <a class="navbar-brand" href="index.html">Odouceurs</a>
-                        <p>Từ năm 2014, chúng tôi đã trở thành một trong những tiệm bánh Pháp hàng đầu tại Hà Nội. Hiện nay, chúng tôi có hai cơ sở tại Hà Nội, một ở Phố Cổ và một ở khu vực Hồ Tây.</p>
+                        <p>{{ __('layout.footer_about') }}</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="https://www.threads.net/@odouceurs_bakery"><span><img
                                             src="{{ URL::asset('img/threads.svg') }}" width="90%" /></span></a>
@@ -119,27 +130,32 @@
                     <div class="ftco-footer-widget mb-4 ml-md-5">
                         <h2 class="ftco-heading-2">Menu</h2>
                         <ul class="list-unstyled">
-                            <li><a href="{{ route('client.shop.productList') }}" class="py-2 d-block">Cửa hàng</a>
+                            <li><a href="{{ route('client.shop.productList') }}"
+                                    class="py-2 d-block">{{ __('layout.shop') }}</a>
                             </li>
-                            <li><a href="{{ route('client.contact.index') }}" class="py-2 d-block">Giới thiệu</a>
+                            <li><a href="{{ route('client.contact.index') }}"
+                                    class="py-2 d-block">{{ __('layout.about') }}</a>
                             </li>
-                            <li><a href="" class="py-2 d-block">Tin tức</a></li>
-                            <li><a href="{{ route('client.contact.index') }}" class="py-2 d-block">Liên hệ</a></li>
+                            <li><a href="" class="py-2 d-block">{{ __('layout.blog') }}</a></li>
+                            <li><a href="{{ route('client.contact.index') }}"
+                                    class="py-2 d-block">{{ __('layout.contact') }}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Hãy đến với chúng tôi</h2>
+                        <h2 class="ftco-heading-2">{{ __('layout.footer1') }}</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon icon-map-marker"></span>
-                                <span class="text">Cơ sở 1 : 72 Đ. Xuân Diệu, Tứ Liên, Tây Hồ, Hà Nội
-                               <span class="text">Cơ sở 2 : 56d P. Trần Nhân Tông, Nguyễn Du, Hai Bà Trưng, Hà Nội
-                                </span></li>
+                                <li>
+                                    <span class="icon icon-map-marker"></span>
+                                    <div class="d-flex flex-column">
+                                        <span class="text">{{ __('layout.address1') }}</span>
+                                        <p class="text">{{ __('layout.address2') }}</p>
+                                    </div>
+                                </li>
                                 <li><a href="#"><span class="icon icon-phone"></span><span
-                                            class="text">Phone:
-                                            024 6291 8575</span></a></li>
+                                            class="text">{{ __('layout.phone') }}</span></a></li>
                                 <li><a href="#"><span class="icon icon-envelope"></span><span
                                             class="text">odouceurs@gmail.com</span></a></li>
                             </ul>
@@ -154,7 +170,7 @@
                         Copyright &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script> Xây dựng và thiết kế | FPT Polytechnic Hải Phòng</a>
+                        </script> {{ __('layout.copyright') }}</a>
                     </p>
                 </div>
             </div>
@@ -170,7 +186,9 @@
                 stroke-miterlimit="10" stroke="#F96D00" />
         </svg></div>
 
-        {{-- <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.core.js"></script> --}}
+    <script>
+        var currentLang = "{{ App::getLocale() }}";
+    </script>
     <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ URL::asset('js/popper.min.js') }}"></script>

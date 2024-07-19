@@ -7,7 +7,7 @@
                 <div class="col-md-10 mb-5 text-center">
                     <ul class="product-category">
                         <li><a href="{{ route('client.shop.productList') }}"
-                                class="{{ request()->route('categoryId') ? '' : 'active' }}">Tất cả</a></li>
+                                class="{{ request()->route('categoryId') ? '' : 'active' }}">{{ __('shop.allCategory') }}</a></li>
                         @foreach ($categories as $ct)
                             <li>
                                 <a href="{{ route('client.shop.productList', $ct->id) }}"

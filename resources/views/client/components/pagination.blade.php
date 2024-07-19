@@ -51,7 +51,7 @@
     <div class="row mt-5">
         <div class="col text-center">
             <div class="block-27">
-                <p>{{ trans('Bạn đã đến cuối danh sách...') }}</p>
+                <p>{{ __('layout.endList') }}</p>
             </div>
         </div>
     </div>
