@@ -17,7 +17,7 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <form>
+                    <form id="blogForm">
                         <div class="form-group">
                             <label for="title">Tiêu đề</label>
                             <input required type="text" class="form-control" id="title" aria-describedby=""
@@ -55,6 +55,6 @@
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
-        
+
     </script>
 @endsection

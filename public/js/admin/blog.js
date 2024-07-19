@@ -38,7 +38,7 @@ const subtitle = $('#subtitle');
 const id = $('#id');
 
 $(document).ready(function () {
-    $('form').on('submit', function (e) {
+    $('#blogForm').on('submit', function (e) {
         e.preventDefault();
     });
 })
