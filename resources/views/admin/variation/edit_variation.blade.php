@@ -5,7 +5,7 @@
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
-        
+
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Sửa thông tin</h1>
         <!-- DataTales Example -->
@@ -25,6 +25,7 @@
                                 name="name" placeholder="Nhập tên size" value="{{ $name }}">
                         </div>
                         <input type="hidden" name="id" value="{{ $id }}">
+                        <a class="btn btn-primary mt-4" onclick="history.back()">Quay lại</a>
                         <button class="btn btn-success mt-4" type="submit">Sửa</button>
                     </form>
 
