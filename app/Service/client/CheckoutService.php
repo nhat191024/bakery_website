@@ -4,16 +4,20 @@ namespace App\Service\client;
 
 use App\Models\Accessory;
 use App\Models\Bill_details;
-use App\Models\BillAccessory;
 use App\Models\Bills;
 use App\Models\Cart;
-use App\Models\Product_variation;
-use App\Models\Products;
 use App\Models\Vouchers;
-use Illuminate\View\View;
+
+use App\Service\main\MailService;
 
 class CheckoutService
 {
+    private $mailService;
+
+    public function __construct()
+    {
+        $this->mailService = new MailService();
+    }
 
     public function index()
     {
@@ -32,8 +36,8 @@ class CheckoutService
         $accessory_id = $request->accessory_id;
         $accessory_price = $accessory_id ? Accessory::where('id', $accessory_id)->first('price') : null;
 
-        if ($accessory_price == null) {
-            $accessory_id = null;
+        if ($accessory_price != null) {
+            Cart::setAccessory($accessory_id);
         }
 
         $bill = Bills::create([
@@ -45,7 +49,7 @@ class CheckoutService
             'voucher_code' => Cart::getCouponCode() ? Cart::getCouponCode() : null,
             'delivery_method' => $request->delivery,
             'payment_method' => $request->payment,
-            'total_amount' => (Cart::getTotal() ? Cart::getTotal() : 0) + ($accessory_price ? $accessory_price['price'] : 0),
+            'total_amount' => (Cart::getTotal() ? Cart::getTotal() : 0),
             'accessory_id' => $accessory_id,
             'status' => 0,
         ]);
@@ -64,6 +68,40 @@ class CheckoutService
                 }
             }
         }
+        $QR = "?accountName=TRINH%20THI%20DUNG&amount=" . Cart::getTotal() . "&addInfo=Odouceurs " . $bill->id;
+
+        $this->mailService->customerSend(
+            $request->email,
+            $request->fullName,
+            $bill->id,
+            $request->email,
+            $request->phone,
+            $request->address . ', ' . $request->ward . ', ' . $request->district . ', ' . "Hà Nội",
+            $request->payment,
+            $request->delivery,
+            $bill->created_at,
+            $cart,
+            Cart::getDiscountAmount(),
+            Cart::getTotal(),
+            $bill->accessory,
+            $QR
+        );
+
+        $this->mailService->adminSend(
+            'richberchannel01@gmail.com',
+            $request->fullName,
+            $bill->id,
+            $request->email,
+            $request->phone,
+            $request->address . ', ' . $request->ward . ', ' . $request->district . ', ' . "Hà Nội",
+            $request->payment,
+            $request->delivery,
+            $bill->created_at,
+            $cart,
+            Cart::getDiscountAmount(),
+            Cart::getTotal(),
+            $bill->accessory
+        );
 
         if ($billDetail) {
             $quantity = 0;
@@ -74,9 +112,10 @@ class CheckoutService
                 Vouchers::where('code', Cart::getCouponCode())->decrement('quantity');
             }
             Cart::clear();
-            return response()->json([
-                'message' => 'success'
-            ], 200);
+            return [
+                'message' => 'success',
+                'QR' => $QR,
+            ];
         }
     }
 }

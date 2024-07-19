@@ -44,14 +44,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="phone">Số điện thoại</label>
-                                        <input id="phone" type="number" class="form-control"
+                                        <input minlength="10" maxlength="13" id="phone" type="number" class="form-control"
                                             placeholder="(+84) 123 456 789" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email">Địa chỉ email</label>
-                                        <input id="email" type="text" class="form-control"
+                                        <input id="email" type="email" class="form-control"
                                             placeholder="Địa chỉ email để nhận thông báo" required>
                                     </div>
                                 </div>
@@ -208,4 +208,84 @@
     </script>
     <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/client/checkout.js') }}"></script>
+
+    <div id="checkout-loader" class="fullscreen-checkout">
+        <svg class="circular-checkout" width="48px"
+            height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke="#eeeeee" />
+            <circle class="path-checkout" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+                stroke-miterlimit="10" stroke="#F96D00" />
+        </svg>
+        <p>Đang xử lý đơn đặt hàng</p>
+    </div>
+
+    <style>
+        #checkout-loader {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            position: fixed;
+            width: 196px;
+            height: 116px;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            /* background-color: rgba(255, 255, 255, 0.9); */
+            /* -webkit-box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24);
+            box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24); */
+            border-radius: 16px;
+            opacity: 100;
+            visibility: hidden;
+            -webkit-transition: opacity .2s ease-out, visibility 0s linear .2s;
+            -o-transition: opacity .2s ease-out, visibility 0s linear .2s;
+            transition: opacity .2s ease-out, visibility 0s linear .2s;
+            z-index: 1000;
+        }
+
+        #checkout-loader p {
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+        }
+
+        #checkout-loader .fullscreen-checkout {
+            padding: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transform: none;
+            -ms-transform: none;
+            transform: none;
+            background-color: #fff;
+            border-radius: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        #checkout-loader .circular-checkout {
+            -webkit-animation: loader-rotate 2s linear infinite;
+            animation: loader-rotate 2s linear infinite;
+            position: absolute;
+            left: calc(50% - 24px);
+            top: calc(50% - 24px);
+            display: block;
+            -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+
+        #checkout-loader .path-checkout {
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+            -webkit-animation: loader-dash 1.5s ease-in-out infinite;
+            animation: loader-dash 1.5s ease-in-out infinite;
+            stroke-linecap: round;
+        }
+    </style>
 @endsection

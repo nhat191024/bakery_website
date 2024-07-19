@@ -51,7 +51,7 @@
 
 	// loader
 	var loader = function() {
-		setTimeout(function() { 
+		setTimeout(function() {
 			if($('#ftco-loader').length > 0) {
 				$('#ftco-loader').removeClass('show');
 			}
@@ -83,12 +83,15 @@
 	      1000:{
 	        items:1
 	      }
-	    }
+	    },
+        mouseDrag: false,
+        touchDrag: false
 		});
-	
+
 		$('.carousel-testimony').owlCarousel({
 			center: true,
 			loop: true,
+			autoplay: true,
 			items:1,
 			margin: 30,
 			stagePadding: 0,
@@ -99,12 +102,14 @@
 					items: 1
 				},
 				600:{
-					items: 3
+					items: 2
 				},
 				1000:{
 					items: 3
 				}
-			}
+			},
+            mouseDrag: false,
+            touchDrag: false
 		});
 
 	};
@@ -129,11 +134,6 @@
 		// }, 100);
 	});
 
-
-	$('#dropdown04').on('show.bs.dropdown', function () {
-	  console.log('show');
-	});
-
 	// scroll
 	var scrollWindow = function() {
 		$(window).scroll(function(){
@@ -144,19 +144,19 @@
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
 				}
-			} 
+			}
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+					navbar.addClass('awake');
 				}
-				
+
 				if(sd.length > 0) {
 					sd.addClass('sleep');
 				}
@@ -174,9 +174,9 @@
 	};
 	scrollWindow();
 
-	
+
 	var counter = function() {
-		
+
 		$('#section-counter').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
@@ -185,7 +185,6 @@
 				$('.number').each(function(){
 					var $this = $(this),
 						num = $this.data('number');
-						console.log(num);
 					$this.animateNumber(
 					  {
 					    number: num,
@@ -193,7 +192,7 @@
 					  }, 7000
 					);
 				});
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -206,7 +205,7 @@
 		$('.ftco-animate').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -228,9 +227,9 @@
 							el.removeClass('item-animate');
 						},  k * 50, 'easeInOutExpo' );
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -256,9 +255,6 @@
 		  	navToggler.click();
 		  }
 		});
-		$('body').on('activate.bs.scrollspy', function () {
-		  console.log('nice');
-		})
 	};
 	OnePageNav();
 
@@ -299,13 +295,13 @@
 	var goHere = function() {
 
 		$('.mouse-icon').on('click', function(event){
-			
+
 			event.preventDefault();
 
 			$('html,body').animate({
 				scrollTop: $('.goto-here').offset().top
 			}, 500, 'easeInOutExpo');
-			
+
 			return false;
 		});
 	};
@@ -313,13 +309,20 @@
 
 
 	function makeTimer() {
-		var endTime = new Date(endDate);			
+		var endSale = document.getElementById("link")
+		var endTime = new Date(endDate);
 		endTime = (Date.parse(endTime) / 1000);
 
 		var now = new Date();
 		now = (Date.parse(now) / 1000);
 		var timeLeft = endTime - now;
-		var days = Math.floor(timeLeft / 86400); 
+		if (timeLeft <= 0) {
+			$("#end").html("<h3>Đã hết thời gian khuyến mãi</h3>");
+			endSale.style.display="none";
+			return;
+		}else{
+		endSale.style.display="inline";
+		var days = Math.floor(timeLeft / 86400);
 		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
 		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
 		var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
@@ -331,10 +334,9 @@
 		$("#days").html(days + "<span>Ngày</span>");
 		$("#hours").html(hours + "<span>Giờ</span>");
 		$("#minutes").html(minutes + "<span>Phút</span>");
-		$("#seconds").html(seconds + "<span>Giây</span>");		
-
-}
-
+		$("#seconds").html(seconds + "<span>Giây</span>");
+		}
+	}
 setInterval(function() { makeTimer(); }, 1000);
 
 

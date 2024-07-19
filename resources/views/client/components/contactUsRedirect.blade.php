@@ -10,7 +10,7 @@
             <div class="col-md-6 align-items-center">
                 <div class="">
                     <a href="
-                    {{-- {{ route('client.contact.index') }} --}}
+                    {{ route('client.contact.index') }}
                     {{-- Active this link after merging Contact us page --}}
                      " class="btn form-control btn-primary" style="line-height: 200%"
                         data-toggle="hover" data-bs-hover-animate="pulse">

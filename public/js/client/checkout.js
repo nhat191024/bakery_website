@@ -19,6 +19,20 @@ $(document).ready(function () {
 })
 
 function checkout() {
+    $('#checkout-loader').css('visibility', 'visible');
+    $('body').append('<div id="overlay"></div>');
+    $('#overlay').css({
+        position: 'fixed',
+        width: '100%',
+        height: '100%',
+        top: '0',
+        left: '0',
+        right: '0',
+        bottom: '0',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        zIndex: '2',
+        cursor: 'pointer'
+    });
     const fullName = $('#fullName');
     const address = $('#address');
     const district = $('#district');
@@ -44,27 +58,22 @@ function checkout() {
             'email': email.val(),
             'delivery': delivery.val(),
             'payment': payment,
-            'accessory_id' : accessory_id
+            'accessory_id': accessory_id
         },
         success: function (data) {
-            if (data.message === 'success') {
+            $('#checkout-loader').css('visibility', 'hidden');
+            $('#overlay').remove();
+            if (data.message === 'success' && payment == 2) {
+                const imageUrl = "https://api.vietqr.io/image/970436-0941000019966-w4UqEbj.jpg" + data.QR;
+                $('#myModal').modal('show');
+                $('#modalImage').attr('src', imageUrl);
+            } else {
                 window.location.href = '/';
             }
         }
     });
 }
 
-$(document).ready(function() {
-    console.log('ready');
-    $('.accessories').change(function() {
-        if ($(this).is(':checked')) {
-            var accessoryId = $(this).data('id');
-            var accessoryPrice = $(this).val();
-            accessory_id = accessoryId;
-            total = parseInt($('#subTotal').data('price')) + parseInt(accessoryPrice);
-            $('#totalPrice').text(new Intl.NumberFormat('de-DE').format(total) + 'đ');
-        }
-    });
-})
-
-
+function home() {
+    window.location.href = '/';
+}
