@@ -52,7 +52,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item  {{ Request::is('admin') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('') . '/' }}admin">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Bảng chức năng</span></a>
@@ -131,90 +131,90 @@
             </li> --}}
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/category*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.category.index') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Danh mục</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/product*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.product.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
                     <span>Sản phẩm</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/banner*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.banner.index') }}">
                     <i class="fas fa-fw fa-clipboard"></i>
                     <span>Banner</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/about*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.about.index') }}">
                     <i class="fas fa-fw fa-pen-fancy"></i>
                     <span>About Us</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/bill*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.bill.index') }}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Hóa đơn</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/message*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.message.index') }}">
                     <i class="fas fa-fw fa-bell "></i>
                     <span>Tin nhắn KH</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/variation*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.variation.index') }}">
                     <i class="fas fa-fw fa-chevron-circle-right"></i>
                     <span>Quản lý size</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/accessory*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.accessory.index') }}">
                     <i class="fas fa-fw fa-birthday-cake"></i>
                     <span>Quản lý phụ kiện</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/promotion*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.promotion.index') }}">
                     <i class="fas fa-fw fa-calendar"></i>
                     <span>Băng rôn quảng cáo SP</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/voucher*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.voucher.index') }}">
                     <i class="fas fa-fw fa-money-check"></i>
                     <span>Voucher</span>
                 </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item {{ Request::is('admin/blog*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.blog.index') }}">
                     <i class="fas fa-fw fa-blog"></i>
                     <span>Quản lý Blog</span></a>
             </li>
 
-            {{-- <li class="nav-item active">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
                     <span>Cách thức nấu</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.branch.index') }}">
                     <i class="fas fa-fw fa-warehouse"></i>
                     <span>Chi nhánh</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.kitchen.index') }}">
                     <i class="fas fa-fw fa-dumpster-fire"></i>
                     <span>Bếp</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.table.index') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Bàn</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.dish.index') }}">
                     <i class="fas fa-fw fa-cloud-meatball"></i>
                     <span>Món ăn</span></a>
             </li>
 
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.user.index') }}">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Quản lý tài khoản</span></a>
@@ -391,19 +391,6 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -411,7 +398,6 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
 
                 </nav>
