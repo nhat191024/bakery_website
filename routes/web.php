@@ -139,6 +139,7 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/bill')->group(function () {
             Route::get('/', [BillController::class, 'index'])->name('admin.bill.index');
             Route::get('/get-pending', [BillController::class, 'getPending'])->name('admin.bill.getPending');
+            Route::get('/update-status', [BillController::class, 'editStatus'])->name('admin.bill.updateStatus');
             Route::post('/edit', [BillController::class, 'editStatus'])->name('admin.bill.edit_status');
             Route::get('/{id}', [BillController::class, 'showDetail'])->name('admin.bill.show_detail');
         });
