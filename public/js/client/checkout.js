@@ -18,8 +18,6 @@ $(document).ready(function () {
     });
 })
 
-$('#loader')
-
 function checkout() {
     $('#checkout-loader').css('visibility', 'visible');
     $('body').append('<div id="overlay"></div>');
