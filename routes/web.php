@@ -148,6 +148,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', [VariationController::class, 'index'])->name('admin.variation.index');
             Route::get('/edit/{id}', [VariationController::class, 'showEdit'])->name('admin.variation.edit');
             Route::get('/delete/{id}', [VariationController::class, 'delete'])->name('admin.variation.delete');
+            Route::get('/destroy/{id}', [VariationController::class, 'destroy'])->name('admin.variation.destroy');
             Route::get('/restore/{id}', [VariationController::class, 'restore'])->name('admin.variation.restore');
             Route::post('/edit', [VariationController::class, 'saveEdit'])->name('admin.variation.saveEdit');
             Route::post('/add', [VariationController::class, 'saveAdd'])->name('admin.variation.saveAdd');
