@@ -210,20 +210,25 @@
     <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/client/checkout.js') }}"></script>
 
-    <div id="checkout-loader" class="fullscreen-checkout"><svg class="circular-checkout" width="48px"
+    <div id="checkout-loader" class="fullscreen-checkout">
+        <svg class="circular-checkout" width="48px"
             height="48px">
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
                 stroke="#eeeeee" />
             <circle class="path-checkout" cx="24" cy="24" r="22" fill="none" stroke-width="4"
                 stroke-miterlimit="10" stroke="#F96D00" />
         </svg>
+        <p>Đang xử lý đơn đặt hàng</p>
     </div>
 
     <style>
         #checkout-loader {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
             position: fixed;
-            width: 96px;
-            height: 96px;
+            width: 196px;
+            height: 116px;
             left: 50%;
             top: 50%;
             -webkit-transform: translate(-50%, -50%);
@@ -241,6 +246,14 @@
             z-index: 1000;
         }
 
+        #checkout-loader p {
+            width: 100%;
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+        }
+
         #checkout-loader .fullscreen-checkout {
             padding: 0;
             left: 0;
@@ -255,15 +268,6 @@
             -webkit-box-shadow: none;
             box-shadow: none;
         }
-
-        #checkout-loader .show-checkout {
-                -webkit-transition: opacity .4s ease-out, visibility 0s linear 0s;
-                -o-transition: opacity .4s ease-out, visibility 0s linear 0s;
-                transition: opacity .4s ease-out, visibility 0s linear 0s;
-                visibility: visible;
-                /* opacity: 1; */
-            }
-
 
         #checkout-loader .circular-checkout {
             -webkit-animation: loader-rotate 2s linear infinite;
