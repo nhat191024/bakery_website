@@ -48,9 +48,15 @@
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $item['name'] }}</td>
-                                        <td class="text-center"><a class="btn btn-warning" href="{{route('admin.category.show_edit', ['id' => $item->id])}}">Sửa</a> <a
-                                                class="btn btn-danger" href="{{route('admin.category.delete', ['id' => $item->id])}}"
-                                                onclick="confirm('Bạn chắc chắn chứ?')"> Xóa </a> </td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning" href="{{route('admin.category.show_edit', ['id' => $item->id])}}">
+                                                Sửa
+                                            </a>
+                                            <a class="btn btn-danger" onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn xoá danh mục: {{ $item->name }}?\nLƯU Ý: Nếu trong danh mục này còn tồn tại sản phẩm, việc xoá sẽ không thể thực hiện!')) { window.location.href = '{{route('admin.category.delete', ['id' => $item->id])}}'; }">
+                                                Xoá
+                                            </a>
+
+                                    </td>
                                     </tr>
                                 @endforeach
                             </tbody>
