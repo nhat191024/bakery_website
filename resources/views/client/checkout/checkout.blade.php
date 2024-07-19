@@ -44,14 +44,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="phone">Số điện thoại</label>
-                                        <input id="phone" type="number" class="form-control"
+                                        <input minlength="10" maxlength="13" id="phone" type="number" class="form-control"
                                             placeholder="(+84) 123 456 789" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email">Địa chỉ email</label>
-                                        <input id="email" type="text" class="form-control"
+                                        <input id="email" type="email" class="form-control"
                                             placeholder="Địa chỉ email để nhận thông báo" required>
                                     </div>
                                 </div>
