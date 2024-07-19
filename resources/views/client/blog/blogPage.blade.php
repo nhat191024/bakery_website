@@ -1,6 +1,6 @@
 @extends('client.layout.layout')
 @section('content')
-    <div class="hero-wrap hero-bread" style="background-image: url({{ URL::asset('img/home/bg-2.jpg') }});">
+    <div class="hero-wrap hero-bread" style="background-image: url({{ URL::asset('img/home/bg-2.webp') }});">
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
@@ -29,7 +29,7 @@
                                             <div><a href="#">{{ $blog->user->username }}</a></div>
                                             <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
                                             </div>
-                                        </div>  
+                                        </div>
                                         <h3 class="heading"><a href="#">{{ $blog->title }}</a></h3>
                                         <p>{{ $blog->subtitle }}</p>
                                         <p><a href="{{ route('client.blog.show', ['id' => $blog->id]) }}" class="btn btn-primary py-2 px-3">Đọc thêm</a></p>
