@@ -25,8 +25,8 @@
                         </div>
                         <div class="form-group">
                             <label for="">Nội dung giới thiệu</label>
-                            <input readonly type="text" class="form-control" id="productDescription" aria-describedby=""
-                                name="product_description" placeholder="Nhập nội dung sản phẩm" value="{{ $productInfo->description }}">
+                            <textarea readonly class="form-control" id="productDescription" aria-describedby=""
+                                name="product_description" placeholder="Nhập nội dung sản phẩm" rows="3">{{ $productInfo->description }}</textarea>
                         </div>
                         <label for="">Giá Sản Phẩm</label>
 
@@ -39,7 +39,7 @@
                                     <label class="custom-control-label" for="size_{{ $size['id'] }}">{{ $size['name'] }}</label>
                                 </div>
                                 <input readonly type="number" class="form-control ml-2 size_price" id="size_price_{{ $size['id'] }}"
-                                    aria-describedby="" name="product_price" placeholder="Nhập giá cho size {{ $size['name'] }}"
+                                    aria-describedby="" name="product_price" placeholder="Sản phẩm hiện không có size này"
                                     value="{{ $productInfo->product_variations->where('variation_id', $size['id'])->first()?->price }}"
                                     >
                             </div>
@@ -50,7 +50,7 @@
                             <input readonly type="hidden" name="id" id="productId" value="{{$productInfo->id}}">
                             <div style="display: flex;">
                                 <a class="btn btn-primary mt-4" onclick="history.back()">Quay lại</a>
-                                <a class="btn btn-warning mt-4 ml-2" href="{{ route('admin.product.show_edit', ['id' => $productInfo->id]) }}">Sửa</a>
+                                <a class="btn btn-warning mt-4 ml-2" href="{{ route('admin.product.show_edit', ['id' => $productInfo->id]) }}">Chỉnh sửa</a>
                             </div>
                         </div>
 
