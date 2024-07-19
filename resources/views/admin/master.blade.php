@@ -301,7 +301,7 @@
                                 <h6 class="dropdown-header">
                                     Hoá đơn đang chờ
                                 </h6>
-                                <div id="pending-bill-list"></div>
+                                <div id="pending-bill-list" class="overflow-auto" style="max-height: 500px;"></div>
                                 <div class="d-none billPendingTemplate">
                                     <a class="dropdown-item d-flex align-items-center" href="" id="bill-link">
                                         <div class="mr-3">
@@ -335,7 +335,7 @@
                                 <h6 class="dropdown-header">
                                     Tin nhắn từ khách hàng
                                 </h6>
-                                <div id="message-list"></div>
+                                <div id="message-list" class="overflow-auto" style="max-height: 500px;"></div>
                                 <div class="d-none messageTemplate">
                                     <p id="message-id" class="d-none">0</p>
                                     <a class="dropdown-item d-flex align-items-center" id="message-link"
