@@ -49,14 +49,10 @@
 
                             <input readonly type="hidden" name="id" id="productId" value="{{$productInfo->id}}">
                             <div style="display: flex;">
-                                <a class="btn btn-primary mt-4" onclick="history.back()">Quay lại</a>
+                                <a class="btn btn-primary mt-4" onclick="window.location = '{{ route('admin.product.index') }}'">Quay về</a>
                                 <a class="btn btn-warning mt-4 ml-2" href="{{ route('admin.product.show_edit', ['id' => $productInfo->id]) }}">Chỉnh sửa</a>
                             </div>
                         </div>
-
-
-
-
                 </div>
                 <div class="col-md-6 col-12">
                     <label for="">Ảnh sản phẩm (Preview)</label>
