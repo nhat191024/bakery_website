@@ -13,6 +13,7 @@ class Helper
     public const PAYMENT_TRANSFER = 2;
     public const BILL_UNPAID = 0;
     public const BILL_PAID = 1;
+    public const BILL_CANCEL = 2;
     public const DELIVERY_METHOD = [
         '1' => 'Ship tận nơi',
         '2' => 'Lấy tại quầy'
@@ -23,7 +24,8 @@ class Helper
     ];
     public const BILL_STATUS = [
         '0' => 'Chưa thanh toán',
-        '1' => 'Đã thanh toán'
+        '1' => 'Đã thanh toán',
+        '2' => 'Đã huỷ bỏ'
     ];
 
     public static function getWithTrashedById($id)
