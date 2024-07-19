@@ -118,11 +118,10 @@
                     <div class="ftco-footer-widget mb-4 ml-md-5">
                         <h2 class="ftco-heading-2">Menu</h2>
                         <ul class="list-unstyled">
-                            <li><a href="{{ route('client.shop.productList') }}" class="py-2 d-block">Cửa hàng</a>
-                            </li>
-                            <li><a href="{{ route('client.contact.index') }}" class="py-2 d-block">Giới thiệu</a>
-                            </li>
-                            <li><a href="" class="py-2 d-block">Tin tức</a></li>
+                            <li><a href="{{ route('client.homepage.index') }}" class="py-2 d-block">Trang chủ</a></li>
+                            <li><a href="{{ route('client.shop.productList') }}" class="py-2 d-block">Cửa hàng</a></li>
+                            <li><a href="{{ route('client.about.index') }}" class="py-2 d-block">Giới thiệu</a></li>
+                            <li class="py-2 d-block"><a href="{{ route('client.blog.index') }}" >Tin tức</a></li>
                             <li><a href="{{ route('client.contact.index') }}" class="py-2 d-block">Liên hệ</a></li>
                         </ul>
                     </div>
