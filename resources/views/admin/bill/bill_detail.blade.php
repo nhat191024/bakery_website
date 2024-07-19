@@ -97,8 +97,8 @@
                                 @foreach ($billInfo->bill_details as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ Helper::getWithTrashedById($item->product_id)->name }}</td>
-                                        <td>{{ $item->variations->name }}</td>
+                                        <td>{{ Helper::getWithTrashedProductById($item->product_id)->name }}</td>
+                                        <td>{{ Helper::getWithTrashedVariationById($item->variation_id)->name }}</td>
                                         <td>{{ $item->quantity }}</td>
                                         <td>{{ number_format($item->price, 0, ',', '.') }}đ</td>
                                         <td>{{ number_format($item->price * $item->quantity, 0, ',', '.') }}đ</td>
