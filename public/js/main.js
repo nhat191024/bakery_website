@@ -310,6 +310,9 @@
 
 	function makeTimer() {
 		var endSale = document.getElementById("link")
+		if (typeof endDate === 'undefined') {
+			return;
+		}
 		var endTime = new Date(endDate);
 		endTime = (Date.parse(endTime) / 1000);
 
