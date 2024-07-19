@@ -32,22 +32,43 @@ class ProductService
             'description' => $productDescription,
             'image' => $imageName
         ])->id;
-        Product_variation::create([
-            'variation_id' => 1,
-            'product_id' => $id,
-            'price' => $productPrice,
-        ]);
+
+        foreach ($productPrice as $sizePriceJson) {
+            $sizePrice = json_decode($sizePriceJson, true);
+            Product_variation::create([
+                'variation_id' => $sizePrice['id'],
+                'product_id' => $id,
+                'price' => ($sizePrice['price'] == null) ? 0 : $sizePrice['price'],
+            ]);
+        }
+        return $id;
     }
 
-    public function edit($id, $categoryId, $productName, $imageName)
+    public function edit($id, $categoryId, $productName, $productPrice, $productDescription, $imageName)
     {
         $product = Products::where('id', $id)->first();
         $product->category_id = $categoryId;
+        $product->description = $productDescription;
         $product->name = $productName;
         if ($imageName != null) {
             $product->image = $imageName;
         }
         $product->save();
+        if ($productPrice != null) {
+            $productVariations = Product_variation::where('product_id', $id)->get();
+            foreach ($productVariations as $productVariation) {
+                $productVariation->delete();
+            }
+            foreach ($productPrice as $sizePriceJson) {
+                $sizePrice = json_decode($sizePriceJson, true);
+                Product_variation::create([
+                    'variation_id' => $sizePrice['id'],
+                    'product_id' => $id,
+                    'price' => ($sizePrice['price'] == null) ? 0 : $sizePrice['price'],
+                ]);
+            }
+        }
+        return $id;
     }
 
     public function editDetail($id, $productPrice)
