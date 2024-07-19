@@ -310,13 +310,13 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <div id="order_date" class="small text-gray-500">December 12, 2019</div>
+                                            <div id="order_date" class="small text-gray-900">December 12, 2019</div>
                                             <span id="bill-description" class="font-weight-bold">Đơn hàng mới</span>
-                                            <div id="bill-phone" class="small text-gray-500">0987654321</div>
+                                            <div id="bill-phone" class="small text-gray-900">0987654321</div>
                                         </div>
                                     </a>
                                 </div>
-                                <a class="dropdown-item text-center small text-gray-500" href="{{ route('admin.bill.index') }}">Xem toàn bộ
+                                <a class="dropdown-item text-center small text-gray-600" href="{{ route('admin.bill.index') }}">Xem toàn bộ
                                     đơn hàng</a>
                             </div>
                         </li>
@@ -350,11 +350,11 @@
                                         </div>
                                         <div class="font-weight-bold">
                                             <div class="text-truncate" id="message-subject">Subject</div>
-                                            <div class="small text-gray-500" id="message-info">Name · 1m</div>
+                                            <div class="small text-gray-900" id="message-info">Name · 1m</div>
                                         </div>
                                     </a>
                                 </div>
-                                <a class="dropdown-item text-center small text-gray-500"
+                                <a class="dropdown-item text-center small text-gray-600"
                                     href="{{ route('admin.message.index') }}">Xem thêm tin nhắn
                                 </a>
                             </div>
