@@ -57,7 +57,7 @@
                                         <td>{{ number_format($item->total_amount, 0, ',', '.') }}đ</td>
                                         <td
                                             class="{{ $item->status == 0 ? 'text-danger' : ($item->status == 2 ? 'text-warning' : 'text-success') }} font-weight-bold">
-                                            {{ $item->status == 2 ? 'Đã huỷ' : 'Đã thanh toán' }}
+                                            {{ $item->status == 2 ? 'Đã huỷ' : ($item->status == 0 ? 'Chưa thanh toán' : 'Đã thanh toán') }}
                                         </td>
                                         <td class="text-center">
                                             <a class="btn btn-info"
