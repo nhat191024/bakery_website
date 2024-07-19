@@ -55,10 +55,10 @@
                                         <td>{{ $item->categories->name }}</td>
                                         <td>{{ $item['name'] }}</td>
                                         <td>{{ $item->product_variations->count() == 1
-                                            ? number_format($item->product_variations->first()->price)
+                                            ? number_format($item->product_variations->first()->price) . 'đ'
                                             : number_format($item->product_variations->min('price')) .
-                                                '~' .
-                                                number_format($item->product_variations->max('price')) }}
+                                                'đ ~ ' .
+                                                number_format($item->product_variations->max('price')) . 'đ' }}
                                         </td>
                                         <td class="text-center"><img width="200px"
                                                 src="{{ url('img') . '/client/shop/' . $item['image'] }}" alt=""></td>
