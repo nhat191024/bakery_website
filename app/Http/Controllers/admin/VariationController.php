@@ -52,7 +52,7 @@ class VariationController extends Controller
     public function delete($id)
     {
         $this->variationService->delete($id);
-        return redirect()->route('admin.variation.index')->with('success', 'Đã xoá thành công');
+        return redirect()->route('admin.variation.index')->with('success', 'Đã ẩn thành công');
     }
     public function restore($id)
     {
