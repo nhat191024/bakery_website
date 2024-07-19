@@ -44,20 +44,23 @@
                                     <tr>
                                         <td>{{ $item->name }}</td>
                                         <td class="text-center">
-                                            <a class="btn btn-warning"
+                                            <a class="btn btn-outline-warning"
                                                 href="{{ route('admin.variation.edit', ['id' => $item->id]) }}">
                                                 Sửa
                                             </a>
                                             @if (!$item->deleted_at)
-                                                <a class="btn btn-danger"
+                                                <a class="btn btn-warning"
                                                     onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn ẩn size {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.variation.delete', ['id' => $item->id]) }}'; }"
-                                                > Nhấn để ẩn </a>
-                                            @endif
-                                            @if ($item->deleted_at)
+                                                > Nhấn để tạm ẩn </a>
+                                                @endif
+                                                @if ($item->deleted_at)
                                                 <a class="btn btn-info"
-                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn khôi phục size {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.variation.restore', ['id' => $item->id]) }}'; }"
-                                                    > Khôi phục </a>
-                                            @endif
+                                                onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn khôi phục size {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.variation.restore', ['id' => $item->id]) }}'; }"
+                                                > Khôi phục </a>
+                                                @endif
+                                                <a class="btn btn-outline-danger"
+                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn XOÁ VĨNH VIỄN size {{ $item->name }} chứ?\nLƯU Ý: Nếu trong danh mục này còn tồn tại sản phẩm, việc xoá sẽ LOẠI BỎ GIÁ CỦA SIZE ĐÓ KHỎI TẤT CẢ SẢN PHẨM\n(Sản phẩm gốc vẫn sẽ được giữ nguyên)\nBạn sẽ phải thiết đặt lại giá sản phẩm cho các size mới tạo!')) { window.location.href = '{{ route('admin.variation.destroy', ['id' => $item->id]) }}'; }"
+                                                > Xoá vĩnh viễn </a>
                                         </td>
                                     </tr>
                                 @endforeach
