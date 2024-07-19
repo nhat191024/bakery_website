@@ -57,7 +57,7 @@ class ProductController extends Controller
         $productDescription = $request->product_description ?? null;
         $imageName = time() . '_' . $request->product_image->getClientOriginalName();
         // Public Folder
-        $request->product_image->move(public_path('img'), $imageName);
+        $request->product_image->move(public_path('img/client/shop'), $imageName);
         return $this->productService->add($categoryId, $productName, $productPrice, $productDescription, $imageName);
 
 }
@@ -97,10 +97,10 @@ class ProductController extends Controller
         $productDescription = $request->product_description ?? null;
         if ($request->product_image && $request->product_image != 'undefined') {
             $imageName = time() . '_' . $request->product_image->getClientOriginalName();
-            $request->product_image->move(public_path('img'), $imageName);
+            $request->product_image->move(public_path('img/client/shop'), $imageName);
             $oldImagePath = $this->productService->getById($request->id)->image;
-            if (file_exists(public_path('img') . '/' . $oldImagePath)) {
-                unlink(public_path('img') . '/' . $oldImagePath);
+            if (file_exists(public_path('img/client/shop') . '/' . $oldImagePath)) {
+                unlink(public_path('img/client/shop') . '/' . $oldImagePath);
             }
         }
         return $this->productService->edit($id, $categoryId, $productName, $productPrice, $productDescription, $imageName ?? null);

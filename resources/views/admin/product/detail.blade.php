@@ -57,7 +57,7 @@
                 <div class="col-md-6 col-12">
                     <label for="">Ảnh sản phẩm (Preview)</label>
                     <div class="custom-file">
-                        <img height="300px" src="{{ url('img') . '/' . $productInfo['image'] }}" alt="">
+                        <img height="300px" src="{{ url('img') . '/client/shop/' . $productInfo['image'] }}" alt="">
                     </div>
                 </div>
             </div>
