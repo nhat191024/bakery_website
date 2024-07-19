@@ -61,7 +61,7 @@
                                                 number_format($item->product_variations->max('price')) }}
                                         </td>
                                         <td class="text-center"><img width="200px"
-                                                src="{{ url('img') . '/' . $item['image'] }}" alt=""></td>
+                                                src="{{ url('img') . '/client/shop/' . $item['image'] }}" alt=""></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning"
                                                 href="{{ route('admin.product.show_edit', ['id' => $item->id]) }}">Sửa</a>
