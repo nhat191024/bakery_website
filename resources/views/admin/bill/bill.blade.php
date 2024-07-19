@@ -55,13 +55,14 @@
                                         <td>{{ $item->address }}</td>
                                         <td>{{ $item->phone_number }}</td>
                                         <td>{{ number_format($item->total_amount, 0, ',', '.') }}đ</td>
-                                        <td>{{ $item->status == 0 ? 'Chưa thanh toán' : 'Đã thanh toán' }}</td>
+                                        <td
+                                            class="{{ $item->status == 0 ? 'text-danger' : ($item->status == 2 ? 'text-warning' : 'text-success') }} font-weight-bold">
+                                            {{ $item->status == 2 ? 'Đã huỷ' : 'Đã thanh toán' }}
+                                        </td>
                                         <td class="text-center">
                                             <a class="btn btn-info"
                                                 href="{{ route('admin.bill.show_detail', ['id' => $item->id]) }}">Chi
                                                 tiết</a>
-                                            <a class="btn btn-warning"
-                                                href="{{ route('admin.bill.show_detail', ['id' => $item->id]) }}">Sửa tình trạng</a>
                                         </td>
                                     </tr>
                                 @endforeach
