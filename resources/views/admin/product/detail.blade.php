@@ -7,7 +7,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Thông tin sản phẩm</h1>
+        <h1 class="h3 mb-2 text-gray-800">Thông tin sản phẩm (Đã được thêm)</h1>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body row">
