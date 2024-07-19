@@ -5,18 +5,21 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Service\admin\CategoryService;
 use App\Service\admin\ProductService;
+use App\Service\admin\VariationService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     private $productService;
     private $categoryService;
+    private $variationService;
 
     //
     public function __construct(ProductService $productService, CategoryService $categoryService)
     {
         $this->productService = $productService;
         $this->categoryService = $categoryService;
+        $this->variationService = new VariationService();
     }
 
     public function index()
@@ -28,17 +31,16 @@ class ProductController extends Controller
     public function showAddProduct()
     {
         $allCategory = $this->categoryService->getAll();
-        return view('admin.product.add_product', compact('allCategory'));
+        $allVariations = $this->variationService->getAll();
+        return view('admin.product.add_product', compact('allCategory','allVariations'));
     }
 
     public function showDetail(Request $request)
     {
-        $request->validate([
-            'id' => 'required',
-        ]);
         $id = $request->id;
         $productInfo = $this->productService->getById($id);
-        return view('admin.product.detail', compact('productInfo'));
+        $allVariations = $this->variationService->getAll();
+        return view('admin.product.detail', compact('id', 'productInfo','allVariations'));
     }
 
     public function addProduct(Request $request)
@@ -56,16 +58,17 @@ class ProductController extends Controller
         $imageName = time() . '_' . $request->product_image->getClientOriginalName();
         // Public Folder
         $request->product_image->move(public_path('img'), $imageName);
-        $this->productService->add($categoryId, $productName, $productPrice, $productDescription, $imageName);
-        return redirect(route('admin.product.index'))->with('success', 'Thêm sản phẩm thành công');
-    }
+        return $this->productService->add($categoryId, $productName, $productPrice, $productDescription, $imageName);
+
+}
 
     public function showEditProduct(Request $request)
     {
         $id = $request->id;
         $allCategory = $this->categoryService->getAll();
         $productInfo = $this->productService->getById($id);
-        return view('admin.product.edit_product', compact('id', 'productInfo', 'allCategory'));
+        $allVariations = $this->variationService->getAll();
+        return view('admin.product.edit_product', compact('id', 'productInfo', 'allCategory', 'allVariations'));
     }
 
     public function showEditDetail(Request $request)
@@ -90,7 +93,9 @@ class ProductController extends Controller
         $id = $request->id;
         $categoryId = $request->category_id;
         $productName = $request->product_name;
-        if ($request->product_image) {
+        $productPrice = $request->product_price;
+        $productDescription = $request->product_description ?? null;
+        if ($request->product_image && $request->product_image != 'undefined') {
             $imageName = time() . '_' . $request->product_image->getClientOriginalName();
             $request->product_image->move(public_path('img'), $imageName);
             $oldImagePath = $this->productService->getById($request->id)->image;
@@ -98,8 +103,7 @@ class ProductController extends Controller
                 unlink(public_path('img') . '/' . $oldImagePath);
             }
         }
-        $this->productService->edit($id, $categoryId, $productName, $imageName ?? null);
-        return redirect(route('admin.product.index'))->with('success', 'Sửa sản phẩm thành công');
+        return $this->productService->edit($id, $categoryId, $productName, $productPrice, $productDescription, $imageName ?? null);
     }
 
     public function editDetail(Request $request)
