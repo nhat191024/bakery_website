@@ -52,7 +52,16 @@
 
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="{{ route('admin.blog.showEdit', ['id' => $item->id]) }}">Sửa</a>
-                                            <a class="btn btn-danger" href="{{ route('admin.blog.delete', ['id' => $item->id]) }}">Ẩn blog</a>
+                                            @if (!$item->deleted_at)
+                                                <a class="btn btn-danger"
+                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn ẩn blog ({{ $item->title }}) chứ?')) { window.location.href = '{{ route('admin.blog.delete', ['id' => $item->id]) }}'; }"
+                                                    > Nhấn để ẩn </a>
+                                            @endif
+                                            @if ($item->deleted_at)
+                                                <a class="btn btn-info"
+                                                onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn hiện blog ({{ $item->title }}) chứ?')) { window.location.href = '{{ route('admin.blog.restore', ['id' => $item->id]) }}'; }"
+                                                    > Khôi phục </a>
+                                            @endif
                                             <a class="btn btn-info" href="{{ route('admin.blog.showDetail', ['id' => $item->id]) }}">Xem chi tiết</a>
                                         </td>
                                     </tr>
