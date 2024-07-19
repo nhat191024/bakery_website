@@ -11,6 +11,9 @@
             <h1 class="h3 mb-2 text-gray-800">Quản lý Size</h1>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <a class="btn btn-primary" href="{{ route('admin.variation.show_add') }}">Thêm size mới</a>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         @if ($message = Session::get('success'))
@@ -40,8 +43,21 @@
                                 @foreach ($allVariation as $item)
                                     <tr>
                                         <td>{{ $item->name }}</td>
-                                        <td class="text-center"><a class="btn btn-warning"
-                                                href="{{ route('admin.variation.edit', ['id' => $item->id]) }}">Sửa</a>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning"
+                                                href="{{ route('admin.variation.edit', ['id' => $item->id]) }}">
+                                                Sửa
+                                            </a>
+                                            @if (!$item->deleted_at)
+                                                <a class="btn btn-danger"
+                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn ẩn size {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.variation.delete', ['id' => $item->id]) }}'; }"
+                                                > Nhấn để ẩn </a>
+                                            @endif
+                                            @if ($item->deleted_at)
+                                                <a class="btn btn-info"
+                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn khôi phục size {{ $item->name }} chứ?')) { window.location.href = '{{ route('admin.variation.restore', ['id' => $item->id]) }}'; }"
+                                                    > Khôi phục </a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
