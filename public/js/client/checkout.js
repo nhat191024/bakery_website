@@ -69,8 +69,6 @@ function checkout() {
                 const imageUrl = "https://api.vietqr.io/image/970436-0941000019966-w4UqEbj.jpg" + data.QR;
                 $('#myModal').modal('show');
                 $('#modalImage').attr('src', imageUrl);
-                // $('#total').text(new Intl.NumberFormat('de-DE').format(data.total) + 'đ');
-                // $('#description').text("Odouceurs_bill_#"+data.description);
             } else {
                 window.location.href = '/';
             }
