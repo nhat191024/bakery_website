@@ -145,7 +145,7 @@
 
     @foreach ($promotions as $promotion)
         <section class="ftco-section img"
-            style="background-image: url({{ asset('img/client/shop/' . $promotion->Products->image) }});">
+            style="background-image: url({{ asset('img/client/shop/' . $promotion->products->image) }});">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row justify-content-end">
@@ -153,8 +153,8 @@
                         <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
                             <span class="subheading">Giá ưu đãi cho bạn</span>
                             <h2 class="text-sale">Sự kiện giảm giá</h2>
-                            <h3 class="text-sale">{{ $promotion->Products->name }}</h3>
-                            <span class="price">{{ $promotion->Products->fake_price }}Đ</span>
+                            <h3 class="text-sale">{{ $promotion->products->name }}</h3>
+                            <span class="price">{{ $promotion->products->fake_price }}Đ</span>
                             <span style="margin-left: 10px;"><a href="#" class="sale"> Chỉ còn {{ $price }}
                                     Đ</a></span>
                             <div id="timer" class="d-flex mt-5">
