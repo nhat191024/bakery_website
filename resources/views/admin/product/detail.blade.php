@@ -1,84 +1,79 @@
 @extends('admin.master')
 @section('main')
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Thông tin sản phẩm</h1>
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-body row">
+                <div class="table-responsive col-md-6 col-12">
+                        <div class="form-group">
+                            <label for="categorySelect">Danh mục</label>
+                            <select readonly disabled name="category_id" class="form-control" id="categorySelect">
+                                        <option> {{ $productInfo->categories->name }} </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tên sản phẩm</label>
+                            <input readonly maxlength="255" required type="text" class="form-control" id="productName" aria-describedby=""
+                                name="product_name" value="{{ $productInfo->name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung giới thiệu</label>
+                            <input readonly type="text" class="form-control" id="productDescription" aria-describedby=""
+                                name="product_description" placeholder="Nhập nội dung sản phẩm" value="{{ $productInfo->description }}">
+                        </div>
+                        <label for="">Giá Sản Phẩm</label>
+
+                        @foreach ($allVariations as $size)
+                            <div class="form-group d-flex align-items-center">
+                                <div class="custom-control custom-checkbox">
+                                    <input disabled name="product_size" type="checkbox" class="custom-control-input" id="size_{{ $size['id'] }}" data-id="{{ $size['id'] }}"
+                                        {{ $productInfo->product_variations->where('variation_id', $size['id'])->first() ? 'checked' : '' }}
+                                    >
+                                    <label class="custom-control-label" for="size_{{ $size['id'] }}">{{ $size['name'] }}</label>
+                                </div>
+                                <input readonly type="number" class="form-control ml-2 size_price" id="size_price_{{ $size['id'] }}"
+                                    aria-describedby="" name="product_price" placeholder="Nhập giá cho size {{ $size['name'] }}"
+                                    value="{{ $productInfo->product_variations->where('variation_id', $size['id'])->first()?->price }}"
+                                    >
+                            </div>
+                        @endforeach
+
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+
+                            <input readonly type="hidden" name="id" id="productId" value="{{$productInfo->id}}">
+                            <div style="display: flex;">
+                                <a class="btn btn-primary mt-4" onclick="history.back()">Quay lại</a>
+                                <a class="btn btn-warning mt-4 ml-2" href="{{ route('admin.product.show_edit', ['id' => $productInfo->id]) }}">Sửa</a>
+                            </div>
+                        </div>
 
 
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-            <!-- Page Heading -->
-            <h1 class="h3 mb-2 text-gray-800">Chi tiết sản phẩm: <strong>{{ $productInfo->name }} </strong></h1>
-            <!-- DataTales Example -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <a class="btn btn-primary" href="{{ route('admin.product.show_add_detail') }}">Thêm sản phẩm</a>
 
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        @if ($message = Session::get('success'))
-                            <div class="alert alert-success alert-block">
-                                <strong>{{ $message }}</strong>
-                            </div>
-                        @endif
-                        @if ($message = Session::get('error'))
-                            <div class="alert alert-danger alert-block">
-                                <strong>{{ $message }}</strong>
-                            </div>
-                        @endif
-
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên biến thể</th>
-                                    <th>Giá</th>
-                                    <th>Chức năng</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên biến thể</th>
-                                    <th>Giá</th>
-                                    <th>Chức năng</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                @foreach ($productInfo->product_variations as $key => $item)
-                                    <tr>
-                                        <td>{{ ++$key }}</td>
-                                        <td>{{ $item->variation->name }}</td>
-                                        <td>{{ $item['price'] }}</td>
-                                        <td class="text-center"><a class="btn btn-danger"
-                                                href="{{ route('admin.product.show_edit_detail', ['id' => $item->id, 'product_id' => $productInfo->id]) }}">
-                                                Sửa
-                                            </a>
-                                            @if ($productInfo->product_variations->count() > 1)
-                                                <a class="btn btn-danger"
-                                                    href="{{ route('admin.product.delete_detail', ['id' => $item->id, 'product_id' => $productInfo->id]) }}"
-                                                    onclick="confirm('Bạn chắc chắn chứ?')"> Xóa
-                                                </a>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                <div class="col-md-6 col-12">
+                    <label for="">Ảnh sản phẩm (Preview)</label>
+                    <div class="custom-file">
+                        <img height="300px" src="{{ url('img') . '/' . $productInfo['image'] }}" alt="">
                     </div>
                 </div>
             </div>
-
         </div>
-        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /.container-fluid -->
 
     </div>
     <!-- End of Main Content -->
 
 
 
-    </div>
     <!-- End of Content Wrapper -->
 @endsection
