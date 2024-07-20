@@ -17,9 +17,10 @@ class HomePageController extends Controller
     // Bảng product
     public function index()
     {
+        $lang = session()->get('language');
         $products = Products::orderBy('created_at', 'desc')->take(8)->get();
-        $categoriesL = Categories::orderBy('id','asc')->take(2)->get();
-        $categoriesR = Categories::orderBy('id','desc')->take(2)->get();
+        $categoriesL = Categories::orderBy('id', 'asc')->take(2)->get();
+        $categoriesR = Categories::orderBy('id', 'desc')->take(2)->get();
         $messages = Message::orderBy('created_at', 'asc')->take(5)->get();
         $imagesCategoryL = [];
         $imagesCategoryR = [];
@@ -28,7 +29,7 @@ class HomePageController extends Controller
             if ($product && $product->image) {
                 $imagesCategoryL[$category->id] = $product->image;
             } else {
-                $imagesCategoryL[$category->id] = 'product-22.webp'; 
+                $imagesCategoryL[$category->id] = 'product-22.webp';
             }
         }
         foreach ($categoriesR as $categoryR) {
@@ -36,12 +37,12 @@ class HomePageController extends Controller
             if ($product && $product->image) {
                 $imagesCategoryR[$categoryR->id] = $product->image;
             } else {
-                $imagesCategoryR[$categoryR->id] = 'product-22.webp'; 
+                $imagesCategoryR[$categoryR->id] = 'product-22.webp';
             }
         }
-        $images = Banners::all();
+        $banners = Banners::all();
         $promotions = Promotions::with('Products')->orderBy('product_id', 'asc')->take(1)->get();
         $price = Product_variation::with('product.promotions')->orderBy('product_id', 'asc')->value('price');
-        return view('client.homePage', compact('products', 'messages', 'images','price', 'promotions','categoriesL','categoriesR','imagesCategoryL','imagesCategoryR'));
+        return view('client.homePage', compact('products', 'messages', 'banners', 'price', 'promotions', 'categoriesL', 'categoriesR', 'imagesCategoryL', 'imagesCategoryR', 'lang'));
     }
 }

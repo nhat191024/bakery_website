@@ -1,11 +1,17 @@
 @extends('client.layout.layout')
 @section('content')
-    <div class="hero-wrap hero-bread" style="background-image: url({{ URL::asset('img/home/bg-2.jpg') }});">
+    <div class="hero-wrap hero-bread" style="background-image: url({{ URL::asset('img/home/bg-2.webp') }});">
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('client.homepage.index')}}">Trang chủ</a></span>/<span>Tin tức</span></p>
-                    <h1 class="mb-0 bread">{{$Blogs->title}}</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a
+                                href="{{ route('client.homepage.index') }}">{{ __('blog.breadcrumb1') }}</a></span>/<span>{{ __('blog.breadcrumb2') }}</span>
+                    </p>
+                    <h1 class="mb-0 bread">
+                        @if ($lang == 'en')
+                            {{ $Blogs->title_en }}@else{{ $Blogs->title }}
+                        @endif
+                    </h1>
                 </div>
             </div>
         </div>
@@ -15,18 +21,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
-                    <h1 class="mb-3">{{ $Blogs->title }}</h1>
+                    <h1 class="mb-3">
+                        @if ($lang == 'en')
+                            {{ $Blogs->title_en }}@else{{ $Blogs->title }}
+                        @endif
+                    </h1>
                     <h5 class="mb-4">
-                        <p> Tác giả : {{ $Blogs->user->username }}</p>
+                        <p>{{ __('blog.author') }}: {{ $Blogs->user->username }}</p>
                     </h5>
 
                     <img src="images/image_1.jpg" alt="" class="img-fluid">
                     </p>
-                    <h5>{{ $Blogs->subtitle }}</h5>
+                    <h5>
+                        @if ($lang == 'en')
+                            {{ $Blogs->subtitle_en }}@else{{ $Blogs->subtitle }}
+                        @endif
+                    </h5>
                     <p>
                         <img src="images/image_2.jpg" alt="" class="img-fluid">
                     </p>
-                    <div>{!! $Blogs->content !!}</div>
+                    <div>
+                        @if ($lang == 'en')
+                            {!! $Blogs->content_en !!}@else{!! $Blogs->content !!}
+                        @endif
+                    </div>
                     {{-- <div class="tag-widget post-tag-container mb-5 mt-5">
                         <div class="tagcloud">
                             <a href="#" class="tag-cloud-link">Life</a>
@@ -186,26 +204,32 @@
                         </form>
                     </div> --}}
                     <div class="sidebar-box ftco-animate">
-                        <h3 class="heading">Danh mục bánh </h3>
+                        <h3 class="heading">{{ __('blog.list') }}</h3>
                         <ul class="categories">
                             @foreach ($Categories as $item)
-                                <li><a href="{{ route('client.shop.productList')}}/{{$item->id}}">{{ $item->name }} </a></li>
+                                <li>
+                                    <a href="{{ route('client.shop.productList') }}/{{ $item->id }}">
+                                        @if ($lang == 'en')
+                                            {{ $item->name_en }}@else{{ $item->name }}
+                                        @endif
+                                    </a>
+                                </li>
                             @endforeach
-                            {{-- <li><a href="#">Vegetables <span>(12)</span></a></li> --}}
-                            {{-- <li><a href="#">Fruits <span>(22)</span></a></li>
-                            <li><a href="#">Juice <span>(37)</span></a></li>
-                            <li><a href="#">Dries <span>(42)</span></a></li> --}}
                         </ul>
                     </div>
-
                     <div class="sidebar-box ftco-animate">
-                        <h3 class="heading">Tin tức gần đây</h3>
+                        <h3 class="heading">{{ __('blog.recent') }}</h3>
                         @foreach ($recentBlogs as $item)
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url({{ asset('img/client/shop/product-4.webp') }});"></a>
+                                <a class="blog-img mr-4"
+                                    style="background-image: url({{ asset('img/client/shop/product-4.webp') }});"></a>
                                 <div class="text">
-                                    <h4 class="heading-2"><a href="{{ route('client.blog.show', ['id' => $item->id]) }}">{{ $item->title }}</a></h4>
-
+                                    <h4 class="heading-2"><a href="{{ route('client.blog.show', ['id' => $item->id]) }}">
+                                            @if ($lang == 'en')
+                                                {{ $item->title_en }}@else{{ $item->title }}
+                                            @endif
+                                        </a>
+                                    </h4>
                                     <div class="meta">
                                         <div><a href="#"><span class="icon-calendar"></span>
                                                 {{ $item->created_at->format('d/m/Y') }}</a></div>
@@ -215,22 +239,6 @@
                                 </div>
                             </div>
                         @endforeach
-                        <div class="block-21 mb-4 d-flex">
-                            {{-- <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                          <div class="text">
-                              <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control
-                                      about
-                                      the blind texts</a></h3>
-                              <div class="meta">
-                                  <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
-                                  <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                  <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                              </div>
-                          </div>
-                      </div> --}}
-
-                        </div>
-
                         {{-- <div class="sidebar-box ftco-animate">
                         <h3 class="heading">Tag Cloud</h3>
                         <div class="tagcloud">

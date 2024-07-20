@@ -12,10 +12,10 @@
                                 <tr class="text-center">
                                     <th>&nbsp;</th>
                                     <th>&nbsp;</th>
-                                    <th>Product name</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>{{ __('cart.name') }}</th>
+                                    <th>{{ __('cart.price') }}</th>
+                                    <th>{{ __('cart.quantity') }}</th>
+                                    <th>{{ __('cart.total') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,7 +77,7 @@
                                     @endforeach
                                     @endif
                                     <tr>
-                                    <td colspan="6">- Cuối danh sách -</td>
+                                    <td colspan="6">- {{ __('cart.endList') }} -</td>
                                     </tr>
                             </tbody>
                         </table>
@@ -88,8 +88,8 @@
                 <div class="col-lg-6 mt-5 cart-wrap ftco-animate">
                     <form action="{{ route('client.cart.applyVoucher') }}" method="get">
                         <div class="cart-total mb-3">
-                            <h3>Coupon Code</h3>
-                            <p>Enter your coupon code if you have one</p>
+                            <h3>{{ __('cart.coupon.title') }}</h3>
+                            <p>{{ __('cart.coupon.subtitle') }}</p>
                             <div class="info">
                                 <div class="form-group">
                                     <input type="text" name="voucher-code" id="voucherCode"
@@ -99,20 +99,20 @@
                                 </div>
                             </div>
                         </div>
-                        <p><button type="button" id="addVoucher" class="btn btn-primary py-3 px-4">Apply Coupon</button>
+                        <p><button type="button" id="addVoucher" class="btn btn-primary py-3 px-4">{{ __('cart.coupon.apply') }}</button>
                         </p>
                     </form>
                 </div>
                 <div class="col-lg-6 mt-5 cart-wrap ftco-animate">
                     <div class="cart-total mb-3">
-                        <h3>Cart Totals</h3>
+                        <h3>{{ __('cart.calculate.title') }}</h3>
                         <p class="d-flex">
-                            <span>Subtotal</span>
+                            <span>{{ __('cart.calculate.subtotal') }}</span>
                             <span id="subTotal">{{ number_format($subTotal) }}đ</span>
                             <span></span>
                         </p>
                         <p class="d-flex">
-                            <span>Discount @if (isset($appliedCouponCode))
+                            <span>{{ __('cart.calculate.discount') }} @if (isset($appliedCouponCode))
                                     ({{ $appliedCouponCode }})
                                 @endif
                             </span>
@@ -123,11 +123,11 @@
                         </p>
                         <hr>
                         <p class="d-flex total-price">
-                            <span>Total</span>
+                            <span>{{ __('cart.calculate.total') }}</span>
                             <span id="totalPrice">{{ number_format($total) }}đ</span>
                         </p>
                     </div>
-                    <p><button onclick="checkout()" class="btn btn-primary py-3 px-4">Proceed to Checkout</button></p>
+                    <p><button onclick="checkout()" class="btn btn-primary py-3 px-4">{{ __('cart.calculate.apply') }}</button></p>
                 </div>
             </div>
         </div>

@@ -12,8 +12,10 @@ class Banners extends Model
     protected $table = 'banners';
 
     protected $fillable = [
-        'title', 
+        'title',
+        'title_en',
         'subtitle',
+        'subtitle_en',
         'image',
         'link',
         'status',

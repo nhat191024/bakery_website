@@ -15,8 +15,10 @@
     ],
     "about_us": [
         {
-            "title": "FRENCH PASTRY AND BAKERY",
+            "title": "BÁNH NGỌT PHÁP VÀ BÁNH NGỌT",
+            "title_en": "FRENCH PASTRY AND BAKERY",
             "description": "O’DOUCEURS là một trang web chuyên về bánh ngọt Pháp, mang đến những trải nghiệm ẩm thực đẳng cấp và tinh tế cho người yêu thích ẩm thực Pháp. Trang web này được sáng lập với mục tiêu giới thiệu và phổ biến nghệ thuật làm bánh ngọt truyền thống của Pháp đến với người tiêu dùng khắp nơi. Tại O’DOUCEURS, bạn có thể tìm thấy một loạt các loại bánh ngọt phong phú, từ những chiếc bánh macarons sắc màu, bánh tart trái cây thơm ngon, cho đến bánh mille-feuille nhiều lớp giòn rụm. Mỗi sản phẩm đều được chế biến thủ công từ những nguyên liệu tươi ngon nhất, đảm bảo chất lượng và hương vị tuyệt hảo. Ngoài ra, O’DOUCEURS còn cung cấp các dịch vụ đặt hàng trực tuyến và giao hàng tận nơi, giúp khách hàng dễ dàng thưởng thức những món bánh ngon tại nhà. Trang web cũng thường xuyên cập nhật các công thức làm bánh và mẹo vặt trong nấu ăn, tạo điều kiện cho những ai đam mê nấu nướng tự tay làm những chiếc bánh Pháp tuyệt vời. Với O’DOUCEURS, mỗi chiếc bánh không chỉ là một món ăn, mà còn là một tác phẩm nghệ thuật tinh tế, mang đậm dấu ấn của văn hóa ẩm thực Pháp.",
+            "description_en": "O’DOUCEURS is a website specializing in French pastries, offering exquisite culinary experiences for those who love French cuisine. This website was founded with the aim of introducing and popularizing the traditional art of French pastries to consumers everywhere. At O’DOUCEURS, you can find a wide range of delicious pastries, from colorful macarons, delicious fruit tarts, to crispy and layered mille-feuille cakes. Each product is meticulously handcrafted using the finest ingredients, ensuring exceptional quality and taste. In addition, O’DOUCEURS also provides online ordering and delivery services, making it easy for customers to enjoy delicious pastries at home. The website also regularly updates baking recipes and cooking tips, creating opportunities for those who are passionate about cooking to create wonderful French pastries with their own hands. With O’DOUCEURS, each pastry is not just a food, but also a refined work of art, bearing the imprint of French culinary culture.",
             "image": ""
         }
     ],
@@ -163,16 +165,20 @@
     ],
     "categories": [
         {
-            "name": "VIENNOISERIES"
+            "name": "BÁNH NGỌT",
+            "name_en" : "VIENNOISERIES"
         },
         {
-            "name": "BIRTHDAY CAKES"
+            "name": "BÁNH SINH NHẬT",
+            "name_en": "BIRTHDAY CAKES"
         },
         {
-            "name": "DAILY CAKE CAKES"
+            "name": "BÁNH HÀNG NGÀY",
+            "name_en": "DAILY CAKE CAKES"
         },
         {
-            "name": "EVENT CAKES"
+            "name": "BÁNH SỰ KIỆN",
+            "name_en": "EVENT CAKES"
         }
     ],
     "products": [
@@ -497,36 +503,47 @@
         {
             "user_id": 1,
             "title": "Bánh kem ngon",
+            "title_en": "Delicious cakes",
             "subtitle": "Bánh ngon giá rẻ! Cùng nhau tận hưởng!",
-            "content": "",
+            "subtitle_en": "Delicious cakes at affordable prices! Enjoy together!",
+            "content": "Bánh Pháp, hay còn được gọi là bánh ngọt Pháp, là một phần không thể thiếu trong ẩm thực Pháp. Những chiếc bánh này được làm từ những nguyên liệu tươi ngon như bơ, trứng, đường và bột mỳ. Bánh Pháp có nhiều loại khác nhau như bánh croissant, bánh éclair, bánh mille-feuille và nhiều hơn nữa. Với hương vị độc đáo và cách trang trí tinh tế, bánh Pháp đã trở thành một biểu tượng của ẩm thực Pháp trên toàn thế giới.",
+            "content_en": "French pastries, also known as French sweets, are an essential part of French cuisine. These pastries are made from fresh ingredients such as butter, eggs, sugar, and flour. French pastries come in many different types such as croissants, éclairs, mille-feuille cakes, and more. With unique flavors and delicate decorations, French pastries have become an icon of French cuisine worldwide.",
             "thumbnail": ""
         }
     ],
     "banners": [
         {
             "title": "Bánh kem mềm mại mê ly~",
+            "title_en": "Soft and delicious cakes~",
             "subtitle": "Một miếng là một lần mê! Cả nhà cùng tận hưởng!",
+            "subtitle_en": "One bite is one time to fall in love! Enjoy with your family!",
             "image": "bg-1.webp",
             "link": "",
             "status": 1
         },
         {
             "title": "Sắp tới sinh nhật sao?",
+            "title_en": "Upcoming birthdays?",
             "subtitle": "Hiện tại đang được giảm giá đó! Tìm hiểu ngay!",
+            "subtitle_en": "Currently on sale! Find out now!",
             "image": "bg-2.webp",
             "link": "",
             "status": 1
         },
         {
             "title": "Quaso!",
+            "title_en": "Quaso!",
             "subtitle": "50% OFF khi mua suất 10 bánh croissant!",
+            "subtitle_en": "50% OFF when you buy a set of 10 croissants!",
             "image": "bg-3.webp",
             "link": "",
             "status": 1
         },
         {
             "title": "Bánh ngọt",
+            "title_en": "Sweet cakes",
             "subtitle": "Ưu đãi lớn cho mỗi suất 10 bánh ngọt!",
+            "subtitle_en": "Great deals for every set of 10 sweet cakes!",
             "image": "bg-4.webp",
             "link": "",
             "status": 1
@@ -938,17 +955,23 @@
     "accessories":[
         {
             "name":"Gói đơn giản",
+            "name_en":"Simple package",
             "description":"Gồm x20 thìa, x20 đĩa giấy, x1 dao cắt bánh",
+            "description_en":"Includes x20 spoons, x20 paper plates, x1 cake knife",
             "price":"30000"
         },
         {
             "name":"Gói sinh nhật",
+            "name_en":"Birthday package",
             "description":"Gồm x20 nến, x1 pháo sáng, x30 thìa, x30 đĩa giấy, x1 dao cắt bánh",
+            "description_en":"Includes x20 candles, x1 sparkler, x30 spoons, x30 paper plates, x1 cake knife",
             "price":"45000"
         },
         {
             "name":"Gói full đồ",
+            "name_en":"Full package",
             "description":"Gồm x30 nến, x2 pháo sáng, x35 thìa, x35 đĩa giấy, x2 dao cắt bánh",
+            "description_en":"Includes x30 candles, x2 sparklers, x35 spoons, x35 paper plates, x2 cake knives",
             "price":"65000"
         }
     ]

@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('accessories', function (Blueprint $table) {
             $table->id('id');
             $table->string('name');
+            $table->string('name_en');
             $table->text('description');
+            $table->text('description_en');
             $table->integer('price');
             $table->timestamps();
         });

@@ -8,60 +8,62 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-7 ftco-animate">
                         <div class="billing-form">
-                            <h3 class="mb-4 billing-heading">Thông tin giao hàng</h3>
+                            <h3 class="mb-4 billing-heading">{{ __('checkout.deliveryInformation.title') }}</h3>
                             <div class="row align-items-end">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="fullName">Họ và tên</label>
+                                        <label for="fullName">{{ __('checkout.deliveryInformation.name') }}</label>
                                         <input id="fullName" type="text" class="form-control"
-                                            placeholder="Họ và tên người nhận" required>
+                                            placeholder="{{ __('checkout.placeholder.name') }}" required>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="address">Địa chỉ</label>
+                                        <label for="address">{{ __('checkout.deliveryInformation.address') }}</label>
                                         <input id="address" type="text" class="form-control"
-                                            placeholder="Số nhà \ tên đường \ khu \ xã \..." required>
+                                            placeholder="{{ __('checkout.placeholder.address') }}" required>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="district">Quận\Huyện</label>
+                                        <label for="district">{{ __('checkout.deliveryInformation.district') }}</label>
                                         <input id="district" type="text" class="form-control"
-                                            placeholder="Quận\Huyện nơi giao" required>
+                                            placeholder="{{ __('checkout.placeholder.district') }}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="ward">Phường\Xã</label>
+                                        <label for="ward">{{ __('checkout.deliveryInformation.ward') }}</label>
                                         <input id="ward" type="text" class="form-control"
-                                            placeholder="Phường\Xã nơi giao" required>
+                                            placeholder="{{ __('checkout.placeholder.district') }}" required>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="phone">Số điện thoại</label>
-                                        <input minlength="10" maxlength="13" id="phone" type="number" class="form-control"
-                                            placeholder="(+84) 123 456 789" required>
+                                        <label for="phone">{{ __('checkout.deliveryInformation.phone') }}</label>
+                                        <input minlength="10" maxlength="13" id="phone" type="number"
+                                            class="form-control" placeholder="(+84) 123 456 789" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="email">Địa chỉ email</label>
+                                        <label for="email">{{ __('checkout.deliveryInformation.email') }}</label>
                                         <input id="email" type="email" class="form-control"
-                                            placeholder="Địa chỉ email để nhận thông báo" required>
+                                            placeholder="{{ __('checkout.placeholder.district') }}" required>
                                     </div>
                                 </div>
                                 <div class="w-100"></div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="delivery">Phương thức vận chuyển</label>
+                                        <label for="delivery">{{ __('checkout.deliveryInformation.delivery') }}</label>
                                         <select class="form-control" id="delivery" required>
-                                            <option value="1" selected>Ship tận tay</option>
-                                            <option value="2">Lấy tại cửa hàng</option>
+                                            <option value="1" selected>
+                                                {{ __('checkout.deliveryInformation.deliveryMethod.directly') }}</option>
+                                            <option value="2">
+                                                {{ __('checkout.deliveryInformation.deliveryMethod.store') }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -72,7 +74,7 @@
                         <div class="row mt-5 pt-3">
                             <div class="col-md-12 d-flex mb-5">
                                 <div class="cart-detail cart-total p-3 p-md-4">
-                                    <h3 class="billing-heading mb-4">Chọn gói phụ kiện đi kèm</h3>
+                                    <h3 class="billing-heading mb-4">{{ __('checkout.accessory.title') }}</h3>
 
                                     <div class="form-group">
                                         <div class="col-md-12">
@@ -81,7 +83,7 @@
                                                     class="mr-2" style="transform: translateY(8px)" value="0"
                                                     checked>
                                                 <div class="ml-3">
-                                                    <label for="accessory-0">Không phụ kiện</label>
+                                                    <label for="accessory-0">{{ __('checkout.accessory.none') }}</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,10 +97,17 @@
                                                         value="{{ $ac->price }}" data-id="{{ $ac->id }}"
                                                         style="transform: translateY(8px)">
                                                     <div class="ml-3">
-                                                        <label for="accessory-{{ $ac->id }}">{{ $ac->name }}
+                                                        <label for="accessory-{{ $ac->id }}">
+                                                            @if ($lang == 'en')
+                                                                {{ $ac->name_en }}@else{{ $ac->name }}
+                                                            @endif
                                                             ({{ number_format($ac->price) }}₫)
                                                         </label>
-                                                        <small class="d-block">{{ $ac->description }}</small>
+                                                        <small class="d-block">
+                                                            @if ($lang == 'en')
+                                                                {{ $ac->description_en }}@else{{ $ac->description }}
+                                                            @endif
+                                                        </small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,44 +117,44 @@
                             </div>
                             <div class="col-md-12 d-flex mb-5">
                                 <div class="cart-detail cart-total p-3 p-md-4">
-                                    <h3 class="billing-heading mb-4">Tổng hoá đơn</h3>
+                                    <h3 class="billing-heading mb-4">{{ __('checkout.bill.title') }}</h3>
                                     <p class="d-flex">
-                                        <span>Giá sản phẩm</span>
+                                        <span>{{ __('checkout.bill.subtotal') }}</span>
                                         <span id="subTotal"
                                             data-price="{{ $subTotal }}">{{ number_format($subTotal) }}đ</span>
                                     </p>
                                     <p class="d-flex">
-                                        <span>Phí vận chuyển</span>
+                                        <span>{{ __('checkout.bill.delivery') }}</span>
                                         <span>0đ</span>
                                     </p>
                                     <p class="d-flex">
-                                        <span>Giảm giá
+                                        <span>{{ __('checkout.bill.discount') }}
                                             @if (isset($appliedCouponCode))
-                                            ({{ $appliedCouponCode }})
+                                                ({{ $appliedCouponCode }})
                                             @endif
                                         </span>
                                         <span id="discountPrice" class="d-flex">{{ number_format($discount) }}đ</span>
                                     </p>
                                     <p class="d-flex">
-                                        <span>Giá phụ kiện</span>
+                                        <span>{{ __('checkout.bill.accessory') }}</span>
                                         <span id="cartAccessory">0đ</span>
                                     </p>
                                     <hr>
                                     <p class="d-flex total-price">
-                                        <span>Tổng</span>
+                                        <span>{{ __('checkout.bill.total') }}</span>
                                         <span id="totalPrice">{{ number_format($total) }}đ</span>
                                     </p>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="cart-detail p-3 p-md-4">
-                                    <h3 class="billing-heading mb-4">Payment Method</h3>
+                                    <h3 class="billing-heading mb-4">{{ __('checkout.payment.title') }}</h3>
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <div class="radio">
                                                 <input id="banking" type="radio" name="payment" class="mr-2"
                                                     value="2">
-                                                <label for="banking">Chuyển khoản qua ngân hàng</label>
+                                                <label for="banking">{{ __('checkout.payment.method.transfer') }}</label>
                                             </div>
                                         </div>
                                     </div>
@@ -154,7 +163,7 @@
                                             <div class="radio">
                                                 <input id="cash" type="radio" name="payment" class="mr-2"
                                                     value="1" checked>
-                                                <label for="cash">Thanh toán khi nhận hàng (COD)</label>
+                                                <label for="cash">{{ __('checkout.payment.method.cash') }}</label>
                                             </div>
                                         </div>
                                     </div>
@@ -163,14 +172,14 @@
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="" class="mr-2" required>
-                                                    Tôi cam kết thông tin giao hàng là chính xác
+                                                    {{ __('checkout.payment.accept') }}
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                     <button class="btn btn-primary py-3 px-4" id="submitBtn" type="submit"
                                         class="btn btn-primary">
-                                        Xác nhận đặt hàng
+                                        {{ __('checkout.submit') }}
                                     </button>
                                 </div>
                             </div>
@@ -210,14 +219,13 @@
     <script src="{{ asset('js/client/checkout.js') }}"></script>
 
     <div id="checkout-loader" class="fullscreen-checkout">
-        <svg class="circular-checkout" width="48px"
-            height="48px">
+        <svg class="circular-checkout" width="48px" height="48px">
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
                 stroke="#eeeeee" />
             <circle class="path-checkout" cx="24" cy="24" r="22" fill="none" stroke-width="4"
                 stroke-miterlimit="10" stroke="#F96D00" />
         </svg>
-        <p>Đang xử lý đơn đặt hàng</p>
+        <p>{{ __('checkout.loader') }}</p>
     </div>
 
     <style>
@@ -235,7 +243,7 @@
             transform: translate(-50%, -50%);
             /* background-color: rgba(255, 255, 255, 0.9); */
             /* -webkit-box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24);
-            box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24); */
+                    box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24); */
             border-radius: 16px;
             opacity: 100;
             visibility: hidden;

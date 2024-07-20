@@ -4,9 +4,9 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 ftco-animate text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('client.homepage.index')}}">Trang chủ</a></span>/<span>Liên Hệ</span>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{route('client.homepage.index')}}">{{ __('contact.breadcrumb1') }}</a></span>/<span>{{ __('contact.breadcrumb2') }}</span>
                     </p>
-                    <h1 class="mb-0 bread">Liên hệ</h1>
+                    <h1 class="mb-0 bread">{{ __('contact.breadcrumb') }}</h1>
                 </div>
             </div>
         </div>
@@ -18,20 +18,20 @@
                 <div class="w-100"></div>
                 <div class="col-md-4 d-flex">
                     <div class="info bg-white p-3">
-                        <p>Địa chỉ:</p>
-                        <p>1. 72 Đ. Xuân Diệu, Tứ Liên, Tây Hồ, Hà Nội</p>
-                        <p>2. 56D trần nhân tông, nguyễn du, hai bà trưng, hà nội</p>
+                        <p>{{ __('contact.address') }}:</p>
+                        <p>1. {{ __('contact.address1') }}</p>
+                        <p>2. {{ __('contact.address2') }}</p>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <div class="info bg-white p-4 d-flex justify-content-center align-items-center">
-                        <p>Số điện thoại:</p>
+                        <p>{{ __('contact.phone') }}:</p>
                         <p>{{ $Contact_us->phone_number }}</p>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex">
                     <div class="info bg-white p-4 d-flex flex-column justify-content-center align-items-center">
-                        <p>Website </p>
+                        <p>{{ __('contact.social') }}</p>
                         <a href="{{ $Contact_us->website }}">Facebook</a>
                     </div>
                 </div>
@@ -42,20 +42,20 @@
                     <form action="{{ route('client.contact.store') }}" method="POST" class="bg-white p-5 contact-form">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Tên của bạn">
+                            <input type="text" class="form-control" name="name" placeholder="{{ __('contact.message.name') }}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="email" placeholder="Email của bạn">
+                            <input type="text" class="form-control" name="email" placeholder="{{ __('contact.message.email') }}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="subject" placeholder="Tiêu đề">
+                            <input type="text" class="form-control" name="subject" placeholder="{{ __('contact.message.subject') }}">
                         </div>
                         <div class="form-group">
-                            <textarea id="" cols="30" rows="7" name="message" class="form-control" placeholder="Nội dung góp ý"></textarea>
+                            <textarea id="" cols="30" rows="7" name="message" class="form-control" placeholder="{{ __('contact.message.message') }}"></textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary py-3 px-5 "
-                                style="background-color: #fff; border: #f8c53f;"> Gửi góp ý</button>
+                                style="background-color: #fff; border: #f8c53f;">{{ __('contact.message.send') }}</button>
 
                         </div>
                     </form>

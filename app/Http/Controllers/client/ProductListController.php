@@ -20,8 +20,4 @@ class ProductListController extends Controller
     {
         return $this->service->index($categoryId);
     }
-    public function show(){
-        $products  = Products::paginate(6);
-        return view('client.blog.blogDetail',compact('products'));
-    }
 }

@@ -2,19 +2,16 @@
     <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">
             <div class="col-md-6">
-                <h2 style="font-size: 22px;" class="mb-0">Đăng kí nhận ưu đãi</h2>
+                <h2 style="font-size: 22px;" class="mb-0">{{ __('contact.subscribe.title') }}</h2>
                 <span>
-                    Nhận e-mail về những chương trình khuyến mại đặc biệt mới nhất!
+                    {{ __('contact.subscribe.subtitle') }}
                 </span>
             </div>
             <div class="col-md-6 align-items-center">
                 <div class="">
-                    <a href="
-                    {{ route('client.contact.index') }}
-                    {{-- Active this link after merging Contact us page --}}
-                     " class="btn form-control btn-primary" style="line-height: 200%"
-                        data-toggle="hover" data-bs-hover-animate="pulse">
-                        Đăng kí
+                    <a href="{{ route('client.contact.index') }}" class="btn form-control btn-primary"
+                        style="line-height: 200%" data-toggle="hover" data-bs-hover-animate="pulse">
+                        {{ __('contact.subscribe.send') }}
                     </a>
                     </form>
                 </div>

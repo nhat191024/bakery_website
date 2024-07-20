@@ -13,6 +13,7 @@ class Categories extends Model
 
     protected $fillable = [
         'name',
+        'name_en',
     ];
 
     public function products()
