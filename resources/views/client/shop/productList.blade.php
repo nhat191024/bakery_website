@@ -8,11 +8,15 @@
                     <ul class="product-category">
                         <li><a href="{{ route('client.shop.productList') }}"
                                 class="{{ request()->route('categoryId') ? '' : 'active' }}">{{ __('shop.allCategory') }}</a></li>
-                        @foreach ($categories as $ct)
+                        @foreach ($categories as $category)
                             <li>
-                                <a href="{{ route('client.shop.productList', $ct->id) }}"
-                                    class="{{ request()->route('categoryId') == $ct->id ? 'active' : '' }}">
-                                    {{ $ct->name }}
+                                <a href="{{ route('client.shop.productList', $category->id) }}"
+                                    class="{{ request()->route('categoryId') == $category->id ? 'active' : '' }}">
+                                    @if ($lang == 'en')
+                                        {{ $category->name_en }}
+                                    @else
+                                        {{ $category->name }}
+                                    @endif
                                 </a>
                             </li>
                         @endforeach
