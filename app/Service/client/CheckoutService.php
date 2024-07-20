@@ -13,6 +13,7 @@ use App\Service\main\MailService;
 class CheckoutService
 {
     private $mailService;
+    private $currentLocale;
 
     public function __construct()
     {
@@ -21,6 +22,7 @@ class CheckoutService
 
     public function index()
     {
+        $lang = session()->get('language');
         return view('client.checkout.checkout')
             ->with([
                 'cart' => Cart::get(),
@@ -28,6 +30,7 @@ class CheckoutService
                 'discount' => Cart::getDiscountAmount(),
                 'total' => Cart::getTotal(),
                 'accessories' => Accessory::get(),
+                'lang' => $lang,
             ]);
     }
 
