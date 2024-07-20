@@ -7,7 +7,11 @@
                     <p class="breadcrumbs"><span class="mr-2"><a
                                 href="{{ route('client.homepage.index') }}">{{ __('blog.breadcrumb1') }}</a></span>/<span>{{ __('blog.breadcrumb2') }}</span>
                     </p>
-                    <h1 class="mb-0 bread">{{ $Blogs->title }}</h1>
+                    <h1 class="mb-0 bread">
+                        @if ($lang == 'en')
+                            {{ $Blogs->title_en }}@else{{ $Blogs->title }}
+                        @endif
+                    </h1>
                 </div>
             </div>
         </div>
@@ -17,18 +21,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
-                    <h1 class="mb-3">{{ $Blogs->title }}</h1>
+                    <h1 class="mb-3">
+                        @if ($lang == 'en')
+                            {{ $Blogs->title_en }}@else{{ $Blogs->title }}
+                        @endif
+                    </h1>
                     <h5 class="mb-4">
                         <p>{{ __('blog.author') }}: {{ $Blogs->user->username }}</p>
                     </h5>
 
                     <img src="images/image_1.jpg" alt="" class="img-fluid">
                     </p>
-                    <h5>{{ $Blogs->subtitle }}</h5>
+                    <h5>
+                        @if ($lang == 'en')
+                            {{ $Blogs->subtitle_en }}@else{{ $Blogs->subtitle }}
+                        @endif
+                    </h5>
                     <p>
                         <img src="images/image_2.jpg" alt="" class="img-fluid">
                     </p>
-                    <div>{!! $Blogs->content !!}</div>
+                    <div>
+                        @if ($lang == 'en')
+                            {!! $Blogs->content_en !!}@else{!! $Blogs->content !!}
+                        @endif
+                    </div>
                     {{-- <div class="tag-widget post-tag-container mb-5 mt-5">
                         <div class="tagcloud">
                             <a href="#" class="tag-cloud-link">Life</a>
@@ -191,8 +207,13 @@
                         <h3 class="heading">{{ __('blog.list') }}</h3>
                         <ul class="categories">
                             @foreach ($Categories as $item)
-                                <li><a href="{{ route('client.shop.productList') }}/{{ $item->id }}">{{ $item->name }}
-                                    </a></li>
+                                <li>
+                                    <a href="{{ route('client.shop.productList') }}/{{ $item->id }}">
+                                        @if ($lang == 'en')
+                                            {{ $item->name_en }}@else{{ $item->name }}
+                                        @endif
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
@@ -203,10 +224,12 @@
                                 <a class="blog-img mr-4"
                                     style="background-image: url({{ asset('img/client/shop/product-4.webp') }});"></a>
                                 <div class="text">
-                                    <h4 class="heading-2"><a
-                                            href="{{ route('client.blog.show', ['id' => $item->id]) }}">{{ $item->title }}</a>
+                                    <h4 class="heading-2"><a href="{{ route('client.blog.show', ['id' => $item->id]) }}">
+                                            @if ($lang == 'en')
+                                                {{ $item->title_en }}@else{{ $item->title }}
+                                            @endif
+                                        </a>
                                     </h4>
-
                                     <div class="meta">
                                         <div><a href="#"><span class="icon-calendar"></span>
                                                 {{ $item->created_at->format('d/m/Y') }}</a></div>
