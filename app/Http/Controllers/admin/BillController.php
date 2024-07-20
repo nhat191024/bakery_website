@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Bills;
 use App\Service\admin\BillService;
@@ -28,7 +29,8 @@ class BillController extends Controller
         $id = $request->id;
         $billInfo = $this->billService->getById($id);
         $billDetail = $this->billService->getAllByIdBill($id);
-        return view('admin.bill.bill_detail', compact('billInfo', 'billDetail'));
+        $helper = new Helper();
+        return view('admin.bill.bill_detail', compact('billInfo', 'billDetail', 'helper'));
     }
 
     public function editStatus(Request $request)

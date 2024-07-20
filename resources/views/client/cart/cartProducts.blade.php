@@ -37,7 +37,9 @@
                                                 <h3 class="pointer" onclick="window.location.href='{{ route('client.shop.productDetail', $pd['product']->id) }}'">
                                                     {{ $pd['product']->name }}
                                                         @if (count($pd['product']->product_variations) > 1)
-                                                        ({{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->variation->name }})
+                                                        @if ($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->variation)
+                                                            ({{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->variation->name }})
+                                                        @endif
                                                         @endif
                                                     </h3>
                                                 </td>
@@ -54,7 +56,7 @@
                                                                 <i class="ion-ios-remove"></i>
                                                             </button>
                                                         </span>
-                                                        <input type="text" id="quantity-{{ $id }}"
+                                                        <input readonly type="tel" id="quantity-{{ $id }}"
                                                             name="quantity" class="form-control input-number shadow-lg"
                                                             value="{{ $pd['quantity'] }}" min="1" max="100">
                                                         <span class="input-group-btn ml-2">
