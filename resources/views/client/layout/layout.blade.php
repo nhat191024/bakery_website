@@ -45,6 +45,12 @@
             <div class="collapse navbar-collapse " id="ftco-nav">
                 <ul class="navbar-nav ml-auto ">
                     <li
+                        class=" scaleR nav-item">
+                        <a  class="nav-link" href="{!! route('change-language') !!}">
+                            en/vi
+                        </a>
+                    </li>
+                    <li
                         class=" scaleR nav-item {{ Request::url() == route('client.homepage.index') || Request::url() == null ? 'active' : '' }}">
                         <a href="{{ route('client.homepage.index') }}" class="nav-link">
                             {{ __('layout.home') }}
