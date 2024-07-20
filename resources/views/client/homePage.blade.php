@@ -2,15 +2,19 @@
 @section('content')
     <section id="home-section" class="hero">
         <div class="home-slider owl-carousel">
-            @foreach ($images as $image)
+            @foreach ($banners as $banner)
                 <div class="slider-item"
                     style="background-image:
-                url({{ asset('img/home/' . $image->image) }});">
+                url({{ asset('img/home/' . $banner->image) }});">
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
                             <div class="col-md-12 ftco-animate text-center">
-                                <h1 class="mb-2 text-nowrap">{{ $image->title }}</h1>
+                                <h1 class="mb-2 text-nowrap">
+                                    @if ($lang == 'en')
+                                        {{ $banner->title_en }}@else{{ $banner->title }}
+                                    @endif
+                                </h1>
                                 <div>
                                     <a href="{{ route('client.shop.productList') }}" class="btn btn-primary mr-1">
                                         {{ __('home.bannerBtn1') }}
@@ -89,7 +93,8 @@
                                 <div class="text text-center">
                                     <h2 class="text-cate">{{ __('home.banner.title') }}</h2>
                                     <p class="p-cate">{{ __('home.banner.subtitle') }}</p>
-                                    <p><a href="{{ route('client.shop.productList') }}" class="btn btn-primary">{{ __('home.banner.callout') }}</a>
+                                    <p><a href="{{ route('client.shop.productList') }}"
+                                            class="btn btn-primary">{{ __('home.banner.callout') }}</a>
                                     </p>
                                 </div>
                             </div>
@@ -102,9 +107,13 @@
                                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
                                     style="background-image: url({{ asset('img/client/shop/' . $imagesCategoryL[$leftItem->id]) }});">
                                     <div class="text px-3 py-1">
-                                        <h2 class="mb-0"><a
-                                                href="{{ route('client.shop.productList') }}/{{ $leftItem->id }}">
-                                                {{ $leftItem->name }}</a></h2>
+                                        <h2 class="mb-0">
+                                            <a href="{{ route('client.shop.productList') }}/{{ $leftItem->id }}">
+                                                @if ($lang == 'en')
+                                                    {{ $leftItem->name_en }}@else{{ $leftItem->name }}
+                                                @endif
+                                            </a>
+                                        </h2>
                                     </div>
                                 </div>
                             @endforeach
@@ -117,8 +126,12 @@
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
                             style="background-image: url({{ asset('img/client/shop/' . $imagesCategoryR[$rightItem->id]) }});">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a
-                                        href="{{ route('client.shop.productList') }}/{{ $rightItem->id }}">{{ $rightItem->name }}</a>
+                                <h2 class="mb-0">
+                                    <a href="{{ route('client.shop.productList') }}/{{ $rightItem->id }}">
+                                        @if ($lang == 'en')
+                                            {{ $rightItem->name_en }}@else{{ $rightItem->name }}
+                                        @endif
+                                    </a>
                                 </h2>
                             </div>
                         </div>
@@ -191,22 +204,22 @@
             <div class="row ftco-animate">
                 <div class="col-md-12">
                     <div class="carousel-testimony owl-carousel">
-                        @for ($i = 1; $i <=9; $i++)
-                        <div class="item">
-                            <div class="testimony-wrap p-4 pb-5">
-                                <div class="user-img mb-5"
-                                    style="background-image: url({{ asset('img/home/person-'.$i.'.webp') }})">
-                                    <span class="quote d-flex align-items-center justify-content-center">
-                                        <i class="icon-quote-left"></i>
-                                    </span>
-                                </div>
-                                <div class="text text-center">
-                                    <p class="mb-5 pl-4 line">{{ __('home.review.content'.$i) }}</p>
-                                    <p class="name">{{ __('home.review.name'.$i) }}</p>
-                                    <span class="position">{{ __('home.review.type') }}</span>
+                        @for ($i = 1; $i <= 9; $i++)
+                            <div class="item">
+                                <div class="testimony-wrap p-4 pb-5">
+                                    <div class="user-img mb-5"
+                                        style="background-image: url({{ asset('img/home/person-' . $i . '.webp') }})">
+                                        <span class="quote d-flex align-items-center justify-content-center">
+                                            <i class="icon-quote-left"></i>
+                                        </span>
+                                    </div>
+                                    <div class="text text-center">
+                                        <p class="mb-5 pl-4 line">{{ __('home.review.content' . $i) }}</p>
+                                        <p class="name">{{ __('home.review.name' . $i) }}</p>
+                                        <span class="position">{{ __('home.review.type') }}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endfor
                     </div>
                 </div>
