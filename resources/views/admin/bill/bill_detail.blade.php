@@ -13,7 +13,7 @@
 
             <!-- Page Heading -->
             <div class="d-flex justify-content-between">
-                <h1 class="h3 mb-2 text-gray-800">Chi tiết hóa đơn số {{ $billInfo->id }}</h1>
+                <h1 class="h3 mb-2 text-gray-800">Chi tiết hóa đơn #{{ $billInfo->id }} - Nhận {{ $helper::getTimePassedBy($billInfo->created_at) }}</h1>
                 <a href="{{ route('admin.bill.index') }}" class="btn btn-primary mb-1">Back</a>
             </div>
             <!-- DataTales Example -->
@@ -54,10 +54,11 @@
                                     </strong>{{ Helper::PAYMENT_METHOD[$billInfo->payment_method] }}</p>
                             </div>
                             <div class="form-group">
-                                <p><strong>Tổng tiền: </strong>{{ number_format($billInfo->total_amount) }}đ</p>
+                                <h5 class="text-gray-900"><strong>Tổng tiền: </strong>{{ number_format($billInfo->total_amount) }}đ</h5>
                             </div>
-                            <p><strong>Trạng thái thanh toán: </strong>
+                            <p class="{{ $billInfo->status == 0 ? 'text-danger' : ($billInfo->status == 2 ? 'text-warning' : 'text-success') }}"><strong>Trạng thái thanh toán: </strong>
                                 {{ Helper::BILL_STATUS[$billInfo['status']] }}</p>
+
                             <input type="hidden" name="bill_id" value="{{ $billInfo['id'] }}">
                             <a href="{{ route('admin.bill.updateStatus', ['bill_id' => $billInfo['id'], 'bill_status' => Helper::BILL_UNPAID]) }}" class="btn btn-warning mb-4"
                                 onclick="return confirmAction('Đánh dấu là CHƯA THANH TOÁN?', this.href)">
@@ -71,6 +72,8 @@
                                 onclick="return confirmAction('Xác nhận HUỶ ĐƠN?', this.href)">
                                 Huỷ đơn
                             </a>
+                            <br>
+                            <a href="{{ route('admin.bill.index') }}" class="btn btn-primary mb-1">Quay về</a>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <h3>Danh sách sản phẩm có trong đơn hàng này</h3>
                             <thead>
@@ -79,8 +82,8 @@
                                     <th>Tên bánh</th>
                                     <th>Size bánh</th>
                                     <th>Số lượng</th>
-                                    <th>Đơn giá</th>
-                                    <th>Thành tiền</th>
+                                    <th>Giá 1 bánh</th>
+                                    <th>Tổng cộng</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -89,16 +92,17 @@
                                     <th>Tên bánh</th>
                                     <th>Size bánh</th>
                                     <th>Số lượng</th>
-                                    <th>Đơn giá</th>
-                                    <th>Thành tiền</th>
+                                    <th>Giá 1 bánh</th>
+                                    <th>Tổng cộng</th>
                                 </tr>
                             </tfoot>
                             <tbody>
                                 @foreach ($billInfo->bill_details as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ Helper::getWithTrashedById($item->product_id)->name }}</td>
-                                        <td>{{ $item->variations->name }}</td>
+                                        <td>{{ Helper::getWithTrashedProductById($item->product_id)?->name ?? 'Sản phẩm đã bị xoá' }}</td>
+                                        <td>{{ Helper::getWithTrashedVariationById($item->variation_id)?->name ?? 'Size đã bị xoá' }}</td>
+
                                         <td>{{ $item->quantity }}</td>
                                         <td>{{ number_format($item->price, 0, ',', '.') }}đ</td>
                                         <td>{{ number_format($item->price * $item->quantity, 0, ',', '.') }}đ</td>
@@ -106,6 +110,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="form-group text-center">
+                            <h3 class="mt-3 text-gray-900"><strong>Tổng tiền: </strong>{{ number_format($billInfo->total_amount) }}đ</h3>
+                        </div>
                     </div>
                 </div>
             </div>

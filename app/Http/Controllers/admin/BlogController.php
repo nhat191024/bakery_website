@@ -39,18 +39,20 @@ class BlogController extends Controller
     public function showAdd() {
         return view('admin.blog.add_blog');
     }
-    
+
     public function add(Request $request) {
         return $this->blogService->add($request);
     }
 
     public function delete(Request $request) {
         $id = $request->id;
-        return $this->blogService->deleteById($id);
+        $this->blogService->deleteById($id);
+        return redirect()->route('admin.blog.index')->with('success', 'Đã ẩn blog thành công');
     }
 
     public function recover(Request $request) {
         $id = $request->id;
-        return $this->blogService->recoverById($id);
+        $this->blogService->recoverById($id);
+        return redirect()->route('admin.blog.index')->with('success', 'Đã hiển thị blog trở lại');
     }
 }

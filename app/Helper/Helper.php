@@ -3,6 +3,7 @@
 namespace App\Helper;
 
 use App\Models\Products;
+use App\Models\Variation;
 use Carbon\Carbon;
 
 class Helper
@@ -28,9 +29,13 @@ class Helper
         '2' => 'Đã huỷ bỏ'
     ];
 
-    public static function getWithTrashedById($id)
+    public static function getWithTrashedProductById($id)
     {
         return Products::where('id', $id)->withTrashed()->first();
+    }
+    public static function getWithTrashedVariationById($id)
+    {
+        return Variation::where('id', $id)->withTrashed()->first();
     }
 
     public static function getTimePassedBy($created_at)

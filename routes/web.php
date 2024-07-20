@@ -148,6 +148,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', [VariationController::class, 'index'])->name('admin.variation.index');
             Route::get('/edit/{id}', [VariationController::class, 'showEdit'])->name('admin.variation.edit');
             Route::get('/delete/{id}', [VariationController::class, 'delete'])->name('admin.variation.delete');
+            Route::get('/destroy/{id}', [VariationController::class, 'destroy'])->name('admin.variation.destroy');
             Route::get('/restore/{id}', [VariationController::class, 'restore'])->name('admin.variation.restore');
             Route::post('/edit', [VariationController::class, 'saveEdit'])->name('admin.variation.saveEdit');
             Route::post('/add', [VariationController::class, 'saveAdd'])->name('admin.variation.saveAdd');
@@ -175,6 +176,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/edit', [\App\Http\Controllers\admin\BlogController::class, 'saveEdit'])->name('admin.blog.saveEdit');
             Route::get('/add', [\App\Http\Controllers\admin\BlogController::class, 'showAdd'])->name('admin.blog.show_add');
             Route::get('/delete/{id}', [\App\Http\Controllers\admin\BlogController::class, 'delete'])->name('admin.blog.delete');
+            Route::get('/restore/{id}', [\App\Http\Controllers\admin\BlogController::class, 'recover'])->name('admin.blog.restore');
             Route::post('/add', [\App\Http\Controllers\admin\BlogController::class, 'add'])->name('admin.blog.add');
         });
 
