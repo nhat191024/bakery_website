@@ -44,8 +44,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="phone">{{ __('checkout.deliveryInformation.phone') }}</label>
-                                        <input minlength="10" maxlength="13" id="phone" type="number" class="form-control"
-                                            placeholder="(+84) 123 456 789" required>
+                                        <input minlength="10" maxlength="13" id="phone" type="number"
+                                            class="form-control" placeholder="(+84) 123 456 789" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -60,8 +60,10 @@
                                     <div class="form-group">
                                         <label for="delivery">{{ __('checkout.deliveryInformation.delivery') }}</label>
                                         <select class="form-control" id="delivery" required>
-                                            <option value="1" selected>{{ __('checkout.deliveryInformation.deliveryMethod.directly') }}</option>
-                                            <option value="2">{{ __('checkout.deliveryInformation.deliveryMethod.store') }}</option>
+                                            <option value="1" selected>
+                                                {{ __('checkout.deliveryInformation.deliveryMethod.directly') }}</option>
+                                            <option value="2">
+                                                {{ __('checkout.deliveryInformation.deliveryMethod.store') }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -95,10 +97,17 @@
                                                         value="{{ $ac->price }}" data-id="{{ $ac->id }}"
                                                         style="transform: translateY(8px)">
                                                     <div class="ml-3">
-                                                        <label for="accessory-{{ $ac->id }}">{{ $ac->name }}
+                                                        <label for="accessory-{{ $ac->id }}">
+                                                            @if ($lang == 'en')
+                                                                {{ $ac->name_en }}@else{{ $ac->name }}
+                                                            @endif
                                                             ({{ number_format($ac->price) }}₫)
                                                         </label>
-                                                        <small class="d-block">{{ $ac->description }}</small>
+                                                        <small class="d-block">
+                                                            @if ($lang == 'en')
+                                                                {{ $ac->description_en }}@else{{ $ac->description }}
+                                                            @endif
+                                                        </small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,7 +130,7 @@
                                     <p class="d-flex">
                                         <span>{{ __('checkout.bill.discount') }}
                                             @if (isset($appliedCouponCode))
-                                            ({{ $appliedCouponCode }})
+                                                ({{ $appliedCouponCode }})
                                             @endif
                                         </span>
                                         <span id="discountPrice" class="d-flex">{{ number_format($discount) }}đ</span>
@@ -210,8 +219,7 @@
     <script src="{{ asset('js/client/checkout.js') }}"></script>
 
     <div id="checkout-loader" class="fullscreen-checkout">
-        <svg class="circular-checkout" width="48px"
-            height="48px">
+        <svg class="circular-checkout" width="48px" height="48px">
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
                 stroke="#eeeeee" />
             <circle class="path-checkout" cx="24" cy="24" r="22" fill="none" stroke-width="4"
@@ -235,7 +243,7 @@
             transform: translate(-50%, -50%);
             /* background-color: rgba(255, 255, 255, 0.9); */
             /* -webkit-box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24);
-            box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24); */
+                    box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24); */
             border-radius: 16px;
             opacity: 100;
             visibility: hidden;
