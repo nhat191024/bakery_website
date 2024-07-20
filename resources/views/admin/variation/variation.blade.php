@@ -60,7 +60,7 @@
                                                 @endif
                                                 @if ($loop->iteration != 1)
                                                     <a class="btn btn-outline-danger"
-                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn XOÁ VĨNH VIỄN size {{ $item->name }} chứ?\nLƯU Ý: Nếu trong danh mục này còn tồn tại sản phẩm, việc xoá sẽ LOẠI BỎ GIÁ CỦA SIZE ĐÓ KHỎI TẤT CẢ SẢN PHẨM\n(Sản phẩm gốc vẫn sẽ được giữ nguyên)\nBạn sẽ phải thiết đặt lại giá sản phẩm cho các size mới tạo!')) { window.location.href = '{{ route('admin.variation.destroy', ['id' => $item->id]) }}'; }"
+                                                    onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn XOÁ VĨNH VIỄN size {{ $item->name }} chứ?\n\nLƯU Ý: Nếu size này có trong sản phẩm, thì việc xoá sẽ LOẠI BỎ GIÁ CỦA SIZE NÀY KHỎI TẤT CẢ SẢN PHẨM\n(Sản phẩm gốc vẫn sẽ được giữ nguyên)\nBạn sẽ phải thiết đặt lại giá sản phẩm cho các size mới tạo!\n\nKhuyến khích: Nên sử dụng nút Tạm Ẩn thay vì Xoá Vĩnh Viễn, trừ khi cần thiết\n\nBấm OK để xác nhận XOÁ\nBấm CANCEL hoặc HUỶ để không xoá')) { window.location.href = '{{ route('admin.variation.destroy', ['id' => $item->id]) }}'; }"
                                                     > Xoá vĩnh viễn </a>
                                                 @endif
                                         </td>
