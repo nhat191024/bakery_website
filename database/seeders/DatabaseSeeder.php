@@ -49,6 +49,7 @@ class DatabaseSeeder extends Seeder
         foreach ($dataArray['categories'] as $row) {
             Categories::create([
                 "name" => $row['name'],
+                "name_en" => $row['name_en']
             ]);
         }
 
@@ -76,8 +77,11 @@ class DatabaseSeeder extends Seeder
             Blogs::create([
                 "user_id" => $row['user_id'],
                 "title" => $row['title'],
+                "title_en" => $row['title_en'],
                 "subtitle" => $row['subtitle'],
+                "subtitle_en" => $row['subtitle_en'],
                 "content" => $row['content'],
+                "content_en" => $row['content_en'],
                 "thumbnail" => $row['thumbnail'],
             ]);
         }
@@ -85,7 +89,9 @@ class DatabaseSeeder extends Seeder
         foreach ($dataArray['banners'] as $row) {
             Banners::create([
                 "title" => $row['title'],
+                "title_en" => $row['title_en'],
                 "subtitle" => $row['subtitle'],
+                "subtitle_en" => $row['subtitle_en'],
                 "image" => $row['image'],
                 "link" => $row['link'],
                 "status" => $row['status'],
@@ -104,7 +110,9 @@ class DatabaseSeeder extends Seeder
         foreach ($dataArray['about_us'] as $row) {
             About_us::create([
                 "title" => $row['title'],
+                "title_en" => $row['title_en'],
                 "description" => $row['description'],
+                "description_en" => $row['description_en'],
                 "image" => $row['image'],
             ]);
         }
