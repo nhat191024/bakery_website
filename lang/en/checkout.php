@@ -30,6 +30,7 @@ return [
         "title" => "Total bill",
         "subtotal" => "Subtotal",
         "discount" => "Discount",
+        "delivery" => "Delivery fee",
         "accessory" => "Accessory price",
         "total" => "Total",
     ],

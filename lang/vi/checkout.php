@@ -29,6 +29,7 @@ return [
         "title" => "Tổng hóa đơn",
         "subtotal" => "Tạm tính",
         "discount" => "Giảm giá",
+        "delivery" => "Phí vận chuyển",
         "accessory" => "Giá phụ kiện",
         "total" => "Tổng",
     ],
