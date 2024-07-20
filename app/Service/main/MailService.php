@@ -179,9 +179,9 @@ class MailService
                                     </tr>
                                     <tr>
                                         <td style="width: 70%; padding: 5px 0px 25px">
-                                            <div style="margin-left: 100px">'. $accessoryPrice .' VND<span style="margin-left: 20px">x 1</span></div>
+                                            <div style="margin-left: 100px">'. $this->formatPrice($accessoryPrice) .' VND<span style="margin-left: 20px">x 1</span></div>
                                         </td>
-                                        <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">'. $accessoryPrice .' VND</td>
+                                        <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">'. $this->formatPrice($accessoryPrice) .' VND</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -196,11 +196,11 @@ class MailService
                                         <tbody>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Phụ kiện:</td>
-                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $accessoryPrice .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $this->formatPrice($accessoryPrice) .' VND</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Giá trừ khuyến mãi:</td>
-                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $discount .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $this->formatPrice($discount) .' VND</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Phí vận chuyển:</td>
@@ -208,7 +208,7 @@ class MailService
                                             </tr>
                                             <tr style="border-top: 1px solid rgb(229, 233, 236);">
                                                 <td style="padding-top: 10px">Thành tiền</td>
-                                                <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">'. $total .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">'. $this->formatPrice($total) .' VND</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -387,9 +387,9 @@ class MailService
                                     </tr>
                                     <tr>
                                         <td style="width: 70%; padding: 5px 0px 25px">
-                                            <div style="margin-left: 100px">'. $accessoryPrice .' VND<span style="margin-left: 20px">x 1</span></div>
+                                            <div style="margin-left: 100px">'. $this->formatPrice($accessoryPrice) .' VND<span style="margin-left: 20px">x 1</span></div>
                                         </td>
-                                        <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">'. $accessoryPrice .' VND</td>
+                                        <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">'. $this->formatPrice($accessoryPrice) .' VND</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -404,11 +404,11 @@ class MailService
                                         <tbody>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Phụ kiện:</td>
-                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $accessoryPrice .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $this->formatPrice($accessoryPrice) .' VND</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Giá trừ khuyến mãi:</td>
-                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $discount .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $this->formatPrice($discount) .' VND</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Phí vận chuyển:</td>
@@ -416,7 +416,7 @@ class MailService
                                             </tr>
                                             <tr style="border-top: 1px solid rgb(229, 233, 236);">
                                                 <td style="padding-top: 10px">Thành tiền</td>
-                                                <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">'. $total .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">'. $this->formatPrice($total) .' VND</td>
                                             </tr>
                                         </tbody>
                                     </table>
