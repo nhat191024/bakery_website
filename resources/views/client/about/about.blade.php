@@ -26,11 +26,19 @@
                 <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
                     <div class="heading-section-bold mb-4 mt-md-5">
                         <div class="ml-md-0">
-                            <h2 class="mb-4">{{ $About_us->title }}</h2>
+                            <h2 class="mb-4">
+                                @if ($lang == 'en')
+                                    {{ $About_us->title_en }}@else{{ $About_us->title }}
+                                @endif
+                            </h2>
                         </div>
                     </div>
                     <div class="pb-md-5">
-                        <p>{{ $About_us->description }}</p>
+                        <p>
+                            @if ($lang == 'en')
+                                {{ $About_us->description_en }}@else{{ $About_us->description }}
+                            @endif
+                        </p>
                         <p><a href="{{ route('client.shop.productList') }}"
                                 class="btn btn-primary">{{ __('about.callOut') }}</a></p>
                     </div>
