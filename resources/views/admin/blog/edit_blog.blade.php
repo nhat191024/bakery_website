@@ -21,12 +21,12 @@
                         <div class="form-group">
                             <label for="title">Tiêu đề</label>
                             <input required type="text" class="form-control" id="title" aria-describedby=""
-                                name="title" placeholder="Nhập tên size" value="{{ $blog->title }}">
+                                name="title" placeholder="Nhập tiêu đề blog" value="{{ $blog->title }}">
                         </div>
                         <div class="form-group">
                             <label for="subtitle">Mô tả</label>
                             <textarea required class="form-control" id="subtitle" aria-describedby="" name="subtitle"
-                                placeholder="Nhập chi tiết phụ kiện">{{ $blog->subtitle }}</textarea>
+                                placeholder="Nhập mô tả blog">{{ $blog->subtitle }}</textarea>
                         </div>
                         <div class="form-group">
                             <input type="hidden" id="content" name="content">
