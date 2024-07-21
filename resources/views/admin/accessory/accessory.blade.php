@@ -26,16 +26,20 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Tên</th>
-                                    <th>Chi tiết</th>
+                                    <th>Tên phụ kiện (Tiếng Việt)</th>
+                                    <th>Tên phụ kiện (Tiếng Anh)</th>
+                                    <th>Chi tiết phụ kiện (Tiếng Việt)</th>
+                                    <th>Chi tiết phụ kiện (Tiếng Anh)</th>
                                     <th>Giá</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Tên</th>
-                                    <th>Chi tiết</th>
+                                    <th>Tên (Tiếng Việt)</th>
+                                    <th>Tên (Tiếng Anh)</th>
+                                    <th>Chi tiết (Tiếng Việt)</th>
+                                    <th>Chi tiết (Tiếng Anh)</th>
                                     <th>Giá</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -44,7 +48,9 @@
                                 @foreach ($accessories as $item)
                                     <tr>
                                         <td>{{ $item->name }}</td>
+                                        <td>{{ $item->name_en }}</td>
                                         <td>{{ $item->description }}</td>
+                                        <td>{{ $item->description_en }}</td>
                                         <td>{{ number_format($item->price, 0, ',', '.')}}đ</td>
                                         <td class="text-center"><a class="btn btn-warning"
                                                 href="{{ route('admin.accessory.edit', ['id' => $item->id]) }}">Sửa</a>
