@@ -27,7 +27,6 @@
                             <thead>
                                 <tr>
                                     <th>Tên SP hiển thị</th>
-                                    <th>Mô tả</th>
                                     <th>Ngày bắt đầu</th>
                                     <th>Ngày kết thúc</th>
                                     <th>Chức năng</th>
@@ -36,7 +35,6 @@
                             <tfoot>
                                 <tr>
                                     <th>Tên SP hiển thị</th>
-                                    <th>Mô tả</th>
                                     <th>Ngày bắt đầu</th>
                                     <th>Ngày kết thúc</th>
                                     <th>Chức năng</th>
@@ -46,7 +44,6 @@
                                 {{-- @foreach ($accessories as $item) --}}
                                     <tr>
                                         <td>{{ $promotion->products->categories->name . ' - ' . $promotion->products->name }}</td>
-                                        <td>{{ $promotion->description }}</td>
                                         <td>{{ \Carbon\Carbon::parse($promotion->start_time)->format('d-m-Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($promotion->end_time)->format('d-m-Y') }}</td>
                                         {{-- <td>{{ number_format($promotion->price, 0, ',', '.')}}đ</td> --}}

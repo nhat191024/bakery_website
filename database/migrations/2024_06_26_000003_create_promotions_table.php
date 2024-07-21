@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
-            $table->string('description')->nullable();
+            $table->integer('fake_price')->nullable()->default(0);
             $table->timestamp('start_time');
             $table->timestamp('end_time')->nullable();
             $table->timestamps();

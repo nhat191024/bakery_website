@@ -30,16 +30,20 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Tiêu đề</th>
-                                    <th>Nội dung</th>
+                                    <th>Tiêu đề (Tiếng Việt)</th>
+                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    <th>Nội dung (Tiếng Việt)</th>
+                                    <th>Nội dung (Tiếng Anh)</th>
                                     <th>Ảnh</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Tiêu đề</th>
-                                    <th>Nội dung</th>
+                                    <th>Tiêu đề (Tiếng Việt)</th>
+                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    <th>Nội dung (Tiếng Việt)</th>
+                                    <th>Nội dung (Tiếng Anh)</th>
                                     <th>Ảnh</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -47,11 +51,16 @@
                             <tbody>
                                 <tr>
                                     <td>{{ $aboutInfo->title }}</td>
+                                    <td>{{ $aboutInfo->title_en }}</td>
                                     <td>{{ $aboutInfo->description }}</td>
-                                    <td class="text-center"><img width="200px"
-                                            src="{{ url('img') . '/' . $aboutInfo['image'] }}" alt=""></td>
+                                    <td>{{ $aboutInfo->description_en }}</td>
+                                    <td class="text-center">
+                                        <img width="200px" src="{{ URL::asset('img/about/' . $aboutInfo->image) }}"
+                                            alt="">
+                                    </td>
                                     <td class="text-center"><a class="btn btn-warning"
-                                            href="{{ route('admin.about.show_edit', ['id' => $aboutInfo->id]) }}">Sửa</a></td>
+                                            href="{{ route('admin.about.show_edit', ['id' => $aboutInfo->id]) }}">Sửa</a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

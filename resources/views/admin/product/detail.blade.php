@@ -19,16 +19,25 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="">Tên sản phẩm</label>
+                            <label for="">Tên sản phẩm (Tiếng Việt)</label>
                             <input readonly maxlength="255" required type="text" class="form-control" id="productName" aria-describedby=""
-                                name="product_name" value="{{ $productInfo->name }}">
+                                name="product_name" value="{{ $productInfo->name }}" placeholder="Không có nội dung">
                         </div>
                         <div class="form-group">
-                            <label for="">Nội dung giới thiệu</label>
-                            <textarea readonly class="form-control" id="productDescription" aria-describedby=""
-                                name="product_description" placeholder="Nhập nội dung sản phẩm" rows="3">{{ $productInfo->description }}</textarea>
+                            <label for="">Tên sản phẩm (Tiếng Anh)</label>
+                            <input readonly maxlength="255" required type="text" class="form-control" id="productName_en" aria-describedby=""
+                                name="product_name_en" value="{{ $productInfo->name_en }}" placeholder="Không có nội dung">
                         </div>
-                        <label for="">Giá Sản Phẩm</label>
+                        <div class="form-group">
+                            <label for="">Nội dung giới thiệu (Tiếng Việt)</label>
+                            <input readonly type="text" class="form-control" id="productDescription" aria-describedby=""
+                                name="product_description" placeholder="Không có nội dung" value="{{ $productInfo->description }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung giới thiệu (Tiếng Anh)</label>
+                            <input readonly type="text" class="form-control" id="productDescription_en" aria-describedby=""
+                                name="product_description_en" placeholder="Không có nội dung" value="{{ $productInfo->description_en }}">
+                        </div>
 
                         @foreach ($allVariations as $size)
                             <div class="form-group d-flex align-items-center">

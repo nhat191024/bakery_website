@@ -15,12 +15,17 @@
                     <form action="{{ route('admin.category.edit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Tên danh mục</label>
+                            <label for="">Tên danh mục (Tiếng Việt)</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="category_name" placeholder="" value="{{ $categoryInfo->name }}">
+                                name="category_name" placeholder="Nhập tên danh mục bằng Tiếng Việt" value="{{ $categoryInfo->name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tên danh mục (Tiếng Anh)</label>
+                            <input required type="text" class="form-control" id="" aria-describedby=""
+                                name="category_name_en" placeholder="Nhập tên danh mục bằng Tiếng Anh" value="{{ $categoryInfo->name_en }}">
                         </div>
                         <input type="hidden" name="id" value="{{ $id }}">
-                        <button class="btn btn-success mt-4" type="submit">Sửa</button>
+                        <button class="btn btn-success mt-4" type="submit">Lưu thay đổi</button>
                     </form>
 
                 </div>

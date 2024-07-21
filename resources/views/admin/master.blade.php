@@ -55,7 +55,7 @@
             <li class="nav-item  {{ Request::is('admin') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('') . '/' }}admin">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Bảng chức năng</span></a>
+                    <span>Trang tổng quan</span></a>
             </li>
 
 

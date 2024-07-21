@@ -10,7 +10,7 @@
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
                             <div class="col-md-12 ftco-animate text-center">
-                                <h1 class="mb-2 text-nowrap">
+                                <h1 class="mb-2 text-nowrap font-weight-bold">
                                     @if ($lang == 'en')
                                         {{ $banner->title_en }}@else{{ $banner->title }}
                                     @endif
@@ -169,7 +169,7 @@
                             <span class="subheading">{{ __('home.promotion.title') }}</span>
                             <h2 class="text-sale">{{ __('home.promotion.subtitle') }}</h2>
                             <h3 class="text-sale">{{ $promotion->Products->name }}</h3>
-                            <span class="price">{{ $promotion->Products->fake_price }}Đ</span>
+                            <span class="price">{{ $promotion->fake_price }}Đ</span>
                             <span style="margin-left: 10px;"><a
                                     href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}"
                                     class="sale"> {{ __('home.promotion.sale') }} {{ $price }}

@@ -21,7 +21,9 @@ class AccessoryService
     {
         $accessory = Accessory::where('id', $request->id)->first();
         $accessory->name = $request->name;
+        $accessory->name_en = $request->name_en;
         $accessory->description = $request->description;
+        $accessory->description_en = $request->description_en;
         $accessory->price = $request->price;
         $accessory->save();
         return $accessory;

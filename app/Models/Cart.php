@@ -52,8 +52,11 @@ public static function add($product, $variation_id = '1', $quantity = '1')
     public static function get()
     {
         $cart = session('cart');
-        // dd($cart);
         return $cart;
+    }
+    public static function clearCart()
+    {
+        session()->forget('cart');
     }
 
     public static function setAccessory($accessory_id)

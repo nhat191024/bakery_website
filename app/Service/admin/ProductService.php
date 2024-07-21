@@ -24,12 +24,14 @@ class ProductService
         return Product_variation::where('id', $id)->first();
     }
 
-    public function add($categoryId, $productName, $productPrice, $productDescription, $imageName)
+    public function add($categoryId, $productName, $productNameEn, $productPrice, $productDescription, $productDescriptionEn, $imageName)
     {
         $id = Products::create([
             'category_id' => $categoryId,
             'name' => $productName,
+            'name_en' => $productNameEn,
             'description' => $productDescription,
+            'description_en' => $productDescriptionEn,
             'image' => $imageName
         ])->id;
 
@@ -44,12 +46,14 @@ class ProductService
         return $id;
     }
 
-    public function edit($id, $categoryId, $productName, $productPrice, $productDescription, $imageName)
+    public function edit($id, $categoryId, $productName, $productNameEn, $productPrice, $productDescription, $productDescriptionEn, $imageName)
     {
         $product = Products::where('id', $id)->first();
         $product->category_id = $categoryId;
         $product->description = $productDescription;
+        $product->description_en = $productDescriptionEn;
         $product->name = $productName;
+        $product->name_en = $productNameEn;
         if ($imageName != null) {
             $product->image = $imageName;
         }

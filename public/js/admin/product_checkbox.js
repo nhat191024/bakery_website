@@ -3,11 +3,9 @@ var selectedSizeList = [];
 $(document).ready(function() {
     $('input[type="checkbox"]').change(function() {
         selectedSizeList = checkSelectedSize();
-        console.log('selected variation', selectedSizeList);
     });
     $('input[type="number"]').change(function() {
         selectedSizeList = checkSelectedSize();
-        console.log('selected variation', selectedSizeList);
     });
 
 });

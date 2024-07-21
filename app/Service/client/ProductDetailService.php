@@ -10,10 +10,11 @@ class ProductDetailService
 {
     public function index($productId)
     {
+        $lang = session()->get('language');
         $product = Products::find($productId);
         $categoryId = 0;
         try {
-            $categoryId = $product->categories->id; 
+            $categoryId = $product->categories->id;
         } catch (\Throwable $th) {
             return redirect()->route('client.shop.productList');
         }
@@ -23,6 +24,7 @@ class ProductDetailService
 
         return view('client.shop.productDetail')
             ->with('product', Products::find($productId))
-            ->with('products', $relatedProducts);
+            ->with('products', $relatedProducts)
+            ->with('lang', $lang);
     }
 }

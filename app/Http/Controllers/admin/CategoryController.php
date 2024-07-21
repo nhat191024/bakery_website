@@ -26,9 +26,10 @@ class CategoryController extends Controller
     public function addCategory(Request $request) {
         $request->validate([
             'category_name' => 'required',
+            'category_name_en' => 'required',
         ]);
         // Public Folder
-        $this->categoryService->add($request->category_name);
+        $this->categoryService->add($request->category_name,$request->category_name_en);
         return redirect(route('admin.category.index'))->with('success', 'Thêm danh mục thành công');
     }
 
@@ -42,9 +43,10 @@ class CategoryController extends Controller
         $request->validate([
             'id' => 'required',
             'category_name' => 'required',
+            'category_name_en' => 'required',
         ]);
         // Public Folder
-        $this->categoryService->edit($request->id, $request->category_name);
+        $this->categoryService->edit($request->id, $request->category_name,$request->category_name_en);
         return redirect(route('admin.category.index'))->with('success', 'Sửa danh mục thành công');
     }
 
