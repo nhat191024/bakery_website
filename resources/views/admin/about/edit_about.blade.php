@@ -15,14 +15,24 @@
                     <form action="{{ route('admin.about.edit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Tiêu đề</label>
+                            <label for="">Tiêu đề (Tiếng Việt)</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="about_title" placeholder="Nhập tiêu đề" value="{{ $aboutInfo['title'] }}">
+                                name="about_title" placeholder="Nhập tiêu đề bằng Tiếng Việt" value="{{ $aboutInfo['title'] }}">
                         </div>
                         <div class="form-group">
-                            <label for="">Nội dung</label>
+                            <label for="">Tiêu đề (Tiếng Anh)</label>
+                            <input required type="text" class="form-control" id="" aria-describedby=""
+                                name="about_title_en" placeholder="Nhập tiêu đề bằng Tiếng Anh" value="{{ $aboutInfo['title_en'] }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung (Tiếng Việt)</label>
                             <textarea required type="text" class="form-control" id="" aria-describedby="" name="about_content"
-                                placeholder="Nhập nội dung" cols="30" rows="10">{{ $aboutInfo['description'] }}</textarea>
+                                placeholder="Nhập nội dung bằng Tiếng Việt" cols="30" rows="10">{{ $aboutInfo['description'] }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung (Tiếng Anh)</label>
+                            <textarea required type="text" class="form-control" id="" aria-describedby="" name="about_content_en"
+                                placeholder="Nhập nội dung bằng Tiếng Anh" cols="30" rows="10">{{ $aboutInfo['description_en'] }}</textarea>
                         </div>
                         <label for="">Ảnh giới thiệu</label>
                         <div class="custom-file">
