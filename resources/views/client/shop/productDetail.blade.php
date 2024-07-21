@@ -67,7 +67,7 @@
                         </div>
                         <div class="w-100"></div>
                     </div>
-                    <p class="btn btn-primary py-3 px-5 text-center" id="addToCart">{{ __('shop.add') }}</p>
+                    <p><a class="btn btn-primary py-3 px-5 text-center" id="addToCart">{{ __('shop.add') }}</a></p>
                     <p>{{ __('shop.note') }}<br>
                     </p>
                 </div>
