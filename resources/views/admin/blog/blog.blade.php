@@ -29,16 +29,20 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Tiêu đề</th>
-                                    <th>Mô tả</th>
+                                    <th>Tiêu đề (Tiếng Việt)</th>
+                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    <th>Mô tả (Tiếng Việt)</th>
+                                    <th>Mô tả (Tiếng Anh)</th>
                                     <th>Thumbnail (Ảnh bìa blog)</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Tiêu đề</th>
-                                    <th>Mô tả</th>
+                                    <th>Tiêu đề (Tiếng Việt)</th>
+                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    <th>Mô tả (Tiếng Việt)</th>
+                                    <th>Mô tả (Tiếng Anh)</th>
                                     <th>Thumbnail (Ảnh bìa blog)</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -47,7 +51,9 @@
                                 @foreach ($allBlog as $item)
                                     <tr>
                                         <td>{{ $item->title }}</td>
+                                        <td>{{ $item->title_en }}</td>
                                         <td>{{ $item->subtitle }}</td>
+                                        <td>{{ $item->subtitle_en }}</td>
                                         <td class="text-center"><img width="200px"
                                             src="{{ url('img') . '/client/blog/' . $item['thumbnail'] }}" alt=""></td>
                                         <td class="text-center">
