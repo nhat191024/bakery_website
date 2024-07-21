@@ -16,7 +16,7 @@ return [
         "send" => "Gửi góp ý",
     ],
     "subscribe" => [
-        "title" => "Đăng kí nhận ưu đãi",
+        "title" => "Đăng ký nhận ưu đãi",
         "subtitle" => "Nhận e-mail về những chương trình khuyến mại đặc biệt mới nhất!",
         "send" => "Đăng ký",
     ],
