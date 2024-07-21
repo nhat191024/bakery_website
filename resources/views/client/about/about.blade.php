@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
-                    style="background-image: url('{{ URL::asset('img/client/about/'. $About_us->image) }}');">
+                    style="background-image: url('{{ URL::asset('img/about/'. $About_us->image) }}');">
                     <a href="#"
                         class="icon popup-vimeo d-flex justify-content-center align-items-center">
                         <span class="icon-play"></span>
