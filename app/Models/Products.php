@@ -15,7 +15,6 @@ class Products extends Model
         'category_id',
         'name',
         'description',
-        'fake_price',
         'image',
     ];
 
