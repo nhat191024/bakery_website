@@ -10,7 +10,7 @@ class DashboardService
 
     public function getAll()
     {
-        $bill = Bills::orderByDesc('created_at')->get();
+        $bill = Bills::orderByDesc('order_date')->get();
         return $bill;
     }
     public function getDashboard()
@@ -28,7 +28,7 @@ class DashboardService
     }
 
     public function getRevenueByDay() {
-        $totalRevenue = Bills::whereDate('created_at', now()->toDateString())
+        $totalRevenue = Bills::whereDate('order_date', now()->toDateString())
                             ->where('status', 1)->sum('total_amount');
         return number_format($totalRevenue);
     }
@@ -37,7 +37,7 @@ class DashboardService
         $startOfWeek = now()->startOfWeek();
         $endOfWeek = now()->endOfWeek();
 
-        $totalRevenue = Bills::whereBetween('created_at', [$startOfWeek, $endOfWeek])
+        $totalRevenue = Bills::whereBetween('order_date', [$startOfWeek, $endOfWeek])
                             ->where('status', 1)->sum('total_amount');
 
         return number_format($totalRevenue);
@@ -47,7 +47,7 @@ class DashboardService
         $startOfMonth = now()->startOfMonth();
         $endOfMonth = now()->endOfMonth();
 
-        $totalRevenue = Bills::whereBetween('created_at', [$startOfMonth, $endOfMonth])
+        $totalRevenue = Bills::whereBetween('order_date', [$startOfMonth, $endOfMonth])
                             ->where('status', 1)->sum('total_amount');
 
         return number_format($totalRevenue);
@@ -57,7 +57,7 @@ class DashboardService
         $startOfYear = now()->startOfYear();
         $endOfYear = now()->endOfYear();
 
-        $totalRevenue = Bills::whereBetween('created_at', [$startOfYear, $endOfYear])
+        $totalRevenue = Bills::whereBetween('order_date', [$startOfYear, $endOfYear])
                             ->where('status', 1)->sum('total_amount');
 
         return number_format($totalRevenue);
