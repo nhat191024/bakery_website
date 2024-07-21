@@ -16,14 +16,21 @@
                                 class="addToCart w-100 h-100 d-flex justify-content-center align-items-center shadow-lg pointer text-primary"
                                 onclick="addToCart({{ $pd->id }})" style="font-size: 1.2rem;">
                                 <i class="ion-ios-cart text-primary mr-1"></i>
-                                <p id="addingToCart{{ $pd->id }}" class="addingToCart m-0">{{ __('shop.add') }}</p>
+                                <p id="addingToCart{{ $pd->id }}" class="addingToCart m-0">{{ __('shop.add') }}
+                                </p>
                             </div>
                         @endif
                     </div>
                 </a>
                 <div class="text py-3 pb-4 px-3 text-center pointer"
                     @if (Route::has('client.shop.productDetail')) onclick="window.location.href='{{ route('client.shop.productDetail', $pd->id) }}'" @endif>
-                    <h3><a class="prod-title">{{ $pd->name }}</a></h3>
+                    <h3>
+                        <a class="prod-title">
+                            @if ($lang == 'en')
+                                {{ $pd->name_en }}@else{{ $pd->name }}
+                            @endif
+                        </a>
+                    </h3>
                     <div class="d-flex">
                         <div class="pricing">
                             <p class="price">
