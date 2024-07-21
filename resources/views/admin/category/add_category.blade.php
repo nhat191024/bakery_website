@@ -15,11 +15,16 @@
                     <form action="{{ route('admin.category.add') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Tên danh mục</label>
+                            <label for="">Tên danh mục (Tiếng Việt)</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="category_name" placeholder="Nhập tên danh mục">
+                                name="category_name" placeholder="Nhập tên danh mục bằng Tiếng Việt">
                         </div>
-                        <button class="btn btn-success mt-4" type="submit">Thêm</button>
+                        <div class="form-group">
+                            <label for="">Tên danh mục (Tiếng Anh)</label>
+                            <input required type="text" class="form-control" id="" aria-describedby=""
+                                name="category_name_en" placeholder="Nhập tên danh mục bằng Tiếng Anh">
+                        </div>
+                        <button class="btn btn-success mt-4" type="submit">Thêm danh mục</button>
                     </form>
 
                 </div>
