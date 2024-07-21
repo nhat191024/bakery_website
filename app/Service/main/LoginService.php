@@ -37,7 +37,7 @@ class LoginService
         if ($user->status == 0) {
             return redirect()->route('main.login')->with('message', 'Người dùng đã bị khoá!');
         }
-        return redirect()->intended(route('admin.category.index'));
+        return redirect()->intended(route('admin.index'));
     }
 
     public function loginPage()
