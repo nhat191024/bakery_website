@@ -30,12 +30,6 @@
                                 @endforeach
                             </select>
                         </div>
-
-                        <div class="form-group">
-                            <label for="description">Mô tả ngắn</label>
-                            <textarea required class="form-control" id="description" aria-describedby="" name="description"
-                                placeholder="Nhập chi tiết phụ kiện">{{ $promotion->description }}</textarea>
-                        </div>
                         <div class="form-group">
                             <label for="start_time">Ngày bắt đầu (Định dạng: Năm/Tháng/Ngày)</label>
                             <input required type="date" class="form-control" id="start_time" aria-describedby=""
