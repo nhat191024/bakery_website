@@ -31,18 +31,20 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Tiêu đề</th>
-                                    <th>Nội dung</th>
+                                    <th>Tiêu đề (Tiếng Việt)</th>
+                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    <th>Nội dung (Tiếng Việt)</th>
+                                    <th>Nội dung (Tiếng Anh)</th>
                                     <th>Ảnh</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>STT</th>
-                                    <th>Tiêu đề</th>
-                                    <th>Nội dung</th>
+                                    <th>Tiêu đề (Tiếng Việt)</th>
+                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    <th>Nội dung (Tiếng Việt)</th>
+                                    <th>Nội dung (Tiếng Anh)</th>
                                     <th>Ảnh</th>
                                     <th>Chức năng</th>
                                 </tr>
@@ -50,11 +52,12 @@
                             <tbody>
                                 @foreach ($allBanner as $key => $item)
                                     <tr>
-                                        <td>{{ ++$key }}</td>
                                         <td>{{ $item->title }}</td>
+                                        <td>{{ $item->title_en }}</td>
                                         <td>{{ $item['subtitle'] }}</td>
+                                        <td>{{ $item['subtitle_en'] }}</td>
                                         <td class="text-center"><img width="200px"
-                                                src="{{ url('img') . '/' . $item['image'] }}" alt=""></td>
+                                                src="{{ url('img') . '/home/' . $item['image'] }}" alt=""></td>
                                         <td class="text-center"><a class="btn btn-warning" href="{{route('admin.banner.show_edit', ['id' => $item->id])}}">Sửa</a></td>
                                     </tr>
                                 @endforeach
