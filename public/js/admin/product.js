@@ -5,12 +5,14 @@ $('form').on('submit', function (e) {
     formData.append('_token', token);
     formData.append('category_id', $('#categorySelect').val());
     formData.append('product_name', $('#productName').val());
+    formData.append('product_name_en', $('#productName_en').val());
 
     selectedSizeList.forEach(function(item, index) {
         formData.append(`product_price[${index}]`, JSON.stringify(item));
     });
 
     formData.append('product_description', $('#productDescription').val());
+    formData.append('product_description_en', $('#productDescription_en').val());
     formData.append('product_image', $('#customFile')[0].files[0]);
 
     $.ajax({
