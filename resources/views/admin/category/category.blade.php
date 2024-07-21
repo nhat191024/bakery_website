@@ -32,14 +32,16 @@
                             <thead>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên danh mục</th>
+                                    <th>Tên danh mục (Tiếng Việt)</th>
+                                    <th>Tên danh mục (Tiếng Anh)</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên danh mục</th>
+                                    <th>Tên danh mục (Tiếng Việt)</th>
+                                    <th>Tên danh mục (Tiếng Anh)</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </tfoot>
@@ -48,6 +50,7 @@
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $item['name'] }}</td>
+                                        <td>{{ $item['name_en'] }}</td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="{{route('admin.category.show_edit', ['id' => $item->id])}}">
                                                 Sửa
