@@ -24,7 +24,6 @@
                         </h2>
                         </p>
                     @elseif (count($product->product_variations) == 1)
-                        <p class="price-dc"><s><span>{{ number_format($product->fake_price, 0, ',', '.') }}đ</span></s></p>
                         <h2 class="productPrice h3 text-black" id="productPrice" id="productPrice">
                             {{ number_format($product->product_variations[0]->price ?? $product->product_variations, 0, ',', '.') }}đ
                         </h2>
@@ -100,7 +99,6 @@
             $price = $('#productPrice').val().replace('đ', '').replace('.', '');
             $quantity = $('#quantity').val();
             $variation_id = $('#productVariation').val() ? $('#productVariation').val() : 1;
-            console.log($price, $quantity, $variation_id);
             $.ajax({
                 url: "{{ route('client.cart.add') }}",
                 type: "POST",
@@ -122,7 +120,6 @@
                 },
                 error: function(err) {
                     $('#addToCart').text('Failed');
-                    console.log(err);
                 }
             });
         });
@@ -137,8 +134,6 @@
             var categoryId = e.target.value;
             var price = $(this).find('option:selected').data('price');
             $('#productPrice').text(new Intl.NumberFormat('de-DE').format(price) + 'đ');
-            console.log('change price based on selected variant' + e.target.value + ' ' + new Intl
-                .NumberFormat('de-DE').format(price) + 'đ');
         });
 
         $('.quantity-left-minus').click(function(e) {
