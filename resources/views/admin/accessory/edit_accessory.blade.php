@@ -20,14 +20,24 @@
                     <form action="{{ route('admin.accessory.saveEdit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Tên phụ kiện</label>
+                            <label for="name">Tên phụ kiện (Tiếng Việt)</label>
                             <input required type="text" class="form-control" id="name" aria-describedby=""
-                                name="name" placeholder="Nhập tên size" value="{{ $accessory->name }}">
+                                name="name" placeholder="Nhập tên size bằng Tiếng Việt" value="{{ $accessory->name }}">
                         </div>
                         <div class="form-group">
-                            <label for="description">Chi tiết phụ kiện</label>
-                            <textarea required class="form-control" id="description" aria-describedby="" name="description" placeholder="Nhập chi tiết phụ kiện"
+                            <label for="name_en">Tên phụ kiện (Tiếng Anh)</label>
+                            <input required type="text" class="form-control" id="name_en" aria-describedby=""
+                                name="name_en" placeholder="Nhập tên size bằng Tiếng Anh" value="{{ $accessory->name_en }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Chi tiết phụ kiện (Tiếng Việt)</label>
+                            <textarea required class="form-control" id="description" aria-describedby="" name="description" placeholder="Nhập chi tiết phụ kiện bằng Tiếng Việt"
                             >{{ $accessory->description }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="description_en">Chi tiết phụ kiện (Tiếng Anh)</label>
+                            <textarea required class="form-control" id="description_en" aria-describedby="" name="description_en" placeholder="Nhập chi tiết phụ kiện bằng Tiếng Anh"
+                            >{{ $accessory->description_en }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="price">Giá</label>
@@ -35,7 +45,7 @@
                                 name="price" placeholder="Nhập giá phụ kiện" value="{{ $accessory->price }}">
                         </div>
                         <input type="hidden" name="id" value="{{ $id }}">
-                        <button class="btn btn-success mt-4" type="submit">Sửa</button>
+                        <button class="btn btn-success mt-4" type="submit">Lưu thay đổi</button>
                     </form>
 
                 </div>
