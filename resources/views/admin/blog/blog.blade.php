@@ -31,7 +31,7 @@
                                 <tr>
                                     <th>Tiêu đề</th>
                                     <th>Mô tả</th>
-                                    <th>Thumbnail</th>
+                                    <th>Thumbnail (Ảnh bìa blog)</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
@@ -39,7 +39,7 @@
                                 <tr>
                                     <th>Tiêu đề</th>
                                     <th>Mô tả</th>
-                                    <th>Thumbnail</th>
+                                    <th>Thumbnail (Ảnh bìa blog)</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </tfoot>
@@ -48,21 +48,22 @@
                                     <tr>
                                         <td>{{ $item->title }}</td>
                                         <td>{{ $item->subtitle }}</td>
-                                        <td>{{ $item->thumbnail }}</td>
-
+                                        <td class="text-center"><img width="200px"
+                                            src="{{ url('img') . '/client/blog/' . $item['thumbnail'] }}" alt=""></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="{{ route('admin.blog.showEdit', ['id' => $item->id]) }}">Sửa</a>
                                             @if (!$item->deleted_at)
-                                                <a class="btn btn-danger"
+                                                <a class="btn btn-outline-danger"
                                                     onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn ẩn blog ({{ $item->title }}) chứ?')) { window.location.href = '{{ route('admin.blog.delete', ['id' => $item->id]) }}'; }"
                                                     > Nhấn để ẩn </a>
                                             @endif
                                             @if ($item->deleted_at)
-                                                <a class="btn btn-info"
+                                                <a class="btn btn-outline-success"
                                                 onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn hiện blog ({{ $item->title }}) chứ?')) { window.location.href = '{{ route('admin.blog.restore', ['id' => $item->id]) }}'; }"
                                                     > Khôi phục </a>
                                             @endif
                                             <a class="btn btn-info" href="{{ route('admin.blog.showDetail', ['id' => $item->id]) }}">Xem chi tiết</a>
+                                            <a class="btn btn-danger" onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn XOÁ VĨNH VIỄN blog ({{ $item->title }}) chứ?\nLưu ý: Blog này sẽ không thể khôi phục sau khi đã xoá')) { window.location.href = '{{ route('admin.blog.destroy', ['id' => $item->id]) }}'; }">Xoá vĩnh viễn</a>
                                         </td>
                                     </tr>
                                 @endforeach
