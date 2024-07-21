@@ -18,12 +18,12 @@
             <div class="row">
                 <div class="col-lg-8 ftco-animate">
                     <div class="row">
-
+                        {{ $blogs->links('client.components.pagination') }}
                         @foreach ($blogs as $blog)
                             <div class="col-md-12 d-flex ftco-animate">
                                 <div class="blog-entry align-self-stretch d-md-flex">
                                     <a href="{{ route('client.blog.show', ['id' => $blog->id]) }}" class="block-20"
-                                        style="background-image: url({{ asset('img/client/shop/product-10.webp') }});">
+                                        style="background-image: url('{{ asset('img/client/blog/' . $blog->thumbnail) }}');">
                                     </a>
                                     <div class="text d-block pl-md-4">
                                         <div class="meta mb-3">
@@ -33,7 +33,7 @@
                                             </div>
                                         </div>
                                         <h3 class="heading">
-                                            <a href="#">
+                                            <a href="{{ route('client.blog.show', ['id' => $blog->id]) }}">
                                                 @if ($lang == 'en')
                                                     {{ $blog->title_en }}@else{{ $blog->title }}
                                                 @endif
@@ -50,6 +50,7 @@
                                 </div>
                             </div>
                         @endforeach
+                        {{ $blogs->links('client.components.pagination') }}
                     </div>
                 </div> <!-- .col-md-8 -->
                 <div class="col-lg-4 sidebar ftco-animate">
@@ -72,9 +73,9 @@
                         <h3 class="heading">{{ __('blog.recent') }}</h3>
 
                         @foreach ($recentBlogs as $recentBlog)
-                            <div class="block-21 mb-4 d-flex">
+                            <div class="block-21 mb-4 d-flex pointer" onclick="location.href = '{{ route('client.blog.show', ['id' => $recentBlog->id]) }}';">
                                 <a class="blog-img mr-4"
-                                    style="background-image: url({{ asset('img/client/shop/product-4.webp') }});"></a>
+                                style="background-image: url('{{ asset('img/client/blog/' . $recentBlog->thumbnail) }}');"></a>
                                 <div class="text">
                                     <h3 class="heading-1">
                                         <a href="{{ route('client.blog.show', ['id' => $recentBlog->id]) }}">
@@ -84,12 +85,12 @@
                                         </a>
                                     </h3>
                                     <div class="meta">
-                                        <div><a href="#"><span class="icon-calendar"></span>
+                                        <div><a><span class="icon-calendar"></span>
                                                 {{ $recentBlog->created_at }}</a></div>
-                                        <div><a href="#"><span class="icon-person"></span>
+                                        <div><a><span class="icon-person"></span>
                                                 {{ $recentBlog->user->username }}</a>
                                         </div>
-                                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                                        <div><a><span class="icon-chat"></span> 19</a></div>
                                     </div>
                                 </div>
                             </div>

@@ -17,32 +17,57 @@
                     </div>
                 @endif
                 <div class="table-responsive">
-                    <form id="blogForm">
+                    <form id="blogAddForm">
                         <div class="form-group">
-                            <label for="title">Tiêu đề</label>
+                            <label for="title">Tiêu đề (Tiếng Việt)</label>
                             <input required type="text" class="form-control" id="title" aria-describedby=""
-                                name="title" placeholder="Nhập tên size">
+                                name="title" placeholder="Nhập tiêu đề blog">
                         </div>
                         <div class="form-group">
-                            <label for="subtitle">Mô tả</label>
-                            <textarea required class="form-control" id="subtitle" aria-describedby="" name="subtitle"
-                                placeholder="Nhập chi tiết phụ kiện"></textarea>
+                            <label for="title">Tiêu đề (Tiếng Anh)</label>
+                            <input required type="text" class="form-control" id="title_en" aria-describedby=""
+                                name="title_en" placeholder="Nhập tiêu đề blog bằng tiếng Anh">
                         </div>
+                        <hr>
+                        <div class="form-group">
+                            <label for="subtitle">Mô tả (Tiếng Việt)</label>
+                            <textarea required class="form-control" id="subtitle" aria-describedby="" name="subtitle"
+                                placeholder="Nhập mô tả blog"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="subtitle">Mô tả (Tiếng Anh)</label>
+                            <textarea required class="form-control" id="subtitle_en" aria-describedby="" name="subtitle_en"
+                                placeholder="Nhập mô tả blog bằng tiếng Anh"></textarea>
+                        </div>
+                        <hr>
+                        <label for="">Ảnh bìa blog</label>
+                        <div class="custom-file mb-3">
+                            <input
+                             type="file" accept="image/*" class="custom-file-input" id="customFile"
+                                name="thumbnail">
+                            <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                        </div>
+                        <hr>
                         <div class="form-group">
                             <input type="hidden" id="content" name="content" required>
-                            <label for="editor">Nội dung</label>
+                            <label for="editor">Nội dung (Tiếng Việt)</label>
                             <div id="editor" name="editor" style="min-height: 300px !important"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" id="content_en" name="content_en" required>
+                            <label for="editor_en">Nội dung (Tiếng Anh)</label>
+                            <div id="editor_en" name="editor_en" style="min-height: 300px !important"></div>
                         </div>
                         <small class="text-danger" id="error"></small> <br>
                         <button class="btn btn-primary mt-4" type="button" onclick="history.back()">Quay lại</button>
-                        <button class="btn btn-success mt-4" id="saveEdit" type="submit" onclick="add()">Đăng bài</button>
+                        <button class="btn btn-success mt-4" id="saveEdit" type="submit">Đăng bài</button>
                     </form>
                 </div>
             </div>
         </div>
 
     </div>
-    <!-- /.container-fluid -->
+<!-- /.container-fluid -->
 
     </div>
     <!-- End of Main Content -->

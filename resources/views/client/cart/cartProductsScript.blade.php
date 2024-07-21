@@ -20,7 +20,6 @@
         $('#addVoucher').click(function(e) {
             e.preventDefault();
             var voucher_code = $('#voucherCode').val();
-            console.log(voucher_code);
             $.ajax({
                 url: "/cart/applyVoucher",
                 method: "POST",
@@ -28,11 +27,7 @@
                     _token: "{{ csrf_token() }}",
                     'voucher_code': voucher_code
                 },
-                beforeSend: function() {
-                    console.log('before send');
-                },
                 success: function(res) {
-                    console.log(res);
                     $('#discountPrice').text('0đ');
                     calculateTotal(res.subTotal);
                     if (currentLang == 'en') {
@@ -115,9 +110,6 @@
                                 break;
                         }
                     }
-                },
-                error: function(e) {
-                    console.log(e);
                 }
             });
         });

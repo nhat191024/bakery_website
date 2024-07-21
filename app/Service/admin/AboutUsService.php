@@ -18,11 +18,13 @@ class AboutUsService
         return About_us::where('id', $id)->first();
     }
 
-    public function edit($id, $aboutTitle, $aboutContent, $imageName)
+    public function edit($id, $aboutTitle, $aboutTitleEn, $aboutContent, $aboutContentEn, $imageName)
     {
         $about = About_us::where('id', $id)->first();
         $about->title = $aboutTitle;
+        $about->title_en = $aboutTitleEn;
         $about->description = $aboutContent;
+        $about->description_en = $aboutContentEn;
         if ($imageName != null) {
             $about->image = $imageName;
         }

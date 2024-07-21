@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\AccessoryController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PromotionController;
@@ -23,7 +24,7 @@ use App\Http\Controllers\client\LanguageController;
 use App\Models\Cart;
 
 use Illuminate\Support\Facades\Route;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,7 @@ Route::middleware(['localization'])->group(function () {
         Route::post('/applyVoucher', [CartController::class, 'applyVoucher'])->name('client.cart.applyVoucher');
         Route::post('/removeVoucher', [CartController::class, 'removeVoucher'])->name('client.cart.removeVoucher');
         Route::get('/getCount', [Cart::class, 'getCartCount'])->name('cart.getCartCount');
+        Route::get('/clear', [Cart::class, 'clearCart'])->name('cart.clear');
     });
 
     Route::prefix('checkout')->group(function () {
@@ -81,7 +83,7 @@ Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->group(function () {
 
-        Route::get('/', [CategoryController::class, 'index'])->name('admin.index');
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
         Route::prefix('/category')->group(function () {
             Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
             Route::get('/add', [CategoryController::class, 'showAddCategory'])->name('admin.category.show_add');
@@ -183,6 +185,7 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/edit', [\App\Http\Controllers\admin\BlogController::class, 'saveEdit'])->name('admin.blog.saveEdit');
             Route::get('/add', [\App\Http\Controllers\admin\BlogController::class, 'showAdd'])->name('admin.blog.show_add');
             Route::get('/delete/{id}', [\App\Http\Controllers\admin\BlogController::class, 'delete'])->name('admin.blog.delete');
+            Route::get('/destroy/{id}', [\App\Http\Controllers\admin\BlogController::class, 'destroy'])->name('admin.blog.destroy');
             Route::get('/restore/{id}', [\App\Http\Controllers\admin\BlogController::class, 'recover'])->name('admin.blog.restore');
             Route::post('/add', [\App\Http\Controllers\admin\BlogController::class, 'add'])->name('admin.blog.add');
         });

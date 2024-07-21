@@ -16,8 +16,8 @@ class BlogController extends Controller
     {
         $lang = session()->get('language');
         $blogs = Blogs::all();
-        $blogs = Blogs::take(5)->get();
-        $recentBlogs = Blogs::take(3)->get();
+        $blogs = Blogs::paginate(3);
+        $recentBlogs = Blogs::take(8)->get();
         $categories = Categories::all();
         $users = [];
         foreach ($blogs as $blog) {
@@ -31,7 +31,7 @@ class BlogController extends Controller
     {
         $lang = session()->get('language');
         $Blogs  = Blogs::where('id', $id)->first();
-        $recentBlogs = Blogs::with('user')->take(3)->get();
+        $recentBlogs = Blogs::with('user')->take(8)->get();
         $Categories = Categories::paginate(6);
         if ($Blogs == null) {
             return redirect()->route('client.blog.index');

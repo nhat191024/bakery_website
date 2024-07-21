@@ -29,17 +29,21 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Tiêu đề</th>
-                                    <th>Mô tả</th>
-                                    <th>Thumbnail</th>
+                                    <th>Tiêu đề (Tiếng Việt)</th>
+                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    <th>Mô tả (Tiếng Việt)</th>
+                                    <th>Mô tả (Tiếng Anh)</th>
+                                    <th>Thumbnail (Ảnh bìa blog)</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Tiêu đề</th>
-                                    <th>Mô tả</th>
-                                    <th>Thumbnail</th>
+                                    <th>Tiêu đề (Tiếng Việt)</th>
+                                    <th>Tiêu đề (Tiếng Anh)</th>
+                                    <th>Mô tả (Tiếng Việt)</th>
+                                    <th>Mô tả (Tiếng Anh)</th>
+                                    <th>Thumbnail (Ảnh bìa blog)</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </tfoot>
@@ -47,22 +51,25 @@
                                 @foreach ($allBlog as $item)
                                     <tr>
                                         <td>{{ $item->title }}</td>
+                                        <td>{{ $item->title_en }}</td>
                                         <td>{{ $item->subtitle }}</td>
-                                        <td>{{ $item->thumbnail }}</td>
-
+                                        <td>{{ $item->subtitle_en }}</td>
+                                        <td class="text-center"><img width="200px"
+                                            src="{{ url('img') . '/client/blog/' . $item['thumbnail'] }}" alt=""></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="{{ route('admin.blog.showEdit', ['id' => $item->id]) }}">Sửa</a>
                                             @if (!$item->deleted_at)
-                                                <a class="btn btn-danger"
+                                                <a class="btn btn-outline-danger"
                                                     onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn ẩn blog ({{ $item->title }}) chứ?')) { window.location.href = '{{ route('admin.blog.delete', ['id' => $item->id]) }}'; }"
                                                     > Nhấn để ẩn </a>
                                             @endif
                                             @if ($item->deleted_at)
-                                                <a class="btn btn-info"
+                                                <a class="btn btn-outline-success"
                                                 onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn hiện blog ({{ $item->title }}) chứ?')) { window.location.href = '{{ route('admin.blog.restore', ['id' => $item->id]) }}'; }"
                                                     > Khôi phục </a>
                                             @endif
                                             <a class="btn btn-info" href="{{ route('admin.blog.showDetail', ['id' => $item->id]) }}">Xem chi tiết</a>
+                                            <a class="btn btn-danger" onclick="event.preventDefault(); if (confirm('Bạn chắc chắn muốn XOÁ VĨNH VIỄN blog ({{ $item->title }}) chứ?\nLưu ý: Blog này sẽ không thể khôi phục sau khi đã xoá')) { window.location.href = '{{ route('admin.blog.destroy', ['id' => $item->id]) }}'; }">Xoá vĩnh viễn</a>
                                         </td>
                                     </tr>
                                 @endforeach

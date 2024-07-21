@@ -219,25 +219,29 @@
                     </div>
                     <div class="sidebar-box ftco-animate">
                         <h3 class="heading">{{ __('blog.recent') }}</h3>
-                        @foreach ($recentBlogs as $item)
-                            <div class="block-21 mb-4 d-flex">
+                        @foreach ($recentBlogs as $recentBlog)
+                            <div class="block-21 mb-4 d-flex pointer" onclick="location.href = '{{ route('client.blog.show', ['id' => $recentBlog->id]) }}';">
                                 <a class="blog-img mr-4"
-                                    style="background-image: url({{ asset('img/client/shop/product-4.webp') }});"></a>
+                                style="background-image: url('{{ asset('img/client/blog/' . $recentBlog->thumbnail) }}');"></a>
                                 <div class="text">
-                                    <h4 class="heading-2"><a href="{{ route('client.blog.show', ['id' => $item->id]) }}">
+                                    <h3 class="heading-1">
+                                        <a href="{{ route('client.blog.show', ['id' => $recentBlog->id]) }}">
                                             @if ($lang == 'en')
-                                                {{ $item->title_en }}@else{{ $item->title }}
+                                                {{ $recentBlog->title_en }}@else{{ $recentBlog->title }}
                                             @endif
                                         </a>
-                                    </h4>
+                                    </h3>
                                     <div class="meta">
-                                        <div><a href="#"><span class="icon-calendar"></span>
-                                                {{ $item->created_at->format('d/m/Y') }}</a></div>
-                                        <div><a href="#"><span class="icon-person"></span>
-                                                {{ $item->user->username }}</a></div>
+                                        <div><a><span class="icon-calendar"></span>
+                                                {{ $recentBlog->created_at }}</a></div>
+                                        <div><a><span class="icon-person"></span>
+                                                {{ $recentBlog->user->username }}</a>
+                                        </div>
+                                        <div><a><span class="icon-chat"></span> 19</a></div>
                                     </div>
                                 </div>
                             </div>
+                            <a>
                         @endforeach
                         {{-- <div class="sidebar-box ftco-animate">
                         <h3 class="heading">Tag Cloud</h3>

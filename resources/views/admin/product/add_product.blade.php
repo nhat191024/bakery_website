@@ -24,14 +24,24 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="">Tên bánh</label>
+                            <label for="">Tên bánh (Tiếng Việt)</label>
                             <input maxlength="255" required type="text" class="form-control" id="productName"
-                                aria-describedby="" name="product_name" placeholder="Nhập tên thực phẩm">
+                                aria-describedby="" name="product_name" placeholder="Nhập tên sản phẩm bằng Tiếng Việt">
                         </div>
                         <div class="form-group">
-                            <label for="">Nội dung giới thiệu</label>
+                            <label for="">Tên bánh (Tiếng Anh)</label>
+                            <input maxlength="255" required type="text" class="form-control" id="productName_en"
+                                aria-describedby="" name="product_name_en" placeholder="Nhập tên sản phẩm bằng Tiếng Anh">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung giới thiệu (Tiếng Việt)</label>
                             <input type="text" class="form-control" id="productDescription" aria-describedby=""
-                                name="product_description" placeholder="Nhập nội dung sản phẩm">
+                                name="product_description" placeholder="Nhập nội dung sản phẩm bằng Tiếng Việt">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung giới thiệu (Tiếng Anh)</label>
+                            <input type="text" class="form-control" id="productDescription_en" aria-describedby=""
+                                name="product_description_en" placeholder="Nhập nội dung sản phẩm bằng Tiếng Anh">
                         </div>
                         <label for="">Giá (Tích chọn ít nhất 1 size)</label>
 

@@ -28,8 +28,15 @@ const options = {
 var editorContainer = document.getElementById('editor');
 if (editorContainer) {
     var quill = new Quill('#editor', options);
-    quill.root.innerHTML = blogContent;
-    (typeof detail !== 'undefined' ? quill.enable(false):quill.enable(true))
+    var quill_en = new Quill('#editor_en', options);
+    if (typeof blogContent !== 'undefined') {
+        quill.root.innerHTML = blogContent;
+    }
+    if (typeof blogContent_en !== 'undefined') {
+        quill_en.root.innerHTML = blogContent_en;
+    }
+    (typeof detail !== 'undefined' ? quill.enable(false):quill.enable(true));
+    (typeof detail !== 'undefined' ? quill_en.enable(false):quill_en.enable(true));
 }
 
 const title = $('#title');
@@ -38,22 +45,41 @@ const subtitle = $('#subtitle');
 const id = $('#id');
 
 $(document).ready(function () {
-    $('#blogForm').on('submit', function (e) {
+    // $('#blogForm').on('submit', function (e) {
+    //     e.preventDefault();
+    // });
+    $('#blogEditForm').on('submit', function (e) {
         e.preventDefault();
+        edit(e);
+    });
+    $('#blogAddForm').on('submit', function (e) {
+        e.preventDefault();
+        add(e);
     });
 })
 
-function edit() {
+function appendForm(formData){
+    formData.append('_token', csrfToken);
+    formData.append('title', $('#title').val());
+    formData.append('title_en', $('#title_en').val());
+    formData.append('subtitle', $('#subtitle').val());
+    formData.append('subtitle_en', $('#subtitle_en').val());
+    formData.append('content', quill.root.innerHTML);
+    formData.append('content_en', quill_en.root.innerHTML);
+    formData.append('thumbnail', $('#customFile')[0].files[0]);
+    return formData;
+}
+
+function edit(e) {
+    const form = e.target.form;
+    let formData = new FormData(form);
+    formData = appendForm(formData);
+    formData.append('id', id.val());
+
     $.ajax({
         url: "/admin/blog/edit",
         method: "POST",
-        data: {
-            _token: csrfToken,
-            'title': title.val(),
-            'subtitle': subtitle.val(),
-            'content': quill.root.innerHTML,
-            'id': id.val()
-        },
+        data: formData,
         beforeSend: function() {
             $('#saveEdit').text('Đang lưu...');
         },
@@ -62,34 +88,36 @@ function edit() {
             $('#saveEdit').text('Lưu lại');
         },
         success: function (data) {
-            window.location.href = '/admin/blog';
-        }
+            window.location.href = '/admin/blog/detail/'+id.val();
+        },
+        cache: false,
+        contentType: false,
+        processData: false
     });
 
 }
-function add() {
-    console.log('on add');
-    let title = $('#title').val();
-    let subtitle = $('#subtitle').val();
+function add(e) {
+    const form = e.target.form;
+    let formData = new FormData(form);
+    formData = appendForm(formData);
+
     $.ajax({
         url: "/admin/blog/add",
         method: "POST",
-        data: {
-            _token: csrfToken,
-            'title': title,
-            'subtitle': subtitle,
-            'content': quill.root.innerHTML,
-        },
+        data: formData,
         beforeSend: function() {
             $('#saveEdit').text('Đang lưu...');
         },
-        error: function () {
+        error: function (data) {
             $('#error').text('Lỗi, vui lòng kiểm tra lại thông tin');
             $('#saveEdit').text('Lưu lại');
         },
         success: function (data) {
             window.location.href = '/admin/blog/detail/'+data;
-        }
+        },
+        cache: false,
+        contentType: false,
+        processData: false
     });
 
 }
