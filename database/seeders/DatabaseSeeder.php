@@ -57,7 +57,9 @@ class DatabaseSeeder extends Seeder
             Products::create([
                 "category_id" => $row['category_id'],
                 "name" => $row['name'],
+                "name_en" => $row['name_en'],
                 "description" => $row['description'],
+                "description_en" => $row['description_en'],
                 "image" => $row['image'],
             ]);
         }
