@@ -60,6 +60,16 @@ function calculateTotal(subTotal, discount = 0) {
     updateCartCount();
 }
 
+function clearCart() {
+    $.ajax({
+        url: "/cart/clear",
+        method: "GET",
+        success: function () {
+            location.reload();
+        }
+    });
+}
+
 function checkout() {
     $.ajax({
         url: "/cart/getCount",
