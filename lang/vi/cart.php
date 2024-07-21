@@ -5,6 +5,7 @@ return [
     "quantity" => "Số lượng",
     "total" => "Tổng cộng",
     "endList" => "Bạn đã đến cuối danh sách",
+    "clear" => "Xoá sạch giỏ hàng",
     "coupon" => [
         "title" => "Mã giảm giá",
         "subtitle" => "Nhập mã giảm giá của bạn",
