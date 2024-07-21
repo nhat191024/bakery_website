@@ -16,17 +16,19 @@ class CategoryService
         return Categories::where('id', $id)->first();
     }
 
-    public function add($categoryName)
+    public function add($categoryName, $categoryName_en)
     {
         Categories::create([
             'name' => $categoryName,
+            'name_en' => $categoryName_en
         ]);
     }
 
-    public function edit($id, $categoryName)
+    public function edit($id, $categoryName, $categoryName_en)
     {
         $category = Categories::where('id', $id)->first();
         $category->name = $categoryName;
+        $category->name_en = $categoryName_en;
         $category->save();
     }
 
