@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-12 ftco-animate">
                     <div class="mx-auto text-center mb-3" style="width: 200px;">
-                        <button onclick="clearCart()" class="btn btn-primary py-3 px-4 w-100" style="border: 1px solid indianred !important; color: indianred !important">{{ __('cart.clear') }}</button>
+                        <button onclick="clearCart()" class="btn btn-primary py-3 px-4 w-100" >{{ __('cart.clear') }}</button>
                     </div>
                     <div class="cart-list">
                         <table class="table">

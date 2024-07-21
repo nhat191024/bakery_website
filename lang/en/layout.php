@@ -10,7 +10,9 @@ return [
     "footer1" => "Come to us",
     "address1" => "Address 1: 72 Xuan Dieu Street, Tu Lien, Tay Ho, Hanoi",
     "address2" => "Address 2: 56d Tran Nhan Tong Street, Nguyen Du, Hai Ba Trung, Hanoi",
-    "phone" => "Phone: 024 6291 8575",
+    "phone1" => "Phone Bakery 1: 024 6291 8575",
+    "phone2" => "Phone Bakery 2: 086 8119 220",
+    "hotline" => "Hotline : 0972651706",
     "copyright" => " Built and designed | Information Technology Department Cooperate FPL HaiPhong with DEV TEAM K18 FPT Polytechnic HaiPhong",
     "endList" => "You have reached the end of the list"
 ];

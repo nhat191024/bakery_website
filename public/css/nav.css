@@ -1,14 +1,14 @@
 .scaleL {
-    width: 100px;
-    height: 56.25px;
+    width: 130px;
+    height: 73.125px;
     opacity: 0;
     transform: translate(-100px, -100px);
-    animation: zoomInL 2s forwards;
+    animation: zoomInL 1.5s forwards;
 }
 .scaleR {
   opacity: 0;
   transform: translate(100px, -100px);
-  animation: zoomInR 2s forwards;
+  animation: zoomInR 1.5s forwards;
 }
 @keyframes zoomInR {
   0% {
@@ -50,4 +50,10 @@ a:not(:hover)::after {
     width: 0;
     left: 50%;
     right: 50%;
+}
+footer{
+    background-color: #ffdede  ;
+    z-index: 1;
+    border-top: 2px solid #8c8c8c29;
+    box-shadow: 0 -2px 5px 2px #d8d8d829;
 }

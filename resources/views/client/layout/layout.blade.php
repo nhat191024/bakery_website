@@ -44,9 +44,8 @@
 
             <div class="collapse navbar-collapse " id="ftco-nav">
                 <ul class="navbar-nav ml-auto ">
-                    <li
-                        class=" scaleR nav-item">
-                        <a  class="nav-link" href="{!! route('change-language') !!}">
+                    <li class=" scaleR nav-item">
+                        <a class="nav-link" href="{!! route('change-language') !!}">
                             en/vi
                         </a>
                     </li>
@@ -109,11 +108,10 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2"><img src="{{ asset('img/logo.png') }}" width="60px"
+                        <h2 class="ftco-heading-2"><img src="{{ asset('img/LogoFull.png') }}" width="300px"
                                 alt="">
                         </h2>
 
-                        <a class="navbar-brand" href="index.html">Odouceurs</a>
                         <p>{{ __('layout.footer_about') }}</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                             <li class="ftco-animate"><a href="https://www.threads.net/@odouceurs_bakery"><span><img
@@ -160,8 +158,13 @@
                                         <p class="text">{{ __('layout.address2') }}</p>
                                     </div>
                                 </li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span
-                                            class="text">{{ __('layout.phone') }}</span></a></li>
+                                <li><span class="icon icon-phone"></span>
+                                    <div class="d-flex flex-column">
+                                        <span class="text">{{ __('layout.hotline') }}</span>
+                                        <span class="text">{{ __('layout.phone1') }}</span>
+                                        <p class="text">{{ __('layout.phone2') }}</p>
+                                    </div>
+                                </li>
                                 <li><a href="#"><span class="icon icon-envelope"></span><span
                                             class="text">odouceurs@gmail.com</span></a></li>
                             </ul>
