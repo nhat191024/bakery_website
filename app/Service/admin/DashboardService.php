@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Service\admin;
+
+use App\Models\Bills;
+use Carbon\Carbon;
+
+class DashboardService
+{
+
+    public function getAll()
+    {
+        $bill = Bills::orderByDesc('created_at')->get();
+        return $bill;
+    }
+    public function getDashboard()
+    {
+        $day = $this->getRevenueByDay();
+        $week = $this->getRevenueByWeek();
+        $month = $this->getRevenueByMonth();
+        $years = $this->getRevenueByYear();
+        return [
+            'billDay' => $day,
+            'billWeek' => $week,
+            'billMonth' => $month,
+            'billYears' => $years
+        ];
+    }
+
+    public function getRevenueByDay() {
+        $totalRevenue = Bills::whereDate('created_at', now()->toDateString())
+                            ->where('status', 1)->sum('total_amount');
+        return number_format($totalRevenue);
+    }
+
+    public function getRevenueByWeek() {
+        $startOfWeek = now()->startOfWeek();
+        $endOfWeek = now()->endOfWeek();
+
+        $totalRevenue = Bills::whereBetween('created_at', [$startOfWeek, $endOfWeek])
+                            ->where('status', 1)->sum('total_amount');
+
+        return number_format($totalRevenue);
+    }
+
+    public function getRevenueByMonth() {
+        $startOfMonth = now()->startOfMonth();
+        $endOfMonth = now()->endOfMonth();
+
+        $totalRevenue = Bills::whereBetween('created_at', [$startOfMonth, $endOfMonth])
+                            ->where('status', 1)->sum('total_amount');
+
+        return number_format($totalRevenue);
+    }
+
+    public function getRevenueByYear() {
+        $startOfYear = now()->startOfYear();
+        $endOfYear = now()->endOfYear();
+
+        $totalRevenue = Bills::whereBetween('created_at', [$startOfYear, $endOfYear])
+                            ->where('status', 1)->sum('total_amount');
+
+        return number_format($totalRevenue);
+    }
+}
