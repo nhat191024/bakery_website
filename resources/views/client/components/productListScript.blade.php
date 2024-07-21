@@ -1,6 +1,4 @@
 <script>
-    console.log(currentLang);
-
     function addToCart(product_id) {
         // var product_id = $(this).data('product_id');
         $.ajax({
