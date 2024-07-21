@@ -48,17 +48,20 @@ class ProductController extends Controller
         $request->validate([
             'category_id' => 'required',
             'product_name' => 'required',
+            'product_name_en' => 'required',
             'product_price' => 'required',
             'product_image' => 'required',
         ]);
         $categoryId = $request->category_id;
         $productName = $request->product_name;
+        $productNameEn = $request->product_name_en;
         $productPrice = $request->product_price;
         $productDescription = $request->product_description ?? null;
+        $productDescriptionEn = $request->product_description_en ?? null;
         $imageName = time() . '_' . $request->product_image->getClientOriginalName();
         // Public Folder
         $request->product_image->move(public_path('img/client/shop'), $imageName);
-        return $this->productService->add($categoryId, $productName, $productPrice, $productDescription, $imageName);
+        return $this->productService->add($categoryId, $productName, $productNameEn, $productPrice, $productDescription, $productDescriptionEn, $imageName);
 
 }
 
@@ -89,12 +92,15 @@ class ProductController extends Controller
             'id' => 'required',
             'category_id' => 'required',
             'product_name' => 'required',
+            'product_name_en' => 'required',
         ]);
         $id = $request->id;
         $categoryId = $request->category_id;
         $productName = $request->product_name;
+        $productNameEn = $request->product_name_en;
         $productPrice = $request->product_price;
         $productDescription = $request->product_description ?? null;
+        $productDescriptionEn = $request->product_description_en ?? null;
         if ($request->product_image && $request->product_image != 'undefined') {
             $imageName = time() . '_' . $request->product_image->getClientOriginalName();
             $request->product_image->move(public_path('img/client/shop'), $imageName);
@@ -103,7 +109,7 @@ class ProductController extends Controller
                 unlink(public_path('img/client/shop') . '/' . $oldImagePath);
             }
         }
-        return $this->productService->edit($id, $categoryId, $productName, $productPrice, $productDescription, $imageName ?? null);
+        return $this->productService->edit($id, $categoryId, $productName, $productNameEn, $productPrice, $productDescription, $productDescriptionEn, $imageName ?? null);
     }
 
     public function editDetail(Request $request)
