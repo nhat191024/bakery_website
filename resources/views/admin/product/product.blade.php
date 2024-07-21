@@ -32,7 +32,10 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Tên danh mục</th>
-                                    <th>Tên sản phẩm</th>
+                                    <th>Tên sản phẩm (Tiếng Việt)</th>
+                                    <th>Tên sản phẩm (Tiếng Anh)</th>
+                                    <th>ND Giới thiệu (Tiếng Việt)</th>
+                                    <th>ND Giới thiệu (Tiếng Anh)</th>
                                     <th>Giá</th>
                                     <th>Ảnh</th>
                                     <th>Chức năng</th>
@@ -41,8 +44,10 @@
                             <tfoot>
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên danh mục</th>
-                                    <th>Tên sản phẩm</th>
+                                    <th>Tên sản phẩm (Tiếng Việt)</th>
+                                    <th>Tên sản phẩm (Tiếng Anh)</th>
+                                    <th>ND Giới thiệu (Tiếng Việt)</th>
+                                    <th>ND Giới thiệu (Tiếng Anh)</th>
                                     <th>Giá thấp nhất</th>
                                     <th>Ảnh</th>
                                     <th>Chức năng</th>
@@ -54,6 +59,9 @@
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $item->categories->name }}</td>
                                         <td>{{ $item['name'] }}</td>
+                                        <td>{{ $item['name_en'] }}</td>
+                                        <td>{{ $item['description'] }}</td>
+                                        <td>{{ $item['description_en'] }}</td>
                                         <td>{{ $item->product_variations->count() == 1
                                             ? number_format($item->product_variations->first()->price) . 'đ'
                                             : number_format($item->product_variations->min('price')) .
