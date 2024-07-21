@@ -174,7 +174,7 @@ a {
 }
 
 .nav-item a:hover {
-    color: #fac623 !important;
+    color: red !important;
     text-decoration: none;
 }
 
@@ -11619,14 +11619,14 @@ h5,
 }
 
 .ftco-navbar-light {
-    background: transparent !important;
+    background: #ffdede  !important;
     z-index: 100;
     padding: 0;
 }
 
 @media (max-width: 991.98px) {
     .ftco-navbar-light {
-        background: #fff !important;
+        background: #ffdede !important;
         position: relative;
         top: 0;
         padding: 10px 15px;
@@ -11660,7 +11660,7 @@ h5,
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
-    font-size: 11px;
+    font-size: 14px;
     padding-top: 1.5rem;
     padding-left: 20px;
     padding-right: 20px;
@@ -11788,7 +11788,7 @@ h5,
     left: 0;
     top: 0;
     margin-top: -130px;
-    background: #fff !important;
+    background: #ffdede !important;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
@@ -12321,14 +12321,16 @@ h5,
 }
 
 .btn.btn-primary {
-    background: #fff;
-    color: #f00;
+    font-size: large;
+    background-color: #fff;
+    color: #e26968 !important;
+    border : 1px solid #e26968 !important;
 }
 
 .btn.btn-primary:hover {
     border: 1px solid #fff;
-    background: transparent;
-    color: rgba(0, 0, 0, 0.5) !important;
+    background: #e26968 !important;
+    color: #fff !important;
 }
 
 .btn.btn-primary.btn-outline-primary {
