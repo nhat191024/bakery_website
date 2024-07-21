@@ -42,7 +42,8 @@ class HomePageController extends Controller
         }
         $banners = Banners::all();
         $promotions = Promotions::with('Products')->orderBy('product_id', 'asc')->take(1)->get();
-        $price = Product_variation::with('product.promotions')->orderBy('product_id', 'asc')->value('price');
+        $promotionProductId = Promotions::value('product_id');
+        $price = Product_variation::with('product.promotions')->where('product_id',$promotionProductId)->value('price');
         return view('client.homePage', compact('products', 'messages', 'banners', 'price', 'promotions', 'categoriesL', 'categoriesR', 'imagesCategoryL', 'imagesCategoryR', 'lang'));
     }
 }
