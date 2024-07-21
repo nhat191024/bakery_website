@@ -1,6 +1,6 @@
 .scaleL {
-    width: 130px;
-    height: 73.125px;
+    width: 140px;
+    height: 70px;
     opacity: 0;
     transform: translate(-100px, -100px);
     animation: zoomInL 1.5s forwards;

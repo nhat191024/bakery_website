@@ -169,11 +169,10 @@
                             <span class="subheading">{{ __('home.promotion.title') }}</span>
                             <h2 class="text-sale">{{ __('home.promotion.subtitle') }}</h2>
                             <h3 class="text-sale">{{ $promotion->Products->name }}</h3>
-                            <span class="price">{{ $promotion->fake_price }}Đ</span>
+                            <span class="price">{{  number_format($promotion->fake_price,0, ',', '.') }} Đ</span>
                             <span style="margin-left: 10px;"><a
                                     href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}"
-                                    class="sale"> {{ __('home.promotion.sale') }} {{ $price }}
-                                    Đ</a></span>
+                                    class="sale"> {{ __('home.promotion.sale') }} {{ number_format($price ,0, ',', '.') }} Đ</a></span>
                             <div id="timer" class="d-flex mt-5">
                                 <div class="time" id="days"></div>
                                 <div class="time pl-3" id="hours"></div>
