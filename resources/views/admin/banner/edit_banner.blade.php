@@ -15,14 +15,24 @@
                     <form action="{{ route('admin.banner.edit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Tiêu đề</label>
+                            <label for="">Tiêu đề (Tiếng Việt)</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="banner_title" placeholder="Nhập tiêu đề" value="{{$bannerInfo['title']}}">
+                                name="banner_title" placeholder="Nhập tiêu đề bằng Tiếng Việt" value="{{$bannerInfo['title']}}">
                         </div>
                         <div class="form-group">
-                            <label for="">Nội dung</label>
+                            <label for="">Tiêu đề (Tiếng Anh)</label>
                             <input required type="text" class="form-control" id="" aria-describedby=""
-                                name="banner_content" placeholder="Nhập nội dung" value="{{$bannerInfo['subtitle']}}">
+                                name="banner_title_en" placeholder="Nhập tiêu đề bằng Tiếng Anh" value="{{$bannerInfo['title_en']}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung (Tiếng Việt)</label>
+                            <input required type="text" class="form-control" id="" aria-describedby=""
+                                name="banner_content" placeholder="Nhập nội dung bằng Tiếng Việt" value="{{$bannerInfo['subtitle']}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung (Tiếng Anh)</label>
+                            <input required type="text" class="form-control" id="" aria-describedby=""
+                                name="banner_content_en" placeholder="Nhập nội dung bằng Tiếng Anh" value="{{$bannerInfo['subtitle_en']}}">
                         </div>
                         <label for="">Ảnh Banner</label>
                         <div class="custom-file">
@@ -31,7 +41,7 @@
                             <label class="custom-file-label" for="customFile">Chọn ảnh</label>
                         </div>
                         <input type="hidden" name="id" value="{{ $id }}">
-                        <button class="btn btn-success mt-4" type="submit">Sửa</button>
+                        <button class="btn btn-success mt-4" type="submit">Lưu chỉnh sửa</button>
                     </form>
 
                 </div>
