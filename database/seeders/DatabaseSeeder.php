@@ -58,7 +58,6 @@ class DatabaseSeeder extends Seeder
                 "category_id" => $row['category_id'],
                 "name" => $row['name'],
                 "description" => $row['description'],
-                "fake_price" => $row['fake_price'],
                 "image" => $row['image'],
             ]);
         }
@@ -67,7 +66,7 @@ class DatabaseSeeder extends Seeder
             Promotions::create([
                 "user_id" => $row['user_id'],
                 "product_id" => $row['product_id'],
-                "description" => $row['description'],
+                "fake_price" => $row['fake_price'],
                 "start_time" => $row['start_time'],
                 "end_time" => $row['end_time'],
             ]);
@@ -139,6 +138,10 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        foreach ($dataArray['accessories'] as $row) {
+            Accessory::create($row);
+        }
+
         foreach ($dataArray['bills'] as $row) {
             Bills::create([
                 "order_date" => $row['order_date'],
@@ -150,6 +153,7 @@ class DatabaseSeeder extends Seeder
                 "delivery_method" => $row['delivery_method'],
                 "payment_method" => $row['payment_method'],
                 "total_amount" => $row['total_amount'],
+                "accessory_id" => $row['accessory_id'],
                 "status" => $row['status'],
             ]);
         }
@@ -183,10 +187,6 @@ class DatabaseSeeder extends Seeder
                 "product_id" => $row['product_id'],
                 "price" => $row['price'],
             ]);
-        }
-
-        foreach ($dataArray['accessories'] as $row) {
-            Accessory::create($row);
         }
     }
 }
