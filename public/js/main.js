@@ -309,12 +309,19 @@ AOS.init({
             if (hours < "10") { hours = "0" + hours; }
             if (minutes < "10") { minutes = "0" + minutes; }
             if (seconds < "10") { seconds = "0" + seconds; }
-
+            if (currentLang == "en") {
+            $("#days").html(days + "<span>Days</span>");
+            $("#hours").html(hours + "<span>Hours</span>");
+            $("#minutes").html(minutes + "<span>Minutes</span>");
+            $("#seconds").html(seconds + "<span>Seconds</span>");
+            }else{
             $("#days").html(days + "<span>Ngày</span>");
             $("#hours").html(hours + "<span>Giờ</span>");
             $("#minutes").html(minutes + "<span>Phút</span>");
             $("#seconds").html(seconds + "<span>Giây</span>");
         }
+            }
+
     }
     setInterval(function () { makeTimer(); }, 1000);
 })(jQuery);
