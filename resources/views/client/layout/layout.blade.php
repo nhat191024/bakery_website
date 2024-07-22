@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/nav.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}">
+
 </head>
 
 
@@ -155,14 +157,21 @@
                                     <span class="icon icon-map-marker"></span>
                                     <div class="d-flex flex-column">
                                         <span class="text">{{ __('layout.address1') }}</span>
-                                        <p class="text">{{ __('layout.address2') }}</p>
+                                        <p class="text">{{ __('layout.phone1') }}</p>
+
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="icon icon-map-marker"></span>
+                                    <div class="d-flex flex-column">
+                                        <span class="text">{{ __('layout.address2') }}</span>
+                                        <p class="text">{{ __('layout.phone2') }}</p>
+
                                     </div>
                                 </li>
                                 <li><span class="icon icon-phone"></span>
                                     <div class="d-flex flex-column">
-                                        <span class="text">{{ __('layout.hotline') }}</span>
-                                        <span class="text">{{ __('layout.phone1') }}</span>
-                                        <p class="text">{{ __('layout.phone2') }}</p>
+                                        <p class="text">{{ __('layout.hotline') }}</p>
                                     </div>
                                 </li>
                                 <li><a href="#"><span class="icon icon-envelope"></span><span
