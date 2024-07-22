@@ -94,7 +94,7 @@ class CheckoutService
         );
 
         $this->mailService->adminSend(
-            'richberchannel01@gmail.com',
+            'odouceurs@gmail.com',
             $request->fullName,
             $bill->id,
             $request->email,
