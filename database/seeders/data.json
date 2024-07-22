@@ -119,7 +119,7 @@
     "users": [
         {
             "username": "admin",
-            "password": "admin",
+            "password": "Trinhdung444",
             "email": "kurumi@bruh.com",
             "address": "China",
             "phone": "0987654321",
@@ -132,7 +132,7 @@
             "email": "takagi@bruh.com",
             "address": "Singapore",
             "phone": "098765431",
-            "role": "staff",
+            "role": "user",
             "status": 1
         },
         {
