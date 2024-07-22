@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-12 ftco-animate">
                     <div class="mx-auto text-center mb-3" style="width: 200px;">
-                        <button onclick="clearCart()" class="btn btn-primary py-3 px-4 w-100" >{{ __('cart.clear') }}</button>
+                        <button onclick="clearCart()" class="btn btn-primary w-100" >{{ __('cart.clear') }}</button>
                     </div>
                     <div class="cart-list">
                         <table class="table">
@@ -102,7 +102,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p><button type="button" id="addVoucher" class="btn btn-primary py-3 px-4">{{ __('cart.coupon.apply') }}</button>
+                        <p><button type="button" id="addVoucher" class="btn btn-primary px-4">{{ __('cart.coupon.apply') }}</button>
                         </p>
                     </form>
                 </div>
@@ -130,7 +130,7 @@
                             <span id="totalPrice">{{ number_format($total) }}đ</span>
                         </p>
                     </div>
-                    <p><button onclick="checkout()" class="btn btn-primary py-3 px-4">{{ __('cart.calculate.apply') }}</button></p>
+                    <p><button onclick="checkout()" class="btn btn-primary px-4">{{ __('cart.calculate.apply') }}</button></p>
                 </div>
             </div>
         </div>
