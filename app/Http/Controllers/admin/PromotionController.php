@@ -11,7 +11,7 @@ class PromotionController extends Controller
 {
     private $promotionService;
     private $productService;
-    
+
     public function __construct(PromotionService $promotionService)
     {
         $this->promotionService = $promotionService;
@@ -35,7 +35,7 @@ class PromotionController extends Controller
     {
         if(!$this->promotionService->edit($request))
             return redirect()->route('admin.promotion.edit', ['id' => $request->id])->with('error', 'Cập nhật thất bại');
-        return redirect()->route('admin.promotion.index')->with('success', 'Cập nhật thành công');
+        return redirect()->rowwute('admin.promotion.index')->with('success', 'Cập nhật thành công');
     }
 
 }

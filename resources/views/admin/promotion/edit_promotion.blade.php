@@ -31,6 +31,11 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="price">Giá trước khi giảm</label>
+                            <input required type="number" class="form-control" id="fake_price" aria-describedby=""
+                                name="fake_price" placeholder="Nhập giá trước khi giảm" value="{{ $promotion->fake_price }}">
+                        </div>
+                        <div class="form-group">
                             <label for="start_time">Ngày bắt đầu (Định dạng: Năm/Tháng/Ngày)</label>
                             <input required type="date" class="form-control" id="start_time" aria-describedby=""
                                 name="start_time" placeholder="Ngày kết thúc"
