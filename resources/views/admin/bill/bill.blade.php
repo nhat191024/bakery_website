@@ -31,6 +31,7 @@
                                     <th>Tên khách hàng</th>
                                     <th>Địa chỉ</th>
                                     <th>Số điện thoại</th>
+                                    <th>Ngày đặt</th>
                                     <th>Tổng tiền</th>
                                     <th>Tình trạng</th>
                                     <th>Chức năng</th>
@@ -42,6 +43,7 @@
                                     <th>Tên khách hàng</th>
                                     <th>Địa chỉ</th>
                                     <th>Số điện thoại</th>
+                                    <th>Ngày đặt</th>
                                     <th>Tổng tiền</th>
                                     <th>Tình trạng</th>
                                     <th>Chức năng</th>
@@ -50,10 +52,11 @@
                             <tbody>
                                 @foreach ($allBill as $key => $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ ++$key }}</td>
                                         <td>{{ $item->full_name }}</td>
                                         <td>{{ $item->address }}</td>
                                         <td>{{ $item->phone_number }}</td>
+                                        <td>{{ $item->created_at }}</td>
                                         <td>{{ number_format($item->total_amount, 0, ',', '.') }}đ</td>
                                         <td
                                             class="{{ $item->status == 0 ? 'text-danger' : ($item->status == 2 ? 'text-warning' : 'text-success') }} font-weight-bold">

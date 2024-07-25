@@ -47,6 +47,9 @@
                             <p><strong>Voucher code: </strong>{{ $billInfo->voucher_code }}</p>
                         </div>
                         <div class="form-group">
+                            <p><strong>Ngày đặt hàng: </strong>{{ $billInfo->created_at->format('d/m/Y H:i:s') }}</p>
+                        </div>
+                        <div class="form-group">
                             <p><strong>Phương thức giao hàng:
                                 </strong>{{ Helper::DELIVERY_METHOD[$billInfo->delivery_method] }}</p>
                         </div>

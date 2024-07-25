@@ -11,7 +11,7 @@ class PromotionController extends Controller
 {
     private $promotionService;
     private $productService;
-    
+
     public function __construct(PromotionService $promotionService)
     {
         $this->promotionService = $promotionService;

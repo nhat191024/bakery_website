@@ -9,7 +9,7 @@ class BillService
 {
     public function getAll()
     {
-        $branch = Bills::all();
+        $branch = Bills::orderBy('status')->get();
         return $branch;
     }
 

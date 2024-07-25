@@ -89,12 +89,12 @@ class MailService
                 }
             }
 
-            $mailTemplate ='
+            $mailTemplate = '
             <div style="padding: 0 10px; margin-bottom: 25px">
                 <div>
                     <p>Thông báo</p>
                     <p>Có đơn hàng mới ở tiệm bánh <strong>Odouceurs</strong>!</p>
-                    <p>Đơn hàng <span style="color: rgb(169, 0, 0)">#'. $orderId .'</span> hiện đang được chờ xác nhận.</p>
+                    <p>Đơn hàng <span style="color: rgb(169, 0, 0)">#' . $orderId . '</span> hiện đang được chờ xác nhận.</p>
                 </div>
                 <hr />
                 <div style="padding: 0 10px">
@@ -110,22 +110,22 @@ class MailService
                                 <td style="padding-right: 15px">
                                     <table style="width: 100%">
                                         <tbody>
-                                            <tr><td>'. $name .'</td></tr>
+                                            <tr><td>' . $name . '</td></tr>
                                             <tr>
                                                 <td style="word-break: break-word; word-wrap: break-word;">
-                                                    <a href="mailto:'. $email .'" target="_blank">'. $email .'</a>
+                                                    <a href="mailto:' . $email . '" target="_blank">' . $email . '</a>
                                                 </td>
                                             </tr>
-                                            <tr><td>'. $phone. '</td></tr>
+                                            <tr><td>' . $phone . '</td></tr>
                                         </tbody>
                                     </table>
                                 </td>
                                 <td>
                                     <table style="width: 100%">
                                         <tbody>
-                                            <tr><td>'. $name .'</td></tr>
-                                            <tr><td style="word-break: break-word; word-wrap: break-word;">'. $address .'</td></tr>
-                                            <tr><td>'. $phone. '</td></tr>
+                                            <tr><td>' . $name . '</td></tr>
+                                            <tr><td style="word-break: break-word; word-wrap: break-word;">' . $address . '</td></tr>
+                                            <tr><td>' . $phone . '</td></tr>
                                         </tbody>
                                     </table>
                                 </td>
@@ -141,8 +141,8 @@ class MailService
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="padding-right: 15px">'. $payment .'</td>
-                                <td>'. $delivery. '<br /></td>
+                                <td style="padding-right: 15px">' . $payment . '</td>
+                                <td>' . $delivery . '<br /></td>
                             </tr>
                         </tbody>
                     </table>
@@ -155,14 +155,14 @@ class MailService
                         <tbody>
                             <tr>
                                 <td style="width: 50%; padding-right: 15px">
-                                    Mã đơn hàng: #'. $orderId .'
+                                    Mã đơn hàng: #' . $orderId . '
                                 </td>
-                                <td style="width: 50%">Ngày đặt hàng: '. $createAt .'</td>
+                                <td style="width: 50%">Ngày đặt hàng: ' . $createAt . '</td>
                             </tr>
                         </tbody>
                     </table>
                     <ul style="padding-left: 0; list-style-type: none; margin-bottom: 0">
-                        '. $productHtml .'
+                        ' . $productHtml . '
                         <li>
                             <table style="width: 100%; border-bottom: 1px solid rgb(228, 233, 235);">
                                 <tbody>
@@ -173,15 +173,15 @@ class MailService
                                             </div>
                                             <div style="margin-left: 100px">
                                                 <a href="test" style="color: rgb(169, 0, 0); text-decoration: none;" target="_blank" data-saferedirecturl="test">Phụ kiện</a>
-                                                <p style="color: rgb(103, 130, 153); margin-bottom: 0px; margin-top: 8px;">'. $accessoryName .'</p>
+                                                <p style="color: rgb(103, 130, 153); margin-bottom: 0px; margin-top: 8px;">' . $accessoryName . '</p>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width: 70%; padding: 5px 0px 25px">
-                                            <div style="margin-left: 100px">'. $this->formatPrice($accessoryPrice) .' VND<span style="margin-left: 20px">x 1</span></div>
+                                            <div style="margin-left: 100px">' . $this->formatPrice($accessoryPrice) . ' VND<span style="margin-left: 20px">x 1</span></div>
                                         </td>
-                                        <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">'. $this->formatPrice($accessoryPrice) .' VND</td>
+                                        <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">' . $this->formatPrice($accessoryPrice) . ' VND</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -196,11 +196,11 @@ class MailService
                                         <tbody>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Phụ kiện:</td>
-                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $this->formatPrice($accessoryPrice) .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">' . $this->formatPrice($accessoryPrice) . ' VND</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Giá trừ khuyến mãi:</td>
-                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $this->formatPrice($discount) .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">' . $this->formatPrice($discount) . ' VND</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Phí vận chuyển:</td>
@@ -208,7 +208,7 @@ class MailService
                                             </tr>
                                             <tr style="border-top: 1px solid rgb(229, 233, 236);">
                                                 <td style="padding-top: 10px">Thành tiền</td>
-                                                <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">'. $this->formatPrice($total) .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">' . $this->formatPrice($total) . ' VND</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -304,12 +304,13 @@ class MailService
                 }
             }
 
-            $mailTemplate ='
+            $mailTemplate = '
             <div style="padding: 0 10px; margin-bottom: 25px">
                 <div>
-                    <p>Xin chào '. $name .'</p>
+                    <p>Xin chào ' . $name . '</p>
                     <p>Cảm ơn Anh/chị đã đặt hàng tại tiệm bánh <strong>Odouceurs</strong>!</p>
-                    <p>Đơn hàng <span style="color: rgb(169, 0, 0)">#'. $orderId .'</span> của anh/chị đã được xác nhận, chúng tôi sẽ liên hệ với anh/chị trong thời gian sớm nhất.</p>
+                    <p>Đơn hàng <span style="color: rgb(169, 0, 0)">#' . $orderId . '</span> của anh/chị đã được xác nhận, chúng tôi sẽ liên hệ với anh/chị trong thời gian sớm nhất.</p>
+                    <p><strong>Đây là hệ thống tự động vui lòng không trả lời mail này</strong></p>
                 </div>
                 <hr />
                 <div style="padding: 0 10px">
@@ -325,22 +326,22 @@ class MailService
                                 <td style="padding-right: 15px">
                                     <table style="width: 100%">
                                         <tbody>
-                                            <tr><td>'. $name .'</td></tr>
+                                            <tr><td>' . $name . '</td></tr>
                                             <tr>
                                                 <td style="word-break: break-word; word-wrap: break-word;">
-                                                    <a href="mailto:'. $email .'" target="_blank">'. $email .'</a>
+                                                    <a href="mailto:' . $email . '" target="_blank">' . $email . '</a>
                                                 </td>
                                             </tr>
-                                            <tr><td>'. $phone. '</td></tr>
+                                            <tr><td>' . $phone . '</td></tr>
                                         </tbody>
                                     </table>
                                 </td>
                                 <td>
                                     <table style="width: 100%">
                                         <tbody>
-                                            <tr><td>'. $name .'</td></tr>
-                                            <tr><td style="word-break: break-word; word-wrap: break-word;">'. $address .'</td></tr>
-                                            <tr><td>'. $phone. '</td></tr>
+                                            <tr><td>' . $name . '</td></tr>
+                                            <tr><td style="word-break: break-word; word-wrap: break-word;">' . $address . '</td></tr>
+                                            <tr><td>' . $phone . '</td></tr>
                                         </tbody>
                                     </table>
                                 </td>
@@ -356,8 +357,8 @@ class MailService
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="padding-right: 15px">'. $payment .'</td>
-                                <td>'. $delivery. '<br /></td>
+                                <td style="padding-right: 15px">' . $payment . '</td>
+                                <td>' . $delivery . '<br /></td>
                             </tr>
                         </tbody>
                     </table>
@@ -370,14 +371,14 @@ class MailService
                         <tbody>
                             <tr>
                                 <td style="width: 50%; padding-right: 15px">
-                                    Mã đơn hàng: #'. $orderId .'
+                                    Mã đơn hàng: #' . $orderId . '
                                 </td>
-                                <td style="width: 50%">Ngày đặt hàng: '. $createAt .'</td>
+                                <td style="width: 50%">Ngày đặt hàng: ' . $createAt . '</td>
                             </tr>
                         </tbody>
                     </table>
                     <ul style="padding-left: 0; list-style-type: none; margin-bottom: 0">
-                        '. $productHtml .'
+                        ' . $productHtml . '
                         <li>
                             <table style="width: 100%; border-bottom: 1px solid rgb(228, 233, 235);">
                                 <tbody>
@@ -388,15 +389,15 @@ class MailService
                                             </div>
                                             <div style="margin-left: 100px">
                                                 <a href="test" style="color: rgb(169, 0, 0); text-decoration: none;" target="_blank" data-saferedirecturl="test">Phụ kiện</a>
-                                                <p style="color: rgb(103, 130, 153); margin-bottom: 0px; margin-top: 8px;">'. $accessoryName .'</p>
+                                                <p style="color: rgb(103, 130, 153); margin-bottom: 0px; margin-top: 8px;">' . $accessoryName . '</p>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="width: 70%; padding: 5px 0px 25px">
-                                            <div style="margin-left: 100px">'. $this->formatPrice($accessoryPrice) .' VND<span style="margin-left: 20px">x 1</span></div>
+                                            <div style="margin-left: 100px">' . $this->formatPrice($accessoryPrice) . ' VND<span style="margin-left: 20px">x 1</span></div>
                                         </td>
-                                        <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">'. $this->formatPrice($accessoryPrice) .' VND</td>
+                                        <td style="text-align: right; width: 30%; padding: 5px 0px 25px;">' . $this->formatPrice($accessoryPrice) . ' VND</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -411,11 +412,11 @@ class MailService
                                         <tbody>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Phụ kiện:</td>
-                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $this->formatPrice($accessoryPrice) .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">' . $this->formatPrice($accessoryPrice) . ' VND</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Giá trừ khuyến mãi:</td>
-                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">'. $this->formatPrice($discount) .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; padding-bottom: 10px;">' . $this->formatPrice($discount) . ' VND</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding-bottom: 10px">Phí vận chuyển:</td>
@@ -423,7 +424,7 @@ class MailService
                                             </tr>
                                             <tr style="border-top: 1px solid rgb(229, 233, 236);">
                                                 <td style="padding-top: 10px">Thành tiền</td>
-                                                <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">'. $this->formatPrice($total) .' VND</td>
+                                                <td style="font-weight: bold; text-align: right; font-size: 16px; padding-top: 10px;">' . $this->formatPrice($total) . ' VND</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -434,7 +435,7 @@ class MailService
                 </div>
                 <div style="padding: 0 10px; margin-bottom: 25px; display: flex; flex-direction: column; align-items: center;">
                     <p>QR thanh toán - nếu như đã thanh toán vui lòng bỏ qua</p>
-                    <img src="https://api.vietqr.io/image/970436-0941000019966-w4UqEbj.jpg'. $QR .'" alt="" width="30%">
+                    <img src="https://api.vietqr.io/image/970436-0941000019966-w4UqEbj.jpg' . $QR . '" alt="" width="30%">
                 </div>
                 <div style="padding: 0 10px">
                     <div style="clear: both"></div>
@@ -443,7 +444,7 @@ class MailService
                         <a href="odouceurs@gmail.com" style="color: rgb(169, 0, 0)" target="_blank">odouceurs@gmail.com</a>
                     </p>
                     <p style="text-align: right"><i>Trân trọng,</i></p>
-                    <p style="text-align: right"><strong>Ban quản trị tiệm bánh Odouceurs</strong></p>
+                    <p style="text-align: right"><strong>Hệ thống tự động quản trị tiệm bánh Odouceurs</strong></p>
                 </div>
             </div>';
 

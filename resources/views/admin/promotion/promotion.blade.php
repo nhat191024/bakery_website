@@ -29,6 +29,7 @@
                                     <th>Tên SP hiển thị</th>
                                     <th>Ngày bắt đầu</th>
                                     <th>Ngày kết thúc</th>
+                                    <th>Giá trước khi giảm</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </thead>
@@ -37,21 +38,20 @@
                                     <th>Tên SP hiển thị</th>
                                     <th>Ngày bắt đầu</th>
                                     <th>Ngày kết thúc</th>
+                                    <th>Giá trước khi giảm</th>
                                     <th>Chức năng</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                {{-- @foreach ($accessories as $item) --}}
                                     <tr>
                                         <td>{{ $promotion->products->categories->name . ' - ' . $promotion->products->name }}</td>
                                         <td>{{ \Carbon\Carbon::parse($promotion->start_time)->format('d-m-Y') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($promotion->end_time)->format('d-m-Y') }}</td>
-                                        {{-- <td>{{ number_format($promotion->price, 0, ',', '.')}}đ</td> --}}
+                                        <td>{{ number_format($promotion->fake_price, 0, ',', '.')}}đ</td>
                                         <td class="text-center"><a class="btn btn-warning"
                                                 href="{{ route('admin.promotion.edit', ['id' => $promotion->id]) }}">Sửa</a>
                                         </td>
                                     </tr>
-                                {{-- @endforeach --}}
                             </tbody>
                         </table>
                     </div>
