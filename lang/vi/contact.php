@@ -6,8 +6,10 @@ return [
     "address" => "Địa chỉ",
     "address1" => "Cơ sở 1 : 72 Đ. Xuân Diệu, Tứ Liên, Tây Hồ, Hà Nội",
     "address2" => "Cơ sở 2 : 56d P. Trần Nhân Tông, Nguyễn Du, Hai Bà Trưng, Hà Nội",
-    "phone1" => "Số điện thoại",
-    "phone2" => "Số điện thoại",
+    "phone" => "Số Điện Thoại",
+    "phone1" => "Cơ sở 1 : 024 6291 8575",
+    "phone2" => "Cơ sở 2 :  086 8119 220",
+    "hotline" => "Hotline : 0972651706",
     "social" => "Mạng xã hội",
     "message" => [
         "name" => "Tên của bạn",

@@ -52,3 +52,13 @@ background-size: cover;
     border-radius: 1rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 30px;
+    height: 50px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 0.5;
+}

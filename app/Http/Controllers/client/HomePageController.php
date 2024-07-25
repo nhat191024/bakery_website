@@ -18,7 +18,7 @@ class HomePageController extends Controller
     public function index()
     {
         $lang = session()->get('language');
-        $products = Products::orderBy('created_at', 'desc')->take(8)->get();
+        $products = Products::orderBy('created_at', 'desc')->take(9)->get();
         $categoriesL = Categories::orderBy('id', 'asc')->take(2)->get();
         $categoriesR = Categories::orderBy('id', 'desc')->take(2)->get();
         $messages = Message::orderBy('created_at', 'asc')->take(5)->get();

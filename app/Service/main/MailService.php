@@ -230,6 +230,13 @@ class MailService
             $this->mail->Subject = $subject;
             $this->mail->Body = $mailTemplate;
             $this->mail->send();
+            $this->mail->clearAddresses();
+            $this->mail->clearAttachments();
+            $this->mail->ClearCCs();
+            $this->mail->ClearBCCs();
+            $this->mail->clearReplyTos();
+            $this->mail->Subject = '';
+            $this->mail->Body = '';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
         }
@@ -433,7 +440,7 @@ class MailService
                     <div style="clear: both"></div>
                     <p style="margin: 30px 0">
                         Nếu Anh/chị có bất kỳ câu hỏi nào, xin liên hệ với chúng tôi tại
-                        <a href="odouceursbakery@gmail.com" style="color: rgb(169, 0, 0)" target="_blank">odouceursbakery@gmail.com</a>
+                        <a href="odouceurs@gmail.com" style="color: rgb(169, 0, 0)" target="_blank">odouceurs@gmail.com</a>
                     </p>
                     <p style="text-align: right"><i>Trân trọng,</i></p>
                     <p style="text-align: right"><strong>Ban quản trị tiệm bánh Odouceurs</strong></p>
@@ -444,6 +451,13 @@ class MailService
             $this->mail->Subject = $subject;
             $this->mail->Body = $mailTemplate;
             $this->mail->send();
+            $this->mail->clearAddresses();
+            $this->mail->clearAttachments();
+            $this->mail->ClearCCs();
+            $this->mail->ClearBCCs();
+            $this->mail->clearReplyTos();
+            $this->mail->Subject = '';
+            $this->mail->Body = '';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
         }
