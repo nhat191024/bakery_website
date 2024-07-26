@@ -3,14 +3,14 @@ return [
     "bannerBtn1" => "Xem chi tiết",
     "bannerBtn2" => "Tìm hiểu thêm",
     "service" => [
-        "title1" => "Miễn phí giao hàng",
-        "subtitle1" => "Cho đơn hàng trên 2 triệu",
-        "title2" => "luôn tươi ngon",
-        "subtitle2" => "Bánh được bảo quản cận thận",
-        "title3" => "Chất lượng tốt",
-        "subtitle3" => "Được đánh giá bởi 95% khách hàng",
-        "title4" => "Hỗ trợ",
-        "subtitle4" => "Hỗ trợ khách hàng 24/7"
+        "title1" => "Lựa chọn phong phú",
+        "subtitle1" => "Gần 40 loại bánh tươi hàng ngày",
+        "title2" => "Bánh tươi ngon",
+        "subtitle2" => "Bánh sản xuất tươi hàng ngày",
+        "title3" => "Nguyên liệu tốt nhất",
+        "subtitle3" => "Nguyên liệu nhập khẩu cao cấp",
+        "title4" => "Cửa hàng sang trọng ấm cúng",
+        "subtitle4" => "Chỗ ngồi trong nhà, ngoài sân thoải mái"
     ],
     "banner" => [
         "title" => "Các loại bánh",
