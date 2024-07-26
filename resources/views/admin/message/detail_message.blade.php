@@ -4,7 +4,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Chi tiết tin nhắn - {{'Đã gửi ' . $helper::getTimePassedBy($messageInfo['created_at']) }}</h1>
+        {{-- <h1 class="h3 mb-2 text-gray-800">Chi tiết tin nhắn - {{'Đã gửi ' . $helper::getTimePassedBy($messageInfo['created_at']) }}</h1> --}}
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-body">
@@ -26,6 +26,7 @@
                             <p >{{ $messageInfo['message'] }}</p>
                         </div>
                         <p><i><b>{{'Đã gửi ' . $helper::getTimePassedBy($messageInfo['created_at']) }}</b></i></p>
+                        <p><i><b>{{date("H:i", strtotime($messageInfo['created_at'])) }} - {{ date("d-m-Y", strtotime($messageInfo['created_at'])) }}</b></i></p>
 
                         <input type="hidden" name="id" value="{{ $messageInfo['id'] }}">
                         <a class="btn btn-primary mt-4" onclick="history.back()">Quay lại</a>
