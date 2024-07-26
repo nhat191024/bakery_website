@@ -14,6 +14,7 @@ return [
     "message" => [
         "name" => "Your name",
         "email" => "Your email",
+        "phone" => "Your phone number",
         "subject" => "Subject",
         "message" => "Feedback content",
         "send" => "Send feedback",

@@ -122,6 +122,7 @@ class DatabaseSeeder extends Seeder
             Message::create([
                 "name" => $row['name'],
                 "email" => $row['email'],
+                "phone" => $row['phone'],
                 "subject" => $row['subject'],
                 "message" => $row['message'],
             ]);

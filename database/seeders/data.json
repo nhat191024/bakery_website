@@ -88,30 +88,35 @@
         {
             "name": "Tran Van Anh",
             "email": "customer1@troll.com",
+            "phone": "0987654321",
             "message": "Chào shop ạ, mình muốn đặt 1 chiếc bánh kem socola ạ!",
             "subject": "ok"
         },
         {
             "name": "Nguyen Thi Ba",
             "email": "customer2@troll.com",
+            "phone": "0987654321",
             "message": "Bánh trung thu thập cẩm ạ!",
             "subject": "ok"
         },
         {
             "name": "Le Duc Cuong",
             "email": "customer3@troll.com",
+            "phone": "0987654321",
             "message": "Mình cần hỗ trợ thêm về cách đặt bánh!",
             "subject": "ok"
         },
         {
             "name": "Pham Thi Doan",
             "email": "customer4@troll.com",
+            "phone": "0987654321",
             "message": "Bánh bông lan trứng muối shop ơi!",
             "subject": "ok"
         },
         {
             "name": "Hoang Van Em",
             "email": "customer5@troll.com",
+            "phone": "0987654321",
             "message": "Tiramisu còn ko shop?",
             "subject": "ok"
         }
