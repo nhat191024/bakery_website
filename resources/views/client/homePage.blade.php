@@ -9,10 +9,15 @@
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-                            <div class="col-md-12 ftco-animate text-center">
-                                <h1 class="mb-2 text-nowrap font-weight-bold">
+                            <div class="col-banner ftco-animate text-center">
+                                <h1 class="mb-2 text-nowrap font-res">
                                     @if ($lang == 'en')
                                         {{ $banner->title_en }}@else{{ $banner->title }}
+                                    @endif
+                                </h1>
+                                <h1 class="mb-2 text-nowrap font-sub">
+                                    @if ($lang == 'en')
+                                        {{ $banner->subtitle_en }}@else{{ $banner->subtitle }}
                                     @endif
                                 </h1>
                                 <div>
@@ -169,10 +174,11 @@
                             <span class="subheading">{{ __('home.promotion.title') }}</span>
                             <h2 class="text-sale">{{ __('home.promotion.subtitle') }}</h2>
                             <h3 class="text-sale">{{ $promotion->Products->name }}</h3>
-                            <span class="price">{{  number_format($promotion->fake_price,0, ',', '.') }} Đ</span>
+                            <span class="price">{{ number_format($promotion->fake_price, 0, ',', '.') }} Đ</span>
                             <span style="margin-left: 10px;"><a
                                     href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}"
-                                    class="sale"> {{ __('home.promotion.sale') }} {{ number_format($price ,0, ',', '.') }} Đ</a></span>
+                                    class="sale"> {{ __('home.promotion.sale') }}
+                                    {{ number_format($price, 0, ',', '.') }} Đ</a></span>
                             <div id="timer" class="d-flex mt-5">
                                 <div class="time" id="days"></div>
                                 <div class="time pl-3" id="hours"></div>
