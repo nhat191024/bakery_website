@@ -3,14 +3,14 @@ return [
     "bannerBtn1" => "View details",
     "bannerBtn2" => "Learn more",
     "service" => [
-        "title1" => "Free delivery",
-        "subtitle1" => "For orders over 2 million",
-        "title2" => "Always fresh",
-        "subtitle2" => "Cakes are carefully preserved",
-        "title3" => "Good quality",
-        "subtitle3" => "Rated by 95% of customers",
-        "title4" => "Support",
-        "subtitle4" => "24/7 customer support"
+        "title1" => "An Extensive Selection",
+        "subtitle1" => "Nearly 40 varieties of freshly baked goods daily",
+        "title2" => "Exquisitely Fresh Pastries",
+        "subtitle2" => "Baked fresh in-house every day",
+        "title3" => "Only the Finest Ingredients",
+        "subtitle3" => "Crafted with premium imported ingredients",
+        "title4" => "A Sophisticated and Inviting Ambiance",
+        "subtitle4" => "Relax in our comfortable indoor and outdoor seating areas"
     ],
     "banner" => [
         "title" => "Types of cakes",

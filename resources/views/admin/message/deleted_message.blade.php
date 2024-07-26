@@ -29,6 +29,7 @@
                                     <th>STT</th>
                                     <th>Tên KH</th>
                                     <th>Email</th>
+                                    <th>SĐT</th>
                                     <th>Tiêu đề</th>
                                     <th>Nội dung</th>
                                     <th>Thời gian</th>
@@ -40,6 +41,7 @@
                                     <th>STT</th>
                                     <th>Tên KH</th>
                                     <th>Email</th>
+                                    <th>SĐT</th>
                                     <th>Tiêu đề</th>
                                     <th>Nội dung</th>
                                     <th>Thời gian</th>
@@ -52,7 +54,7 @@
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item['email'] }}</td>
-                                        {{-- <td>{{ $item['subject'] }}</td> --}}
+                                        <td>{{ $item['phone'] }}</td>
                                         <td>
                                             <div style="max-height: 70px; max-width: 100px; overflow: hidden">
                                                 {{ $item['subject'] }}
