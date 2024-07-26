@@ -194,9 +194,10 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', [MessageController::class, 'index'])->name('admin.message.index');
             Route::get('/get', [MessageController::class, 'getUnread']);
             Route::get('/markedAsRead', [MessageController::class, 'showDeleted'])->name('admin.message.deleted');
-            Route::get('/{id}', [MessageController::class, 'showMessageDetail'])->name('admin.message.show_detail');
+            Route::get('/deleteAll', [MessageController::class, 'deleteAllMessage'])->name('admin.message.deleteAll');
             Route::get('/deleted/{id}', [MessageController::class, 'showDeletedMessageDetail'])->name('admin.message.show_deleted_detail');
             Route::get('/delete/{id}', [MessageController::class, 'deleteMessage'])->name('admin.message.delete');
+            Route::get('/{id}', [MessageController::class, 'showMessageDetail'])->name('admin.message.show_detail');
         });
     });
 });

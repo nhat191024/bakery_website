@@ -48,6 +48,11 @@ class MessageController extends Controller
         $this->messageService->deleteById($request->id);
         return redirect(route('admin.message.index'))->with('success','Đã đánh dấu tin nhắn đó là "Đã đọc"');
     }
+    public function deleteAllMessage()
+    {
+        $this->messageService->deleteAll();
+        return redirect(route('admin.message.index'))->with('success','Đã đánh dấu tất cả là "Đã đọc"');
+    }
 
     public function getUnread()
     {

@@ -63,7 +63,7 @@
                                                 {{ $item['message'] }}
                                             </div>
                                         </td>
-                                        <td>{{$helper::getTimePassedBy($item['created_at']) }}</td>
+                                        <td>{{$helper::getTimePassedBy($item['created_at']) }} - {{date("H:i", strtotime($item['created_at'])) }} - {{ date("d-m-Y", strtotime($item['created_at'])) }}</td>
                                         <td class="text-center">
 
                                             <a class="btn btn-warning"
