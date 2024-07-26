@@ -36,7 +36,7 @@
                 <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services mb-md-0 mb-4">
                         <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
-                            <span class="flaticon-shipped"></span>
+                            <span class="flaticon-cakes"></span>
                         </div>
                         <div class="media-body">
                             <h3 class="heading">{{ __('home.service.title1') }}</h3>
@@ -47,7 +47,7 @@
                 <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services mb-md-0 mb-4">
                         <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
-                            <span class="flaticon-diet"></span>
+                            <span class="flaticon-cake"></span>
                         </div>
                         <div class="media-body">
                             <h3 class="heading">{{ __('home.service.title2') }}</h3>
@@ -58,7 +58,7 @@
                 <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services mb-md-0 mb-4">
                         <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
-                            <span class="flaticon-award"></span>
+                            <span class="flaticon-food-fruits"></span>
                         </div>
                         <div class="media-body">
                             <h3 class="heading">{{ __('home.service.title3') }}</h3>
@@ -69,10 +69,10 @@
                 <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services mb-md-0 mb-4">
                         <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
-                            <span class="flaticon-customer-service"></span>
+                            <span class="flaticon-chill"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">{{ __('home.service.subtitle4') }}</h3>
+                            <h3 class="heading">{{ __('home.service.title4') }}</h3>
                             <span>{{ __('home.service.subtitle4') }}</span>
                         </div>
                     </div>
