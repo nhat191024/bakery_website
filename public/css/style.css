@@ -13481,7 +13481,7 @@ textarea.form-control {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .overlay {
@@ -13727,7 +13727,7 @@ textarea.form-control {
 .testimony-wrap .user-img {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     position: relative;
     margin-top: -75px;
     margin: 0 auto;

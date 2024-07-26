@@ -38,4 +38,12 @@ class MessageService
         } catch (\Throwable $th) {
         }
     }
+
+    public function deleteAll()
+    {
+        $messages = Message::all();
+        foreach ($messages as $message) {
+            $message->delete();
+        }
+    }
 }
