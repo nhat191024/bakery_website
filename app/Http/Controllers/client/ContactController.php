@@ -22,6 +22,6 @@ class ContactController extends Controller
     public function store(Request $request){
      $table = $request->all('name','email','phone','subject','message');
      $this->messageService->create($table);
-     return redirect()->route('client.contact.index')->with('success','Message sent successfully');
+     return redirect()->route('client.contact.index')->with('success','Cảm ơn bạn đã liên hê với chúng tôi!');
     }
 }
