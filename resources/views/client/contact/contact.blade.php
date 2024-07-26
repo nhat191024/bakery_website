@@ -68,15 +68,15 @@
                         @csrf
                         <div class="form-group">
                             <input type="text" class="form-control" name="name"
-                                placeholder="{{ __('contact.message.name') }}">
+                                placeholder="{{ __('contact.message.name') }}" autocomplete="name">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="email"
-                                placeholder="{{ __('contact.message.email') }}">
+                                placeholder="{{ __('contact.message.email') }}" autocomplete="email">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="phone"
-                                placeholder="{{ __('contact.message.phone') }}">
+                                placeholder="{{ __('contact.message.phone') }}" autocomplete="tel">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="subject"
