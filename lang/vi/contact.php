@@ -14,6 +14,7 @@ return [
     "message" => [
         "name" => "Tên của bạn",
         "email" => "Email của bạn",
+        "phone" => "SĐT của bạn",
         "subject" => "Chủ đề",
         "message" => "Nội dung góp ý",
         "send" => "Gửi góp ý",
