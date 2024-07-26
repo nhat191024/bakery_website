@@ -20,7 +20,7 @@ class ContactController extends Controller
         return view('client.contact.contact',compact('Contact_us'));
     }
     public function store(Request $request){
-     $table = $request->all('name','email','subject','message');
+     $table = $request->all('name','email','phone','subject','message');
      $this->messageService->create($table);
      return redirect()->route('client.contact.index')->with('success','Message sent successfully');
     }
