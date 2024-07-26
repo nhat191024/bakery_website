@@ -23,7 +23,7 @@
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
   font-family: Flaticon;
   font-style: normal;
   font-weight: normal;
@@ -38,7 +38,16 @@
 
 .flaticon-shipped:before { content: "\f100"; }
 .flaticon-box:before { content: "\f101"; }
-.flaticon-award:before { content: "\f102"; }
-.flaticon-customer-service:before { content: "\f103"; }
+.flaticon-food-fruits:before {
+    content: url("../fonts/flaticon/font/food-fruits.svg");
+ }
+.flaticon-chill:before {
+    content: url("../fonts/flaticon/font/chill.svg");
+ }
 .flaticon-salad:before { content: "\f104"; }
-.flaticon-diet:before { content: "\f105"; }
+.flaticon-cake:before {
+    content: url("../fonts/flaticon/font/cake.svg");
+ }
+.flaticon-cakes:before {
+    content: url("../fonts/flaticon/font/cakes.svg");
+}
