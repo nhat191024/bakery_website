@@ -12472,17 +12472,18 @@ h5,
 
 #timer .time {
     width: 25%;
-    font-size: 40px;
+    font-size: 25px;
     font-weight: 500;
     border-left: 1px solid rgba(0, 0, 0, 0.05);
     background: radial-gradient(circle, #e26968 30%, #fac623 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: "Lora", Georgia, serif;
 }
 
 @media (max-width: 991.98px) {
     #timer .time {
-        font-size: 30px;
+        font-size: 1.2rem;
     }
 }
 

@@ -179,12 +179,26 @@
                                     href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}"
                                     class="sale"> {{ __('home.promotion.sale') }}
                                     {{ number_format($price, 0, ',', '.') }} Đ</a></span>
-                            <div id="timer" class="d-flex mt-5">
+                            <div id="timer">
+                                @if ($lang == 'en')
+                                    <span class="time">From
+                                    {{ \Carbon\Carbon::parse($promotion->start_time)->format('d/m/Y') }}
+                                    to {{ \Carbon\Carbon::parse($promotion->end_time)->format('d/m/Y') }}
+                                </span>
+                                @else
+                                <span class="time">Từ
+                                    {{ \Carbon\Carbon::parse($promotion->start_time)->format('d/m/Y') }}
+                                    đến {{ \Carbon\Carbon::parse($promotion->end_time)->format('d/m/Y') }}
+                                </span>
+                                @endif
+                            </div>
+                            {{-- <div id="timer" class="d-flex mt-5">
                                 <div class="time" id="days"></div>
                                 <div class="time pl-3" id="hours"></div>
                                 <div class="time pl-3" id="minutes"></div>
                                 <div class="time pl-3" id="seconds"></div>
-                            </div>
+                            </div> --}}
+
                             <div>
                                 <div class="end" id="end"></div>
                             </div>
