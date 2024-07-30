@@ -47,12 +47,4 @@
             </div>
         </div>
     </div>
-@else
-    <div class="row mt-5">
-        <div class="col text-center">
-            <div class="block-27">
-                <p>{{ __('layout.endList') }}</p>
-            </div>
-        </div>
-    </div>
 @endif

@@ -80,7 +80,7 @@
                                     @endforeach
                                     @endif
                                     <tr>
-                                    <td colspan="6">- {{ __('cart.endList') }} -</td>
+                                        <td colspan="6">- {{ __('cart.endList') }} -</td>
                                     </tr>
                             </tbody>
                         </table>
