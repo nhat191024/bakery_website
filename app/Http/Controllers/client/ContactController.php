@@ -22,6 +22,10 @@ class ContactController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:9',
+        ]);
         $lang = session()->get('language');
         $table = $request->all('name', 'email', 'phone', 'subject', 'message');
         $this->messageService->create($table);
