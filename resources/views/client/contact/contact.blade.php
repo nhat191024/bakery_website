@@ -20,6 +20,11 @@
                     <strong>{{ $message }}</strong>
                 </div>
             @endif
+            @if ($message = Session::get('error'))
+                <div class="alert alert-danger alert-block text-center">
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
             <div class="row d-flex mb-5 contact-info justify-content-around ">
                 <div class="col-md-4 d-flex">
                     <div class="info bg-white p-3">
