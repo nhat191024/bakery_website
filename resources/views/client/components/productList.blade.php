@@ -53,6 +53,15 @@
             </div>
         </div>
     @endforeach
+    @if (count($products) == 0)
+        <div class="col-12 mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <p>{{ __('layout.endList') }}</p>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 @include('client.components.productListScript')
