@@ -4,6 +4,7 @@ namespace App\Service\main;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Illuminate\Support\Facades\Log;
 
 class MailService
 {
@@ -30,6 +31,7 @@ class MailService
     public function adminSend($to, $name, $orderId, $email, $phone, $address, $payment, $delivery, $createAt, $products, $discount, $total, $accessory)
     {
         try {
+            Log::info('Sending mail to admin! address: ' . $to . ', orderId: ' . $orderId);
             $this->mail->addAddress($to);
             $this->mail->AddEmbeddedImage(public_path('img/client/accessory.webp'), 'image_accessory');
 
@@ -237,14 +239,17 @@ class MailService
             $this->mail->clearReplyTos();
             $this->mail->Subject = '';
             $this->mail->Body = '';
+            Log::info('Successful sent mail to admin! address: ' . $to . ', orderId: ' . $orderId);
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
+            Log::error('Failed to send mail to admin! address: ' . $to . ', orderId: ' . $orderId);
+            Log::error("Mailer Error: {$this->mail->ErrorInfo}");
         }
     }
 
     public function customerSend($to, $name, $orderId, $email, $phone, $address, $payment, $delivery, $createAt, $products, $discount, $total, $accessory, $QR)
     {
         try {
+            Log::info('Sending mail to customer! address: ' . $to . ', orderId: ' . $orderId);
             $this->mail->addAddress($to);
             $this->mail->AddEmbeddedImage(public_path('img/client/accessory.webp'), 'image_accessory');
 
@@ -459,8 +464,10 @@ class MailService
             $this->mail->clearReplyTos();
             $this->mail->Subject = '';
             $this->mail->Body = '';
+            Log::info('Successful sent mail to customer! address: ' . $to . ', orderId: ' . $orderId);
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
+            Log::error('Failed to send mail to customer! address: ' . $to . ', orderId: ' . $orderId);
+            Log::error("Mailer Error: {$this->mail->ErrorInfo}");
         }
     }
 }
