@@ -10,4 +10,6 @@ return [
         "content" => "Let's explore the cakes that many people love ~"
     ],
     "allCategory" => "All categories",
+    "productNotFound" => "Product not found!",
+    "outOfStock" => "Out of stock!",
 ];

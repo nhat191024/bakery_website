@@ -43,13 +43,21 @@ class CartService
 
         $product = Products::find($productId);
         if ($product == null) {
-            return;
+            return [
+                'status'=> 404,
+                'message'=>__('shop.productNotFound')
+            ];
         }
-        if ($product == null) {
-            return redirect()->back()->with('message', 'Sản phẩm không tồn tại!',);
-        }
+
         if ($variation_id == null) {
-            $variation_id = 1;
+            $id = Product_variation::where('product_id', $productId)->first()->variation_id;
+            if ($id == null) {
+                return [
+                    'status'=> 404,
+                    'message'=>__('shop.outOfStock')
+                ];
+            }
+            $variation_id = $id;
         }
         if ($quantity == null || $quantity <= 0) {
             $quantity = 1;
@@ -57,7 +65,6 @@ class CartService
         if ($quantity > 100) {
             $quantity = 100;
         }
-
         Cart::add($product, $variation_id, $quantity);
         return Cart::getCartCount();
     }

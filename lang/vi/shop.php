@@ -10,4 +10,6 @@ return [
         "content" => "Cùng chúng tôi khám phá những món bánh được nhiều người ưa thích ~"
     ],
     "allCategory" => "Tất cả",
+    "productNotFound" => "Sản phẩm không tồn tại!",
+    "outOfStock" => "Đã hết hàng!",
 ];
