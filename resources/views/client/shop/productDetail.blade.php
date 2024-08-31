@@ -109,7 +109,7 @@
                 $quantitiy = 1;
                 $price = $('#productPrice').val().replace('đ', '').replace('.', '');
                 $quantity = $('#quantity').val();
-                $variation_id = $('#productVariation').val() ? $('#productVariation').val() : 1;
+                $variation_id = $('#productVariation').val() ? $('#productVariation').val() : null;
                 $.ajax({
                     url: "{{ route('client.cart.add') }}",
                     type: "POST",
@@ -123,6 +123,10 @@
                         $('#addToCart').text('Đang thêm...');
                     },
                     success: function(data) {
+                        if (data['status']==404){
+                            $('#addToCart').text(data['message']);
+                            return;
+                        }
                         $('#addToCart').text('Đã thêm vào giỏ hàng!');
                         updateCartCount();
                         setTimeout(function() {
