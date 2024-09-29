@@ -43,6 +43,7 @@
                                 </tr>
                             </tfoot>
                             <tbody>
+                                @if($promotion)
                                     <tr>
                                         <td>{{ $promotion->products->categories->name . ' - ' . $promotion->products->name }}</td>
                                         <td>{{ \Carbon\Carbon::parse($promotion->start_time)->format('d-m-Y') }}</td>
@@ -52,6 +53,9 @@
                                                 href="{{ route('admin.promotion.edit', ['id' => $promotion->id]) }}">Sửa</a>
                                         </td>
                                     </tr>
+                                @else
+                                    <div>Chưa có khuyến mãi sản phẩm nào</div>
+                                @endif
                             </tbody>
                         </table>
                     </div>

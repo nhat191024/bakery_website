@@ -129,6 +129,9 @@ class ProductController extends Controller
     public function deleteProduct(Request $request)
     {
         $id = $request->id;
+        if($this->productService->checkHasPromotion($id)) {
+            return redirect(route('admin.product.index'))->with('error', 'Sản phẩm đang khuyễn mãi không thể xóa');
+        }
         $this->productService->delete($id);
         return redirect(route('admin.product.index'))->with('success', 'Ẩn thực phẩm thành công');
     }

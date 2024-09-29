@@ -5,6 +5,7 @@ namespace App\Service\admin;
 use App\Models\Food;
 use App\Models\Product_variation;
 use App\Models\Products;
+use App\Models\Promotions;
 
 class ProductService
 {
@@ -91,6 +92,13 @@ class ProductService
     {
         $product = Products::find($productId);
         $product->delete();
+    }
+
+    public function checkHasPromotion($productId) {
+        if(Promotions::where('product_id', $productId)->first() == null) {
+            return false;
+        }
+        return true;
     }
 
     public function restore($productId)
