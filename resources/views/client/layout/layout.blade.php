@@ -169,11 +169,11 @@
 
                                     </div>
                                 </li>
-                                <li><span class="icon icon-phone"></span>
+                                {{-- <li><span class="icon icon-phone"></span>
                                     <div class="d-flex flex-column">
                                         <p class="text">{{ __('layout.hotline') }}</p>
                                     </div>
-                                </li>
+                                </li> --}}
                                 <li><a href="#"><span class="icon icon-envelope"></span><span
                                             class="text">odouceurs@gmail.com</span></a></li>
                             </ul>

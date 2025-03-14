@@ -109,6 +109,22 @@ class CheckoutService
             $bill->accessory
         );
 
+        $this->mailService->adminSend(
+            'odouceurs.mkt@gmail.com',
+            $request->fullName,
+            $bill->id,
+            $request->email,
+            $request->phone,
+            $request->address . ', ' . $request->ward . ', ' . $request->district . ', ' . "Hà Nội",
+            $request->payment,
+            $request->delivery,
+            $bill->created_at,
+            $cart,
+            Cart::getDiscountAmount(),
+            Cart::getTotal(),
+            $bill->accessory
+        );
+
         if ($billDetail) {
             $quantity = 0;
             if (Cart::getCouponCode()) {
