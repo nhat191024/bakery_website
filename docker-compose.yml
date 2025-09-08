@@ -1,12 +1,12 @@
 services:
-    bakery:
+    app:
         build:
             context: .
             dockerfile: dockerfile
         container_name: bakery
         restart: unless-stopped
-        expose:
-            - "9000"
+        ports:
+            - "10010:80"
         volumes:
             # Mount source code (excluding vendor)
             - ./app:/var/www/html/app
