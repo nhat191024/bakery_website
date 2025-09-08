@@ -23,7 +23,7 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-#run migrations
+# Run migrations
 php artisan migrate --force
 
 # Set proper permissions
@@ -33,5 +33,6 @@ chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 echo "Laravel application setup completed!"
 
-# Start Apache
-exec apache2-foreground
+# Start PHP-FPM
+echo "Starting PHP-FPM..."
+exec php-fpm

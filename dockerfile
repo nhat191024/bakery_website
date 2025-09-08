@@ -1,9 +1,10 @@
-FROM php:8.4-apache
+# Sử dụng image php-fpm thay cho php-apache
+FROM php:8.4-fpm
 
-# Set working directory
+# Đặt thư mục làm việc
 WORKDIR /var/www/html
 
-# Install system dependencies
+# Cài đặt các extension PHP và dependencies cần thiết
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libzip-dev \
     libpng-dev \
@@ -20,22 +21,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Composer
+RUN sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/' /usr/local/etc/php-fpm.d/www.conf
+
+# Cài đặt Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Enable Apache mod_rewrite
-RUN a2enmod rewrite
-
-COPY 000-default-redirect.conf /etc/apache2/sites-available/000-default.conf
-
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-
-# Copy composer files first for better caching
-COPY composer.json composer.lock ./
-
-# Copy and install dependencies
+# Copy các file của dự án
 COPY composer.json composer.lock package.json ./
-# RUN composer install --no-dev --optimize-autoloader --no-scripts
 RUN composer install --optimize-autoloader --no-scripts
 RUN npm install
 
@@ -43,19 +35,19 @@ RUN npm install
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-# Create necessary directories for mounted volumes
+# Tạo các thư mục cần thiết
 RUN mkdir -p /var/www/html/storage/logs \
     && mkdir -p /var/www/html/storage/framework/cache \
     && mkdir -p /var/www/html/storage/framework/sessions \
     && mkdir -p /var/www/html/storage/framework/views \
     && mkdir -p /var/www/html/bootstrap/cache
 
-# Set proper permissions for Apache
+# Gán quyền
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# Expose port 80
-EXPOSE 80
+# Expose port mặc định của PHP-FPM (9000)
+EXPOSE 9000
 
-# Use entrypoint script
+# Sử dụng entrypoint script để khởi động dịch vụ
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]

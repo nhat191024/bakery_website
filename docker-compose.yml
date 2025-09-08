@@ -1,12 +1,12 @@
 services:
-    app:
+    bakery:
         build:
             context: .
             dockerfile: dockerfile
         container_name: bakery
         restart: unless-stopped
-        ports:
-            - "8080:80"
+        expose:
+            - "9000"
         volumes:
             # Mount source code (excluding vendor)
             - ./app:/var/www/html/app
@@ -37,8 +37,8 @@ services:
             # Mount bootstrap directory
             - ./bootstrap:/var/www/html/bootstrap
         networks:
-            - database_stack_shared_network
+            - web-network
 
 networks:
-    database_stack_shared_network:
+    web-network:
         external: true
