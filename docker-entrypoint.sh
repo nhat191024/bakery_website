@@ -31,6 +31,12 @@ echo "Setting permissions..."
 chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
+# fix nginx tmp dir permission
+echo "Fixing nginx client_body_temp_path permissions..."
+mkdir -p /var/lib/nginx/tmp/client_body
+chown -R www-data:www-data /var/lib/nginx/
+chmod -R 755 /var/lib/nginx/
+
 echo "Laravel application setup completed!"
 
 # Start Apache
