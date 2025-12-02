@@ -310,18 +310,169 @@ AOS.init({
             if (minutes < "10") { minutes = "0" + minutes; }
             if (seconds < "10") { seconds = "0" + seconds; }
             if (currentLang == "en") {
-            $("#days").html(days + "<span>Days</span>");
-            $("#hours").html(hours + "<span>Hours</span>");
-            $("#minutes").html(minutes + "<span>Minutes</span>");
-            $("#seconds").html(seconds + "<span>Seconds</span>");
-            }else{
-            $("#days").html(days + "<span>Ngày</span>");
-            $("#hours").html(hours + "<span>Giờ</span>");
-            $("#minutes").html(minutes + "<span>Phút</span>");
-            $("#seconds").html(seconds + "<span>Giây</span>");
-        }
+                $("#days").html(days + "<span>Days</span>");
+                $("#hours").html(hours + "<span>Hours</span>");
+                $("#minutes").html(minutes + "<span>Minutes</span>");
+                $("#seconds").html(seconds + "<span>Seconds</span>");
+            } else {
+                $("#days").html(days + "<span>Ngày</span>");
+                $("#hours").html(hours + "<span>Giờ</span>");
+                $("#minutes").html(minutes + "<span>Phút</span>");
+                $("#seconds").html(seconds + "<span>Giây</span>");
             }
+        }
 
     }
     setInterval(function () { makeTimer(); }, 1000);
 })(jQuery);
+
+// ==== CHAT WIDGET JS ====
+
+let chatId = null;
+let chatPolling = null;
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Lấy CSRF token từ meta trong <head>
+    const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+    const csrfToken = csrfMeta ? csrfMeta.getAttribute('content') : '';
+
+    // Lấy các phần tử trong DOM
+    const chatBox     = document.getElementById('chat-box');
+    const toggleBtn   = document.getElementById('chat-toggle-btn');
+    const closeBtn    = document.getElementById('chat-close-btn');
+    const info        = document.getElementById('chat-info');
+    const msgs        = document.getElementById('chat-messages');
+    const inputArea   = document.getElementById('chat-input-area');
+    const infoSaveBtn = document.getElementById('chat-info-save');
+    const sendBtn     = document.getElementById('chat-send-btn');
+    const msgInput    = document.getElementById('chat-message-input');
+    const nameInput   = document.getElementById('chat-name');
+    const phoneInput  = document.getElementById('chat-phone');
+
+    // Nếu không có widget trên trang thì thoát (tránh lỗi ở trang admin, v.v.)
+    if (!chatBox || !toggleBtn) {
+        return;
+    }
+
+    //  Mở chat
+    toggleBtn.addEventListener('click', async () => {
+        chatBox.style.display = 'flex';
+
+        // Lấy hoặc tạo chat của session
+        const res = await fetch('/chat/current');
+        const data = await res.json();
+        chatId = data.chat_id;
+
+        // Luôn hiển thị form info mỗi lần mở (Option 2)
+        info.style.display      = 'block';
+        msgs.style.display      = 'none';
+        inputArea.style.display = 'none';
+
+        // Prefill lại nếu đã có name/phone trước đó
+        if (nameInput)  nameInput.value  = data.name  || '';
+        if (phoneInput) phoneInput.value = data.phone || '';
+    });
+
+    //  Đóng chat
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            chatBox.style.display = 'none';
+        });
+    }
+
+    //  Lưu thông tin khách & vào khung chat
+    if (infoSaveBtn) {
+        infoSaveBtn.addEventListener('click', async () => {
+            if (!chatId) return;
+
+            await fetch('/chat/update-info', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    name: nameInput ? nameInput.value : '',
+                    phone: phoneInput ? phoneInput.value : '',
+                })
+            });
+
+            showMessagesUI();
+        });
+    }
+
+    //  Gửi message khi bấm nút
+    if (sendBtn) {
+        sendBtn.addEventListener('click', sendMessage);
+    }
+
+    //  Gửi message khi Enter
+    if (msgInput) {
+        msgInput.addEventListener('keypress', e => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    }
+
+    // ====== Các hàm con ======
+
+    // Hiển thị UI chat (khung tin + input), ẩn form info
+    function showMessagesUI() {
+        info.style.display      = 'none';
+        msgs.style.display      = 'block';
+        inputArea.style.display = 'flex';
+
+        startPolling();
+    }
+
+    // Polling 2s/lần để lấy tin nhắn mới
+    function startPolling() {
+        loadMessages();
+        if (chatPolling) clearInterval(chatPolling);
+        chatPolling = setInterval(loadMessages, 2000);
+    }
+
+    // Tải tin nhắn từ server
+    async function loadMessages() {
+        if (!chatId) return;
+
+        const res = await fetch('/chat/messages?chat_id=' + chatId);
+        const messages = await res.json();
+
+        msgs.innerHTML = '';
+
+        messages.forEach(msg => {
+            const div = document.createElement('div');
+            div.className = 'message ' + msg.sender; // 'guest' hoặc 'admin'
+            div.innerHTML = msg.text;
+            msgs.appendChild(div);
+        });
+
+        msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    // Gửi tin nhắn guest -> server
+    async function sendMessage() {
+        if (!chatId || !msgInput) return;
+        const text = msgInput.value.trim();
+        if (!text) return;
+
+        await fetch('/chat/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: text
+            })
+        });
+
+        msgInput.value = '';
+        loadMessages();
+    }
+});

@@ -188,6 +188,14 @@
                     <span>Quản lý Blog</span></a>
             </li>
 
+            <li class="nav-item {{ Request::is('admin/chats*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.chats.index') }}">
+                    <i class="fas fa-fw fa-comments"></i>
+                    <span>Quản lý Chat</span>
+                </a>
+            </li>
+
+
             <li class="nav-item {{ Request::is('admin/logs/events*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.logs.events') }}">
                     <i class="fas fa-fw fa-history"></i>

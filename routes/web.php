@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AboutUsController;
 use App\Http\Controllers\admin\AccessoryController;
+use App\Http\Controllers\Admin\AdminChatController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\admin\VariationController;
 use App\Http\Controllers\admin\VoucherController;
 use App\Http\Controllers\client\AboutController;
 use App\Http\Controllers\client\CartController;
+use App\Http\Controllers\client\ChatController;
 use App\Http\Controllers\client\CheckoutController;
 use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\client\HomePageController;
@@ -23,6 +25,8 @@ use App\Http\Controllers\client\BlogController;
 use App\Http\Controllers\client\LanguageController;
 
 use App\Models\Cart;
+use App\Models\Chat;
+use App\Models\Conversation;
 use App\Models\EventLog;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -209,6 +213,14 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/stats/products', [LogController::class, 'productStats'])
             ->name('admin.stats.products');
+
+        Route::prefix('chats')->name('admin.chats.')->group(function () {
+            Route::get('/', [AdminChatController::class, 'index'])->name('index');
+            Route::get('/{id}', [AdminChatController::class, 'show'])->name('show');
+            Route::post('/{id}/reply', [AdminChatController::class, 'reply'])->name('reply');
+            Route::get('/{id}/messages', [AdminChatController::class, 'messages'])->name('messages');
+        });
+
     });
 });
 
@@ -232,3 +244,9 @@ Route::get('/mongo-event-test', function () {
     dd('EVENT LOGGED', $event->toArray());
 });
 
+Route::prefix('chat')->group(function () {
+    Route::get('/current', [ChatController::class, 'current']);
+    Route::get('/messages', [ChatController::class, 'messages']);
+    Route::post('/send', [ChatController::class, 'send']);
+    Route::post('/update-info', [ChatController::class, 'updateInfo']);
+});

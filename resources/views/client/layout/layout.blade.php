@@ -210,6 +210,40 @@
                 stroke-miterlimit="10" stroke="#e26968" />
         </svg></div>
 
+    <!-- CHAT WIDGET -->
+    <div id="chat-widget">
+
+        <!-- Button mở chat -->
+        <button id="chat-toggle-btn">
+            💬
+        </button>
+
+        <!-- Popup chat -->
+        <div id="chat-box">
+            <div id="chat-header">
+                <span>Hỗ trợ khách hàng</span>
+                <button id="chat-close-btn" aria-label="Đóng">×</button>
+            </div>
+
+            <!-- Thông tin khách (hiện 1 lần) -->
+            <div id="chat-info">
+                <input type="text" id="chat-name" placeholder="Tên của bạn (không bắt buộc)">
+                <input type="text" id="chat-phone" placeholder="Số điện thoại (không bắt buộc)">
+                <button id="chat-info-save" class="chat-btn">Bắt đầu</button>
+            </div>
+
+            <!-- Khung tin nhắn -->
+            <div id="chat-messages"></div>
+
+            <!-- Ô nhập tin -->
+            <div id="chat-input-area">
+                <input type="text" id="chat-message-input" placeholder="Nhập tin nhắn...">
+                <button id="chat-send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+    </div>
+
     <script>
         var currentLang = "{{ App::getLocale() }}";
     </script>
