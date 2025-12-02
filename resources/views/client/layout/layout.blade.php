@@ -88,6 +88,12 @@
                             </p>]
                         </a>
                     </li>
+                    <li class="scaleR nav-item cta cta-colored {{ request()->is('recent-views') ? 'active' : '' }}">
+                        <a href="{{ url('/recent-views') }}" class="nav-link d-flex">
+                            <span class="icon-eye inline mt-1"></span>
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>

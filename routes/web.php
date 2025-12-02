@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\BillController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\Admin\LogController;
 use App\Http\Controllers\admin\MessageController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PromotionController;
@@ -22,7 +23,7 @@ use App\Http\Controllers\client\BlogController;
 use App\Http\Controllers\client\LanguageController;
 
 use App\Models\Cart;
-
+use App\Models\EventLog;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -199,5 +200,35 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/delete/{id}', [MessageController::class, 'deleteMessage'])->name('admin.message.delete');
             Route::get('/{id}', [MessageController::class, 'showMessageDetail'])->name('admin.message.show_detail');
         });
+
+        Route::get('/logs/events', [LogController::class, 'events'])
+            ->name('admin.logs.events');
+
+        Route::get('/stats/vouchers', [LogController::class, 'voucherStats'])
+            ->name('admin.stats.vouchers');
+
+        Route::get('/stats/products', [LogController::class, 'productStats'])
+            ->name('admin.stats.products');
     });
 });
+
+use App\Models\TestMongo;
+
+use App\Models\ProductView;
+use Illuminate\Support\Facades\Session;
+
+Route::get('/recent-views', [ProductDetailController::class, 'recent']);
+
+Route::get('/mongo-event-test', function () {
+    $event = EventLog::create([
+        'session_id' => Session::getId(),
+        'type' => 'test',
+        'data' => ['msg' => 'hello event log'],
+        'created_at' => now(),
+        'ip' => request()->ip(),
+        'user_agent' => request()->userAgent(),
+    ]);
+
+    dd('EVENT LOGGED', $event->toArray());
+});
+

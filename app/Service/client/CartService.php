@@ -2,6 +2,8 @@
 
 namespace App\Service\client;
 
+use App\Helper\Helper;
+use App\Helpers\EventLogger;
 use App\Models\Bill_details;
 use App\Models\Bills;
 use App\Models\Cart;
@@ -37,6 +39,10 @@ class CartService
 
     public function addToCart($request)
     {
+        Helper::log('add_to_cart', [
+            'product_id' => $request->product_id,
+            'quantity' => $request->quantity ?? 1,
+        ]);
         $productId = $request->product_id;
         $quantity = $request->quantity;
         $variation_id = $request->variation_id;
@@ -44,8 +50,8 @@ class CartService
         $product = Products::find($productId);
         if ($product == null) {
             return [
-                'status'=> 404,
-                'message'=>__('shop.productNotFound')
+                'status' => 404,
+                'message' => __('shop.productNotFound')
             ];
         }
 
@@ -53,8 +59,8 @@ class CartService
             $id = Product_variation::where('product_id', $productId)->first()->variation_id;
             if ($id == null) {
                 return [
-                    'status'=> 404,
-                    'message'=>__('shop.outOfStock')
+                    'status' => 404,
+                    'message' => __('shop.outOfStock')
                 ];
             }
             $variation_id = $id;
@@ -88,34 +94,77 @@ class CartService
         Cart::setDiscountAmount($discount);
         Cart::setCouponCode('');
         if ($vcode == null) {
+            Helper::log('apply_voucher', [
+                'code' => $vcode,
+                'discount' => $discount,
+                'status' => 'failed',
+                'reason' => 'invalid voucher code',
+            ]);
             return -1;
         }
         if ($voucher == null) {
+            Helper::log('apply_voucher', [
+                'code' => $vcode,
+                'discount' => $discount,
+                'status' => 'failed',
+                'reason' => 'invalid voucher code',
+            ]);
             return -2;
         }
         if ($voucher->status == 0) {
+            Helper::log('apply_voucher', [
+                'code' => $vcode,
+                'discount' => $discount,
+                'status' => 'failed',
+                'reason' => 'voucher cannot be used',
+            ]);
             return -3;
         }
         if ($voucher->quantity <= 0) {
+            Helper::log('apply_voucher', [
+                'code' => $vcode,
+                'discount' => $discount,
+                'status' => 'failed',
+                'reason' => 'voucher usage limit reached',
+            ]);
             return -4;
         }
         if ($voucher->start_date > $now) {
+            Helper::log('apply_voucher', [
+                'code' => $vcode,
+                'discount' => $discount,
+                'status' => 'failed',
+                'reason' => 'voucher is not yet valid',
+            ]);
             return -5;
         }
         if ($voucher->end_date < $now) {
+            Helper::log('apply_voucher', [
+                'code' => $vcode,
+                'discount' => $discount,
+                'status' => 'failed',
+                'reason' => 'voucher has expired',
+            ]);
             return -6;
         }
         if (Cart::getSubtotal() < $voucher->min_price) {
+            Helper::log('apply_voucher', [
+                'code' => $vcode,
+                'discount' => $discount,
+                'status' => 'failed',
+                'reason' => 'order total does not meet the minimum required amount',
+            ]);
             return -7;
         }
         $discount = $voucher->discount_amount;
+        Helper::log('apply_voucher', [
+            'code' => $vcode,
+            'discount' => $discount,
+            'status' => 'success',
+        ]);
         Cart::setDiscountAmount($discount);
         Cart::setCouponCode($vcode);
         return $discount;
-        // return [
-        //     'discount' => Cart::getDiscountAmount(),
-        //     'subTotal' => Cart::getSubtotal()
-        // ];
     }
 
     public function removeFromCart($request)

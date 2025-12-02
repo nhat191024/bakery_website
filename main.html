@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- lala -->
+</body>
+</html>
+<script>
+    console.log(1);
+    var soA = 100;
+    var soB = 20;
+    console.log(soA + soB);
+    console.log(soA - soB);
+    console.log(soA * soB);
+    console.log(soA / soB);
+    console.log(soA % soB);
+    // so sánh
+    console.log("---------------------------So sánh------------------------------");
+    
+    console.log(soA > soB);
+    console.log(soA >= soB);
+    console.log(soA < soB);
+    console.log(soA == soB);
+    console.log(soA != soB);
+
+    // Logic
+    console.log("---------------------------Logic------------------------------");
+
+    console.log(soA > soB && soA != soB); // Toán tử và
+    console.log(soA > soB || false); // Toán tử hoặc
+    console.log(!(soA > soB && false)); // Toán tử phủ định
+    
+    // cấu trúc điều khiển:
+    // If else
+    // Kiểm tra 1 số là chẵn hay lẻ
+    if (soA % 2 == 0) {
+        console.log("Số " + soA + " là số chẵn");
+    } else {
+        console.log("Số " + soA + " là số lẻ");
+    }
+    // Vòng lặp
+    // for
+    // In ra các số từ 1 đến 10
+    for (var i = 1; i <= 10; i++) {
+        console.log(i);
+    }
+    // Vòng 1: i = 1; 1 <= 10 -> true
+    // in ra số 1
+    // i = 1 + 1 = 2
+    // VÒng 2: i = 2; 2 <= 10 -> true
+    // in ra số 2
+    // i = 2 + 1 = 3
+    // .....
+    // VÒng 10: i = 10; 10 <= 10 -> true
+    // in ra số 10
+    // i = 10 + 1 = 11
+    
+    // In ra các số từ 10 về 1
+    for (var i = 10; i > 0; i--) {
+        console.log(i);
+        
+    }
+    // In ra các số chẵn từ 1 -> 100
+    for (var i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+            console.log(i);
+        }
+    }
+
+    // Tính giai thừa của soA = 5. 5! = 1 x 2 x 3 x 4 x 5 = 120
+    console.log("---------------------GIai thừa------------------------");
+    // Vòng 1: i = 1, 1 <= 5
+    // giaiThua = 1 * 1, i = 2
+
+    // VÒng 2: i = 2, 2 <= 5
+    // giaiThua = 1 * 2 = 2,  i = 3
+
+    // VÒng 3: i = 3, 3 <= 5
+    // giaiThua = 2 * 3 = 6, i = 3 + 1 = 4
+
+    // Vòng 4: i = 4, 4 <= 5
+    // giaiThua = 6 * 4 = 24; i = 4 + 1 = 5
+
+    // Vòng 5: 5 <= 5
+    // giaiThua = 24 * 5 = 120; i = 5 + 1 = 6
+
+    // Vfong 6: i = 6, 6 <= 5 => sai => dừng vòng lặp
+
+    console.log(giaiThua);
+    
+    // Mảng
+    console.log("-------------------------------Mảng------------------------");
+    var soNguyen = [1, 2, 3, 4, 5, 10];
+    
+    // Kiểm tra xem mảng có chứa số 2 không?
+    soNguyen.forEach(so => {
+        if (so == 2) {
+            console.log("CÓ chứa số 2");            
+        } 
+    });
+    
+    // Đếm xem mảng trên có bao nhiêu số chẵn
+    var dem = 0;
+    soNguyen.forEach(so => {
+        if (so % 2 == 0) {
+            dem++;
+        }
+    });
+    console.log(dem);
+    
+    // Hàm
+    // Hàm để tính giai thừa của 1 số
+    // input: 1 số nguyên và Output: GIai thừa của số nguyên đã nhập
+    function giaiThua(soNguyen) {
+        var giaiThua = 1;
+        for (var i = 1; i <= soNguyen; i++) {
+            giaiThua = giaiThua * i;
+        }
+        return giaiThua;
+    }
+    var soNguyen = [1, 2, 3, 4, 5];
+    // Tính tổng giai thừa của mảng trên
+    
+    var tong = 0;
+    soNguyen.forEach(so => {
+        tong = tong + giaiThua(so);
+    });
+    console.log(tong);
+    
+
+
+</script>

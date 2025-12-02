@@ -14515,3 +14515,51 @@ textarea.form-control {
         stroke-dashoffset: -136px;
     }
 }
+
+/* Khung ảnh cao cố định, ảnh luôn căn giữa & crop đẹp */
+.recent-view-image-wrapper {
+    width: 100%;
+    height: 220px;              /* chỉnh cao thấp tùy theme */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f5f4;        /* màu nền nhạt cho hợp theme */
+}
+
+.recent-view-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* cắt ảnh cho đều */
+}
+
+/* Card căn giữa mọi thứ */
+.recent-view-card {
+    border: none;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+}
+
+/* Tên sản phẩm */
+.recent-view-title {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Nút xem chi tiết (căn giữa & style giống theme hồng) */
+.recent-view-btn {
+    border-radius: 999px;
+    padding: 6px 18px;
+    border: 1px solid #f3959c;
+    color: #f3959c;
+    background-color: transparent;
+    font-size: 14px;
+}
+
+.recent-view-btn:hover {
+    background-color: #f3959c;
+    color: #fff;
+}
+

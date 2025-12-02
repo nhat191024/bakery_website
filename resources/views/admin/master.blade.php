@@ -188,6 +188,27 @@
                     <span>Quản lý Blog</span></a>
             </li>
 
+            <li class="nav-item {{ Request::is('admin/logs/events*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.logs.events') }}">
+                    <i class="fas fa-fw fa-history"></i>
+                    <span>Log sự kiện</span>
+                </a>
+            </li>
+
+            <li class="nav-item {{ Request::is('admin/stats/vouchers*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.stats.vouchers') }}">
+                    <i class="fas fa-fw fa-ticket-alt"></i>
+                    <span>Thống kê Voucher</span>
+                </a>
+            </li>
+
+            <li class="nav-item {{ Request::is('admin/stats/products*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.stats.products') }}">
+                    <i class="fas fa-fw fa-chart-bar"></i>
+                    <span>Thống kê Sản phẩm</span>
+                </a>
+            </li>
+
             {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.method.index') }}">
                     <i class="fas fa-fw fa-cookie"></i>
@@ -316,7 +337,8 @@
                                         </div>
                                     </a>
                                 </div>
-                                <a class="dropdown-item text-center small text-gray-600" href="{{ route('admin.bill.index') }}">Xem toàn bộ
+                                <a class="dropdown-item text-center small text-gray-600"
+                                    href="{{ route('admin.bill.index') }}">Xem toàn bộ
                                     đơn hàng</a>
                             </div>
                         </li>
@@ -391,7 +413,7 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy;2024 Xây dựng và thiết kế | FPT Polytechnic Hải Phòng</span>
+                            <span>Copyright &copy;2025 Cơ sở dữ liệu nâng cao</span>
                         </div>
                     </div>
                 </footer>

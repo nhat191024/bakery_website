@@ -2,9 +2,11 @@
 
 namespace App\Helper;
 
+use App\Models\EventLog;
 use App\Models\Products;
 use App\Models\Variation;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class Helper
 {
@@ -58,5 +60,21 @@ class Helper
         $diff = str_replace(' later', ' tới', $diff);
         $diff = str_replace(' after', ' tới', $diff);
         return $diff;
+    }
+
+    public static function log(string $type, array $data = []): void
+    {
+        try {
+            EventLog::create([
+                'session_id' => Session::getId(),
+                'type'       => $type,
+                'data'       => $data,
+                'created_at' => now(),
+                'ip'         => request()->ip(),
+                'user_agent' => request()->userAgent(),
+            ]);
+        } catch (\Throwable $e) {
+            logger()->error('Event log error: '.$e->getMessage());
+        }
     }
 }
