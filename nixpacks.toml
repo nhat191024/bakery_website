@@ -35,10 +35,6 @@ echo "Starting Laravel (Bakery) application setup..."
 # Run storage link
 php /app/artisan storage:link
 
-# Generate application key if not set
-echo "Generating application key..."
-php /app/artisan key:generate --force
-
 # Set proper permissions
 echo "Setting permissions..."
 chgrp -R www-data /app/storage /app/bootstrap/cache /app/public
