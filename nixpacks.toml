@@ -4,6 +4,7 @@ nixPkgs = [
     "nginx",
     "libmysqlclient",
     "php83Packages.composer",
+    "nodejs_22",
     "openssh",
     "python311Packages.supervisor",
 ]
