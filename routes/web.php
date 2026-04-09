@@ -73,6 +73,9 @@ Route::middleware(['localization'])->group(function () {
     });
 });
 
+Route::get('/health', function () {
+    return response()->json(['status' => 'OK']);
+})->name('health');
 
 Route::get('/language', [LanguageController::class, 'changeLanguage'])->name('change-language');
 
