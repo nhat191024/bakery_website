@@ -164,7 +164,7 @@
 
     @foreach ($promotions as $promotion)
         <section class="ftco-section img"
-            style="background-image: url({{ asset('img/client/shop/' . $promotion->Products->image) }});">
+            style="background-image: url({{ asset('img/client/shop/' . $promotion->products->image) }});">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row justify-content-end">
@@ -173,7 +173,7 @@
                         <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
                             <span class="subheading">{{ __('home.promotion.title') }}</span>
                             <h2 class="text-sale">{{ __('home.promotion.subtitle') }}</h2>
-                            <h3 class="text-sale">{{ $promotion->Products->name }}</h3>
+                            <h3 class="text-sale">{{ $promotion->products->name }}</h3>
                             <span class="price">{{ number_format($promotion->fake_price, 0, ',', '.') }} Đ</span>
                             <span style="margin-left: 10px;"><a
                                     href="{{ route('client.shop.productDetail', ['productId' => $promotion->product_id]) }}"
@@ -275,6 +275,6 @@
 
     @include('client.components.contactUsRedirect')
     <script>
-        var endDate = '{{ $promotions[0]->end_time }}';
+        var endDate = '{{ $promotions->first()?->end_time }}';
     </script>
 @endsection

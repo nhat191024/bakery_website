@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers\client;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Banners;
-use App\Models\Message;
 use App\Models\Products;
 use App\Models\Promotions;
-use App\Models\Product_variation;
 use App\Models\Categories;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class HomePageController extends Controller
 {
@@ -18,32 +15,46 @@ class HomePageController extends Controller
     public function index()
     {
         $lang = session()->get('language');
-        $products = Products::orderBy('created_at', 'desc')->take(9)->get();
-        $categoriesL = Categories::orderBy('id', 'asc')->take(2)->get();
-        $categoriesR = Categories::orderBy('id', 'desc')->take(2)->get();
-        $messages = Message::orderBy('created_at', 'asc')->take(5)->get();
-        $imagesCategoryL = [];
-        $imagesCategoryR = [];
-        foreach ($categoriesL as $category) {
-            $product = Products::where('category_id', $category->id)->inRandomOrder()->first();
-            if ($product && $product->image) {
-                $imagesCategoryL[$category->id] = $product->image;
-            } else {
-                $imagesCategoryL[$category->id] = 'product-22.webp';
-            }
-        }
-        foreach ($categoriesR as $categoryR) {
-            $product = Products::where('category_id', $categoryR->id)->inRandomOrder()->first();
-            if ($product && $product->image) {
-                $imagesCategoryR[$categoryR->id] = $product->image;
-            } else {
-                $imagesCategoryR[$categoryR->id] = 'product-22.webp';
-            }
-        }
-        $banners = Banners::all();
-        $promotions = Promotions::with('Products')->orderBy('product_id', 'asc')->take(1)->get();
-        $promotionProductId = Promotions::value('product_id');
-        $price = Product_variation::with('product.promotions')->where('product_id',$promotionProductId)->value('price');
-        return view('client.homePage', compact('products', 'messages', 'banners', 'price', 'promotions', 'categoriesL', 'categoriesR', 'imagesCategoryL', 'imagesCategoryR', 'lang'));
+
+        $products = Products::select('id', 'name', 'name_en', 'image', 'created_at')
+            ->with('product_variations:id,product_id,price')
+            ->orderBy('created_at', 'desc')
+            ->take(9)
+            ->get();
+
+        $categoriesL = Categories::select('id', 'name', 'name_en')->orderBy('id', 'asc')->take(2)->get();
+        $categoriesR = Categories::select('id', 'name', 'name_en')->orderBy('id', 'desc')->take(2)->get();
+        $categoryIds = $categoriesL->pluck('id')->merge($categoriesR->pluck('id'))->unique();
+        $categoryImages = DB::table('products')
+            ->select('category_id', 'image')
+            ->whereIn('category_id', $categoryIds)
+            ->whereNotNull('image')
+            ->whereNull('deleted_at')
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->groupBy('category_id')
+            ->map(fn ($categoryProducts) => $categoryProducts->first()->image);
+
+        $imagesCategoryL = $this->mapCategoryImages($categoriesL, $categoryImages);
+        $imagesCategoryR = $this->mapCategoryImages($categoriesR, $categoryImages);
+
+        $banners = Banners::select('image', 'title', 'title_en', 'subtitle', 'subtitle_en')->get();
+        $promotions = Promotions::with([
+            'products:id,name,image',
+            'products.product_variations:id,product_id,price',
+        ])
+            ->orderBy('product_id', 'asc')
+            ->take(1)
+            ->get();
+        $price = $promotions->first()?->products?->product_variations?->first()?->price ?? 0;
+
+        return view('client.homePage', compact('products', 'banners', 'price', 'promotions', 'categoriesL', 'categoriesR', 'imagesCategoryL', 'imagesCategoryR', 'lang'));
+    }
+
+    private function mapCategoryImages($categories, $categoryImages)
+    {
+        return $categories->mapWithKeys(function ($category) use ($categoryImages) {
+            return [$category->id => $categoryImages->get($category->id, 'product-22.webp')];
+        });
     }
 }
