@@ -4,6 +4,7 @@ namespace App\Models;
 
 class Cart
 {
+    private static $cartWithRelations = null;
 
 
 public static function add($product, $variation_id = '1', $quantity = '1')
@@ -23,7 +24,51 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         'quantity' => $quantity
     ];
     session()->put('cart', $cart);
+    self::$cartWithRelations = null;
 }
+
+    public static function getWithRelations()
+    {
+        if (self::$cartWithRelations !== null) {
+            return self::$cartWithRelations;
+        }
+
+        $cart = session('cart');
+        if ($cart == null) {
+            return $cart;
+        }
+
+        $productIds = collect($cart)
+            ->pluck('product.id')
+            ->filter()
+            ->unique()
+            ->values();
+
+        if ($productIds->isEmpty()) {
+            return $cart;
+        }
+
+        $products = Products::select('id', 'category_id', 'name', 'image')
+            ->with([
+                'categories:id,name',
+                'product_variations:id,product_id,variation_id,price',
+                'product_variations.variation:id,name',
+            ])
+            ->whereIn('id', $productIds)
+            ->get()
+            ->keyBy('id');
+
+        foreach ($cart as $key => $item) {
+            $product = $products->get($item['product']->id);
+            if ($product) {
+                $cart[$key]['product'] = $product;
+            }
+        }
+
+        session(['cart' => $cart]);
+        self::$cartWithRelations = $cart;
+        return $cart;
+    }
 
 
     public static function remove($product_id,$variation_id)
@@ -31,6 +76,7 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         $cart = session('cart');
         unset($cart[$product_id . '-' . $variation_id]);
         session(['cart' => $cart]);
+        self::$cartWithRelations = null;
     }
 
     public static function clear()
@@ -39,6 +85,7 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         Cart::setCouponCode(null);
         Cart::setDiscountAmount(0);
         session()->forget('accessory_id');
+        self::$cartWithRelations = null;
     }
 
     public static function update($product_id, $variation_id = 1, $quantity)
@@ -46,17 +93,18 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         $cart = session('cart');
         $cart[$product_id . '-' . $variation_id]['quantity'] = $quantity;
         session(['cart' => $cart]);
+        self::$cartWithRelations = null;
         return;
     }
 
     public static function get()
     {
-        $cart = session('cart');
-        return $cart;
+        return self::getWithRelations();
     }
     public static function clearCart()
     {
         session()->forget('cart');
+        self::$cartWithRelations = null;
     }
 
     public static function setAccessory($accessory_id)
@@ -68,7 +116,7 @@ public static function add($product, $variation_id = '1', $quantity = '1')
     public static function getSubtotal()
     {
         $subTotal = 0;
-        $cart = session('cart');
+        $cart = self::getWithRelations();
         if  ($cart == null) {
             return $subTotal;
         }

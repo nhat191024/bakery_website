@@ -24,38 +24,45 @@
                             <tbody>
                                 @if (isset($cart) && count($cart) > 0 && !empty($cart))
                                     @foreach ($cart as $id => $pd)
+                                        @php
+                                            $product = $pd['product'];
+                                            $productVariations = $product->product_variations;
+                                            $selectedVariation = $productVariations->where('variation_id', $pd['variation_id'])->first();
+                                            $variationCount = $productVariations->count();
+                                            $price = $selectedVariation?->price ?? 0;
+                                        @endphp
                                         <tr class="text-center" id="product-{{ $id }}">
-                                            <td class="product-remove" onclick="removeProduct({{ $pd['product']->id }}, {{ $pd['variation_id'] }})">
+                                            <td class="product-remove" onclick="removeProduct({{ $product->id }}, {{ $pd['variation_id'] }})">
                                                 <a><span class="ion-ios-close"></span></a>
                                             </td>
 
                                             <td class="image-prod">
                                                 <div class="img pointer"
-                                                onclick="window.location.href='{{ route('client.shop.productDetail', $pd['product']->id) }}'"
-                                                    style="background-image:url('{{ asset('img/client/shop/' . $pd['product']->image) }}');">
+                                                onclick="window.location.href='{{ route('client.shop.productDetail', $product->id) }}'"
+                                                    style="background-image:url('{{ asset('img/client/shop/' . $product->image) }}');">
                                                 </div>
                                             </td>
 
                                             <td class="product-name">
-                                                <h3 class="pointer" onclick="window.location.href='{{ route('client.shop.productDetail', $pd['product']->id) }}'">
-                                                    {{ $pd['product']->categories?->name. ' - ' . $pd['product']->name }}
-                                                        @if (count($pd['product']->product_variations) > 1)
-                                                        @if ($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->variation)
-                                                            ({{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()->variation->name }})
+                                                <h3 class="pointer" onclick="window.location.href='{{ route('client.shop.productDetail', $product->id) }}'">
+                                                    {{ $product->categories?->name. ' - ' . $product->name }}
+                                                        @if ($variationCount > 1)
+                                                        @if ($selectedVariation?->variation)
+                                                            ({{ $selectedVariation->variation->name }})
                                                         @endif
                                                         @endif
                                                     </h3>
                                                 </td>
 
                                                 <td class="price">
-                                                    {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()?->price ?? 0, 0, ',', '.') }}đ
+                                                    {{ number_format($price, 0, ',', '.') }}đ
                                                 </td>
                                             <td class="quantity">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group d-flex mt-3">
                                                         <span class="input-group-btn mr-2">
                                                             <button type="button" class="quantity-left-minus btn shadow-sm"
-                                                                onclick="updateQuantity({{ $pd['product']->id }}, {{ $pd['variation_id'] }}, 1) ">
+                                                                onclick="updateQuantity({{ $product->id }}, {{ $pd['variation_id'] }}, 1) ">
                                                                 <i class="ion-ios-remove"></i>
                                                             </button>
                                                         </span>
@@ -64,7 +71,7 @@
                                                             value="{{ $pd['quantity'] }}" min="1" max="100">
                                                         <span class="input-group-btn ml-2">
                                                             <button type="button" class="quantity-right-plus btn shadow-sm"
-                                                                onclick="updateQuantity({{ $pd['product']->id }}, {{ $pd['variation_id'] }}, 2)">
+                                                                onclick="updateQuantity({{ $product->id }}, {{ $pd['variation_id'] }}, 2)">
                                                                 <i class="ion-ios-add"></i>
                                                             </button>
                                                         </span>
@@ -72,8 +79,8 @@
                                                 </div>
                                             </td>
                                                 <td class="total" style="min-width: 176.984375px" id="total-{{ $id }}"
-                                                    value="{{ $pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()?->price * $pd['quantity'] }}">
-                                                    {{ number_format($pd['product']->product_variations->where('variation_id', $pd['variation_id'])->first()?->price * $pd['quantity']) }}đ
+                                                    value="{{ $price * $pd['quantity'] }}">
+                                                    {{ number_format($price * $pd['quantity']) }}đ
                                                 </td>
 
                                         </tr>

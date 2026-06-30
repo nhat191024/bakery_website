@@ -2,13 +2,9 @@
 
 namespace App\Service\client;
 
-use App\Models\Bill_details;
-use App\Models\Bills;
 use App\Models\Cart;
-use App\Models\Product_variation;
 use App\Models\Products;
 use App\Models\Vouchers;
-use Illuminate\View\View;
 
 class CartService
 {
@@ -24,14 +20,20 @@ class CartService
 
     public function updateCart($request)
     {
-        Cart::update($request->input('product_id'), $request->input('variation_id'), $request->input('quantity'));
-        $price = Product_variation::where('product_id', $request->input('product_id'))
-            ->where('variation_id', $request->input('variation_id'))
-            ->first('price');
+        $productId = $request->input('product_id');
+        $variationId = $request->input('variation_id');
+        Cart::update($productId, $variationId, $request->input('quantity'));
+
+        $cart = Cart::getWithRelations();
+        $cartItem = $cart[$productId . '-' . $variationId] ?? null;
+        $price = $cartItem
+            ? ($cartItem['product']->product_variations->where('variation_id', $variationId)->first()?->price ?? 0)
+            : 0;
+
         return [
             'subTotal' => Cart::getSubtotal(),
             'discount' => $this->calculateVoucher(Cart::getCouponCode()),
-            'price' => $price['price'],
+            'price' => $price,
         ];
     }
 
@@ -41,7 +43,11 @@ class CartService
         $quantity = $request->quantity;
         $variation_id = $request->variation_id;
 
-        $product = Products::find($productId);
+        $product = Products::with([
+            'categories:id,name',
+            'product_variations:id,product_id,variation_id,price',
+            'product_variations.variation:id,name',
+        ])->find($productId);
         if ($product == null) {
             return [
                 'status'=> 404,
@@ -50,14 +56,14 @@ class CartService
         }
 
         if ($variation_id == null) {
-            $id = Product_variation::where('product_id', $productId)->first()->variation_id;
-            if ($id == null) {
+            $defaultVariation = $product->product_variations->first();
+            if ($defaultVariation == null) {
                 return [
                     'status'=> 404,
                     'message'=>__('shop.outOfStock')
                 ];
             }
-            $variation_id = $id;
+            $variation_id = $defaultVariation->variation_id;
         }
         if ($quantity == null || $quantity <= 0) {
             $quantity = 1;
