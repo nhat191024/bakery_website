@@ -2,7 +2,6 @@
 
 namespace App\Service\client;
 
-use App\Models\Categories;
 use App\Models\Products;
 
 class ProductDetailService
@@ -11,19 +10,25 @@ class ProductDetailService
     public function index($productId)
     {
         $lang = session()->get('language');
-        $product = Products::find($productId);
-        $categoryId = 0;
-        try {
-            $categoryId = $product->categories->id;
-        } catch (\Throwable $th) {
+
+        $product = Products::with([
+            'categories:id,name',
+            'product_variations.variation:id,name',
+        ])
+            ->withCount('bill_details')
+            ->find($productId);
+
+        if (!$product || !$product->categories) {
             return redirect()->route('client.shop.productList');
         }
 
-        $relatedProducts = Products::where('category_id', $categoryId)
-        ->where('id', '!=', $product->id)->paginate(3);
+        $relatedProducts = Products::with('product_variations:id,product_id,price')
+            ->where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->paginate(3);
 
         return view('client.shop.productDetail')
-            ->with('product', Products::find($productId))
+            ->with('product', $product)
             ->with('products', $relatedProducts)
             ->with('lang', $lang);
     }

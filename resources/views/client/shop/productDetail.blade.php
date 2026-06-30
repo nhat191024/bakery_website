@@ -20,7 +20,7 @@
                     <div class="rating d-flex">
                         <p class="text-left">
                             <span style="color: #bbb;">{{ __('shop.totalSell') }}</span></a>
-                            <a href="#" class="mr-2" style="color: #000;">{{ count($product->bill_details) }}
+                            <a href="#" class="mr-2" style="color: #000;">{{ $product->bill_details_count }}
                         </p>
                     </div>
                     @if (count($product->product_variations) > 1)
