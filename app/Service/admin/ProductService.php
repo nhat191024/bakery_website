@@ -11,7 +11,14 @@ class ProductService
 {
     public function getAll()
     {
-        $product = Products::withTrashed()->orderBy('created_at', 'desc')->orderBy('deleted_at', 'asc')->get();
+        $product = Products::withTrashed()
+            ->with('categories:id,name')
+            ->withCount('product_variations')
+            ->withMin('product_variations as min_price', 'price')
+            ->withMax('product_variations as max_price', 'price')
+            ->orderBy('created_at', 'desc')
+            ->orderBy('deleted_at', 'asc')
+            ->get();
         return $product;
     }
 
