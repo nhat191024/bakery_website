@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Products;
 use App\Service\client\ProductListService;
 
 class ProductListController extends Controller

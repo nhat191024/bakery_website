@@ -1,11 +1,15 @@
 <div class="row">
     @foreach ($products as $pd)
+        @php
+            $productVariations = $pd->product_variations;
+            $variationCount = $productVariations->count();
+        @endphp
         <div class="col-md-6 col-lg-4 ftco-animate">
             <div class="product">
                 <a class="img-prod"><img class="img-fluid" src="{{ asset('img/client/shop/' . $pd->image) }}"
                         alt="{{ $pd->image }}">
                     <div class="overlay d-flex justify-content-center align-items-center">
-                        @if (count($pd->product_variations) > 1)
+                        @if ($variationCount > 1)
                             <div class="d-flex w-100 h-100 justify-content-center align-items-center shadow-lg pointer text-primary"
                                 @if (Route::has('client.shop.productDetail')) onclick="window.location.href='{{ route('client.shop.productDetail', $pd->id) }}'" @endif
                                 style="font-size: 1.2rem;">
@@ -34,16 +38,16 @@
                     <div class="d-flex">
                         <div class="pricing">
                             <p class="price">
-                                @if (count($pd->product_variations) > 1)
+                                @if ($variationCount > 1)
                                     <span
-                                        class="price-sale font-weight-bold">{{ number_format($pd->product_variations->min('price'), 0, ',', '.') }}đ ~
+                                        class="price-sale font-weight-bold">{{ number_format($productVariations->min('price'), 0, ',', '.') }}đ ~
                                     </span>
                                     <span
-                                        class="price-sale font-weight-bold">{{ number_format($pd->product_variations->max('price'), 0, ',', '.') }}đ
+                                        class="price-sale font-weight-bold">{{ number_format($productVariations->max('price'), 0, ',', '.') }}đ
                                     </span>
                                 @else
                                     <span
-                                        class="price-sale font-weight-bold">{{ number_format($pd->product_variations->min('price'), 0, ',', '.') }}đ
+                                        class="price-sale font-weight-bold">{{ number_format($productVariations->min('price'), 0, ',', '.') }}đ
                                     </span>
                                 @endif
                             </p>
