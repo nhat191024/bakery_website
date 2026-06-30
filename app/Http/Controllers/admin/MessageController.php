@@ -18,13 +18,13 @@ class MessageController extends Controller
 
     public function index()
     {
-        $allMessage = $this->messageService->getAll();
+        $allMessage = $this->messageService->getAll(10);
         return view('admin.message.message', compact('allMessage'))->with('helper', new Helper());
     }
 
     public function showDeleted()
     {
-        $deletedMessage = $this->messageService->getAllDeleted();
+        $deletedMessage = $this->messageService->getAllDeleted(10);
         return view('admin.message.deleted_message', compact('deletedMessage'))->with('helper', new Helper());
     }
 
@@ -56,7 +56,6 @@ class MessageController extends Controller
 
     public function getUnread()
     {
-        $unreadMessage = $this->messageService->getAll();
-        return $unreadMessage;
+        return response()->json($this->messageService->getUnreadSummary());
     }
 }

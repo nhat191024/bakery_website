@@ -6,44 +6,51 @@ use App\Models\Message;
 
 class MessageService
 {
-    public function getAll()
+    public function getAll($perPage = 10)
     {
-        $message = Message::orderBy('created_at', 'desc')->get();
-        return $message;
+        return Message::select('id', 'name', 'email', 'phone', 'subject', 'message', 'created_at')
+            ->orderBy('created_at', 'desc')
+            ->paginate($perPage);
     }
 
-    public function getAllDeleted()
+    public function getAllDeleted($perPage = 10)
     {
-        $message = Message::onlyTrashed()->orderBy('deleted_at', 'desc')->get();
-        return $message;
+        return Message::onlyTrashed()
+            ->select('id', 'name', 'email', 'phone', 'subject', 'message', 'created_at', 'deleted_at')
+            ->orderBy('deleted_at', 'desc')
+            ->paginate($perPage);
     }
 
     public function getById($id)
     {
-        return Message::where('id', $id)->first();
+        return Message::find($id);
+    }
+
+    public function getUnreadSummary($limit = 5)
+    {
+        return [
+            'count' => Message::count(),
+            'messages' => Message::select('id', 'name', 'subject', 'message', 'created_at')
+                ->orderBy('created_at', 'desc')
+                ->limit($limit)
+                ->get(),
+        ];
     }
 
     public function recoverById($id)
     {
-        $message = Message::withTrashed()->find($id);
+        $message = Message::withTrashed()->findOrFail($id);
         $message->restore();
         return $message;
     }
 
     public function deleteById($id)
     {
-        try {
-            $message = Message::find($id);
-            $message->delete();
-        } catch (\Throwable $th) {
-        }
+        Message::whereKey($id)->delete();
     }
 
     public function deleteAll()
     {
-        $messages = Message::all();
-        foreach ($messages as $message) {
-            $message->delete();
-        }
+        Message::query()->delete();
     }
 }

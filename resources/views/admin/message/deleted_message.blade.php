@@ -23,7 +23,7 @@
                                 <strong>{{ $message }}</strong>
                             </div>
                         @endif
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="deletedMessageTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>STT</th>
@@ -51,7 +51,7 @@
                             <tbody>
                                 @foreach ($deletedMessage as $key => $item)
                                     <tr>
-                                        <td>{{ ++$key }}</td>
+                                        <td>{{ $deletedMessage->firstItem() + $key }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item['email'] }}</td>
                                         <td>{{ $item['phone'] }}</td>
@@ -76,6 +76,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $deletedMessage->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>
