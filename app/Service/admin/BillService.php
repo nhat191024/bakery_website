@@ -7,9 +7,12 @@ use App\Models\Bills;
 
 class BillService
 {
-    public function getAll()
+    public function getAll($perPage = 15)
     {
-        $branch = Bills::orderBy('status')->get();
+        $branch = Bills::select('id', 'full_name', 'address', 'phone_number', 'created_at', 'total_amount', 'status')
+            ->orderBy('status')
+            ->orderBy('created_at', 'desc')
+            ->paginate($perPage);
         return $branch;
     }
 

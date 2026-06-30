@@ -24,7 +24,7 @@
                                 <strong>{{ $message }}</strong>
                             </div>
                         @endif
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="billTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>STT</th>
@@ -52,7 +52,7 @@
                             <tbody>
                                 @foreach ($allBill as $key => $item)
                                     <tr>
-                                        <td>{{ ++$key }}</td>
+                                        <td>{{ $allBill->firstItem() + $key }}</td>
                                         <td>{{ $item->full_name }}</td>
                                         <td>{{ $item->address }}</td>
                                         <td>{{ $item->phone_number }}</td>
@@ -71,6 +71,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $allBill->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>
