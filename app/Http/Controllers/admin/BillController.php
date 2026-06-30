@@ -4,9 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Helper\Helper;
 use App\Http\Controllers\Controller;
-use App\Models\Bills;
 use App\Service\admin\BillService;
-use App\Service\admin\BranchService;
 use Illuminate\Http\Request;
 
 class BillController extends Controller
@@ -47,6 +45,6 @@ class BillController extends Controller
 
     public function getPending()
     {
-        return Bills::all()->where('status', 0);
+        return response()->json($this->billService->getPendingSummary());
     }
 }

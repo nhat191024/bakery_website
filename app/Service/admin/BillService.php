@@ -23,6 +23,18 @@ class BillService
         return $billDetailArray;
     }
 
+    public function getPendingSummary($limit = 5)
+    {
+        return [
+            'count' => Bills::where('status', 0)->count(),
+            'bills' => Bills::select('id', 'full_name', 'phone_number', 'order_date')
+                ->where('status', 0)
+                ->orderBy('order_date', 'desc')
+                ->limit($limit)
+                ->get(),
+        ];
+    }
+
     public function updateStatus($id, $status)
     {
         $method = Bills::where('id', $id)->first();
