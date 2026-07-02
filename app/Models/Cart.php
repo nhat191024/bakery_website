@@ -4,7 +4,6 @@ namespace App\Models;
 
 class Cart
 {
-    private static $cartWithRelations = null;
 
 
 public static function add($product, $variation_id = '1', $quantity = '1')
@@ -24,51 +23,7 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         'quantity' => $quantity
     ];
     session()->put('cart', $cart);
-    self::$cartWithRelations = null;
 }
-
-    public static function getWithRelations()
-    {
-        if (self::$cartWithRelations !== null) {
-            return self::$cartWithRelations;
-        }
-
-        $cart = session('cart');
-        if ($cart == null) {
-            return $cart;
-        }
-
-        $productIds = collect($cart)
-            ->pluck('product.id')
-            ->filter()
-            ->unique()
-            ->values();
-
-        if ($productIds->isEmpty()) {
-            return $cart;
-        }
-
-        $products = Products::select('id', 'category_id', 'name', 'image')
-            ->with([
-                'categories:id,name',
-                'product_variations:id,product_id,variation_id,price',
-                'product_variations.variation:id,name',
-            ])
-            ->whereIn('id', $productIds)
-            ->get()
-            ->keyBy('id');
-
-        foreach ($cart as $key => $item) {
-            $product = $products->get($item['product']->id);
-            if ($product) {
-                $cart[$key]['product'] = $product;
-            }
-        }
-
-        session(['cart' => $cart]);
-        self::$cartWithRelations = $cart;
-        return $cart;
-    }
 
 
     public static function remove($product_id,$variation_id)
@@ -76,7 +31,6 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         $cart = session('cart');
         unset($cart[$product_id . '-' . $variation_id]);
         session(['cart' => $cart]);
-        self::$cartWithRelations = null;
     }
 
     public static function clear()
@@ -85,7 +39,6 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         Cart::setCouponCode(null);
         Cart::setDiscountAmount(0);
         session()->forget('accessory_id');
-        self::$cartWithRelations = null;
     }
 
     public static function update($product_id, $variation_id = 1, $quantity)
@@ -93,18 +46,17 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         $cart = session('cart');
         $cart[$product_id . '-' . $variation_id]['quantity'] = $quantity;
         session(['cart' => $cart]);
-        self::$cartWithRelations = null;
         return;
     }
 
     public static function get()
     {
-        return self::getWithRelations();
+        $cart = session('cart');
+        return $cart;
     }
     public static function clearCart()
     {
         session()->forget('cart');
-        self::$cartWithRelations = null;
     }
 
     public static function setAccessory($accessory_id)
@@ -116,18 +68,22 @@ public static function add($product, $variation_id = '1', $quantity = '1')
     public static function getSubtotal()
     {
         $subTotal = 0;
-        $cart = self::getWithRelations();
+        $cart = session('cart');
         if  ($cart == null) {
             return $subTotal;
         }
         try {
             foreach ($cart as $item) {
                 if (count($item['product']->product_variations) > 0) {
-                    $subTotal += $item['product']->product_variations->where('variation_id', $item['variation_id'])->first()->price * $item['quantity'];
+                    $variation = $item['product']->product_variations->where('variation_id', $item['variation_id'])->first();
+                    if ($variation) {
+                        $subTotal += $variation->price * $item['quantity'];
                     }
+                }
             }
             return $subTotal;
         } catch (\Throwable $th) {
+            return $subTotal;
         }
     }
     public static function getTotal()
@@ -145,7 +101,7 @@ public static function add($product, $variation_id = '1', $quantity = '1')
 
     public static function getDiscountAmount()
     {
-        return session('discount_amount');
+        return session('discount_amount') ?? 0;
     }
 
     public static function getCouponCode()
