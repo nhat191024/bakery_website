@@ -12,15 +12,19 @@ class MailService
 
     public function __construct()
     {
+        $mailer = config('mail.default', 'smtp');
+        $fromAddress = config('mail.from.address') ?: config("mail.mailers.$mailer.username");
+        $fromName = config('mail.from.name', 'Odouceurs Bakery');
+
         $this->mail = new PHPMailer(true);
         $this->mail->isSMTP();
-        $this->mail->Host = config('mail.host');
+        $this->mail->Host = config("mail.mailers.$mailer.host");
         $this->mail->SMTPAuth = true;
-        $this->mail->Username = config('mail.username');
-        $this->mail->Password = config('mail.password');
-        $this->mail->SMTPSecure = config('mail.encryption');
-        $this->mail->Port = config('mail.port');
-        $this->mail->setFrom(config('mail.username'), 'Odouceurs Bakery');
+        $this->mail->Username = config("mail.mailers.$mailer.username");
+        $this->mail->Password = config("mail.mailers.$mailer.password");
+        $this->mail->SMTPSecure = config("mail.mailers.$mailer.encryption");
+        $this->mail->Port = config("mail.mailers.$mailer.port");
+        $this->mail->setFrom($fromAddress, $fromName);
     }
 
     private function formatPrice($price)
