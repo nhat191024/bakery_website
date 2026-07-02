@@ -116,18 +116,22 @@ public static function add($product, $variation_id = '1', $quantity = '1')
     public static function getSubtotal()
     {
         $subTotal = 0;
-        $cart = self::getWithRelations();
+        $cart = session('cart');
         if  ($cart == null) {
             return $subTotal;
         }
         try {
             foreach ($cart as $item) {
                 if (count($item['product']->product_variations) > 0) {
-                    $subTotal += $item['product']->product_variations->where('variation_id', $item['variation_id'])->first()->price * $item['quantity'];
+                    $variation = $item['product']->product_variations->where('variation_id', $item['variation_id'])->first();
+                    if ($variation) {
+                        $subTotal += $variation->price * $item['quantity'];
                     }
+                }
             }
             return $subTotal;
         } catch (\Throwable $th) {
+            return $subTotal;
         }
     }
     public static function getTotal()
@@ -135,6 +139,17 @@ public static function add($product, $variation_id = '1', $quantity = '1')
         $accessory_price = session('accessory_id') ? Accessory::where('id', session('accessory_id'))->first('price') : 0;
         $total = self::getSubtotal() - self::getDiscountAmount() + ($accessory_price ? $accessory_price['price'] : 0);
         return $total <= 0 ? 0 : $total;
+    }
+
+    public static function setDiscountAmount($amount)
+    {
+        session()->forget('discount_amount');
+        session()->put('discount_amount', $amount);
+    }
+
+    public static function getDiscountAmount()
+    {
+        return session('discount_amount') ?? 0;
     }
 
     public static function setDiscountAmount($amount)
