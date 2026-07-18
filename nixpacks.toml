@@ -52,8 +52,8 @@ echo "Caching for production..."
 php /app/artisan optimize
 
 # Run database migrations
-echo "Running database migrations..."
-php /app/artisan migrate --force
+#echo "Running database migrations..."
+#php /app/artisan migrate --force
 
 # Transform the nginx configuration
 node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
